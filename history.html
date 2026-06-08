@@ -1,0 +1,539 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our History & Journey | BORA GROUP</title>
+  <meta name="description" content="Take an interactive chronological journey through BORA GROUP's rich corporate history from 1947 to our modern multi-sector expansions.">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              DEFAULT: '#C5A880',
+              hover: '#D4AF37',
+            },
+            navy: '#053C8F',
+            dark: '#05050A',
+            light: '#F6F9FD'
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            heading: ['Montserrat', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Styles & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-white text-gray-800 selection:bg-navy selection:text-white">
+
+  <!-- Scroll Progress -->
+  <div id="scroll-indicator" class="fixed top-0 left-0 h-1 bg-navy z-[100] transition-all duration-75" style="width: 0%;"></div>
+
+  <!-- STICKY NAVBAR -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-transparent">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center group">
+        <img id="navbar-logo" src="images/logo_white.png" alt="BORA GROUP" class="h-20 lg:h-24 w-auto transition-transform duration-300 group-hover:scale-105">
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center space-x-8 font-heading text-xs font-semibold uppercase tracking-widest">
+        <a href="index.html" class="text-white/80 hover:text-white transition-colors duration-300">Home</a>
+        
+        <!-- About Dropdown -->
+        <div class="relative group py-2">
+          <a href="about.html" class="text-gold transition-colors duration-300 flex items-center space-x-1.5">
+            <span>About</span>
+            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-xl p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+            <a href="history.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Our History</a>
+            <a href="about.html#vision-mission" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Vision & Mission</a>
+            <a href="about.html#overview" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Company Overview</a>
+            <a href="about.html#reviews" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Testimonials</a>
+          </div>
+        </div>
+
+        <!-- Business Dropdown -->
+        <div class="relative group py-2">
+          <a href="business.html" class="text-white/80 hover:text-white transition-colors duration-300 flex items-center space-x-1.5">
+            <span>Business</span>
+            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 rounded-xl p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+            <a href="overseas-trade.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Overseas Trade</a>
+            <a href="real-estate.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Real Estate</a>
+
+            <a href="garments.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Garments & Textiles</a>
+            <a href="industrial-supply.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Industrial Supply</a>
+            <a href="hospitality.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Hospitality & Services</a>
+          </div>
+        </div>
+
+
+        <a href="contact.html" class="text-white/80 hover:text-white transition-colors duration-300">Contact</a>
+      </nav>
+
+      <!-- Desktop Contact CTA -->
+      <div class="hidden lg:flex">
+        <a href="contact.html" class="btn-premium-navy text-[10px] px-6 py-2.5">Get In Touch</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-white hover:text-gold transition-colors focus:outline-none" aria-label="Toggle Mobile Menu">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 pt-28">
+    <div class="flex flex-col space-y-6 font-heading text-lg font-semibold uppercase tracking-widest">
+      <a href="index.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors">Home</a>
+      
+      <!-- Mobile About Accordion -->
+      <div class="border-b border-white/5 pb-3">
+        <button class="mobile-dropdown-btn w-full flex justify-between items-center text-gold transition-colors focus:outline-none">
+          <span>About</span>
+          <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+        </button>
+        <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 space-y-3 mt-0">
+          <a href="history.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider mt-3">Our History</a>
+          <a href="about.html#vision-mission" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider">Vision & Mission</a>
+          <a href="about.html#overview" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider">Company Overview</a>
+          <a href="about.html#reviews" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider">Testimonials</a>
+        </div>
+      </div>
+
+      <!-- Mobile Business Accordion -->
+      <div class="border-b border-white/5 pb-3">
+        <button class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none">
+          <span>Business</span>
+          <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+        </button>
+        <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 space-y-3 mt-0">
+          <a href="overseas-trade.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider mt-3">Overseas Trade</a>
+          <a href="real-estate.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider">Real Estate</a>
+
+          <a href="garments.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider">Garments</a>
+          <a href="industrial-supply.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider">Industrial Supply</a>
+          <a href="hospitality.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider">Hospitality / Hotel</a>
+        </div>
+      </div>
+
+
+      <a href="contact.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors">Contact</a>
+    </div>
+    
+    <div class="flex flex-col space-y-6">
+      <a href="contact.html" class="btn-premium-navy text-center text-xs">Request Consulting</a>
+      <div class="text-center text-[10px] uppercase tracking-widest text-white/40">
+        Â© 2026 BORA GROUP
+      </div>
+    </div>
+  </div>
+
+  <!-- HERITAGE INTRO & CINEMATIC QUOTE SECTION -->
+  <section class="relative min-h-[90vh] flex items-center justify-center bg-[#F6F9FD] text-gray-900 overflow-hidden py-24">
+    <!-- Subtle gold/blue gradient backdrops -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(27,70,213,0.04)_0%,transparent_60%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(197,168,128,0.08)_0%,transparent_60%)]"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        
+        <!-- Left Side Quote block -->
+        <div class="lg:col-span-6 space-y-8 text-left gsap-reveal">
+          <span class="text-xs font-heading font-semibold tracking-[0.25em] text-gold uppercase block">SINCE 1947</span>
+          <div class="relative pl-8 border-l border-gold/40">
+            <i class="fa-solid fa-quote-left text-4xl lg:text-5xl text-gold/20 absolute left-0 -top-6"></i>
+            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl italic leading-snug text-gray-900 font-medium">
+              Heritage is not about looking back at where we came from, but carrying our values forward to where we are going.
+            </h2>
+          </div>
+          <p class="font-sans text-sm sm:text-base font-light text-gray-600 max-w-xl leading-relaxed">
+            Established in 1947 as Bora Brothers and now known as BORA GROUP, the organization is a professionally managed family enterprise built upon transparent trade and commercial execution integrity.
+          </p>
+          <div class="flex items-center space-x-4 pt-4">
+            <span class="w-12 h-[1px] bg-gold"></span>
+            <span class="font-heading text-xs uppercase tracking-widest text-gold font-bold">Bora Legacy Philosophy</span>
+          </div>
+        </div>
+
+        <!-- Right Side Animated Image Collage -->
+        <div class="lg:col-span-6 relative h-[450px] flex items-center justify-center">
+          <!-- Central focal glowing orb -->
+          <div class="absolute w-72 h-72 rounded-full bg-gold/5 blur-[80px]"></div>
+          
+          <!-- Collage Images -->
+          <!-- B&W Historical Image 1 -->
+          <div class="absolute top-4 left-6 w-52 h-64 rounded-2xl overflow-hidden shadow-xl border border-gray-100 rotate-[-4deg] hover:rotate-0 transition-transform duration-500 hover:z-30 hover:scale-105 group history-collage-container shadow-gray-200/50">
+            <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=600&q=80" alt="Bora Legacy Origins 1947" class="w-full h-full object-cover grayscale contrast-125 brightness-95 history-collage-img">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <span class="text-[9px] font-heading tracking-wider uppercase text-gold">Founder Foundations â€” 1947</span>
+            </div>
+          </div>
+          
+          <!-- B&W Historical Image 2 -->
+          <div class="absolute top-16 right-4 w-60 h-48 rounded-2xl overflow-hidden shadow-xl border border-gray-100 rotate-[6deg] hover:rotate-0 transition-transform duration-500 hover:z-30 hover:scale-105 group history-collage-container shadow-gray-200/50">
+            <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=600&q=80" alt="Trade Expansion 1975" class="w-full h-full object-cover grayscale contrast-125 brightness-95 history-collage-img">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <span class="text-[9px] font-heading tracking-wider uppercase text-gold">Trading Infrastructure â€” 1975</span>
+            </div>
+          </div>
+
+          <!-- B&W Historical Image 3 -->
+          <div class="absolute bottom-6 right-20 w-56 h-44 rounded-2xl overflow-hidden shadow-xl border border-gray-100 rotate-[-2deg] hover:rotate-0 transition-transform duration-500 hover:z-30 hover:scale-105 group history-collage-container shadow-gray-200/50">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Industrial Development 1995" class="w-full h-full object-cover grayscale contrast-125 brightness-95 history-collage-img">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+              <span class="text-[9px] font-heading tracking-wider uppercase text-gold">Industrial Logistics â€” 1995</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Scroll Down indicator mouse -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-60 animate-bounce cursor-pointer z-10" onclick="document.getElementById('journey-timeline-section').scrollIntoView({behavior: 'smooth'})">
+      <span class="text-[9px] font-heading tracking-[0.2em] text-gray-500 uppercase mb-2">Interactive Journey</span>
+      <div class="w-[20px] h-[34px] border border-gray-300 rounded-full flex justify-center pt-1.5">
+        <div class="w-1 h-2 bg-gold rounded-full"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey-timeline-section" class="journey-timeline-section relative w-full overflow-hidden flex bg-white z-20">
+    <!-- Left Stable Sidebar -->
+    <div class="years-sidebar absolute left-0 top-0 bottom-0 w-24 md:w-32 lg:w-48 bg-white/95 backdrop-blur-md flex flex-col justify-between py-12 items-center z-20 border-r border-gray-100">
+      <!-- Top Brand Label -->
+      <div class="text-[9px] font-heading tracking-[0.25em] text-gray-400 uppercase select-none font-semibold">BORA GROUP</div>
+      
+      <!-- Central Year & Progress Column (Stable in place!) -->
+      <div class="flex flex-col items-center space-y-6">
+        <!-- Giant Stable Year Display -->
+        <div id="stable-year-display" class="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gold tracking-widest transition-all duration-300 scale-100 select-none">
+          1947
+        </div>
+        
+        <!-- Stable Progress line indicator -->
+        <div class="w-[2px] h-32 bg-gray-100 rounded-full relative overflow-hidden">
+          <div id="stable-year-progress" class="absolute top-0 left-0 w-full bg-gold transition-all duration-300" style="height: 14.3%;"></div>
+        </div>
+      </div>
+      
+      <!-- Static Clickable Years progress list at bottom -->
+      <div class="flex flex-col items-center space-y-3">
+        <div class="year-item active cursor-pointer flex items-center space-x-2 group" data-index="0" data-year="1947">
+          <div class="year-dot w-2 h-2 rounded-full border border-gold bg-gold transition-all duration-300"></div>
+          <span class="year-number font-heading font-bold text-[9px] tracking-wider text-gold group-hover:text-gold transition-all duration-300">1947</span>
+        </div>
+        <div class="year-item cursor-pointer flex items-center space-x-2 group" data-index="1" data-year="1974">
+          <div class="year-dot w-2 h-2 rounded-full border border-gray-300 bg-white transition-all duration-300"></div>
+          <span class="year-number font-heading font-bold text-[9px] tracking-wider text-gray-400 group-hover:text-gold transition-all duration-300">1974</span>
+        </div>
+        <div class="year-item cursor-pointer flex items-center space-x-2 group" data-index="2" data-year="1989">
+          <div class="year-dot w-2 h-2 rounded-full border border-gray-300 bg-white transition-all duration-300"></div>
+          <span class="year-number font-heading font-bold text-[9px] tracking-wider text-gray-400 group-hover:text-gold transition-all duration-300">1989</span>
+        </div>
+        <div class="year-item cursor-pointer flex items-center space-x-2 group" data-index="3" data-year="2000">
+          <div class="year-dot w-2 h-2 rounded-full border border-gray-300 bg-white transition-all duration-300"></div>
+          <span class="year-number font-heading font-bold text-[9px] tracking-wider text-gray-400 group-hover:text-gold transition-all duration-300">2000</span>
+        </div>
+        <div class="year-item cursor-pointer flex items-center space-x-2 group" data-index="4" data-year="2005">
+          <div class="year-dot w-2 h-2 rounded-full border border-gray-300 bg-white transition-all duration-300"></div>
+          <span class="year-number font-heading font-bold text-[9px] tracking-wider text-gray-400 group-hover:text-gold transition-all duration-300">2005</span>
+        </div>
+        <div class="year-item cursor-pointer flex items-center space-x-2 group" data-index="5" data-year="2014">
+          <div class="year-dot w-2 h-2 rounded-full border border-gray-300 bg-white transition-all duration-300"></div>
+          <span class="year-number font-heading font-bold text-[9px] tracking-wider text-gray-400 group-hover:text-gold transition-all duration-300">2014</span>
+        </div>
+        <div class="year-item cursor-pointer flex items-center space-x-2 group" data-index="6" data-year="2014">
+          <div class="year-dot w-2 h-2 rounded-full border border-gray-300 bg-white transition-all duration-300"></div>
+          <span class="year-number font-heading font-bold text-[9px] tracking-wider text-gray-400 group-hover:text-gold transition-all duration-300">2014</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pinned slides canvas container (Spans entire screen) -->
+    <div id="slides-container" class="absolute inset-0 w-full h-full z-10">
+      
+      <!-- 1947 Slide -->
+      <div data-index="0" data-year="1947" class="journey-slide active absolute inset-0 w-full h-full flex items-end justify-center pb-8 md:pb-12 pt-24 pl-28 md:pl-40 lg:pl-56 pr-6 md:pr-12">
+        <!-- Full-screen Background Image -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
+          <img src="https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=1200&q=80" alt="Bora Legacy Origins 1947" class="w-full h-full object-cover journey-image block">
+          <!-- Darkening overlay for cinematic contrast and readability of the white card -->
+          <div class="absolute inset-0 bg-black/15"></div>
+        </div>
+        
+        <!-- Premium White Glass Card for Milestone Info -->
+        <div class="journey-info-card relative z-10 bg-slate-950/45 backdrop-blur-md border border-white/10 shadow-2xl rounded-3xl p-6 md:p-8 max-w-xl w-[90%] md:w-full mx-auto transform translate-y-0 transition-transform duration-500 hover:scale-[1.02] hover:shadow-black/40">
+          <span class="text-[9px] md:text-xs text-gold uppercase tracking-[0.25em] font-heading font-extrabold block mb-2">Origin Foundations</span>
+          <h3 class="font-heading font-extrabold text-2xl md:text-4xl text-white tracking-tight leading-tight mb-4">Bora Brothers Founded</h3>
+          <p class="text-xs md:text-sm font-light text-gray-200 leading-relaxed mb-6">
+            Our legacy begins in 1947 with the founding of "Bora Brothers" in Kopargaon, establishing a foundational presence rooted in transparent trade and commercial integrity.
+          </p>
+          <div class="italic text-[11px] md:text-xs text-gold font-serif border-l-2 border-gold/40 pl-4 py-1">
+            "Our guiding principles since 1947: trust, fairness, and mutual growth."
+          </div>
+        </div>
+      </div>
+
+      <!-- 1974 Slide -->
+      <div data-index="1" data-year="1974" class="journey-slide absolute inset-0 w-full h-full flex items-end justify-center pb-8 md:pb-12 pt-24 pl-28 md:pl-40 lg:pl-56 pr-6 md:pr-12">
+        <!-- Full-screen Background Image -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80" alt="Real Estate Project 1974" class="w-full h-full object-cover journey-image block">
+          <div class="absolute inset-0 bg-black/15"></div>
+        </div>
+        
+        <!-- Premium White Glass Card for Milestone Info -->
+        <div class="journey-info-card relative z-10 bg-slate-950/45 backdrop-blur-md border border-white/10 shadow-2xl rounded-3xl p-6 md:p-8 max-w-xl w-[90%] md:w-full mx-auto transform translate-y-0 transition-transform duration-500 hover:scale-[1.02] hover:shadow-black/40">
+          <span class="text-[10px] md:text-xs text-gold uppercase tracking-[0.25em] font-heading font-extrabold block mb-2">Real Estate Launch</span>
+          <h3 class="font-heading font-extrabold text-2xl md:text-4xl text-white tracking-tight leading-tight mb-4">Real Estate Division</h3>
+          <p class="text-xs md:text-sm lg:text-base font-light text-gray-200 leading-relaxed mb-6">
+            Diversified into luxury construction. We committed to quality development and structural stability across urban and residential complexes.
+          </p>
+          <div class="italic text-[10px] md:text-xs text-gold font-serif border-l-2 border-gold/40 pl-4 py-1">
+            "Crafting structural integrity and architectural values."
+          </div>
+        </div>
+      </div>
+
+      <!-- 1989 Slide -->
+      <div data-index="2" data-year="1989" class="journey-slide absolute inset-0 w-full h-full flex items-end justify-center pb-8 md:pb-12 pt-24 pl-28 md:pl-40 lg:pl-56 pr-6 md:pr-12">
+        <!-- Full-screen Background Image -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80" alt="Factory Visit 1989" class="w-full h-full object-cover journey-image block">
+          <div class="absolute inset-0 bg-black/15"></div>
+        </div>
+        
+        <!-- Premium White Glass Card for Milestone Info -->
+        <div class="journey-info-card relative z-10 bg-slate-950/45 backdrop-blur-md border border-white/10 shadow-2xl rounded-3xl p-6 md:p-8 max-w-xl w-[90%] md:w-full mx-auto transform translate-y-0 transition-transform duration-500 hover:scale-[1.02] hover:shadow-black/40">
+          <span class="text-[10px] md:text-xs text-gold uppercase tracking-[0.25em] font-heading font-extrabold block mb-2">Industrial Supply</span>
+          <h3 class="font-heading font-extrabold text-2xl md:text-4xl text-white tracking-tight leading-tight mb-4">Industrial Supplies Growth</h3>
+          <p class="text-xs md:text-sm lg:text-base font-light text-gray-200 leading-relaxed mb-6">
+            Successfully launched high-volume industrial distribution operations. We established state-of-the-art warehousing networks and bulk shipment systems.
+          </p>
+          <div class="italic text-[10px] md:text-xs text-gold font-serif border-l-2 border-gold/40 pl-4 py-1">
+            "Enabling large-scale enterprise logistics infrastructure."
+          </div>
+        </div>
+      </div>
+
+      <!-- 2000 Slide -->
+      <div data-index="3" data-year="2000" class="journey-slide absolute inset-0 w-full h-full flex items-end justify-center pb-8 md:pb-12 pt-24 pl-28 md:pl-40 lg:pl-56 pr-6 md:pr-12">
+        <!-- Full-screen Background Image -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
+          <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=1200&q=80" alt="Garments Division 2000" class="w-full h-full object-cover journey-image block">
+          <div class="absolute inset-0 bg-black/15"></div>
+        </div>
+        
+        <!-- Premium White Glass Card for Milestone Info -->
+        <div class="journey-info-card relative z-10 bg-slate-950/45 backdrop-blur-md border border-white/10 shadow-2xl rounded-3xl p-6 md:p-8 max-w-xl w-[90%] md:w-full mx-auto transform translate-y-0 transition-transform duration-500 hover:scale-[1.02] hover:shadow-black/40">
+          <span class="text-[10px] md:text-xs text-gold uppercase tracking-[0.25em] font-heading font-extrabold block mb-2">Retail Fashion</span>
+          <h3 class="font-heading font-extrabold text-2xl md:text-4xl text-white tracking-tight leading-tight mb-4">Bora Collection</h3>
+          <p class="text-xs md:text-sm lg:text-base font-light text-gray-200 leading-relaxed mb-6">
+            Entered the retail fashion and garment segment with the launch of Bora Collection, bringing premium apparel and textile designs to the regional market.
+          </p>
+          <div class="italic text-[10px] md:text-xs text-gold font-serif border-l-2 border-gold/40 pl-4 py-1">
+            "Pioneering premium apparel design and regional fashion trends."
+          </div>
+        </div>
+      </div>
+
+      <!-- 2005 Slide -->
+      <div data-index="4" data-year="2005" class="journey-slide absolute inset-0 w-full h-full flex items-end justify-center pb-8 md:pb-12 pt-24 pl-28 md:pl-40 lg:pl-56 pr-6 md:pr-12">
+        <!-- Full-screen Background Image -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
+          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1920&q=80" alt="Global Trade 2005" class="w-full h-full object-cover journey-image block">
+          <div class="absolute inset-0 bg-black/15"></div>
+        </div>
+        
+        <!-- Premium White Glass Card for Milestone Info -->
+        <div class="journey-info-card relative z-10 bg-slate-950/45 backdrop-blur-md border border-white/10 shadow-2xl rounded-3xl p-6 md:p-8 max-w-xl w-[90%] md:w-full mx-auto transform translate-y-0 transition-transform duration-500 hover:scale-[1.02] hover:shadow-black/40">
+          <span class="text-[10px] md:text-xs text-gold uppercase tracking-[0.25em] font-heading font-extrabold block mb-2">Overseas Trade</span>
+          <h3 class="font-heading font-extrabold text-2xl md:text-4xl text-white tracking-tight leading-tight mb-4">Overseas Trade Division</h3>
+          <p class="text-xs md:text-sm lg:text-base font-light text-gray-200 leading-relaxed mb-6">
+            Expanded import-export structures worldwide under the Overseas Trade division, supplying premium agricultural products, textiles, and merchandise to global markets.
+          </p>
+          <div class="italic text-[10px] md:text-xs text-gold font-serif border-l-2 border-gold/40 pl-4 py-1">
+            "Connecting global agricultural and textile markets since 2005."
+          </div>
+        </div>
+      </div>
+
+      <!-- 2014 Slide: Hotel Divya Palace -->
+      <div data-index="5" data-year="2014" class="journey-slide absolute inset-0 w-full h-full flex items-end justify-center pb-8 md:pb-12 pt-24 pl-28 md:pl-40 lg:pl-56 pr-6 md:pr-12">
+        <!-- Full-screen Background Image -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80" alt="Hospitality 2014" class="w-full h-full object-cover journey-image block">
+          <div class="absolute inset-0 bg-black/15"></div>
+        </div>
+        
+        <!-- Premium White Glass Card for Milestone Info -->
+        <div class="journey-info-card relative z-10 bg-slate-950/45 backdrop-blur-md border border-white/10 shadow-2xl rounded-3xl p-6 md:p-8 max-w-xl w-[90%] md:w-full mx-auto transform translate-y-0 transition-transform duration-500 hover:scale-[1.02] hover:shadow-black/40">
+          <span class="text-[10px] md:text-xs text-gold uppercase tracking-[0.25em] font-heading font-extrabold block mb-2">Hospitality Sector</span>
+          <h3 class="font-heading font-extrabold text-2xl md:text-4xl text-white tracking-tight leading-tight mb-4">Hotel Divya Palace</h3>
+          <p class="text-xs md:text-sm lg:text-base font-light text-gray-200 leading-relaxed mb-6">
+            Launched boutique luxury hospitality operations under the brand Hotel Divya Palace, providing premier executive suites, dining, and event spaces.
+          </p>
+          <div class="italic text-[10px] md:text-xs text-gold font-serif border-l-2 border-gold/40 pl-4 py-1">
+            "Pioneering warm hospitality and executive leisure experiences."
+          </div>
+        </div>
+      </div>
+
+      <!-- 2014 Slide: Bora Fashion -->
+      <div data-index="6" data-year="2014" class="journey-slide absolute inset-0 w-full h-full flex items-end justify-center pb-8 md:pb-12 pt-24 pl-28 md:pl-40 lg:pl-56 pr-6 md:pr-12">
+        <!-- Full-screen Background Image -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden z-0">
+          <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1200&q=80" alt="Garments 2014" class="w-full h-full object-cover journey-image block">
+          <div class="absolute inset-0 bg-black/15"></div>
+        </div>
+        
+        <!-- Premium White Glass Card for Milestone Info -->
+        <div class="journey-info-card relative z-10 bg-slate-950/45 backdrop-blur-md border border-white/10 shadow-2xl rounded-3xl p-6 md:p-8 max-w-xl w-[90%] md:w-full mx-auto transform translate-y-0 transition-transform duration-500 hover:scale-[1.02] hover:shadow-black/40">
+          <span class="text-[10px] md:text-xs text-gold uppercase tracking-[0.25em] font-heading font-extrabold block mb-2">Garment Production</span>
+          <h3 class="font-heading font-extrabold text-2xl md:text-4xl text-white tracking-tight leading-tight mb-4">Bora Fashion</h3>
+          <p class="text-xs md:text-sm lg:text-base font-light text-gray-200 leading-relaxed mb-6">
+            Established Bora Fashion as a state-of-the-art garment production and apparel export division, serving high-volume fashion brands globally.
+          </p>
+          <div class="italic text-[10px] md:text-xs text-gold font-serif border-l-2 border-gold/40 pl-4 py-1">
+            "Fusing textile innovation with global style trends."
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BACK TO MAIN PORTAL CTA -->
+  <section class="py-28 bg-[#F6F9FD] text-dark relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="font-heading font-bold text-2xl sm:text-3xl text-gray-900 mb-4">Discover Our Dynamic Operations</h2>
+      <p class="text-sm text-gray-500 font-light max-w-xl mx-auto mb-10 leading-relaxed">
+        Read details about BORA GROUP's major business verticals, leadership, and operational locations.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+        <a href="business.html" class="btn-premium-navy w-full sm:w-auto text-xs">Explore Businesses</a>
+        <a href="about.html" class="btn-premium-outline !border-dark/20 !text-dark hover:!border-navy hover:!text-navy w-full sm:w-auto text-xs">About BORA GROUP</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCKING FOOTER -->
+  <footer class="bg-dark text-white pt-20 pb-10 border-t border-white/5 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(27,70,213,0.05)_0%,transparent_50%)]"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        
+        <!-- About column -->
+        <div>
+          <span class="font-heading font-extrabold text-xl tracking-widest text-white block mb-6">
+            BORA <span class="text-gold">GROUP</span>
+          </span>
+          <p class="text-xs text-white/50 leading-relaxed font-light mb-6">
+            Diversified business group delivering consistent value, disciplined execution, and long-term relationships across multiple industries since 1947.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/917304733333" target="_blank" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Quick Links</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li><a href="index.html" class="hover:text-gold transition-colors duration-300">Home Page</a></li>
+            <li><a href="about.html" class="hover:text-gold transition-colors duration-300">Company Profile</a></li>
+            <li><a href="business.html" class="hover:text-gold transition-colors duration-300">Business Sectors</a></li>
+
+            <li><a href="contact.html" class="hover:text-gold transition-colors duration-300">Contact Desk</a></li>
+          </ul>
+        </div>
+
+        <!-- Business Verticals -->
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Our Operations</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li><a href="real-estate.html" class="hover:text-gold transition-colors duration-300">Real Estate Development</a></li>
+            <li><a href="overseas-trade.html" class="hover:text-gold transition-colors duration-300">Overseas Trade Division</a></li>
+
+            <li><a href="business.html" class="hover:text-gold transition-colors duration-300">Garment Production</a></li>
+            <li><a href="business.html" class="hover:text-gold transition-colors duration-300">Hospitality & Overseas</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Desk -->
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Inquiries</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li class="flex items-start space-x-3">
+              <i class="fa-solid fa-location-dot text-gold mt-0.5"></i>
+              <span>Kopargaon, Maharashtra, India</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa-solid fa-phone text-gold"></i>
+              <a href="tel:+917304733333" class="hover:text-gold transition-colors">+91 7304733333</a>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa-solid fa-envelope text-gold"></i>
+              <a href="mailto:sales@boragroup.co.in" class="hover:text-gold transition-colors">sales@boragroup.co.in</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright bar -->
+      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-white/30">
+        <div>
+          Â© 2026 BORA GROUP. ALL RIGHTS RESERVED.
+        </div>
+        <div class="flex space-x-6">
+          <a href="#" class="hover:text-gold transition-colors">PRIVACY POLICY</a>
+          <a href="#" class="hover:text-gold transition-colors">TERMS OF USE</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/917304733333" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <div class="pulse"></div>
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+  </a>
+
+  <!-- GSAP Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
+
