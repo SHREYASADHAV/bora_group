@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Industrial Supply Solutions | BORA GROUP</title>
+  <meta name="description" content="Explore BORA GROUP's Industrial Supply division. Powering industries with reliable packaging materials, glass bottles, raw materials, and components.">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              DEFAULT: '#C5A880',
+              hover: '#D4AF37',
+            },
+            navy: '#053C8F',
+            dark: '#05050A',
+            light: '#F6F9FD'
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            heading: ['Montserrat', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Styles & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-white text-gray-800 selection:bg-gold selection:text-white">
+
+  <!-- Scroll Progress -->
+  <div id="scroll-indicator" class="fixed top-0 left-0 h-1 bg-gold z-[100] transition-all duration-75" style="width: 0%;"></div>
+
+  <!-- STICKY NAVBAR -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-transparent">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center group">
+        <img id="navbar-logo" src="images/logo_white.svg" alt="BORA GROUP" class="transition-all duration-300 group-hover:scale-105">
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center space-x-8 font-heading text-xs font-semibold uppercase tracking-widest">
+        <a href="index.html" class="text-white/80 hover:text-white transition-colors duration-300" data-i18n="nav_home">Home</a>
+        
+        <!-- About Dropdown -->
+        <div class="relative group py-2">
+          <a href="about.html" class="text-white/80 hover:text-white transition-colors duration-300 flex items-center space-x-1.5">
+            <span data-i18n="nav_about">About</span>
+            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-xl p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+            <a href="history.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_history">Our History</a>
+            <a href="about.html#vision-mission" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_vision">Vision & Mission</a>
+            <a href="about.html#overview" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_overview">Company Overview</a>
+            <a href="about.html#reviews" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_testimonials">Testimonials</a>
+          </div>
+        </div>
+
+        <!-- Business Dropdown -->
+        <div class="relative group py-2">
+          <a href="business.html" class="text-white/80 hover:text-white transition-colors duration-300 flex items-center space-x-1.5">
+            <span data-i18n="nav_business">Business</span>
+            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 rounded-xl p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+            <a href="overseas-trade.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_overseas">Overseas Trade</a>
+            <a href="real-estate.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_realestate">Real Estate</a>
+            <a href="garments.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_garments">Garments & Textiles</a>
+            <a href="industrial-supply.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_industrial">Industrial Supply</a>
+            <a href="hospitality.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_hospitality">Hospitality & Services</a>
+          </div>
+        </div>
+
+        <a href="contact.html" class="text-white/80 hover:text-white transition-colors duration-300" data-i18n="nav_contact">Contact</a>
+      </nav>
+
+
+
+      <!-- Desktop Contact CTA -->
+      <div class="hidden lg:flex">
+        <a href="contact.html" class="btn-premium-gold text-[10px] px-6 py-2.5" data-i18n="nav_get_in_touch">Get In Touch</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-white hover:text-gold transition-colors focus:outline-none" aria-label="Toggle Mobile Menu">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 pt-28">
+    <div class="flex flex-col space-y-6 font-heading text-lg font-semibold uppercase tracking-widest">
+      <a href="index.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors" data-i18n="nav_home">Home</a>
+      
+      <!-- Mobile About Accordion -->
+      <div class="border-b border-white/5 pb-3">
+        <button class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none">
+          <span data-i18n="nav_about">About</span>
+          <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+        </button>
+        <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 space-y-3 mt-0">
+          <a href="history.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider mt-3" data-i18n="nav_history">Our History</a>
+          <a href="about.html#vision-mission" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_vision">Vision & Mission</a>
+          <a href="about.html#overview" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_overview">Company Overview</a>
+          <a href="about.html#reviews" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_testimonials">Testimonials</a>
+        </div>
+      </div>
+
+      <!-- Mobile Business Accordion -->
+      <div class="border-b border-white/5 pb-3">
+        <button class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none">
+          <span data-i18n="nav_business">Business</span>
+          <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+        </button>
+        <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 space-y-3 mt-0">
+          <a href="overseas-trade.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider mt-3" data-i18n="nav_overseas">Overseas Trade</a>
+          <a href="real-estate.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_realestate">Real Estate</a>
+          <a href="garments.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_garments">Garments</a>
+          <a href="industrial-supply.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_industrial">Industrial Supply</a>
+          <a href="hospitality.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_hospitality">Hospitality / Hotel</a>
+        </div>
+      </div>
+
+
+
+      <a href="contact.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors" data-i18n="nav_contact">Contact</a>
+    </div>
+    
+    <div class="flex flex-col space-y-6">
+      <a href="contact.html" class="btn-premium-gold text-center text-xs" data-i18n="nav_request_consulting">Request Consulting</a>
+      <div class="text-center text-[10px] uppercase tracking-widest text-white/40">
+        © 2026 BORA GROUP
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="relative h-screen flex items-center justify-center overflow-hidden bg-dark">
+    <div class="absolute inset-0 z-0">
+      <div class="parallax-bg absolute inset-0 bg-cover bg-center brightness-[0.25]" style="background-image: url('images/industrial_supplies.jpg');"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-dark/60"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center text-white mt-12">
+      <span class="font-heading text-xs lg:text-sm font-semibold tracking-[0.25em] text-gold uppercase mb-6 inline-block opacity-0 hero-subtitle" data-i18n="ind_hero_tag">
+        BORA INDUSTRIAL SUPPLY
+      </span>
+      <h1 class="font-heading text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight lg:leading-none mb-6 opacity-0 hero-title text-white" data-i18n="ind_hero_title">
+        Powering Industries<br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold to-[#E2D1B8]">With Excellence</span>
+      </h1>
+      <p class="font-sans text-sm sm:text-base lg:text-lg font-light text-white/75 max-w-3xl mx-auto mb-10 leading-relaxed opacity-0 hero-text" data-i18n="ind_hero_desc">
+        Providing reliable, large-scale supply solutions, raw materials, and packaging integration across manufacturing sectors since 1995.
+      </p>
+      
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 hero-ctas">
+        <a href="#solutions-section" class="btn-premium-gold w-full sm:w-auto" data-i18n="ind_explore_sol">Explore Supply Solutions</a>
+        <a href="#gallery-section" class="btn-premium-outline w-full sm:w-auto" data-i18n="ind_view_gallery">View Industrial Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK STATISTICS WINDOW -->
+  <section class="py-12 bg-light border-y border-gray-100 relative z-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-3xl font-heading font-extrabold text-navy counter-val" data-target="30" data-suffix="+ Years">0</div>
+          <div class="text-[10px] text-gray-400 uppercase tracking-widest font-semibold mt-1">Sourcing Experience</div>
+        </div>
+        <div>
+          <div class="text-3xl font-heading font-extrabold text-navy counter-val" data-target="10" data-suffix="">0</div>
+          <div class="text-[10px] text-gray-400 uppercase tracking-widest font-semibold mt-1">Sourcing Verticals</div>
+        </div>
+        <div>
+          <div class="text-3xl font-heading font-extrabold text-navy counter-val" data-target="50" data-suffix="+">0</div>
+          <div class="text-[10px] text-gray-400 uppercase tracking-widest font-semibold mt-1">Factory Partnerships</div>
+        </div>
+        <div>
+          <div class="text-3xl font-heading font-extrabold text-navy counter-val" data-target="100" data-suffix="%">0</div>
+          <div class="text-[10px] text-gray-400 uppercase tracking-widest font-semibold mt-1">Quality Assurance</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVISION OVERVIEW -->
+  <section class="py-24 bg-white relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Side Text -->
+        <div class="lg:col-span-7 gsap-reveal">
+          <div class="flex items-center space-x-2 mb-4">
+            <span class="w-8 h-[1px] bg-gold"></span>
+            <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase">DIVISION OVERVIEW</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy leading-tight mb-6">
+            Powering Industries with Reliable Supply Solutions
+          </h2>
+          <p class="text-gray-600 font-light leading-relaxed mb-6 text-sm sm:text-base">
+            Our Industrial Supply division serves a diverse range of manufacturing and processing industries by providing quality products, sourcing solutions, and technical support. With decades of experience and strong industry relationships, we help businesses maintain efficiency, productivity, and operational excellence.
+          </p>
+          <div class="italic text-xs text-gold font-serif border-l-2 border-gold/40 pl-4 py-2 bg-light/50 pr-4 rounded-r-xl">
+            "Streamlining enterprise procurement through quality raw materials and structural steel components."
+          </div>
+        </div>
+
+        <!-- Right Side Image/Card -->
+        <div class="lg:col-span-5 gsap-reveal">
+          <div class="premium-card overflow-hidden rounded-3xl shadow-xl aspect-video lg:aspect-auto lg:h-[350px]">
+            <img src="images/industrial_supplies.jpg" alt="Industrial Supplies Glass Bottles Production Line" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPLY SOLUTIONS -->
+  <section id="solutions-section" class="py-24 bg-light relative border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-20 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase">OUR CAPABILITIES</span>
+        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy mt-2">Our Supply Solutions</h2>
+        <div class="w-12 h-1 bg-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 gsap-stagger-container">
+        
+        <!-- Box 1 -->
+        <div class="premium-card bg-white p-6 group gsap-stagger-item shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-5 group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-cubes text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider mb-2">Industrial Raw Materials</h4>
+            <p class="text-[10px] text-gray-500 font-light leading-relaxed">
+              Consistently sourcing high-purity chemical bases and key raw inputs for processing plants.
+            </p>
+          </div>
+        </div>
+
+        <!-- Box 2 -->
+        <div class="premium-card bg-white p-6 group gsap-stagger-item shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-5 group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-cog text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider mb-2">Engineering Components</h4>
+            <p class="text-[10px] text-gray-500 font-light leading-relaxed">
+              High-precision custom component fabrication and assemblies for factory machines.
+            </p>
+          </div>
+        </div>
+
+        <!-- Box 3 -->
+        <div class="premium-card bg-white p-6 group gsap-stagger-item shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-5 group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-industry text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider mb-2">Steel & Metal Products</h4>
+            <p class="text-[10px] text-gray-500 font-light leading-relaxed">
+              Premium grades of structural sheets, rods, and beams built to satisfy international standards.
+            </p>
+          </div>
+        </div>
+
+        <!-- Box 4 -->
+        <div class="premium-card bg-white p-6 group gsap-stagger-item shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-5 group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-box-open text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider mb-2">Packaging Materials</h4>
+            <p class="text-[10px] text-gray-500 font-light leading-relaxed">
+              Industrial corrugated layers, protective wrapping, and export-grade custom cardboard assemblies.
+            </p>
+          </div>
+        </div>
+
+        <!-- Box 5 -->
+        <div class="premium-card bg-white p-6 group gsap-stagger-item shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-5 group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-bottle-droplet text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider mb-2">Glass Bottles & Containers</h4>
+            <p class="text-[10px] text-gray-500 font-light leading-relaxed">
+              Premium commercial glass containers, standard and custom designs, serving food & pharma lines.
+            </p>
+          </div>
+        </div>
+
+        <!-- Box 6 -->
+        <div class="premium-card bg-white p-6 group gsap-stagger-item shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-5 group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-flask text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider mb-2">Chemicals & Consumables</h4>
+            <p class="text-[10px] text-gray-500 font-light leading-relaxed">
+              Standard processing reagents, solvents, compounds, and regular maintenance consumables.
+            </p>
+          </div>
+        </div>
+
+        <!-- Box 7 -->
+        <div class="premium-card bg-white p-6 group gsap-stagger-item shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-5 group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-helmet-safety text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider mb-2">Safety Equipment & PPE</h4>
+            <p class="text-[10px] text-gray-500 font-light leading-relaxed">
+              Compliant personal protection items, hardhats, gloves, masks, and specialized gear.
+            </p>
+          </div>
+        </div>
+
+        <!-- Box 8 -->
+        <div class="premium-card bg-white p-6 group gsap-stagger-item shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-5 group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-wrench text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider mb-2">Tools & Hardware Supplies</h4>
+            <p class="text-[10px] text-gray-500 font-light leading-relaxed">
+              Industrial hand tools, power instruments, fast hardware clips, and maintenance kits.
+            </p>
+          </div>
+        </div>
+
+        <!-- Box 9 -->
+        <div class="premium-card bg-white p-6 group gsap-stagger-item shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-5 group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-truck-ramp-box text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider mb-2">Warehouse Support Products</h4>
+            <p class="text-[10px] text-gray-500 font-light leading-relaxed">
+              Logistics palettes, sorting bins, shipping cages, and structural storage configurations.
+            </p>
+          </div>
+        </div>
+
+        <!-- Box 10 -->
+        <div class="premium-card bg-white p-6 group gsap-stagger-item shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-5 group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-handshake text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider mb-2">Industrial Procurement</h4>
+            <p class="text-[10px] text-gray-500 font-light leading-relaxed">
+              Bespoke sourcing audits and multi-vendor coordination to streamline supply execution.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES WE SERVE -->
+  <section class="py-24 bg-white relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-20 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase">MARKET SECTORS</span>
+        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy mt-2">Industries We Serve</h2>
+        <div class="w-12 h-1 bg-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 gsap-stagger-container">
+        
+        <!-- Industry 1 -->
+        <div class="premium-card bg-white p-8 group gsap-stagger-item shadow-sm border border-gray-100">
+          <div class="flex items-center space-x-4 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-gold/10 text-gold flex items-center justify-center group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-wine-glass text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider">Glass Manufacturing</h4>
+          </div>
+          <p class="text-[11px] text-gray-500 font-light leading-relaxed">
+            Supplying structural silica, soda ash, and custom furnace components to commercial bottle plants.
+          </p>
+        </div>
+
+        <!-- Industry 2 -->
+        <div class="premium-card bg-white p-8 group gsap-stagger-item shadow-sm border border-gray-100">
+          <div class="flex items-center space-x-4 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-gold/10 text-gold flex items-center justify-center group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-fire-burner text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider">Steel Processing</h4>
+          </div>
+          <p class="text-[11px] text-gray-500 font-light leading-relaxed">
+            Providing metal fabrication components, graphite electrodes, and custom high-heat refractory tools.
+          </p>
+        </div>
+
+        <!-- Industry 3 -->
+        <div class="premium-card bg-white p-8 group gsap-stagger-item shadow-sm border border-gray-100">
+          <div class="flex items-center space-x-4 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-gold/10 text-gold flex items-center justify-center group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-utensils text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider">Food & Beverage</h4>
+          </div>
+          <p class="text-[11px] text-gray-500 font-light leading-relaxed">
+            Delivering food-grade packaging materials, protective boxes, and sanitized glass containers.
+          </p>
+        </div>
+
+        <!-- Industry 4 -->
+        <div class="premium-card bg-white p-8 group gsap-stagger-item shadow-sm border border-gray-100">
+          <div class="flex items-center space-x-4 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-gold/10 text-gold flex items-center justify-center group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-prescription-bottle-medical text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider">Pharmaceuticals</h4>
+          </div>
+          <p class="text-[11px] text-gray-500 font-light leading-relaxed">
+            Providing USP-grade chemical inputs, amber glass jars, and specialized protective materials.
+          </p>
+        </div>
+
+        <!-- Industry 5 -->
+        <div class="premium-card bg-white p-8 group gsap-stagger-item shadow-sm border border-gray-100">
+          <div class="flex items-center space-x-4 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-gold/10 text-gold flex items-center justify-center group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-temperature-high text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider">Chemical Processing</h4>
+          </div>
+          <p class="text-[11px] text-gray-500 font-light leading-relaxed">
+            Supplying standard processing consumables, safety PPE gear, and customized chemical compounds.
+          </p>
+        </div>
+
+        <!-- Industry 6 -->
+        <div class="premium-card bg-white p-8 group gsap-stagger-item shadow-sm border border-gray-100">
+          <div class="flex items-center space-x-4 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-gold/10 text-gold flex items-center justify-center group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-boxes-packing text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider">Packaging Industries</h4>
+          </div>
+          <p class="text-[11px] text-gray-500 font-light leading-relaxed">
+            Delivering high-volume raw paper stock, industrial adhesives, and customized wrapping films.
+          </p>
+        </div>
+
+        <!-- Industry 7 -->
+        <div class="premium-card bg-white p-8 group gsap-stagger-item shadow-sm border border-gray-100">
+          <div class="flex items-center space-x-4 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-gold/10 text-gold flex items-center justify-center group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-scissors text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider">Textiles & Garments</h4>
+          </div>
+          <p class="text-[11px] text-gray-500 font-light leading-relaxed">
+            Delivering processing starch, dyes, custom threads, and factory machine consumables.
+          </p>
+        </div>
+
+        <!-- Industry 8 -->
+        <div class="premium-card bg-white p-8 group gsap-stagger-item shadow-sm border border-gray-100">
+          <div class="flex items-center space-x-4 mb-4">
+            <div class="w-10 h-10 rounded-lg bg-gold/10 text-gold flex items-center justify-center group-hover:bg-gold group-hover:text-white transition-all duration-300">
+              <i class="fa-solid fa-screwdriver-wrench text-sm"></i>
+            </div>
+            <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider">Engineering Units</h4>
+          </div>
+          <p class="text-[11px] text-gray-500 font-light leading-relaxed">
+            Providing custom metal alloys, drilling hardware, lubricants, and high-precision tools.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIAL VISITS & GALLERY -->
+  <section class="py-24 bg-light relative border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+        <!-- Text -->
+        <div class="lg:col-span-7 gsap-reveal">
+          <div class="flex items-center space-x-2 mb-4">
+            <span class="w-8 h-[1px] bg-gold"></span>
+            <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase">COLLABORATIONS & EXPOSURE</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy mb-6">Industrial Visits & Factory Partnerships</h2>
+          <p class="text-gray-600 font-light leading-relaxed mb-6 text-sm sm:text-base">
+            Over the years, we have built strong relationships with leading manufacturers and production facilities across various sectors. Our industrial visits and collaborations enable us to understand manufacturing processes, maintain quality standards, and deliver reliable sourcing solutions.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <ul class="space-y-2 text-xs text-gray-500 font-light">
+              <li class="flex items-center"><span class="w-1.5 h-1.5 bg-gold rounded-full mr-2.5 flex-shrink-0"></span>Glass Bottle Manufacturing Plants</li>
+              <li class="flex items-center"><span class="w-1.5 h-1.5 bg-gold rounded-full mr-2.5 flex-shrink-0"></span>Steel Manufacturing & Processing</li>
+              <li class="flex items-center"><span class="w-1.5 h-1.5 bg-gold rounded-full mr-2.5 flex-shrink-0"></span>Packaging Material Production</li>
+            </ul>
+            <ul class="space-y-2 text-xs text-gray-500 font-light">
+              <li class="flex items-center"><span class="w-1.5 h-1.5 bg-gold rounded-full mr-2.5 flex-shrink-0"></span>Engineering & Fabrication Units</li>
+              <li class="flex items-center"><span class="w-1.5 h-1.5 bg-gold rounded-full mr-2.5 flex-shrink-0"></span>Food Processing Industries</li>
+              <li class="flex items-center"><span class="w-1.5 h-1.5 bg-gold rounded-full mr-2.5 flex-shrink-0"></span>Chemical & Industrial Production</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Right side accent quote -->
+        <div class="lg:col-span-5 gsap-reveal bg-white p-8 rounded-3xl border border-gray-150 shadow-sm">
+          <i class="fa-solid fa-quote-left text-3xl text-gold/25 mb-4"></i>
+          <p class="font-serif italic text-sm text-gray-600 leading-relaxed mb-4">
+            "Direct factory engagements empower us to enforce quality inspections, analyze manufacturing workflows, and guarantee consistency for bulk contracts."
+          </p>
+          <span class="font-heading text-xs font-bold text-navy uppercase tracking-wider block">â€” Sourcing Committee</span>
+        </div>
+      </div>
+
+      <!-- INDUSTRIAL GALLERY -->
+      <div id="gallery-section" class="pt-12">
+        <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+          <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase">PHOTO GALLERY</span>
+          <h3 class="text-2xl sm:text-3xl font-heading font-bold text-navy mt-1">Our Industrial Journey</h3>
+          <p class="text-xs text-gray-400 font-light mt-3 leading-relaxed max-w-xl mx-auto">
+            Explore our industrial journey through factory visits, manufacturing collaborations, production facilities, machinery inspections, and industry partnerships that showcase our commitment to quality, innovation, and excellence.
+          </p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 gsap-stagger-container">
+          
+          <!-- Photo 1 -->
+          <div class="premium-card bg-white overflow-hidden group gsap-stagger-item shadow-sm">
+            <div class="zoom-img-container aspect-[3/4] bg-gray-200">
+              <img src="images/industrial_1.jpg" alt="Factory Office Consultation" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4 border-t border-gray-50">
+              <h5 class="font-heading font-bold text-xs text-navy uppercase tracking-wider">Factory Consultation</h5>
+              <p class="text-[10px] text-gray-400 mt-1">Direct meeting with production managers in safety gear.</p>
+            </div>
+          </div>
+
+          <!-- Photo 2 -->
+          <div class="premium-card bg-white overflow-hidden group gsap-stagger-item shadow-sm">
+            <div class="zoom-img-container aspect-[3/4] bg-gray-200">
+              <img src="images/industrial_2.jpg" alt="Flat Glass Production Line" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4 border-t border-gray-50">
+              <h5 class="font-heading font-bold text-xs text-navy uppercase tracking-wider">Production Line Inspection</h5>
+              <p class="text-[10px] text-gray-400 mt-1">Reviewing architectural glass flat-bed output workflows.</p>
+            </div>
+          </div>
+
+          <!-- Photo 3 -->
+          <div class="premium-card bg-white overflow-hidden group gsap-stagger-item shadow-sm">
+            <div class="zoom-img-container aspect-[3/4] bg-gray-200">
+              <img src="images/industrial_3.jpg" alt="Cold End Bottle Inspection" class="w-full h-full object-cover">
+            </div>
+            <div class="p-4 border-t border-gray-50">
+              <h5 class="font-heading font-bold text-xs text-navy uppercase tracking-wider">Cold End Quality Control</h5>
+              <p class="text-[10px] text-gray-400 mt-1">Analyzing automated bottle packaging systems.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATEMENT BANNER -->
+  <section class="py-24 bg-dark text-white relative overflow-hidden">
+    <!-- Backdrop radial -->
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(197,168,128,0.08)_0%,transparent_70%)]"></div>
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10 gsap-reveal">
+      <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase mb-4 block">OUR VISION</span>
+      <h3 class="font-serif italic text-2xl sm:text-3xl lg:text-4xl text-white font-medium leading-relaxed max-w-3xl mx-auto mb-8">
+        "Supplying Industries. Building Partnerships. Driving Progress."
+      </h3>
+      <div class="w-12 h-[1px] bg-gold mx-auto mb-6"></div>
+      <a href="enquiry-industrial.html" class="btn-premium-gold text-xs">Partner With Us</a>
+    </div>
+  </section>
+
+  <!-- DOCKING FOOTER -->
+  <footer class="bg-dark text-white pt-20 pb-10 border-t border-white/5 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(27,70,213,0.05)_0%,transparent_50%)]"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        
+        <!-- About column -->
+        <div>
+          <span class="font-heading font-extrabold text-xl tracking-widest text-white block mb-6">
+            BORA <span class="text-gold">GROUP</span>
+          </span>
+          <p class="text-xs text-white/50 leading-relaxed font-light mb-6" data-i18n="footer_desc">
+            Diversified business group delivering consistent value, disciplined execution, and long-term relationships across multiple industries since 1947.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/917304733333" target="_blank" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3" data-i18n="footer_quick_links">Quick Links</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li><a href="index.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_home_page">Home Page</a></li>
+            <li><a href="about.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_company_profile">Company Profile</a></li>
+            <li><a href="business.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_business_sectors">Business Sectors</a></li>
+            <li><a href="contact.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_contact_desk">Contact Desk</a></li>
+          </ul>
+        </div>
+
+        <!-- Business Verticals -->
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3" data-i18n="footer_operations">Our Operations</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li><a href="real-estate.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_real_estate">Real Estate Development</a></li>
+            <li><a href="overseas-trade.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_overseas_trade">Overseas Trade Division</a></li>
+            <li><a href="garments.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_garment_production">Garment Production</a></li>
+            <li><a href="industrial-supply.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_industrial">Industrial Supply</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Desk -->
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3" data-i18n="footer_inquiries">Inquiries</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li class="flex items-start space-x-3">
+              <i class="fa-solid fa-location-dot text-gold mt-0.5"></i>
+              <span data-i18n="footer_location">Kopargaon, Maharashtra, India</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa-solid fa-phone text-gold"></i>
+              <a href="tel:+917304733333" class="hover:text-gold transition-colors">+91 73047 33333</a>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa-solid fa-envelope text-gold"></i>
+              <a href="mailto:sales@boragroup.co.in" class="hover:text-gold transition-colors">sales@boragroup.co.in</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright bar -->
+      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-white/30">
+        <div data-i18n="footer_copyright">
+          © 2026 BORA GROUP. ALL RIGHTS RESERVED.
+        </div>
+        <div class="flex space-x-6">
+          <a href="#" class="hover:text-gold transition-colors" data-i18n="footer_privacy">PRIVACY POLICY</a>
+          <a href="#" class="hover:text-gold transition-colors" data-i18n="footer_terms">TERMS OF USE</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/917304733333" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <div class="pulse"></div>
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+  </a>
+
+  <!-- GSAP Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
+

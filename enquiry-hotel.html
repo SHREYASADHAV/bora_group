@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel Booking & Enquiry | BORA GROUP</title>
+  <meta name="description" content="Reserve rooms or book event venues at Hotel Divya Palace by BORA GROUP in Kopargaon. Premium rooms, banquets, and modern amenities.">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              DEFAULT: '#C5A880',
+              hover: '#D4AF37',
+            },
+            navy: '#053C8F',
+            dark: '#05050A',
+            light: '#F6F9FD'
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+            heading: ['Montserrat', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Styles & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Styling to make iframe map look dark/gold integrated */
+    .dark-map-container iframe {
+      filter: grayscale(100%) invert(92%) contrast(108%) brightness(85%);
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 selection:bg-gold selection:text-dark">
+
+  <!-- Scroll Progress -->
+  <div id="scroll-indicator" class="fixed top-0 left-0 h-1 bg-gold z-[100] transition-all duration-75" style="width: 0%;"></div>
+
+  <!-- STICKY NAVBAR -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-transparent">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center group">
+        <img id="navbar-logo" src="images/logo_white.svg" alt="BORA GROUP" class="transition-all duration-300 group-hover:scale-105">
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center space-x-8 font-heading text-xs font-semibold uppercase tracking-widest">
+        <a href="index.html" class="text-white/80 hover:text-white transition-colors duration-300" data-i18n="nav_home">Home</a>
+        
+        <!-- About Dropdown -->
+        <div class="relative group py-2">
+          <a href="about.html" class="text-white/80 hover:text-white transition-colors duration-300 flex items-center space-x-1.5">
+            <span data-i18n="nav_about">About</span>
+            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-xl p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+            <a href="history.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_history">Our History</a>
+            <a href="about.html#vision-mission" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_vision">Vision & Mission</a>
+            <a href="about.html#overview" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_overview">Company Overview</a>
+            <a href="about.html#reviews" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_testimonials">Testimonials</a>
+          </div>
+        </div>
+
+        <!-- Business Dropdown -->
+        <div class="relative group py-2">
+          <a href="business.html" class="text-gold transition-colors duration-300 flex items-center space-x-1.5">
+            <span data-i18n="nav_business">Business</span>
+            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 rounded-xl p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+            <a href="overseas-trade.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_overseas">Overseas Trade</a>
+            <a href="real-estate.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_realestate">Real Estate</a>
+            <a href="garments.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_garments">Garments & Textiles</a>
+            <a href="industrial-supply.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_industrial">Industrial Supply</a>
+            <a href="hospitality.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_hospitality">Hospitality & Services</a>
+          </div>
+        </div>
+
+        <a href="contact.html" class="text-white/80 hover:text-white transition-colors duration-300" data-i18n="nav_contact">Contact</a>
+      </nav>
+
+      <!-- Desktop Contact CTA -->
+      <div class="hidden lg:flex">
+        <a href="contact.html" class="btn-premium-gold text-[10px] px-6 py-2.5" data-i18n="nav_get_in_touch">Get In Touch</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-white hover:text-gold transition-colors focus:outline-none" aria-label="Toggle Mobile Menu">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 pt-28">
+    <div class="flex flex-col space-y-6 font-heading text-lg font-semibold uppercase tracking-widest">
+      <a href="index.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors" data-i18n="nav_home">Home</a>
+      
+      <!-- Mobile About Accordion -->
+      <div class="border-b border-white/5 pb-3">
+        <button class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none">
+          <span data-i18n="nav_about">About</span>
+          <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+        </button>
+        <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 space-y-3 mt-0">
+          <a href="history.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider mt-3" data-i18n="nav_history">Our History</a>
+          <a href="about.html#vision-mission" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_vision">Vision & Mission</a>
+          <a href="about.html#overview" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_overview">Company Overview</a>
+          <a href="about.html#reviews" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_testimonials">Testimonials</a>
+        </div>
+      </div>
+
+      <!-- Mobile Business Accordion -->
+      <div class="border-b border-white/5 pb-3">
+        <button class="mobile-dropdown-btn w-full flex justify-between items-center text-gold transition-colors focus:outline-none">
+          <span data-i18n="nav_business">Business</span>
+          <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+        </button>
+        <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 space-y-3 mt-0">
+          <a href="overseas-trade.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider mt-3" data-i18n="nav_overseas">Overseas Trade</a>
+          <a href="real-estate.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_realestate">Real Estate</a>
+          <a href="garments.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_garments">Garments</a>
+          <a href="industrial-supply.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_industrial">Industrial Supply</a>
+          <a href="hospitality.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_hospitality">Hospitality / Hotel</a>
+        </div>
+      </div>
+
+      <a href="contact.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors" data-i18n="nav_contact">Contact</a>
+    </div>
+    
+    <div class="flex flex-col space-y-6">
+      <a href="contact.html" class="btn-premium-gold text-center text-xs" data-i18n="nav_request_consulting">Request Consulting</a>
+      <div class="text-center text-[10px] uppercase tracking-widest text-white/40">
+        © 2026 BORA GROUP
+      </div>
+    </div>
+  </div>
+
+  <!-- INNER PAGE HERO -->
+  <section class="relative py-28 lg:py-40 bg-dark overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <div class="parallax-bg absolute inset-0 bg-cover bg-center brightness-[0.25]" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1920&q=80');"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-dark to-dark/50"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center mt-8">
+      <span class="text-xs font-heading font-semibold tracking-[0.2em] text-gold uppercase mb-3 inline-block">HOTEL DIVYA PALACE</span>
+      <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white tracking-tight">Hotel Booking & Enquiry</h1>
+      <div class="w-12 h-1 bg-gold mx-auto mt-6"></div>
+    </div>
+  </section>
+
+  <!-- FORM & COORDINATES SECTION -->
+  <section class="py-24 bg-light/30 relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        
+        <!-- Left Column: Department Coordinates -->
+        <div class="lg:col-span-5 space-y-12 gsap-reveal">
+          <div>
+            <span class="text-xs font-heading font-semibold tracking-wider text-gold uppercase mb-2 block">Hospitality Desk</span>
+            <h2 class="font-heading font-bold text-3xl text-navy mb-4">Reservation & Venues</h2>
+            <p class="text-gray-500 font-light text-xs sm:text-sm leading-relaxed">
+              Book a deluxe guest room, arrange family accommodations, or request corporate banquet venue availability opposite the Kopargaon Bus Stand.
+            </p>
+          </div>
+
+          <div class="space-y-6 text-sm">
+            <div class="flex items-start space-x-4">
+              <div class="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center text-gold flex-shrink-0">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-1">Hotel Location</h4>
+                <p class="text-gray-500 font-light text-xs">Opp. Bus Stand, Kopargaon, Maharashtra 423601, India</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4">
+              <div class="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center text-gold flex-shrink-0">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-1">Direct Sales Email</h4>
+                <a href="mailto:sales@boragroup.co.in" class="text-gold font-semibold text-xs hover:underline">sales@boragroup.co.in</a>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4">
+              <div class="w-10 h-10 rounded-xl bg-gold/10 flex items-center justify-center text-gold flex-shrink-0">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <div>
+                <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-1">Reservation Desk</h4>
+                <div class="flex flex-col">
+                  <a href="tel:02423297171" class="text-gold font-semibold text-xs hover:underline">02423 297 171</a>
+                  <a href="tel:+917304733333" class="text-gold font-semibold text-xs hover:underline">+91 73047 33333</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-2xl p-6 bg-navy text-white relative overflow-hidden border border-white/5">
+            <div class="absolute -right-8 -bottom-8 w-32 h-32 rounded-full bg-white/5"></div>
+            <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-gold mb-2"><i class="fa-solid fa-bell-concierge mr-2"></i>Dedicated Hospitality</h4>
+            <p class="text-[10px] text-white/70 leading-relaxed font-light">
+              Enjoy 24-hour reception check-in support, complimentary high-speed Wi-Fi, round-the-clock room service, and secure on-site parking.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Form -->
+        <div class="lg:col-span-7 gsap-reveal">
+          <div class="glass-panel-light p-8 lg:p-12 rounded-3xl border border-white shadow-lg">
+            <h3 class="font-heading font-bold text-xl text-navy mb-8">Reservation Details</h3>
+            
+            <form id="enquiry-hotel-form" class="space-y-6">
+              
+              <!-- Guest Name & Mobile Number -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="border-b-2 border-gray-200 py-2 transition-all duration-300">
+                  <label for="guest-name" class="block text-[10px] uppercase font-heading tracking-widest text-gray-400 font-semibold mb-1">Your Full Name</label>
+                  <input type="text" id="guest-name" required placeholder="John Doe" class="w-full bg-transparent border-none text-sm text-navy placeholder-gray-300 focus:outline-none py-1">
+                </div>
+                <div class="border-b-2 border-gray-200 py-2 transition-all duration-300">
+                  <label for="mobile" class="block text-[10px] uppercase font-heading tracking-widest text-gray-400 font-semibold mb-1">Mobile Number</label>
+                  <input type="tel" id="mobile" required placeholder="+91 98765 43210" class="w-full bg-transparent border-none text-sm text-navy placeholder-gray-300 focus:outline-none py-1">
+                </div>
+              </div>
+
+              <!-- Email & Room/Venue Type -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="border-b-2 border-gray-200 py-2 transition-all duration-300">
+                  <label for="email" class="block text-[10px] uppercase font-heading tracking-widest text-gray-400 font-semibold mb-1">Email Address</label>
+                  <input type="email" id="email" required placeholder="john@domain.com" class="w-full bg-transparent border-none text-sm text-navy placeholder-gray-300 focus:outline-none py-1">
+                </div>
+                <div class="border-b-2 border-gray-200 py-2 transition-all duration-300">
+                  <label for="room-type" class="block text-[10px] uppercase font-heading tracking-widest text-gray-400 font-semibold mb-1">Room / Venue Type</label>
+                  <select id="room-type" required class="w-full bg-transparent border-none text-sm text-navy placeholder-gray-300 focus:outline-none py-1">
+                    <option value="" disabled selected>Select Accommodation</option>
+                    <option value="Deluxe AC Room">Deluxe AC Room (Single/Double)</option>
+                    <option value="Executive Suite">Executive Suite (Premium Luxury)</option>
+                    <option value="Family Suite">Family Suite (Spacious Twin Bed)</option>
+                    <option value="Banquet Hall Venue">Banquet Hall (Celebrations & Events)</option>
+                    <option value="Conference Room">Conference Hall (Corporate Meetings)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Check-In & Check-Out Dates -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="border-b-2 border-gray-200 py-2 transition-all duration-300">
+                  <label for="check-in" class="block text-[10px] uppercase font-heading tracking-widest text-gray-400 font-semibold mb-1">Check-In Date</label>
+                  <input type="date" id="check-in" required class="w-full bg-transparent border-none text-sm text-navy placeholder-gray-300 focus:outline-none py-1">
+                </div>
+                <div class="border-b-2 border-gray-200 py-2 transition-all duration-300">
+                  <label for="check-out" class="block text-[10px] uppercase font-heading tracking-widest text-gray-400 font-semibold mb-1">Check-Out Date</label>
+                  <input type="date" id="check-out" required class="w-full bg-transparent border-none text-sm text-navy placeholder-gray-300 focus:outline-none py-1">
+                </div>
+              </div>
+
+              <!-- Number of Guests & Special Requests -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="border-b-2 border-gray-200 py-2 transition-all duration-300">
+                  <label for="guests-count" class="block text-[10px] uppercase font-heading tracking-widest text-gray-400 font-semibold mb-1">Number of Guests</label>
+                  <input type="number" id="guests-count" required min="1" max="1000" placeholder="e.g. 2" class="w-full bg-transparent border-none text-sm text-navy placeholder-gray-300 focus:outline-none py-1">
+                </div>
+                <div class="border-b-2 border-gray-200 py-2 transition-all duration-300">
+                  <label for="special-requests" class="block text-[10px] uppercase font-heading tracking-widest text-gray-400 font-semibold mb-1">Special Requests</label>
+                  <input type="text" id="special-requests" placeholder="e.g. Extra Bed, Early Check-In" class="w-full bg-transparent border-none text-sm text-navy placeholder-gray-300 focus:outline-none py-1">
+                </div>
+              </div>
+
+              <!-- Message -->
+              <div class="border-b-2 border-gray-200 py-2 transition-all duration-300">
+                <label for="message" class="block text-[10px] uppercase font-heading tracking-widest text-gray-400 font-semibold mb-1">Additional Message Details</label>
+                <textarea id="message" rows="3" placeholder="Provide event schedule requirements, corporate invoicing details, or general pilgrimage questions..." class="w-full bg-transparent border-none text-sm text-navy placeholder-gray-300 focus:outline-none py-1 resize-none"></textarea>
+              </div>
+
+              <!-- Submit -->
+              <button type="submit" class="btn-premium-gold w-full py-4 text-xs font-semibold uppercase tracking-widest">
+                Book Your Stay
+              </button>
+              
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOM TYPES SHOWCASE SECTION -->
+  <section class="py-24 bg-white relative border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-20 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase">OUR SUITES & SPACES</span>
+        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy mt-2">Accommodation & Venues</h2>
+        <div class="w-12 h-1 bg-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 gsap-stagger-container">
+        <!-- Deluxe Room -->
+        <div class="premium-card bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 flex flex-col justify-between gsap-stagger-item">
+          <div>
+            <div class="aspect-[4/3] w-full overflow-hidden bg-gray-200">
+              <img src="images/hotel_3.jpg" alt="Deluxe Guest Room" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+            </div>
+            <div class="p-6">
+              <h4 class="font-heading font-bold text-lg text-navy uppercase tracking-wide mb-2">Deluxe Room</h4>
+              <p class="text-xs text-gray-500 font-light leading-relaxed mb-4">
+                Designed for relaxing comfort. Spacious and well-appointed twin-bed/double-bed configurations with complete air-conditioned settings.
+              </p>
+              <ul class="space-y-1.5 text-[10px] text-gray-400 uppercase tracking-wider font-semibold">
+                <li><i class="fa-solid fa-snowflake text-gold mr-2"></i>AC Climate Control</li>
+                <li><i class="fa-solid fa-wifi text-gold mr-2"></i>Free High-Speed Wi-Fi</li>
+                <li><i class="fa-solid fa-tv text-gold mr-2"></i>LCD Entertainment</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Executive Suite -->
+        <div class="premium-card bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 flex flex-col justify-between gsap-stagger-item">
+          <div>
+            <div class="aspect-[4/3] w-full overflow-hidden bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80" alt="Executive Suite" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+            </div>
+            <div class="p-6">
+              <h4 class="font-heading font-bold text-lg text-navy uppercase tracking-wide mb-2">Executive Suite</h4>
+              <p class="text-xs text-gray-500 font-light leading-relaxed mb-4">
+                Premium luxury featuring separate private lounge layouts, personalized services, executive dining coordinates, and deluxe toiletries.
+              </p>
+              <ul class="space-y-1.5 text-[10px] text-gray-400 uppercase tracking-wider font-semibold">
+                <li><i class="fa-solid fa-mug-hot text-gold mr-2"></i>Tea & Coffee Maker</li>
+                <li><i class="fa-solid fa-bell text-gold mr-2"></i>24/7 Butler Support</li>
+                <li><i class="fa-solid fa-bath text-gold mr-2"></i>Luxury Guest Amenities</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Banquet Hall -->
+        <div class="premium-card bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 flex flex-col justify-between gsap-stagger-item">
+          <div>
+            <div class="aspect-[4/3] w-full overflow-hidden bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Banquet & Event Venue" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+            </div>
+            <div class="p-6">
+              <h4 class="font-heading font-bold text-lg text-navy uppercase tracking-wide mb-2">Banquet Hall</h4>
+              <p class="text-xs text-gray-500 font-light leading-relaxed mb-4">
+                Multi-purpose elegant venue tailored for grand weddings, engagements, vibrant celebrations, community milestones, and corporate staging.
+              </p>
+              <ul class="space-y-1.5 text-[10px] text-gray-400 uppercase tracking-wider font-semibold">
+                <li><i class="fa-solid fa-users text-gold mr-2"></i>Up to 500+ Guests Capacity</li>
+                <li><i class="fa-solid fa-utensils text-gold mr-2"></i>In-house Catering Setup</li>
+                <li><i class="fa-solid fa-sliders text-gold mr-2"></i>Premium AV & Acoustics</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMENITIES GRID SECTION -->
+  <section class="py-24 bg-light relative border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-20 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase">CONVENIENT SERVICES</span>
+        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy mt-2">Premium Hotel Amenities</h2>
+        <div class="w-12 h-1 bg-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-6 text-center gsap-stagger-container">
+        <!-- Wi-Fi -->
+        <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm gsap-stagger-item group flex flex-col items-center">
+          <div class="w-12 h-12 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-4 group-hover:bg-gold group-hover:text-white transition-all duration-300 text-xl">
+            <i class="fa-solid fa-wifi"></i>
+          </div>
+          <h5 class="font-heading font-bold text-xs uppercase text-navy tracking-wider">Free Wi-Fi</h5>
+        </div>
+        <!-- 24/7 service -->
+        <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm gsap-stagger-item group flex flex-col items-center">
+          <div class="w-12 h-12 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-4 group-hover:bg-gold group-hover:text-white transition-all duration-300 text-xl">
+            <i class="fa-solid fa-clock"></i>
+          </div>
+          <h5 class="font-heading font-bold text-xs uppercase text-navy tracking-wider">24/7 Front Desk</h5>
+        </div>
+        <!-- AC -->
+        <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm gsap-stagger-item group flex flex-col items-center">
+          <div class="w-12 h-12 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-4 group-hover:bg-gold group-hover:text-white transition-all duration-300 text-xl">
+            <i class="fa-solid fa-snowflake"></i>
+          </div>
+          <h5 class="font-heading font-bold text-xs uppercase text-navy tracking-wider">AC Climate</h5>
+        </div>
+        <!-- Dining -->
+        <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm gsap-stagger-item group flex flex-col items-center">
+          <div class="w-12 h-12 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-4 group-hover:bg-gold group-hover:text-white transition-all duration-300 text-xl">
+            <i class="fa-solid fa-utensils"></i>
+          </div>
+          <h5 class="font-heading font-bold text-xs uppercase text-navy tracking-wider">In-House Dining</h5>
+        </div>
+        <!-- Parking -->
+        <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm gsap-stagger-item group flex flex-col items-center">
+          <div class="w-12 h-12 rounded-xl bg-gold/10 text-gold flex items-center justify-center mb-4 group-hover:bg-gold group-hover:text-white transition-all duration-300 text-xl">
+            <i class="fa-solid fa-square-parking"></i>
+          </div>
+          <h5 class="font-heading font-bold text-xs uppercase text-navy tracking-wider">Free Parking</h5>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY SECTION -->
+  <section class="py-24 bg-white relative border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase">PREVIEW EXCELLENCE</span>
+        <h3 class="text-2xl sm:text-3xl font-heading font-bold text-navy mt-1">Our Gallery</h3>
+        <div class="w-12 h-1 bg-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 gsap-stagger-container">
+        <!-- Photo 1 -->
+        <div class="premium-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 gsap-stagger-item">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-gray-200">
+            <img src="images/hotel_3.jpg" alt="Deluxe Room Guest Accommodation" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+          </div>
+          <div class="p-4">
+            <h5 class="font-heading font-bold text-xs text-navy uppercase tracking-wider">Guest Accommodations</h5>
+            <p class="text-[10px] text-gray-400 mt-1">Deluxe guest room setups.</p>
+          </div>
+        </div>
+        <!-- Photo 2 -->
+        <div class="premium-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 gsap-stagger-item">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-gray-200">
+            <img src="images/hotel_1.jpg" alt="Deluxe Corridor" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+          </div>
+          <div class="p-4">
+            <h5 class="font-heading font-bold text-xs text-navy uppercase tracking-wider">Deluxe Walkway</h5>
+            <p class="text-[10px] text-gray-400 mt-1">Sleek walkways to rooms.</p>
+          </div>
+        </div>
+        <!-- Photo 3 -->
+        <div class="premium-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 gsap-stagger-item">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-gray-200">
+            <img src="images/hotel_2.jpg" alt="Premium Corridor Hallway" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+          </div>
+          <div class="p-4">
+            <h5 class="font-heading font-bold text-xs text-navy uppercase tracking-wider">Premium Hallway</h5>
+            <p class="text-[10px] text-gray-400 mt-1">Well-lit clean hallway design.</p>
+          </div>
+        </div>
+        <!-- Photo 4 -->
+        <div class="premium-card bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 gsap-stagger-item">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-gray-200">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Hotel Interior Lobby" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
+          </div>
+          <div class="p-4">
+            <h5 class="font-heading font-bold text-xs text-navy uppercase tracking-wider">Divya Palace Lobby</h5>
+            <p class="text-[10px] text-gray-400 mt-1">Elegant interior welcome lounge.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE LOCATION MAP SECTION -->
+  <section class="py-24 bg-light relative border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase">CONVENIENT ACCESS</span>
+        <h3 class="text-2xl sm:text-3xl font-heading font-bold text-navy mt-1">Hotel Location Map</h3>
+        <div class="w-12 h-1 bg-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="max-w-5xl mx-auto rounded-3xl overflow-hidden border border-gray-200 shadow-lg relative dark-map-container">
+        <!-- Interactive Iframe Map (using Search Query for Hotel Divya Palace Kopargaon) -->
+        <iframe 
+          src="https://maps.google.com/maps?q=Hotel%20Divya%20Palace,%20Kopargaon&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+          class="w-full h-[450px] border-none" 
+          allowfullscreen="" 
+          loading="lazy">
+        </iframe>
+
+        <!-- Map overlays for premium redirect links -->
+        <div class="absolute bottom-6 left-6 z-10 flex flex-wrap gap-3">
+          <a href="https://share.google/OFp8SrlX1sgIbVq8O" target="_blank" class="btn-premium-gold text-xs px-6 py-3 flex items-center gap-2">
+            <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+          </a>
+          <a href="https://share.google/OFp8SrlX1sgIbVq8O" target="_blank" class="btn-premium-outline bg-white/90 text-navy hover:text-white text-xs px-6 py-3 flex items-center gap-2 border-none">
+            <i class="fa-solid fa-map-location-dot"></i> View on Google Maps
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCKING FOOTER -->
+  <footer class="bg-dark text-white pt-20 pb-10 border-t border-white/5 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(197,168,128,0.05)_0%,transparent_50%)]"></div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div>
+          <span class="font-heading font-extrabold text-xl tracking-widest text-white block mb-6">
+            BORA <span class="text-gold">GROUP</span>
+          </span>
+          <p class="text-xs text-white/50 leading-relaxed font-light mb-6">
+            Diversified business group delivering consistent value, disciplined execution, and long-term relationships across multiple industries since 1947.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/917304733333" target="_blank" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Quick Links</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li><a href="index.html" class="hover:text-gold transition-colors duration-300">Home Page</a></li>
+            <li><a href="about.html" class="hover:text-gold transition-colors duration-300">Company Profile</a></li>
+            <li><a href="business.html" class="hover:text-gold transition-colors duration-300">Business Sectors</a></li>
+            <li><a href="contact.html" class="hover:text-gold transition-colors duration-300">Contact Desk</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Our Operations</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li><a href="real-estate.html" class="hover:text-gold transition-colors duration-300">Real Estate Development</a></li>
+            <li><a href="overseas-trade.html" class="hover:text-gold transition-colors duration-300">Overseas Trade Division</a></li>
+            <li><a href="garments.html" class="hover:text-gold transition-colors duration-300">Garment Production</a></li>
+            <li><a href="hospitality.html" class="hover:text-gold transition-colors duration-300">Hospitality & Services</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Inquiries</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li class="flex items-start space-x-3">
+              <i class="fa-solid fa-location-dot text-gold mt-0.5"></i>
+              <span>Kopargaon, Maharashtra, India</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa-solid fa-phone text-gold"></i>
+              <a href="tel:+917304733333" class="hover:text-gold transition-colors">+91 73047 33333</a>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa-solid fa-envelope text-gold"></i>
+              <a href="mailto:sales@boragroup.co.in" class="hover:text-gold transition-colors">sales@boragroup.co.in</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-white/30">
+        <div>© 2026 BORA GROUP. ALL RIGHTS RESERVED.</div>
+        <div class="flex space-x-6">
+          <a href="#" class="hover:text-gold transition-colors">PRIVACY POLICY</a>
+          <a href="#" class="hover:text-gold transition-colors">TERMS OF USE</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/917304733333" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <div class="pulse"></div>
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+  </a>
+
+  <!-- GSAP Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
