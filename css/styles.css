@@ -505,6 +505,38 @@ textarea {
   background-color: rgba(0, 0, 0, 0.04) !important; /* Soft gray hover background */
 }
 
+/* Multi-line Dropdown Link Styling */
+.nav-dropdown-link .dropdown-title {
+  display: block;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  font-size: 11px !important;
+  color: #1f2937 !important;
+  letter-spacing: 0.05em !important;
+  transition: color 0.2s ease;
+}
+
+.nav-dropdown-link .dropdown-subtitle {
+  display: block;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  font-size: 10px !important;
+  color: #6b7280 !important;
+  margin-top: 2px !important;
+  letter-spacing: normal !important;
+  line-height: 1.4 !important;
+  transition: color 0.2s ease;
+}
+
+.nav-dropdown-link:hover .dropdown-title {
+  color: #053C8F !important;
+}
+
+.nav-dropdown-link:hover .dropdown-subtitle {
+  color: #053C8F !important;
+  opacity: 0.8;
+}
+
 /* Navbar Link Font Sizes */
 #navbar nav.hidden.md\:flex > a,
 #navbar nav.hidden.md\:flex > div > a {
