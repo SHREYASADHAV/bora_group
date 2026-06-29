@@ -962,7 +962,7 @@ footer ul.text-white\/60 {
 
 .expanding-card-vertical-title {
   writing-mode: vertical-rl;
-  transform: rotate(180deg);
+  transform: translate(-50%, -50%) rotate(180deg) !important;
   font-family: 'Montserrat', sans-serif;
   transition: all 0.3s ease-in-out !important;
 }
