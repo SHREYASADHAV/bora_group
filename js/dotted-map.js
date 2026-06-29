@@ -160,8 +160,8 @@
       createHotspot(container, destXY, dest);
     });
 
-    // ---- 6. Sequential animation loop ----
-    requestAnimationFrame(() => startSequentialAnimation(routeData));
+    // ---- 6. Simultaneous animation loop ----
+    requestAnimationFrame(() => startSimultaneousAnimation(routeData));
   }
 
   /**
@@ -244,52 +244,37 @@
   }
 
   /**
-   * Sequentially animate trade lines: 1st draws → 2nd draws → ... → last draws → pause → loop
+   * Simultaneously animate all trade lines at once
    */
-  function startSequentialAnimation(routes) {
-    const totalPerRoute = (LINE_DRAW_DURATION + PAUSE_BETWEEN) * 1000;
-    const totalCycleMs = routes.length * totalPerRoute + PAUSE_AFTER_ALL * 1000;
+  function startSimultaneousAnimation(routes) {
+    const drawMs = LINE_DRAW_DURATION * 1000;
+    const totalCycleMs = drawMs + PAUSE_AFTER_ALL * 1000;
 
     function animate() {
       const now = performance.now();
+      const cycleElapsed = now % totalCycleMs;
 
-      routes.forEach((route, idx) => {
-        const routeStartMs = idx * totalPerRoute;
-        const cycleElapsed = now % totalCycleMs;
-        const routeElapsed = cycleElapsed - routeStartMs;
-
-        const drawMs = LINE_DRAW_DURATION * 1000;
+      routes.forEach((route) => {
         const path = route.animPath;
         const dot = route.travelDot;
 
-        if (routeElapsed < 0 || routeElapsed > drawMs + PAUSE_BETWEEN * 1000) {
-          // Before this route's turn or after it finished in this cycle
-          // Keep drawn lines visible after they complete (don't hide)
-          if (routeElapsed > drawMs) {
-            // Line is fully drawn — keep it visible
-            const totalLength = path.getTotalLength();
-            path.setAttribute('opacity', '0.6');
-            path.style.strokeDasharray = totalLength;
-            path.style.strokeDashoffset = '0';
-            dot.setAttribute('opacity', '0');
-          } else if (cycleElapsed > routes.length * totalPerRoute) {
-            // In the pause-after-all zone — keep all visible then fade for restart
-            const fadeProg = (cycleElapsed - routes.length * totalPerRoute) / (PAUSE_AFTER_ALL * 1000);
-            if (fadeProg > 0.7) {
-              const fadeOut = 1 - ((fadeProg - 0.7) / 0.3);
-              path.setAttribute('opacity', (0.6 * Math.max(fadeOut, 0)).toFixed(2));
-            }
-            dot.setAttribute('opacity', '0');
+        if (cycleElapsed > drawMs) {
+          // In the pause-after-all zone — keep all visible, then fade for restart
+          const pauseElapsed = cycleElapsed - drawMs;
+          const fadeProg = pauseElapsed / (PAUSE_AFTER_ALL * 1000);
+          
+          if (fadeProg > 0.7) {
+            const fadeOut = 1 - ((fadeProg - 0.7) / 0.3);
+            path.setAttribute('opacity', (0.6 * Math.max(fadeOut, 0)).toFixed(2));
           } else {
-            // Not yet started
-            path.setAttribute('opacity', '0');
-            dot.setAttribute('opacity', '0');
+            path.setAttribute('opacity', '0.6');
           }
+          dot.setAttribute('opacity', '0');
           return;
         }
 
-        // Currently drawing this route
-        const progress = Math.min(routeElapsed / drawMs, 1);
+        // Currently drawing all routes together
+        const progress = Math.min(cycleElapsed / drawMs, 1);
         // Ease out cubic
         const t = 1 - Math.pow(1 - progress, 3);
 

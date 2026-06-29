@@ -1,4 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap');
+/* ========================================
+   CUSTOM FONT DECLARATIONS
+   Place your font files in the /fonts/ folder:
+   - BuckinDemiBold.woff2, BuckinDemiBold.woff, BuckinDemiBold.ttf, or BuckinDemiBold.otf
+   - FlexoSoft-Regular.woff2, FlexoSoft-Regular.woff, FlexoSoft-Regular.ttf, or FlexoSoft-Regular.otf
+   - FlexoSoft-Medium.woff2 (optional for medium weight)
+   - FlexoSoft-Light.woff2  (optional for light weight)
+   ======================================== */
+
+@font-face {
+  font-family: 'Buckin';
+  src: url('../fonts/BuckinDemiBold.woff2') format('woff2'),
+       url('../fonts/BuckinDemiBold.woff') format('woff'),
+       url('../fonts/BuckinDemiBold.ttf') format('truetype'),
+       url('../fonts/BuckinDemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Flexo Soft';
+  src: url('../fonts/FlexoSoft-Regular.woff2') format('woff2'),
+       url('../fonts/FlexoSoft-Regular.woff') format('woff'),
+       url('../fonts/FlexoSoft-Regular.ttf') format('truetype'),
+       url('../fonts/FlexoSoft-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Flexo Soft';
+  src: url('../fonts/FlexoSoft-Medium.woff2') format('woff2'),
+       url('../fonts/FlexoSoft-Medium.woff') format('woff'),
+       url('../fonts/FlexoSoft-Medium.ttf') format('truetype'),
+       url('../fonts/FlexoSoft-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Flexo Soft';
+  src: url('../fonts/FlexoSoft-Light.woff2') format('woff2'),
+       url('../fonts/FlexoSoft-Light.woff') format('woff'),
+       url('../fonts/FlexoSoft-Light.ttf') format('truetype'),
+       url('../fonts/FlexoSoft-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --color-gold: #C5A880;
@@ -8,9 +59,9 @@
   --color-ice-blue: #F0F4F8;
   --color-orange: #F97316;
   --color-orange-hover: #EA580C;
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Poppins', sans-serif;
-  --font-quote: 'Playfair Display', serif;
+  --font-heading: 'Buckin', 'Montserrat', sans-serif;
+  --font-body: 'Flexo Soft', 'Poppins', sans-serif;
+  --font-quote: 'Buckin', 'Playfair Display', serif;
 }
 
 * {
@@ -26,9 +77,45 @@ body {
   overflow-x: hidden;
 }
 
+/* --- Buckin Demi Bold Font Mappings --- */
+/* Used for: Page headings, titles, navigation menus, buttons, and uppercase tracking labels */
+h1, h2, h3, h4, h5, h6,
+nav, 
+header,
+.nav-dropdown-menu,
+.nav-dropdown-link,
+button, 
+.btn, 
+[class*="btn-"], 
+input[type="submit"], 
+input[type="button"],
+.tracking-widest,
+.tracking-wider,
+.font-heading {
+  font-family: var(--font-heading) !important;
+}
+
+/* First Letter Capital sequence for titles and headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
+  font-weight: 600 !important;
   letter-spacing: -0.02em;
+  text-transform: capitalize !important;
+}
+
+/* --- Flexo Soft Font Mappings --- */
+/* Used for: Body paragraphs, descriptions, lists, and general interface text */
+p,
+li,
+ul,
+ol,
+.desc,
+.description,
+.font-body,
+.font-sans,
+input,
+select,
+textarea {
+  font-family: var(--font-body) !important;
 }
 
 /* Custom Scrollbar */
@@ -304,52 +391,6 @@ h1, h2, h3, h4, h5, h6 {
   will-change: transform;
 }
 
-/* floating whatsapp */
-.whatsapp-float {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: #25D366;
-  color: white;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.25);
-  z-index: 1000;
-  transition: all 0.3s ease;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.1) translateY(-5px);
-  background-color: #128C7E;
-  box-shadow: 2px 8px 25px rgba(0, 0, 0, 0.3);
-}
-
-.whatsapp-float .pulse {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: inherit;
-  opacity: 0.6;
-  z-index: -1;
-  animation: pulse-animation 2s infinite;
-}
-
-@keyframes pulse-animation {
-  0% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  100% {
-    transform: scale(1.6);
-    opacity: 0;
-  }
-}
-
 /* Timeline Custom Styles */
 .timeline-horizontal-container {
   display: flex;
@@ -393,16 +434,25 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.08);
 }
 
-/* Premium Logo Sizing & Dynamic Scroll Fitting */
-#navbar {
-  height: 128px !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+/* Chairman Photo Zoom Hover */
+#chairman-card-3d img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+#chairman-card-3d:hover img {
+  transform: scale(1.05) !important;
 }
 
-#navbar.py-2 {
-  height: 64px !important;
+/* Premium Logo Sizing & Always-White Navbar Sizing */
+#navbar {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
+  height: 70px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  transition: all 0.3s ease !important;
 }
 
 #navbar > div {
@@ -411,13 +461,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #navbar-logo {
-  width: 128px !important;
+  width: 100px !important;
   height: auto !important;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 0.3s ease !important;
 }
 
-#navbar.py-2 #navbar-logo {
-  width: 100px !important;
+/* Force all navigation links to be dark gray and gold on hover */
+#navbar nav a:not(.text-gold) {
+  color: #374151 !important; /* dark gray */
+}
+#navbar nav a:not(.text-gold):hover {
+  color: var(--color-gold) !important;
+}
+
+/* Mobile menu button icon color */
+#mobile-menu-btn {
+  color: #374151 !important;
 }
 
 /* Premium Desktop & Mobile Navigation Dropdowns */
@@ -520,6 +579,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 auto;
   overflow: visible;
   border-radius: 1rem;
+  aspect-ratio: 2 / 1 !important;
 }
 
 /* Real world map PNG — detailed silhouette background */
@@ -785,5 +845,124 @@ html.lenis, html.lenis body {
   transition: background-position 0.8s ease;
 }
 
+/* Businesses Sticky Slider transitions */
+.biz-slide-panel {
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, visibility;
+}
 
+/* Core Values Horizontal Loop Carousel */
+.values-loop-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
 
+.values-loop-track {
+  display: flex;
+  align-items: center;
+}
+
+/* Interactive Square Cards */
+.values-loop-track .value-card-3d {
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+  background: white;
+  transform-style: preserve-3d;
+}
+
+/* When hovering the track, dim the other cards slightly */
+.values-loop-track:hover .value-card-3d:not(:hover) {
+  opacity: 0.7;
+  transform: scale(0.96);
+  filter: grayscale(15%);
+}
+
+/* Hover state for active card - lifts it up straight, soft golden shadow */
+.values-loop-track .value-card-3d:hover {
+  transform: translateY(-12px) scale(1.04) !important;
+  opacity: 1 !important;
+  filter: none !important;
+  box-shadow: 0 20px 40px -10px rgba(197, 168, 128, 0.25);
+  border-color: var(--color-gold);
+}
+
+/* Global Footer Links Color Override to Off-White */
+footer ul.text-white\/60 {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Glassmorphic Footer Background */
+.footer-glassmorphism {
+  background: rgba(255, 255, 255, 0.85) !important; /* light white frosted glass */
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border-top: 1px solid rgba(0, 0, 0, 0.08) !important;
+  color: #1F2937 !important;
+}
+
+.footer-glassmorphism h4 {
+  color: #053C8F !important; /* navy title */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  font-weight: 800 !important;
+}
+
+.footer-glassmorphism a, 
+.footer-glassmorphism span, 
+.footer-glassmorphism p, 
+.footer-glassmorphism li {
+  color: #374151 !important; /* dark gray legible text */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-glassmorphism a:hover {
+  color: var(--color-gold) !important;
+}
+
+/* Re-style footer copyright bar borders and text */
+.footer-glassmorphism .border-t {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  color: #6B7280 !important;
+}
+
+/* Re-style social icons */
+.footer-glassmorphism a.rounded-full {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+  color: #374151 !important;
+}
+
+.footer-glassmorphism a.rounded-full:hover {
+  border-color: var(--color-gold) !important;
+  color: var(--color-gold) !important;
+}
+
+/* branding text first column */
+.footer-glassmorphism span.tracking-widest {
+  color: #053C8F !important;
+}
+
+/* Premium Expanding Cards Transitions & Rotation */
+#home-expanding-cards {
+  transition: grid-template-columns 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.expanding-card-item {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.expanding-card-item img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.expanding-card-vertical-title {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s ease-in-out !important;
+}

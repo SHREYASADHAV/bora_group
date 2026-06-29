@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function preloadImages() {
     for (let i = 1; i <= totalFrames; i++) {
       const img = new Image();
-      img.src = `OVERSEAS/ezgif-frame-${pad(i)}.jpg`;
+      img.src = `./images/OVERSEAS/ezgif-frame-${pad(i)}.jpg`;
       img.onload = () => {
         loadedCount++;
         // Immediately draw the first frame when it's loaded to provide immediate visual background

@@ -23,75 +23,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const scrollPos = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     
-    // Navbar visual transform on scroll
+    // Navbar logo alignment & static logo src
     if (navbar) {
       const logoImg = navbar.querySelector('#navbar-logo');
-      const menuBtnIcon = document.getElementById('mobile-menu-btn');
-
-      if (scrollPos > 50) {
-        navbar.classList.remove('py-6');
-        navbar.classList.add('py-2');
-        
-        if (isDarkNavbarPage) {
-          // Dark background, white text, white logo for garments and history pages
-          navbar.classList.add('backdrop-blur-md', 'border-b', 'shadow-sm', 'bg-[#05050A]/95', 'border-white/5');
-          navbar.classList.remove('bg-transparent', 'bg-white/95', 'bg-black/40', 'border-gray-100');
-          
-          if (logoImg) {
-            logoImg.src = 'images/logo_white.svg';
-          }
-          
-          navbar.querySelectorAll('nav a').forEach(a => {
-            if (!a.classList.contains('text-gold')) {
-              a.classList.remove('text-gray-700', 'hover:text-navy');
-              a.classList.add('text-white/80', 'hover:text-white');
-            }
-          });
-          
-          if (menuBtnIcon) {
-            menuBtnIcon.classList.remove('text-gray-900');
-            menuBtnIcon.classList.add('text-white');
-          }
-        } else {
-          // Standard white background on other pages
-          navbar.classList.add('backdrop-blur-md', 'border-b', 'shadow-sm', 'bg-white/95', 'border-gray-100');
-          navbar.classList.remove('bg-transparent', 'bg-black/40', 'border-white/5', 'bg-[#05050A]/95');
-          
-          if (logoImg) {
-            logoImg.src = 'images/logo_black.svg';
-          }
-          
-          navbar.querySelectorAll('nav a').forEach(a => {
-            if (!a.classList.contains('text-gold')) {
-              a.classList.remove('text-white/80', 'text-white', 'hover:text-white');
-              a.classList.add('text-gray-700', 'hover:text-navy');
-            }
-          });
-          
-          if (menuBtnIcon) {
-            menuBtnIcon.classList.remove('text-white');
-            menuBtnIcon.classList.add('text-gray-900');
-          }
-        }
-      } else {
-        navbar.classList.add('bg-transparent', 'py-6');
-        navbar.classList.remove('bg-white/95', 'bg-black/40', 'backdrop-blur-md', 'py-2', 'border-b', 'border-gray-100', 'border-white/5', 'shadow-sm', 'bg-[#05050A]/95');
-
-        if (logoImg) {
-          logoImg.src = 'images/logo_white.svg';
-        }
-
-        navbar.querySelectorAll('nav a').forEach(a => {
-          if (!a.classList.contains('text-gold')) {
-            a.classList.remove('text-gray-700', 'hover:text-navy');
-            a.classList.add('text-white/80', 'hover:text-white');
-          }
-        });
-
-        if (menuBtnIcon) {
-          menuBtnIcon.classList.remove('text-gray-900');
-          menuBtnIcon.classList.add('text-white');
-        }
+      if (logoImg && logoImg.getAttribute('src') !== 'images/logo_new.png') {
+        logoImg.src = 'images/logo_new.png';
       }
     }
 
@@ -144,11 +80,142 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. Interactive Product Categories (Import Export Page)
+  // 4. Interactive Product Categories and Sliding Carousels (Import Export Page)
   const categoryButtons = document.querySelectorAll('.cat-btn');
   const categoryContents = document.querySelectorAll('.cat-content');
 
+  // Track state of sliders
+  const sliders = [];
+
+  function initSliders() {
+    const containers = document.querySelectorAll('.carousel-container');
+    containers.forEach((container) => {
+      const track = container.querySelector('.carousel-track');
+      const prevBtn = container.querySelector('.carousel-prev-btn');
+      const nextBtn = container.querySelector('.carousel-next-btn');
+      if (!track || !prevBtn || !nextBtn) return;
+
+      let currentIndex = 0;
+
+      const getVisibleCount = () => {
+        if (window.innerWidth >= 1024) return 3; // lg: w-1/3
+        if (window.innerWidth >= 640) return 2;  // sm: w-1/2
+        return 1; // mobile: w-full
+      };
+
+      const updateSlider = () => {
+        // Only calculate if container is visible
+        const parentContent = container.closest('.cat-content');
+        if (!parentContent || parentContent.classList.contains('hidden')) return;
+
+        const items = track.querySelectorAll('.carousel-item');
+        const visibleCount = getVisibleCount();
+        const maxIndex = Math.max(0, items.length - visibleCount);
+
+        // Bound index
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+        if (currentIndex < 0) currentIndex = 0;
+
+        const itemsArr = Array.from(items);
+        const itemWidth = itemsArr[0] ? itemsArr[0].getBoundingClientRect().width : 0;
+        const translateAmount = currentIndex * itemWidth;
+        
+        track.style.transform = `translateX(-${translateAmount}px)`;
+
+        // Update button states
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === maxIndex;
+
+        // Visual opacity styling for disabled state
+        if (prevBtn.disabled) {
+          prevBtn.classList.add('opacity-30', 'cursor-not-allowed');
+          prevBtn.classList.remove('hover:scale-105', 'active:scale-95');
+        } else {
+          prevBtn.classList.remove('opacity-30', 'cursor-not-allowed');
+          prevBtn.classList.add('hover:scale-105', 'active:scale-95');
+        }
+        if (nextBtn.disabled) {
+          nextBtn.classList.add('opacity-30', 'cursor-not-allowed');
+          nextBtn.classList.remove('hover:scale-105', 'active:scale-95');
+        } else {
+          nextBtn.classList.remove('opacity-30', 'cursor-not-allowed');
+          nextBtn.classList.add('hover:scale-105', 'active:scale-95');
+        }
+      };
+
+      // Button Event Listeners
+      prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateSlider();
+        }
+      });
+
+      nextBtn.addEventListener('click', () => {
+        const items = track.querySelectorAll('.carousel-item');
+        const visibleCount = getVisibleCount();
+        const maxIndex = Math.max(0, items.length - visibleCount);
+        if (currentIndex < maxIndex) {
+          currentIndex++;
+          updateSlider();
+        }
+      });
+
+      // Mobile Touch Swiping Event Listeners
+      let startX = 0;
+      let isDragging = false;
+
+      track.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+      }, { passive: true });
+
+      track.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        // Registering movement
+      }, { passive: true });
+
+      track.addEventListener('touchend', (e) => {
+        if (!isDragging) return;
+        const diffX = e.changedTouches[0].clientX - startX;
+        isDragging = false;
+
+        if (diffX > 50) {
+          // Swipe right -> prev
+          if (currentIndex > 0) {
+            currentIndex--;
+            updateSlider();
+          }
+        } else if (diffX < -50) {
+          // Swipe left -> next
+          const items = track.querySelectorAll('.carousel-item');
+          const visibleCount = getVisibleCount();
+          const maxIndex = Math.max(0, items.length - visibleCount);
+          if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateSlider();
+          }
+        }
+      });
+
+      // Expose slider updater to outer scope
+      const sliderObj = {
+        element: container,
+        update: updateSlider,
+        reset: () => {
+          currentIndex = 0;
+          updateSlider();
+        }
+      };
+
+      sliders.push(sliderObj);
+    });
+  }
+
+  // Handle Category Toggle
   if (categoryButtons.length > 0) {
+    initSliders();
+
     categoryButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         const targetCategory = btn.getAttribute('data-category');
@@ -165,15 +232,30 @@ document.addEventListener('DOMContentLoaded', () => {
         categoryContents.forEach(content => {
           if (content.id === `cat-${targetCategory}`) {
             content.classList.remove('hidden');
-            content.classList.add('grid');
-            // Re-trigger visual animations inside elements if needed
+            content.classList.add('block');
+            
+            // Find corresponding slider and trigger update/reset
+            const activeSlider = sliders.find(s => s.element.closest('.cat-content') === content);
+            if (activeSlider) {
+              activeSlider.reset();
+            }
           } else {
             content.classList.add('hidden');
-            content.classList.remove('grid');
+            content.classList.remove('block');
           }
         });
       });
     });
+
+    // Window Resize update visible sliders
+    window.addEventListener('resize', () => {
+      sliders.forEach(s => s.update());
+    });
+
+    // Initial load updates
+    setTimeout(() => {
+      sliders.forEach(s => s.update());
+    }, 150);
   }
 
   // 5. Certification Modal Popup

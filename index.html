@@ -23,9 +23,9 @@
             light: '#F6F9FD'
           },
           fontFamily: {
-            sans: ['Poppins', 'sans-serif'],
-            heading: ['Montserrat', 'sans-serif'],
-            serif: ['Playfair Display', 'serif'],
+            sans: ['Flexo Soft', 'Poppins', 'sans-serif'],
+            heading: ['Buckin', 'Montserrat', 'sans-serif'],
+            serif: ['Buckin', 'Playfair Display', 'serif'],
           }
         }
       }
@@ -49,7 +49,7 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
       <!-- Logo -->
       <a href="index.html" class="flex items-center group">
-        <img id="navbar-logo" src="images/logo_white.svg" alt="BORA GROUP" class="transition-all duration-300 group-hover:scale-105">
+        <img id="navbar-logo" src="images/logo_new.png" alt="BORA GROUP" class="transition-all duration-300 group-hover:scale-105">
       </a>
 
       <!-- Desktop Menu -->
@@ -155,45 +155,134 @@
       </div>
     </div>
   </div>
-  <!-- HERO SECTION -->
-  <section class="relative h-screen flex items-center justify-center overflow-hidden bg-dark perspective-container preserve-3d">
-    <!-- Hero Background: Spline 3D Model Element -->
-    <div class="absolute inset-0 z-0 overflow-hidden bg-dark hero-spline-container">
-      <spline-viewer class="absolute inset-0 w-full h-full z-10 pointer-events-none" url="https://prod.spline.design/JffzEMoXD1xW0LTD/scene.splinecode" loading="eager" events-target="local"></spline-viewer>
-
-      <!-- Overlays for smooth depth & shadows -->
-      <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-dark/50 z-20 pointer-events-none"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(5,5,10,0.65)_95%)] z-20 pointer-events-none"></div>
+  <!-- HERO CAROUSEL SECTION -->
+  <section id="hero-carousel-section" class="relative min-h-[95vh] lg:min-h-screen flex items-center py-28 overflow-hidden">
+    
+    <!-- Full-bleed background slideshow -->
+    <div id="hero-bg-slideshow" class="absolute inset-0 z-0 bg-black overflow-hidden">
+      <!-- Slide 1 (Active on load) -->
+      <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 z-10" data-slide="0">
+        <img src="images/hero_real_estate.png" alt="Real Estate" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/55 z-10 pointer-events-none"></div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0" data-slide="1">
+        <img src="images/hero_global_trade.jpg" alt="Global Trade" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/55 z-10 pointer-events-none"></div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0" data-slide="2">
+        <img src="images/hero_industrial.jpg" alt="Industrial Supply" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/55 z-10 pointer-events-none"></div>
+      </div>
+      <!-- Slide 4 -->
+      <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0" data-slide="3">
+        <img src="images/hero_garments.png" alt="Garments &amp; Textiles" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/60 z-10 pointer-events-none"></div>
+      </div>
+      <!-- Slide 5 -->
+      <div class="hero-bg-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0" data-slide="4">
+        <img src="images/hero_hospitality.jpg" alt="Hospitality & Services" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/60 z-10 pointer-events-none"></div>
+      </div>
+      <!-- Radial vignette overlay for high contrast and readability -->
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(0,0,0,0.15),rgba(0,0,0,0.65))] z-20 pointer-events-none"></div>
+    <!-- ABSOLUTE MIDDLE-LEFT: Short Quotes (scrolls naturally with hero) -->
+    <div id="hero-quote-outer" class="absolute top-[42%] -translate-y-1/2 left-8 sm:left-16 lg:left-24 z-40 pointer-events-none max-w-xl sm:max-w-2xl lg:max-w-4xl opacity-0">
+      <div id="hero-quote-container" class="relative h-[80px] sm:h-[120px] lg:h-[160px] w-full">
+        <div class="hero-quote-item absolute inset-0 text-white font-heading text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold capitalize tracking-normal opacity-0 pointer-events-none leading-none sm:leading-tight" data-slide="0">Elevating Modern Skyline.</div>
+        <div class="hero-quote-item absolute inset-0 text-white font-heading text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold capitalize tracking-normal opacity-0 pointer-events-none leading-none sm:leading-tight" data-slide="1">Connecting World Trade.</div>
+        <div class="hero-quote-item absolute inset-0 text-white font-heading text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold capitalize tracking-normal opacity-0 pointer-events-none leading-none sm:leading-tight" data-slide="2">Powering Heavy Industry.</div>
+        <div class="hero-quote-item absolute inset-0 text-white font-heading text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold capitalize tracking-normal opacity-0 pointer-events-none leading-none sm:leading-tight" data-slide="3">Crafting Premium Apparel.</div>
+        <div class="hero-quote-item absolute inset-0 text-white font-heading text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold capitalize tracking-normal opacity-0 pointer-events-none leading-none sm:leading-tight" data-slide="4">Comfort Awaits Guests.</div>
+      </div>
     </div>
 
-    <!-- Content -->
-    <div class="relative z-30 max-w-7xl mx-auto px-6 lg:px-8 mt-12 flex flex-col items-start text-left w-full preserve-3d will-change-3d hero-content-3d">
-      
-      <!-- Subtitle Badge -->
-      <div class="inline-flex items-center space-x-2 bg-gold/10 border border-gold/25 rounded-full py-1 px-4 text-gold mb-6 opacity-0 hero-subtitle">
-        <span class="text-[9px] font-heading font-bold uppercase tracking-wider">Corporate Conglomerate</span>
-        <span class="w-[1px] h-3 bg-gold/40"></span>
-        <span class="text-[9px] font-heading font-semibold uppercase tracking-wider flex items-center">
-          Established 1947 <i class="fa-solid fa-certificate text-[9px] ml-1.5 text-gold"></i>
-        </span>
+    <!-- ABSOLUTE BOTTOM-RIGHT: Cards + Timer + Arrows (scrolls naturally with hero) -->
+    <div id="hero-controls-outer" class="absolute bottom-6 right-6 z-40 flex flex-col items-end gap-3">
+      <!-- Horizontal card carousel (clipped viewport — shows ~4 cards at once) -->
+      <div id="hero-cards-container" class="relative overflow-hidden opacity-0 translate-y-4 pointer-events-none transition-all duration-500 ease-out" style="max-width:476px">
+        <div id="hero-cards-wrapper" class="flex gap-3" style="will-change:transform">
+
+          <!-- Card 1: Real Estate -->
+          <div class="hero-card-item flex-shrink-0 w-[110px] h-[160px] bg-black relative overflow-hidden shadow-2xl group cursor-pointer border-2 border-transparent transition-all duration-300" data-slide="0">
+            <img src="images/hero_real_estate.png" alt="Real Estate" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80">
+          </div>
+
+          <!-- Card 2: Global Trade -->
+          <div class="hero-card-item flex-shrink-0 w-[110px] h-[160px] bg-black relative overflow-hidden shadow-2xl group cursor-pointer border-2 border-transparent transition-all duration-300" data-slide="1">
+            <img src="images/hero_global_trade.jpg" alt="Global Trade" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80">
+          </div>
+
+          <!-- Card 3: Industrial Supply -->
+          <div class="hero-card-item flex-shrink-0 w-[110px] h-[160px] bg-black relative overflow-hidden shadow-2xl group cursor-pointer border-2 border-transparent transition-all duration-300" data-slide="2">
+            <img src="images/hero_industrial.jpg" alt="Industrial Supply" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80">
+          </div>
+
+          <!-- Card 4: Garments & Textiles -->
+          <div class="hero-card-item flex-shrink-0 w-[110px] h-[160px] bg-black relative overflow-hidden shadow-2xl group cursor-pointer border-2 border-transparent transition-all duration-300" data-slide="3">
+            <img src="images/hero_garments.png" alt="Garments &amp; Textiles" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80">
+          </div>
+
+          <!-- Card 5: Hospitality & Services -->
+          <div class="hero-card-item flex-shrink-0 w-[110px] h-[160px] bg-black relative overflow-hidden shadow-2xl group cursor-pointer border-2 border-transparent transition-all duration-300" data-slide="4">
+            <img src="images/hero_hospitality.jpg" alt="Hospitality &amp; Services" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80">
+          </div>
+
+        </div>
       </div>
 
-      <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6 opacity-0 hero-title text-white" data-i18n="hero_title">
-        Built on Heritage.<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-gold to-[#E2D1B8]">Driven by Innovation.</span>
-      </h1>
-
-      <p class="font-sans text-sm sm:text-base font-light text-white/70 max-w-xl leading-relaxed mb-8 opacity-0 hero-text" data-i18n="hero_desc">
-        For over seven decades, BORA GROUP has pioneered excellence across Real Estate, Overseas Trade, Garments, Industrial Supplies, and Hospitality, crafting a legacy of trust and quality.
-      </p>
-      
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row items-center justify-start gap-4 opacity-0 hero-ctas w-full">
-        <a href="business.html" class="btn-premium-gold w-full sm:w-auto group flex justify-center items-center text-xs px-6 py-3">
-          <span data-i18n="hero_explore">Explore Businesses</span>
-          <i class="fa-solid fa-arrow-right-long ml-2 transition-transform duration-300 group-hover:translate-x-1.5"></i>
-        </a>
-        <a href="contact.html" class="btn-premium-outline w-full sm:w-auto text-center text-xs px-6 py-3 border-white/20 text-white hover:bg-white hover:text-dark" data-i18n="hero_contact">Contact Us</a>
+      <!-- Timer bar + Arrows row -->
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1.5 text-white/40 text-[8px] uppercase tracking-widest font-semibold select-none">
+          <span>Next</span>
+          <div class="w-16 h-[2px] bg-white/20 relative overflow-hidden">
+            <div id="hero-timer-bar" class="absolute top-0 left-0 h-full bg-gold w-0"></div>
+          </div>
+        </div>
+        <div class="flex gap-1.5">
+          <button id="hero-prev-btn" class="w-6 h-6 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-white hover:text-dark transition-all duration-300" aria-label="Previous Slide">
+            <i class="fa-solid fa-arrow-left text-[8px]"></i>
+          </button>
+          <button id="hero-next-btn" class="w-6 h-6 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm text-white flex items-center justify-center hover:bg-white hover:text-dark transition-all duration-300" aria-label="Next Slide">
+            <i class="fa-solid fa-arrow-right text-[8px]"></i>
+          </button>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP SECTION -->
+  <section id="leadership-3d-section" class="relative overflow-hidden bg-white lg:h-screen">
+    
+    <!-- Split Layout Card: Chairman Vision Section (Full screen 16:9 aspect ratio) -->
+    <div class="w-full h-full grid grid-cols-1 lg:grid-cols-12 relative z-10">
+      
+      <!-- Left Column: Chairman Photo (Full Height, No padding, No margin) -->
+      <div id="chairman-card-3d" class="lg:col-span-5 relative min-h-[400px] lg:min-h-full overflow-hidden">
+        <img src="images/sunil_bora.jpg" alt="Sunil Bora" class="absolute inset-0 w-full h-full object-cover">
+      </div>
+
+      <!-- Right Column: Chairman Quote Layout -->
+      <div class="lg:col-span-7 p-8 sm:p-12 lg:p-24 flex flex-col justify-center text-left bg-white relative">
+        <!-- Decorative Quote Mark -->
+        <div class="text-7xl font-serif text-gray-300 leading-none select-none mb-4">“</div>
+        
+        <!-- Quote Text -->
+        <blockquote class="font-sans text-xl sm:text-2xl lg:text-3xl leading-relaxed text-gray-400 font-light pr-8" data-i18n="home_chairman_quote">
+          <strong>True growth</strong> is measured not only by success in business, but by the <span class="text-gray-400 font-semibold">legacy of trust and excellence</span> we leave behind.
+        </blockquote>
+        
+        <!-- Proper horizontal divider line, aligned -->
+        <div class="chairman-divider w-24 h-[2px] bg-gray-300 my-8 origin-left"></div>
+        
+        <!-- Author and Designation -->
+        <div class="author-details mt-4">
+          <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-gray-900 tracking-tight" data-i18n="home_leader_sunil_name">Sunil Bora</h3>
+          <p class="text-sm text-gray-500 font-medium uppercase tracking-wider font-semibold mt-2" data-i18n="home_leader_sunil_title">Chairman, Bora Group</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -201,7 +290,7 @@
   <div class="perspective-container preserve-3d">
 
     <!-- INTRODUCTION TEXT SECTION -->
-    <section id="intro-3d-section" class="py-24 lg:py-32 bg-[#FAF6F0] relative overflow-hidden border-y border-[#EFEAE2] preserve-3d will-change-3d">
+    <section id="intro-3d-section" class="py-24 lg:py-32 bg-white relative overflow-hidden border-y border-gray-100 preserve-3d will-change-3d">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
@@ -209,10 +298,10 @@
           <div class="lg:col-span-5 gsap-reveal">
             <div class="flex items-center space-x-2 mb-4">
               <span class="w-8 h-[1px] bg-gold"></span>
-              <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase" data-i18n="heritage_tag">Corporate Heritage</span>
+              <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase" data-i18n="heritage_tag">ABOUT BORA GROUP</span>
             </div>
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy leading-tight mb-6" data-i18n="heritage_title">
-              A Journey of Execution and Value Creation
+              Foundation of Excellence
             </h2>
             <!-- Side Decorative Line -->
             <div class="h-[2px] w-24 bg-gradient-to-r from-gold to-transparent my-8"></div>
@@ -232,192 +321,360 @@
 
           <!-- Right Side Multi-paragraph intro text -->
           <div class="lg:col-span-7 gsap-reveal text-gray-600 space-y-6 text-sm lg:text-base leading-relaxed font-light">
-            <p data-i18n="home_intro_p1">
-              Established in 1947 as <strong class="font-medium text-navy">Bora Brothers</strong> and now known as <strong class="font-medium text-navy">BORA GROUP</strong>, the organization is a professionally managed family enterprise with a diversified presence across multiple sectors. Over the years, the Group has expanded its operations into Real Estate, Overseas Trade, Garments & Textiles, Industrial Supplies, and Hospitality & Services.
-            </p>
-            <p data-i18n="home_intro_p2">
-              BORA GROUP’s growth has been guided by a clear focus on disciplined execution, ethical business practices, and long-term value creation. The Group has built enduring relationships with clients and partners by maintaining consistent quality, reliability, and operational integrity across all its businesses.
-            </p>
-            <p data-i18n="home_intro_p3">
-              Each vertical within the Group operates with a unified approach driven by professionalism, transparency, and strong governance standards. This alignment enables the Group to deliver stable performance while adapting to evolving market conditions.
-            </p>
-            <p data-i18n="home_intro_p4">
-              With a pragmatic leadership style and a forward-looking outlook, BORA GROUP continues to identify and pursue opportunities that support sustainable growth. While expanding into new areas, the Group remains firmly rooted in its core values and business principles.
-            </p>
-            <p class="border-t border-gray-100 pt-6 italic text-navy font-normal" data-i18n="home_intro_p5">
-              Today, BORA GROUP is recognized for its credibility, stability, and consistent progress, strengthening its presence across industries and building a foundation for long-term success.
+            <p data-i18n="home_intro">
+              Established in 1947 as <strong class="font-medium text-navy">Bora Brothers</strong> and now known as <strong class="font-medium text-navy">BORA GROUP</strong>, the organization is a professionally managed family enterprise with diversified operations across Real Estate, Overseas Trade, Garments & Textiles, Industrial Supplies, and Hospitality & Services. Guided by integrity, operational excellence, and long-term vision, the Group has built a reputation for quality, reliability, and sustainable growth while continuing to create lasting value across every sector it serves.
             </p>
           </div>
 
         </div>
       </div>
     </section>
+  </div> <!-- Close perspective-container for intro section -->
 
-    <!-- LEADERSHIP SECTION -->
-    <section id="leadership-3d-section" class="py-24 lg:py-32 bg-light relative overflow-hidden preserve-3d will-change-3d">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+  <!-- OUR BUSINESSES STICKY SECTION -->
+  <section id="businesses-sticky-section" class="relative overflow-hidden bg-[#F5F5F7] py-16 lg:py-20 w-full">
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <h2 class="text-3xl font-heading font-extrabold text-navy uppercase tracking-wider">Our Businesses</h2>
+        </div>
+        <!-- Progress Indicator -->
+        <div class="flex items-center space-x-2 mt-4 md:mt-0">
+          <div class="biz-segment w-12 h-[3px] bg-gray-900 rounded-full cursor-pointer transition-all duration-300" data-slide="0"></div>
+          <div class="biz-segment w-12 h-[3px] bg-gray-200 rounded-full cursor-pointer transition-all duration-300" data-slide="1"></div>
+          <div class="biz-segment w-12 h-[3px] bg-gray-200 rounded-full cursor-pointer transition-all duration-300" data-slide="2"></div>
+          <div class="biz-segment w-12 h-[3px] bg-gray-200 rounded-full cursor-pointer transition-all duration-300" data-slide="3"></div>
+          <div class="biz-segment w-12 h-[3px] bg-gray-200 rounded-full cursor-pointer transition-all duration-300" data-slide="4"></div>
+        </div>
+      </div>
+
+      <!-- Main Layout Grid (2 Columns on Desktop) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         
-        <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-20 gsap-reveal">
-          <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase mb-3 inline-block" data-i18n="director_tag">BOARD OF DIRECTORS</span>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-navy" data-i18n="director_title">
-            Pragmatic & Visionary Leadership
-          </h2>
-          <div class="w-12 h-1 bg-gold mx-auto mt-6"></div>
-        </div>
-
-        <!-- Luxury card layout with owner photographs -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 max-w-5xl mx-auto">
+        <!-- Left Column: Business Grid Cards (8 cols) -->
+        <div class="lg:col-span-8 grid grid-cols-2 gap-4">
           
-          <!-- Chairman Card -->
-          <div class="tilt-card-wrap preserve-3d will-change-3d">
-            <div id="chairman-card-3d" class="tilt-card premium-card flex flex-col bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm group gsap-reveal h-full">
-              <!-- Image container -->
-              <div class="zoom-img-container h-80 relative overflow-hidden bg-white">
-                <img src="images/sunil_bora.jpg" alt="Sunil Bora" class="w-full h-full object-contain">
-                <!-- Glassmorphic tag overlay -->
-                <div class="absolute bottom-4 left-4 right-4 glass-panel-dark py-4 px-6 rounded-xl flex justify-between items-center border border-white/10">
-                  <div>
-                    <h3 class="font-heading font-bold text-lg text-white" data-i18n="home_leader_sunil_name">Sunil Bora</h3>
-                    <p class="text-xs text-gold font-medium uppercase tracking-wider" data-i18n="home_leader_sunil_title">Chairman, Bora Group</p>
-                  </div>
-                  <div class="w-10 h-10 rounded-full border border-gold/40 flex items-center justify-center text-gold">
-                    <i class="fa-solid fa-quote-right text-sm"></i>
-                  </div>
-                </div>
-              </div>
-              <!-- Quote Content -->
-              <div class="p-8 flex-grow flex flex-col justify-between">
-                <blockquote class="font-serif italic text-gray-600 text-sm lg:text-base leading-relaxed mb-6 relative" data-i18n="home_leader_sunil_quote">
-                  "Built on Heritage. Driven by Innovation."
-                </blockquote>
-                <div class="flex items-center space-x-2 text-xs font-semibold text-gold tracking-widest uppercase">
-                  <span data-i18n="home_view_credentials">View Credentials</span>
-                  <i class="fa-solid fa-arrow-right-long text-[10px] group-hover:translate-x-1.5 transition-transform duration-300"></i>
-                </div>
+          <!-- 01 Real Estate -->
+          <div class="biz-card-item active relative overflow-hidden rounded-none border-2 border-[#053C8F] p-5 cursor-pointer transition-all duration-300 flex flex-col justify-between h-[180px] group bg-black" data-slide="0">
+            <img src="images/real_estate_launch.jpg" alt="Real Estate" class="absolute inset-0 w-full h-full object-cover opacity-100 pointer-events-none z-0">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent z-0"></div>
+            <div class="flex items-center justify-between w-full mt-auto relative z-10">
+              <h4 class="biz-card-title font-heading font-extrabold text-sm text-white transition-colors">Real Estate</h4>
+              <div class="flex items-center space-x-1">
+                <span class="biz-card-line h-[1px] bg-white w-8 transition-all duration-300 origin-left"></span>
+                <i class="biz-card-arrow fa-solid fa-arrow-right text-white transition-transform group-hover:translate-x-1"></i>
               </div>
             </div>
           </div>
 
-          <!-- Director Card -->
-          <div class="tilt-card-wrap preserve-3d will-change-3d">
-            <div id="director-card-3d" class="tilt-card premium-card flex flex-col bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm group gsap-reveal h-full">
-              <!-- Image container -->
-              <div class="zoom-img-container h-80 relative overflow-hidden bg-white">
-                <img src="images/jay_bora.jpg" alt="Jay Bora" class="w-full h-full object-contain">
-                <!-- Glassmorphic tag overlay -->
-                <div class="absolute bottom-4 left-4 right-4 glass-panel-dark py-4 px-6 rounded-xl flex justify-between items-center border border-white/10">
-                  <div>
-                    <h3 class="font-heading font-bold text-lg text-white" data-i18n="home_leader_jay_name">Jay Bora</h3>
-                    <p class="text-xs text-gold font-medium uppercase tracking-wider" data-i18n="home_leader_jay_title">Director, Bora Group</p>
-                  </div>
-                  <div class="w-10 h-10 rounded-full border border-gold/40 flex items-center justify-center text-gold">
-                    <i class="fa-solid fa-quote-right text-sm"></i>
-                  </div>
-                </div>
+          <!-- 02 Global Trade -->
+          <div class="biz-card-item relative overflow-hidden rounded-none border-2 border-transparent p-5 cursor-pointer transition-all duration-300 flex flex-col justify-between h-[180px] group bg-black" data-slide="1">
+            <img src="images/overseas_trade_ship.jpg" alt="Global Trade" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-300 pointer-events-none z-0">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent z-0"></div>
+            <div class="flex items-center justify-between w-full mt-auto relative z-10">
+              <h4 class="biz-card-title font-heading font-bold text-sm text-white/80 transition-colors">Global Trade</h4>
+              <div class="flex items-center space-x-1">
+                <span class="biz-card-line h-[1px] bg-white w-0 group-hover:w-8 transition-all duration-300 origin-left"></span>
+                <i class="biz-card-arrow fa-solid fa-arrow-right text-white/50 transition-transform group-hover:translate-x-1"></i>
               </div>
-              <!-- Quote Content -->
-              <div class="p-8 flex-grow flex flex-col justify-between">
-                <blockquote class="font-serif italic text-gray-600 text-sm lg:text-base leading-relaxed mb-6 relative" data-i18n="home_leader_jay_quote">
-                  "We are not here for short-term wins. We are focused on building something strong, scalable, and built to last."
-                </blockquote>
-                <div class="flex items-center space-x-2 text-xs font-semibold text-gold tracking-widest uppercase">
-                  <span data-i18n="home_view_credentials">View Credentials</span>
-                  <i class="fa-solid fa-arrow-right-long text-[10px] group-hover:translate-x-1.5 transition-transform duration-300"></i>
-                </div>
+            </div>
+          </div>
+
+          <!-- 03 Industrial Supply -->
+          <div class="biz-card-item relative overflow-hidden rounded-none border-2 border-transparent p-5 cursor-pointer transition-all duration-300 flex flex-col justify-between h-[180px] group bg-black" data-slide="2">
+            <img src="images/industrial_supplies.jpg" alt="Industrial Supply" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-300 pointer-events-none z-0">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent z-0"></div>
+            <div class="flex items-center justify-between w-full mt-auto relative z-10">
+              <h4 class="biz-card-title font-heading font-bold text-sm text-white/80 transition-colors">Industrial Supply</h4>
+              <div class="flex items-center space-x-1">
+                <span class="biz-card-line h-[1px] bg-white w-0 group-hover:w-8 transition-all duration-300 origin-left"></span>
+                <i class="biz-card-arrow fa-solid fa-arrow-right text-white/50 transition-transform group-hover:translate-x-1"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- 04 Garments & Textiles -->
+          <div class="biz-card-item relative overflow-hidden rounded-none border-2 border-transparent p-5 cursor-pointer transition-all duration-300 flex flex-col justify-between h-[180px] group bg-black" data-slide="3">
+            <img src="images/garments_textiles.png" alt="Garments & Textiles" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-300 pointer-events-none z-0">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent z-0"></div>
+            <div class="flex items-center justify-between w-full mt-auto relative z-10">
+              <h4 class="biz-card-title font-heading font-bold text-sm text-white/80 transition-colors">Garments & Textiles</h4>
+              <div class="flex items-center space-x-1">
+                <span class="biz-card-line h-[1px] bg-white w-0 group-hover:w-8 transition-all duration-300 origin-left"></span>
+                <i class="biz-card-arrow fa-solid fa-arrow-right text-white/50 transition-transform group-hover:translate-x-1"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- 05 Hospitality & Services -->
+          <div class="biz-card-item relative overflow-hidden rounded-none border-2 border-transparent p-5 cursor-pointer transition-all duration-300 flex flex-col justify-between h-[180px] group col-span-2 bg-black" data-slide="4">
+            <img src="images/hotel_divya_palace.jpg" alt="Hospitality & Services" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-300 pointer-events-none z-0">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent z-0"></div>
+            <div class="flex items-center justify-between w-full mt-auto relative z-10">
+              <h4 class="biz-card-title font-heading font-bold text-sm text-white/80 transition-colors">Hospitality & Services</h4>
+              <div class="flex items-center space-x-1">
+                <span class="biz-card-line h-[1px] bg-white w-0 group-hover:w-8 transition-all duration-300 origin-left"></span>
+                <i class="biz-card-arrow fa-solid fa-arrow-right text-white/50 transition-transform group-hover:translate-x-1"></i>
               </div>
             </div>
           </div>
 
         </div>
-      </div>
-    </section>
 
-    <!-- CORE VALUES INFOGRAPHIC SECTION -->
+        <!-- Right Column: Interactive Slides (4 cols) -->
+        <div class="lg:col-span-4 relative h-[400px] lg:h-[572px] overflow-hidden rounded-none bg-white z-10 shadow-lg">
+          
+          <!-- Slide 1: Real Estate -->
+          <div class="biz-slide-panel absolute inset-0 w-full h-full opacity-100 visible z-10" data-slide="0">
+            <img src="images/real_estate_launch.jpg" alt="Real Estate" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+            
+            <div class="absolute bottom-8 left-6 right-6 z-20 text-left">
+              <span class="text-[9px] font-heading font-semibold tracking-widest text-gold uppercase mb-1 inline-block">Featured Business</span>
+              <h3 class="font-heading font-extrabold text-xl text-white tracking-tight mb-2 uppercase">Real Estate</h3>
+              <p class="text-[11px] text-white/80 font-light leading-relaxed">
+                Creating luxurious residential properties, incorporating state-of-the-art construction materials, strict timeliness, and structural integrity.
+              </p>
+            </div>
+          </div>
+
+          <!-- Slide 2: Global Trade -->
+          <div class="biz-slide-panel absolute inset-0 w-full h-full opacity-0 invisible z-5" data-slide="1">
+            <img src="images/overseas_trade_ship.jpg" alt="Global Trade" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+            
+            <div class="absolute bottom-8 left-6 right-6 z-20 text-left">
+              <span class="text-[9px] font-heading font-semibold tracking-widest text-gold uppercase mb-1 inline-block">Featured Business</span>
+              <h3 class="font-heading font-extrabold text-xl text-white tracking-tight mb-2 uppercase">Global Trade</h3>
+              <p class="text-[11px] text-white/80 font-light leading-relaxed">
+                Pioneering bulk exports and imports of high-quality grains, oil seeds, animal feed, spices, and fresh agro commodities globally since 1982.
+              </p>
+            </div>
+          </div>
+
+          <!-- Slide 3: Industrial Supply -->
+          <div class="biz-slide-panel absolute inset-0 w-full h-full opacity-0 invisible z-5" data-slide="2">
+            <img src="images/industrial_supplies.jpg" alt="Industrial Supply" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+            
+            <div class="absolute bottom-8 left-6 right-6 z-20 text-left">
+              <span class="text-[9px] font-heading font-semibold tracking-widest text-gold uppercase mb-1 inline-block">Featured Business</span>
+              <h3 class="font-heading font-extrabold text-xl text-white tracking-tight mb-2 uppercase">Industrial Supply</h3>
+              <p class="text-[11px] text-white/80 font-light leading-relaxed">
+                Delivering machine assemblies, engineering tools, and standard components to processing mills and manufacturing sectors since 1995.
+              </p>
+            </div>
+          </div>
+
+          <!-- Slide 4: Garments & Textiles -->
+          <div class="biz-slide-panel absolute inset-0 w-full h-full opacity-0 invisible z-5" data-slide="3">
+            <img src="images/garments_textiles.png" alt="Garments & Textiles" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+            
+            <div class="absolute bottom-8 left-6 right-6 z-20 text-left">
+              <span class="text-[9px] font-heading font-semibold tracking-widest text-gold uppercase mb-1 inline-block">Featured Business</span>
+              <h3 class="font-heading font-extrabold text-xl text-white tracking-tight mb-2 uppercase">Garments & Textiles</h3>
+              <p class="text-[11px] text-white/80 font-light leading-relaxed">
+                Fulfilling custom tailoring and bulk garment export contracts. Our modern mills satisfy premium international compliance guidelines.
+              </p>
+            </div>
+          </div>
+
+          <!-- Slide 5: Hospitality & Services -->
+          <div class="biz-slide-panel absolute inset-0 w-full h-full opacity-0 invisible z-5" data-slide="4">
+            <img src="images/hotel_divya_palace.jpg" alt="Hospitality & Services" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10"></div>
+            
+            <div class="absolute bottom-8 left-6 right-6 z-20 text-left">
+              <span class="text-[9px] font-heading font-semibold tracking-widest text-gold uppercase mb-1 inline-block">Featured Business</span>
+              <h3 class="font-heading font-extrabold text-xl text-white tracking-tight mb-2 uppercase">Hospitality & Services</h3>
+              <p class="text-[11px] text-white/80 font-light leading-relaxed">
+                Providing fine dining experiences, premium lodging operations, and business conference spaces across Maharashtra, India.
+              </p>
+            </div>
+          </div>
+
+          <!-- Active Slide Indicator (Top Right) -->
+          <div class="absolute top-4 right-4 z-20 text-white/90 font-heading text-[10px] tracking-widest uppercase bg-black/30 backdrop-blur-sm px-2.5 py-1 rounded-full">
+            <span id="biz-indicator-current" class="font-bold text-white">01</span> <span class="text-white/40">/</span> <span class="text-white/40">05</span>
+          </div>
+
+          <!-- Controls (Bottom Right) -->
+          <div class="absolute bottom-8 right-6 z-20 flex space-x-2">
+            <button id="biz-prev-btn" class="w-8 h-8 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm text-white flex items-center justify-center text-[10px] hover:bg-white hover:text-dark transition-colors duration-300" aria-label="Previous Slide">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <button id="biz-next-btn" class="w-8 h-8 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm text-white flex items-center justify-center text-[10px] hover:bg-white hover:text-dark transition-colors duration-300" aria-label="Next Slide">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSPECTIVE CONTAINER FOR REMAINING 3D SCROLL -->
+  <div class="perspective-container preserve-3d">
+
+    <!-- CORE VALUES EXPANDING CARDS SECTION -->
     <section id="values-3d-section" class="py-24 bg-[#F4F7FA] relative overflow-hidden border-t border-gray-100 preserve-3d will-change-3d">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         
         <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-20 gsap-reveal">
-          <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase mb-3 inline-block" data-i18n="governance_tag">OUR GOVERNANCE</span>
+        <div class="text-left max-w-3xl mb-16 gsap-reveal">
           <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-navy" data-i18n="governance_title">
             Core Values & Principles
           </h2>
-          <div class="w-12 h-1 bg-gold mx-auto mt-6"></div>
+          <div class="w-12 h-1 bg-gold mt-6"></div>
         </div>
 
-        <!-- Infographic Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 gsap-stagger-container">
-          
-          <!-- Trust & Integrity -->
-          <div class="value-card-3d premium-card bg-white p-8 border border-gray-100 rounded-2xl flex flex-col items-center text-center h-full gsap-stagger-item group transition-all duration-300 hover:bg-[#F4F7FA] hover:border-gold/30 hover:shadow-xl shadow-sm preserve-3d will-change-3d">
-            <div class="w-14 h-14 rounded-2xl bg-gold/10 text-gold flex items-center justify-center mb-6 text-lg font-bold group-hover:bg-gold group-hover:text-white transition-all duration-500 shadow-inner">
-              <i class="fa-solid fa-handshake"></i>
-            </div>
-            <div>
-              <h3 class="font-heading font-bold text-sm uppercase tracking-wider text-navy mb-4 group-hover:text-gold transition-colors duration-300 min-h-[40px] flex items-center justify-center" data-i18n="home_value_1_title">Trust & Integrity</h3>
-              <p class="text-xs text-gray-500 font-light leading-relaxed" data-i18n="home_value_1_desc">
-                We believe trust is the foundation of every successful relationship. We operate with honesty, accountability, and ethical responsibility across all businesses.
-              </p>
-            </div>
-          </div>
+        <!-- Expanding Cards Container -->
+        <div class="flex justify-center w-full">
+          <ul id="home-expanding-cards" class="w-full max-w-6xl gap-2 grid h-[520px] md:h-[480px] transition-all duration-500 ease-out" style="grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; grid-template-rows: 1fr;">
+            
+            <!-- 1. Integrity -->
+            <li class="expanding-card-item group relative cursor-pointer overflow-hidden rounded-xl shadow-sm" data-index="0" data-active="true">
+              <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80" alt="Integrity" class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-data-[active=true]:scale-100 group-data-[active=true]:grayscale-0 scale-110 grayscale" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+              <article class="absolute inset-0 flex flex-col justify-end items-center text-center gap-2 p-6 pb-8">
+                <h3 class="expanding-card-vertical-title hidden origin-left text-[11px] font-bold uppercase tracking-widest text-white/80 opacity-100 transition-all duration-500 ease-out md:block group-data-[active=true]:opacity-0 absolute left-3 bottom-16 whitespace-nowrap">Integrity</h3>
+                <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white opacity-0 transition-all duration-500 delay-100 ease-out group-data-[active=true]:opacity-100">Integrity</h3>
+                <p class="w-full max-w-md text-sm text-white/80 opacity-0 transition-all duration-500 delay-200 ease-out group-data-[active=true]:opacity-100 leading-relaxed">Acting honestly and with strong moral principles across all operations and partnerships.</p>
+              </article>
+            </li>
 
-          <!-- Strategic Excellence -->
-          <div class="value-card-3d premium-card bg-white p-8 border border-gray-100 rounded-2xl flex flex-col items-center text-center h-full gsap-stagger-item group transition-all duration-300 hover:bg-[#F4F7FA] hover:border-gold/30 hover:shadow-xl shadow-sm preserve-3d will-change-3d">
-            <div class="w-14 h-14 rounded-2xl bg-gold/10 text-gold flex items-center justify-center mb-6 text-lg font-bold group-hover:bg-gold group-hover:text-white transition-all duration-500 shadow-inner">
-              <i class="fa-solid fa-chess-knight"></i>
-            </div>
-            <div>
-              <h3 class="font-heading font-bold text-sm uppercase tracking-wider text-navy mb-4 group-hover:text-gold transition-colors duration-300 min-h-[40px] flex items-center justify-center" data-i18n="home_value_2_title">Strategic Excellence</h3>
-              <p class="text-xs text-gray-500 font-light leading-relaxed" data-i18n="home_value_2_desc">
-                Our decisions are driven by insight, planning, and long-term vision, ensuring stability and sustainable growth in a dynamic market environment.
-              </p>
-            </div>
-          </div>
+            <!-- 2. Trust -->
+            <li class="expanding-card-item group relative cursor-pointer overflow-hidden rounded-xl shadow-sm" data-index="1" data-active="false">
+              <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="Trust" class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-data-[active=true]:scale-100 group-data-[active=true]:grayscale-0 scale-110 grayscale" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+              <article class="absolute inset-0 flex flex-col justify-end items-center text-center gap-2 p-6 pb-8">
+                <h3 class="expanding-card-vertical-title hidden origin-left text-[11px] font-bold uppercase tracking-widest text-white/80 opacity-100 transition-all duration-500 ease-out md:block group-data-[active=true]:opacity-0 absolute left-3 bottom-16 whitespace-nowrap">Trust</h3>
+                <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white opacity-0 transition-all duration-500 delay-100 ease-out group-data-[active=true]:opacity-100">Trust</h3>
+                <p class="w-full max-w-md text-sm text-white/80 opacity-0 transition-all duration-500 delay-200 ease-out group-data-[active=true]:opacity-100 leading-relaxed">Building credible, reliable connections with clients, partners, and communities.</p>
+              </article>
+            </li>
 
-          <!-- Growth With Purpose -->
-          <div class="value-card-3d premium-card bg-white p-8 border border-gray-100 rounded-2xl flex flex-col items-center text-center h-full gsap-stagger-item group transition-all duration-300 hover:bg-[#F4F7FA] hover:border-gold/30 hover:shadow-xl shadow-sm preserve-3d will-change-3d">
-            <div class="w-14 h-14 rounded-2xl bg-gold/10 text-gold flex items-center justify-center mb-6 text-lg font-bold group-hover:bg-gold group-hover:text-white transition-all duration-500 shadow-inner">
-              <i class="fa-solid fa-seedling"></i>
-            </div>
-            <div>
-              <h3 class="font-heading font-bold text-sm uppercase tracking-wider text-navy mb-4 group-hover:text-gold transition-colors duration-300 min-h-[40px] flex items-center justify-center" data-i18n="home_value_3_title">Growth With Purpose</h3>
-              <p class="text-xs text-gray-500 font-light leading-relaxed" data-i18n="home_value_3_desc">
-                We pursue growth that is sustainable, responsible, and value-driven—benefiting stakeholders while strengthening the communities and markets we serve.
-              </p>
-            </div>
-          </div>
+            <!-- 3. Transparency -->
+            <li class="expanding-card-item group relative cursor-pointer overflow-hidden rounded-xl shadow-sm" data-index="2" data-active="false">
+              <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Transparency" class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-data-[active=true]:scale-100 group-data-[active=true]:grayscale-0 scale-110 grayscale" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+              <article class="absolute inset-0 flex flex-col justify-end items-center text-center gap-2 p-6 pb-8">
+                <h3 class="expanding-card-vertical-title hidden origin-left text-[11px] font-bold uppercase tracking-widest text-white/80 opacity-100 transition-all duration-500 ease-out md:block group-data-[active=true]:opacity-0 absolute left-3 bottom-16 whitespace-nowrap">Transparency</h3>
+                <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white opacity-0 transition-all duration-500 delay-100 ease-out group-data-[active=true]:opacity-100">Transparency</h3>
+                <p class="w-full max-w-md text-sm text-white/80 opacity-0 transition-all duration-500 delay-200 ease-out group-data-[active=true]:opacity-100 leading-relaxed">Maintaining openness, accountability, and clear communication in every transaction.</p>
+              </article>
+            </li>
 
-          <!-- Forward Momentum -->
-          <div class="value-card-3d premium-card bg-white p-8 border border-gray-100 rounded-2xl flex flex-col items-center text-center h-full gsap-stagger-item group transition-all duration-300 hover:bg-[#F4F7FA] hover:border-gold/30 hover:shadow-xl shadow-sm preserve-3d will-change-3d">
-            <div class="w-14 h-14 rounded-2xl bg-gold/10 text-gold flex items-center justify-center mb-6 text-lg font-bold group-hover:bg-gold group-hover:text-white transition-all duration-500 shadow-inner">
-              <i class="fa-solid fa-arrow-trend-up"></i>
-            </div>
-            <div>
-              <h3 class="font-heading font-bold text-sm uppercase tracking-wider text-navy mb-4 group-hover:text-gold transition-colors duration-300 min-h-[40px] flex items-center justify-center" data-i18n="home_value_4_title">Forward Momentum</h3>
-              <p class="text-xs text-gray-500 font-light leading-relaxed" data-i18n="home_value_4_desc">
-                We embrace change, innovation, and global opportunities to remain agile, relevant, and future-ready.
-              </p>
-            </div>
-          </div>
+            <!-- 4. Excellence -->
+            <li class="expanding-card-item group relative cursor-pointer overflow-hidden rounded-xl shadow-sm" data-index="3" data-active="false">
+              <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&w=800&q=80" alt="Excellence" class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-data-[active=true]:scale-100 group-data-[active=true]:grayscale-0 scale-110 grayscale" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+              <article class="absolute inset-0 flex flex-col justify-end items-center text-center gap-2 p-6 pb-8">
+                <h3 class="expanding-card-vertical-title hidden origin-left text-[11px] font-bold uppercase tracking-widest text-white/80 opacity-100 transition-all duration-500 ease-out md:block group-data-[active=true]:opacity-0 absolute left-3 bottom-16 whitespace-nowrap">Excellence</h3>
+                <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white opacity-0 transition-all duration-500 delay-100 ease-out group-data-[active=true]:opacity-100">Excellence</h3>
+                <p class="w-full max-w-md text-sm text-white/80 opacity-0 transition-all duration-500 delay-200 ease-out group-data-[active=true]:opacity-100 leading-relaxed">Focusing on high execution standards, architectural perfection, and uncompromising quality.</p>
+              </article>
+            </li>
 
-          <!-- Consistency & Reliability -->
-          <div class="value-card-3d premium-card bg-white p-8 border border-gray-100 rounded-2xl flex flex-col items-center text-center h-full gsap-stagger-item group transition-all duration-300 hover:bg-[#F4F7FA] hover:border-gold/30 hover:shadow-xl shadow-sm preserve-3d will-change-3d">
-            <div class="w-14 h-14 rounded-2xl bg-gold/10 text-gold flex items-center justify-center mb-6 text-lg font-bold group-hover:bg-gold group-hover:text-white transition-all duration-500 shadow-inner">
-              <i class="fa-solid fa-arrows-spin"></i>
-            </div>
-            <div>
-              <h3 class="font-heading font-bold text-sm uppercase tracking-wider text-navy mb-4 group-hover:text-gold transition-colors duration-300 min-h-[40px] flex items-center justify-center" data-i18n="home_value_5_title">Consistency & Reliability</h3>
-              <p class="text-xs text-gray-500 font-light leading-relaxed" data-i18n="home_value_5_desc">
-                We deliver dependable performance by maintaining high standards of quality, process, and execution across every business vertical.
-              </p>
-            </div>
-          </div>
+            <!-- 5. Commitment -->
+            <li class="expanding-card-item group relative cursor-pointer overflow-hidden rounded-xl shadow-sm" data-index="4" data-active="false">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Commitment" class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-data-[active=true]:scale-100 group-data-[active=true]:grayscale-0 scale-110 grayscale" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+              <article class="absolute inset-0 flex flex-col justify-end items-center text-center gap-2 p-6 pb-8">
+                <h3 class="expanding-card-vertical-title hidden origin-left text-[11px] font-bold uppercase tracking-widest text-white/80 opacity-100 transition-all duration-500 ease-out md:block group-data-[active=true]:opacity-0 absolute left-3 bottom-16 whitespace-nowrap">Commitment</h3>
+                <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white opacity-0 transition-all duration-500 delay-100 ease-out group-data-[active=true]:opacity-100">Commitment</h3>
+                <p class="w-full max-w-md text-sm text-white/80 opacity-0 transition-all duration-500 delay-200 ease-out group-data-[active=true]:opacity-100 leading-relaxed">Upholding long-term responsibilities to clients, partners, and stakeholders.</p>
+              </article>
+            </li>
 
+            <!-- 6. Innovation -->
+            <li class="expanding-card-item group relative cursor-pointer overflow-hidden rounded-xl shadow-sm" data-index="5" data-active="false">
+              <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80" alt="Innovation" class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-data-[active=true]:scale-100 group-data-[active=true]:grayscale-0 scale-110 grayscale" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+              <article class="absolute inset-0 flex flex-col justify-end items-center text-center gap-2 p-6 pb-8">
+                <h3 class="expanding-card-vertical-title hidden origin-left text-[11px] font-bold uppercase tracking-widest text-white/80 opacity-100 transition-all duration-500 ease-out md:block group-data-[active=true]:opacity-0 absolute left-3 bottom-16 whitespace-nowrap">Innovation</h3>
+                <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white opacity-0 transition-all duration-500 delay-100 ease-out group-data-[active=true]:opacity-100">Innovation</h3>
+                <p class="w-full max-w-md text-sm text-white/80 opacity-0 transition-all duration-500 delay-200 ease-out group-data-[active=true]:opacity-100 leading-relaxed">Pioneering sustainable, efficient workflows and embracing modern technologies.</p>
+              </article>
+            </li>
+
+            <!-- 7. Collaboration -->
+            <li class="expanding-card-item group relative cursor-pointer overflow-hidden rounded-xl shadow-sm" data-index="6" data-active="false">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Collaboration" class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-data-[active=true]:scale-100 group-data-[active=true]:grayscale-0 scale-110 grayscale" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+              <article class="absolute inset-0 flex flex-col justify-end items-center text-center gap-2 p-6 pb-8">
+                <h3 class="expanding-card-vertical-title hidden origin-left text-[11px] font-bold uppercase tracking-widest text-white/80 opacity-100 transition-all duration-500 ease-out md:block group-data-[active=true]:opacity-0 absolute left-3 bottom-16 whitespace-nowrap">Collaboration</h3>
+                <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white opacity-0 transition-all duration-500 delay-100 ease-out group-data-[active=true]:opacity-100">Collaboration</h3>
+                <p class="w-full max-w-md text-sm text-white/80 opacity-0 transition-all duration-500 delay-200 ease-out group-data-[active=true]:opacity-100 leading-relaxed">Cultivating enduring partnerships and teamwork for mutual growth and shared success.</p>
+              </article>
+            </li>
+
+            <!-- 8. Sustainability -->
+            <li class="expanding-card-item group relative cursor-pointer overflow-hidden rounded-xl shadow-sm" data-index="7" data-active="false">
+              <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80" alt="Sustainability" class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-data-[active=true]:scale-100 group-data-[active=true]:grayscale-0 scale-110 grayscale" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
+              <article class="absolute inset-0 flex flex-col justify-end items-center text-center gap-2 p-6 pb-8">
+                <h3 class="expanding-card-vertical-title hidden origin-left text-[11px] font-bold uppercase tracking-widest text-white/80 opacity-100 transition-all duration-500 ease-out md:block group-data-[active=true]:opacity-0 absolute left-3 bottom-16 whitespace-nowrap">Sustainability</h3>
+                <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white opacity-0 transition-all duration-500 delay-100 ease-out group-data-[active=true]:opacity-100">Sustainability</h3>
+                <p class="w-full max-w-md text-sm text-white/80 opacity-0 transition-all duration-500 delay-200 ease-out group-data-[active=true]:opacity-100 leading-relaxed">Fostering steady, responsible growth and environmental consciousness across market cycles.</p>
+              </article>
+            </li>
+
+          </ul>
         </div>
-
       </div>
     </section>
+
+    <!-- Expanding Cards JS Controller -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const cardsContainer = document.getElementById('home-expanding-cards');
+        if (!cardsContainer) return;
+        
+        const cards = cardsContainer.querySelectorAll('.expanding-card-item');
+        const itemsCount = cards.length;
+        let isDesktop = window.innerWidth >= 768;
+        let activeIndex = 0;
+        
+        window.addEventListener('resize', () => {
+          isDesktop = window.innerWidth >= 768;
+          updateGrid();
+        });
+        
+        function updateGrid() {
+          cards.forEach((card, index) => {
+            card.setAttribute('data-active', index === activeIndex ? 'true' : 'false');
+          });
+          
+          if (isDesktop) {
+            const columns = Array.from({ length: itemsCount })
+              .map((_, i) => (i === activeIndex ? '4fr' : '1fr'))
+              .join(' ');
+            cardsContainer.style.gridTemplateColumns = columns;
+            cardsContainer.style.gridTemplateRows = '1fr';
+          } else {
+            const rows = Array.from({ length: itemsCount })
+              .map((_, i) => (i === activeIndex ? '4fr' : '1fr'))
+              .join(' ');
+            cardsContainer.style.gridTemplateRows = rows;
+            cardsContainer.style.gridTemplateColumns = '1fr';
+          }
+        }
+        
+        cards.forEach((card, index) => {
+          const activate = () => { activeIndex = index; updateGrid(); };
+          card.addEventListener('mouseenter', activate);
+          card.addEventListener('click', activate);
+          card.addEventListener('focus', activate);
+        });
+        
+        updateGrid();
+      });
+    </script>
 
     <!-- CTA STRIP -->
     <section id="cta-3d-section" class="py-20 bg-navy text-white relative overflow-hidden preserve-3d will-change-3d">
@@ -433,36 +690,36 @@
         </div>
       </div>
     </section>
-
   </div>
 
   <!-- DOCKING FOOTER -->
-  <footer class="bg-dark text-white pt-20 pb-10 border-t border-white/5 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(197,168,128,0.05)_0%,transparent_50%)]"></div>
+  <!-- DOCKING FOOTER -->
+  <footer class="footer-glassmorphism pt-20 pb-10 border-t border-gray-200 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(5,60,143,0.03)_0%,transparent_50%)]"></div>
     
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
         <!-- About column -->
         <div>
-          <span class="font-heading font-extrabold text-xl tracking-widest text-white block mb-6">
+          <span class="font-heading font-extrabold text-xl tracking-widest text-[#053C8F] block mb-6">
             BORA <span class="text-gold">GROUP</span>
           </span>
-          <p class="text-xs text-white/50 leading-relaxed font-light mb-6" data-i18n="footer_desc">
+          <p class="text-xs text-gray-600 leading-relaxed font-light mb-6" data-i18n="footer_desc">
             Diversified business group delivering consistent value, disciplined execution, and long-term relationships across multiple industries since 1947.
           </p>
           <!-- Social Icons -->
           <div class="flex space-x-4">
-            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://wa.me/917304733333" target="_blank" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full border border-gray-200 hover:border-gold hover:text-gold text-gray-600 flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full border border-gray-200 hover:border-gold hover:text-gold text-gray-600 flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full border border-gray-200 hover:border-gold hover:text-gold text-gray-600 flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/917304733333" target="_blank" class="w-8 h-8 rounded-full border border-gray-200 hover:border-gold hover:text-gold text-gray-600 flex items-center justify-center text-xs transition-colors duration-300" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
           </div>
         </div>
 
         <!-- Quick Links -->
         <div>
-          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3" data-i18n="footer_quick_links">Quick Links</h4>
-          <ul class="space-y-3 text-xs text-white/60 font-light">
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-[#053C8F] mb-6 border-b border-gray-200 pb-3" data-i18n="footer_quick_links">Quick Links</h4>
+          <ul class="space-y-3 text-xs text-gray-600 font-light">
             <li><a href="index.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_home_page">Home Page</a></li>
             <li><a href="about.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_company_profile">Company Profile</a></li>
             <li><a href="business.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_business_sectors">Business Sectors</a></li>
@@ -473,8 +730,8 @@
 
         <!-- Business Verticals -->
         <div>
-          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3" data-i18n="footer_operations">Our Operations</h4>
-          <ul class="space-y-3 text-xs text-white/60 font-light">
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-[#053C8F] mb-6 border-b border-gray-200 pb-3" data-i18n="footer_operations">Our Operations</h4>
+          <ul class="space-y-3 text-xs text-gray-600 font-light">
             <li><a href="real-estate.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_real_estate">Real Estate Development</a></li>
             <li><a href="overseas-trade.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_overseas_trade">Overseas Trade Division</a></li>
 
@@ -485,19 +742,19 @@
 
         <!-- Contact Desk -->
         <div>
-          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3" data-i18n="footer_inquiries">Inquiries</h4>
-          <ul class="space-y-3 text-xs text-white/60 font-light">
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-[#053C8F] mb-6 border-b border-gray-200 pb-3" data-i18n="footer_inquiries">Inquiries</h4>
+          <ul class="space-y-3 text-xs text-gray-600 font-light">
             <li class="flex items-start space-x-3">
               <i class="fa-solid fa-location-dot text-gold mt-0.5"></i>
-              <span data-i18n="footer_location">Kopargaon, Maharashtra, India</span>
+              <span data-i18n="footer_location" class="text-gray-600">Kopargaon, Maharashtra, India</span>
             </li>
             <li class="flex items-center space-x-3">
               <i class="fa-solid fa-phone text-gold"></i>
-              <a href="tel:+917304733333" class="hover:text-gold transition-colors">+91 73047 33333</a>
+              <a href="tel:+917304733333" class="hover:text-gold transition-colors text-gray-600">+91 73047 33333</a>
             </li>
             <li class="flex items-center space-x-3">
               <i class="fa-solid fa-envelope text-gold"></i>
-              <a href="mailto:sales@boragroup.co.in" class="hover:text-gold transition-colors">sales@boragroup.co.in</a>
+              <a href="mailto:sales@boragroup.co.in" class="hover:text-gold transition-colors text-gray-600">sales@boragroup.co.in</a>
             </li>
           </ul>
         </div>
@@ -505,7 +762,7 @@
       </div>
 
       <!-- Copyright bar -->
-      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-white/30">
+      <div class="border-t border-gray-200/60 pt-8 mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-gray-500">
         <div data-i18n="footer_copyright">
           © 2026 BORA GROUP. ALL RIGHTS RESERVED.
         </div>
@@ -517,12 +774,6 @@
       </div>
     </div>
   </footer>
-
-  <!-- FLOATING WHATSAPP BUTTON -->
-  <a href="https://wa.me/917304733333" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
-    <div class="pulse"></div>
-    <i class="fa-brands fa-whatsapp text-3xl"></i>
-  </a>
 
   <!-- GSAP Animation Engine via CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -538,4 +789,6 @@
   </script>
 </body>
 </html>
+
+
 

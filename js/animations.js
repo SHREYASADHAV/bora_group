@@ -44,68 +44,207 @@ document.addEventListener('DOMContentLoaded', () => {
     lenis.on('scroll', ScrollTrigger.update);
   }
 
-  // 2. Cinematic Hero Entry (Fade + Blur Reveal)
-  const heroTitle = document.querySelector('.hero-title');
-  const heroSubtitle = document.querySelector('.hero-subtitle');
-  const heroText = document.querySelector('.hero-text');
-  const heroCTAs = document.querySelector('.hero-ctas');
+  // 2. Cinematic Hero Carousel & Slideshow Animation
+  const heroCarouselSection = document.getElementById('hero-carousel-section');
+  if (heroCarouselSection) {
+    // Background slides remain inside the section
+    const bgSlides = heroCarouselSection.querySelectorAll('.hero-bg-slide');
+    // Cards, quotes, controls are now fixed-position elements outside the section
+    const quoteItems = document.querySelectorAll('.hero-quote-item');
+    const cards = document.querySelectorAll('.hero-card-item');
+    const wrapper = document.getElementById('hero-cards-wrapper');
+    const timerBar = document.getElementById('hero-timer-bar');
+    const prevBtn = document.getElementById('hero-prev-btn');
+    const nextBtn = document.getElementById('hero-next-btn');
+    const quoteOuter = document.getElementById('hero-quote-outer');
+    const controlsOuter = document.getElementById('hero-controls-outer');
+    const total = cards.length;
+    let activeIdx = -1;
+    let timerTween = null;
 
-  const hasTradePreloader = document.getElementById('trade-loader') !== null;
-  const heroTimeline = gsap.timeline({ paused: hasTradePreloader });
-  window.heroTimeline = heroTimeline;
+    // Show/hide fixed overlays when hero section leaves the viewport
+    const heroVisibilityObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const vis = entry.isIntersecting;
+        if (quoteOuter)    { quoteOuter.style.opacity    = vis ? '1' : '0'; quoteOuter.style.transition    = 'opacity 0.4s'; }
+        if (controlsOuter) { controlsOuter.style.opacity = vis ? '1' : '0'; controlsOuter.style.transition = 'opacity 0.4s'; controlsOuter.style.pointerEvents = vis ? 'auto' : 'none'; }
+        // Pause / resume timer when hero goes off screen
+        if (!vis && timerTween) timerTween.pause();
+        if (vis  && timerTween) timerTween.resume();
+      });
+    }, { threshold: 0.05 });
+    heroVisibilityObserver.observe(heroCarouselSection);
 
-  if (heroTitle) {
-    heroTimeline.fromTo(heroTitle, 
-      { opacity: 0, y: 50, filter: 'blur(10px)' }, 
-      { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.2, ease: "power3.out" }
-    );
-  }
-  if (heroSubtitle) {
-    heroTimeline.fromTo(heroSubtitle, 
-      { opacity: 0, y: 20 }, 
-      { opacity: 1, y: 0, duration: 0.8 }, 
-      "-=0.8"
-    );
-  }
-  if (heroText) {
-    heroTimeline.fromTo(heroText, 
-      { opacity: 0, y: 20 }, 
-      { opacity: 1, y: 0, duration: 0.8 }, 
-      "-=0.6"
-    );
-  }
-  if (heroCTAs) {
-    heroTimeline.fromTo(heroCTAs, 
-      { opacity: 0, y: 20 }, 
-      { opacity: 1, y: 0, duration: 0.8 }, 
-      "-=0.6"
-    );
-  }
+    // Set initial states — DO NOT use x offset on cards; they are fixed-position,
+    // so GSAP translateX on the card elements themselves breaks the carousel.
+    gsap.set(bgSlides,    { opacity: 0, zIndex: 0 });
+    gsap.set(quoteItems,  { opacity: 0 });
+    if (timerBar)      gsap.set(timerBar,      { width: '0%' });
+    if (quoteOuter)    gsap.set(quoteOuter,    { opacity: 0 });
+    if (controlsOuter) gsap.set(controlsOuter, { opacity: 0 });
+    // Pre-set wrapper translateX to 0 via GSAP so it owns the transform
+    if (wrapper) gsap.set(wrapper, { x: 0 });
 
-  // 3. Homepage 3D Scroll Animations
-  const heroContent3D = document.querySelector('.hero-content-3d');
-  const splineContainer = document.querySelector('.hero-spline-container');
+    // Simple fade-in entry — no x translation on individual cards
+    const heroTimeline = gsap.timeline({
+      onComplete: () => updateCarousel(0)
+    });
+    window.heroTimeline = heroTimeline;
+    heroTimeline
+      .to([quoteOuter, controlsOuter], { opacity: 1, duration: 0.6, ease: 'power2.out' });
 
-  if (heroContent3D && splineContainer) {
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: 'section.perspective-container', // Hero section
-        start: 'top top',
-        end: 'bottom top',
-        scrub: true,
-        invalidateOnRefresh: true,
+    // Unified Update Function
+    function updateCarousel(idx) {
+      const isInitial = (activeIdx === -1);
+      if (idx === activeIdx) return;
+      activeIdx = idx;
+
+      // 1. Background slideshow cross-fade
+      bgSlides.forEach((slide, sIdx) => {
+        gsap.to(slide, {
+          opacity: sIdx === idx ? 1 : 0,
+          zIndex:  sIdx === idx ? 10 : 0,
+          duration: isInitial ? 0 : 0.9,
+          ease: 'power2.inOut'
+        });
+      });
+
+      // 2. Quote transition
+      quoteItems.forEach((quote, qIdx) => {
+        if (qIdx === idx) {
+          gsap.killTweensOf(quote);
+          if (isInitial) {
+            gsap.set(quote, { opacity: 1, y: 0 });
+          } else {
+            gsap.fromTo(quote, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
+          }
+        } else {
+          gsap.to(quote, { opacity: 0, y: -12, duration: 0.3, ease: 'power2.in' });
+        }
+      });
+
+      // 3. Card carousel — translate only the WRAPPER (not individual cards)
+      // Cards are w-[110px], gap-3 = 12px
+      const cardWidth = 110;
+      const gap = 12;
+      gsap.to(wrapper, { x: -idx * (cardWidth + gap), duration: 0.55, ease: 'power2.out' });
+
+      // 4. Active card highlight (scale + border only — no text/underline)
+      cards.forEach((card, cIdx) => {
+        const img = card.querySelector('img');
+        if (cIdx === idx) {
+          gsap.to(card, { scale: 1.06, borderColor: '#E2D1B8', duration: 0.35, ease: 'power2.out' });
+          card.classList.add('active-card');
+          if (img) gsap.to(img, { opacity: 1, duration: 0.35 });
+        } else {
+          gsap.to(card, { scale: 0.95, borderColor: 'transparent', duration: 0.35, ease: 'power2.out' });
+          card.classList.remove('active-card');
+          if (img) gsap.to(img, { opacity: 0.55, duration: 0.35 });
+        }
+      });
+
+      // 5. Timer Bar — 7 second autoplay
+      if (timerTween) timerTween.kill();
+      if (timerBar) {
+        gsap.set(timerBar, { width: '0%' });
+        timerTween = gsap.to(timerBar, {
+          width: '100%',
+          duration: 7,
+          ease: 'none',
+          onComplete: () => updateCarousel((activeIdx + 1) % total)
+        });
       }
-    })
-    .to(heroContent3D, {
-      z: 600,
-      opacity: 0,
-      ease: 'none'
-    }, 0)
-    .to(splineContainer, {
-      scale: 0.8,
-      opacity: 0.1,
-      ease: 'none'
-    }, 0);
+    }
+
+    // Card click handlers
+    cards.forEach((card, idx) => card.addEventListener('click', () => updateCarousel(idx)));
+
+    // Arrow navigation
+    if (prevBtn) prevBtn.addEventListener('click', () => updateCarousel((activeIdx - 1 + total) % total));
+    if (nextBtn) nextBtn.addEventListener('click', () => updateCarousel((activeIdx + 1) % total));
+
+    // Hover & Drag interactions for showing/hiding stacked preview cards
+    const cardsContainer = document.getElementById('hero-cards-container');
+    if (cardsContainer && controlsOuter) {
+      let dragShowTimeout = null;
+
+      const showCards = () => {
+        if (dragShowTimeout) {
+          clearTimeout(dragShowTimeout);
+          dragShowTimeout = null;
+        }
+        cardsContainer.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+        cardsContainer.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+      };
+
+      const hideCards = () => {
+        cardsContainer.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        cardsContainer.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+      };
+
+      // Hover on controls outer (arrows/timer bar area) to reveal cards
+      controlsOuter.addEventListener('mouseenter', showCards);
+      controlsOuter.addEventListener('mouseleave', () => {
+        if (!dragShowTimeout) {
+          hideCards();
+        }
+      });
+
+      // Drag detection variables
+      let isDragging = false;
+      let startX = 0;
+      let startY = 0;
+
+      // Track drag on the slideshow background to reveal cards temporarily
+      heroCarouselSection.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return; // Only track left clicks
+        isDragging = false;
+        startX = e.clientX;
+        startY = e.clientY;
+      });
+
+      heroCarouselSection.addEventListener('mousemove', (e) => {
+        if (e.buttons === 1) { // Left mouse button is down
+          const dx = e.clientX - startX;
+          const dy = e.clientY - startY;
+          if (Math.sqrt(dx * dx + dy * dy) > 8) {
+            isDragging = true;
+            showCards();
+          }
+        }
+      });
+
+      heroCarouselSection.addEventListener('mouseup', () => {
+        if (isDragging) {
+          if (dragShowTimeout) clearTimeout(dragShowTimeout);
+          dragShowTimeout = setTimeout(() => {
+            dragShowTimeout = null;
+            if (!controlsOuter.matches(':hover')) {
+              hideCards();
+            }
+          }, 4000);
+        }
+      });
+
+      // Touch drag support for mobile
+      heroCarouselSection.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      }, { passive: true });
+
+      heroCarouselSection.addEventListener('touchmove', (e) => {
+        const dx = e.touches[0].clientX - startX;
+        const dy = e.touches[0].clientY - startY;
+        if (Math.sqrt(dx * dx + dy * dy) > 8) {
+          showCards();
+          if (dragShowTimeout) clearTimeout(dragShowTimeout);
+          dragShowTimeout = setTimeout(() => {
+            dragShowTimeout = null;
+            hideCards();
+          }, 4000);
+        }
+      }, { passive: true });
+    }
   }
 
   // 3b. Garments Page Hero 3D Scroll Animations
@@ -161,25 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // 5. Director Cards 3D entry Y-rotation & interactive mouse tilt
-  const chairmanCard = document.getElementById('chairman-card-3d');
   const directorCard = document.getElementById('director-card-3d');
-
-  if (chairmanCard) {
-    gsap.fromTo(chairmanCard,
-      { rotationY: -20, z: -80, opacity: 0 },
-      {
-        rotationY: 0,
-        z: 0,
-        opacity: 1,
-        scrollTrigger: {
-          trigger: chairmanCard,
-          start: 'top 95%',
-          end: 'top 65%',
-          scrub: 1,
-        }
-      }
-    );
-  }
 
   if (directorCard) {
     gsap.fromTo(directorCard,
@@ -233,10 +354,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 6. Staggered 3D Core Values Y-Axis flip
-  const valueCards = document.querySelectorAll('.value-card-3d');
-  if (valueCards.length > 0) {
-    gsap.fromTo(valueCards,
+  // 6. Staggered 3D Core Values Horizontal Loop Scroll
+  const loopTrack = document.querySelector('.values-loop-track');
+  if (loopTrack) {
+    const originalCards = Array.from(loopTrack.children);
+    
+    // Clone each card to create a seamless infinite loop marquee
+    originalCards.forEach(card => {
+      const clone = card.cloneNode(true);
+      clone.classList.remove('gsap-stagger-item'); // Remove reveal trigger from clones
+      loopTrack.appendChild(clone);
+    });
+
+    // Setup infinite horizontal translation marquee
+    const loopTween = gsap.to(loopTrack, {
+      xPercent: -50,
+      ease: 'none',
+      duration: 25, // speed of marquee (seconds per cycle)
+      repeat: -1,
+      paused: false
+    });
+
+    // Smooth hover deceleration & acceleration
+    loopTrack.addEventListener('mouseenter', () => {
+      gsap.to(loopTween, { timeScale: 0.15, duration: 0.8, ease: 'power2.out' });
+    });
+    loopTrack.addEventListener('mouseleave', () => {
+      gsap.to(loopTween, { timeScale: 1, duration: 0.8, ease: 'power2.out' });
+    });
+
+    // Reveal stagger animation on page scroll (applied to original cards only)
+    gsap.fromTo(originalCards,
       {
         rotationY: 75,
         z: -100,
@@ -250,7 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
         duration: 0.9,
         ease: 'back.out(1.1)',
         scrollTrigger: {
-          trigger: '.gsap-stagger-container',
+          trigger: '.values-loop-container',
           start: 'top 85%',
           toggleActions: 'play none none none',
         }
@@ -435,6 +583,264 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     );
+  }
+
+  // 9. Sticky Scroll Animation for Leadership (Chairman Vision Section)
+  const leadershipSection = document.getElementById('leadership-3d-section');
+  if (leadershipSection && window.innerWidth >= 1024) {
+    const chairmanImg = leadershipSection.querySelector('#chairman-card-3d img');
+    const quoteBox = leadershipSection.querySelector('blockquote');
+    const quoteSpan = quoteBox.querySelector('span');
+    const customLine = leadershipSection.querySelector('.chairman-divider');
+    const authorDetails = leadershipSection.querySelector('.author-details');
+    const authorName = authorDetails ? authorDetails.querySelector('h3') : null;
+
+    const leadershipTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: leadershipSection,
+        start: 'top top',
+        end: '+=60%',
+        pin: true,
+        scrub: 1.2,
+        invalidateOnRefresh: true,
+      }
+    });
+
+    // Set initial states for clean color transition and quick line reveal
+    gsap.set(quoteBox, { color: '#9ca3af' });
+    if (quoteSpan) {
+      gsap.set(quoteSpan, { color: '#9ca3af' });
+    }
+    if (customLine) {
+      gsap.set(customLine, { scaleX: 0, backgroundColor: '#9ca3af', transformOrigin: "left center" });
+    }
+    if (authorName) {
+      gsap.set(authorName, { color: '#9ca3af' });
+    }
+    if (authorDetails) {
+      gsap.set(authorDetails, { opacity: 0, y: 15 });
+    }
+    
+    leadershipTL
+      // Quote color transitions (extremely fast, starting immediately)
+      .to(quoteBox, { color: '#1f2937', duration: 0.15, ease: 'power1.out' }, 0.01)
+      .to(quoteSpan, { color: '#053C8F', duration: 0.15, ease: 'power1.out' }, 0.01);
+
+    if (customLine) {
+      leadershipTL.to(customLine, { scaleX: 1, backgroundColor: '#1f2937', duration: 0.2, ease: 'power2.out' }, 0.01);
+    }
+
+    if (authorName && authorDetails) {
+      leadershipTL
+        .to(authorName, { color: '#111827', duration: 0.15, ease: 'power1.out' }, 0.05)
+        .to(authorDetails, { opacity: 1, y: 0, duration: 0.2, ease: 'power2.out' }, 0.05);
+    }
+  }
+
+  // 10. Unified Tab Switcher for Our Businesses Section (No page pinning/scrolling transitions)
+  const bizSection = document.getElementById('businesses-sticky-section');
+  if (bizSection) {
+    const panels = bizSection.querySelectorAll('.biz-slide-panel');
+    const cardItems = bizSection.querySelectorAll('.biz-card-item');
+    const segments = bizSection.querySelectorAll('.biz-segment');
+    const totalSlides = panels.length;
+    let activeIndex = 0;
+
+    // Helper function to update active styles
+    function updateActiveState(idx) {
+      if (idx === activeIndex) return;
+      activeIndex = idx;
+
+      // Update card items active highlights
+      cardItems.forEach((item, itemIdx) => {
+        const iconWrapper = item.querySelector('.biz-icon-wrapper');
+        const titleText = item.querySelector('.biz-card-title');
+        const arrow = item.querySelector('.biz-card-arrow');
+        const bgImg = item.querySelector('img');
+        const line = item.querySelector('.biz-card-line');
+
+        let baseClass = '';
+        if (itemIdx === idx) {
+          // Active state (sharp corners, solid navy outline, bright image, height is proper)
+          baseClass = 'biz-card-item active relative overflow-hidden rounded-none border-2 border-[#053C8F] p-5 cursor-pointer transition-all duration-300 flex flex-col justify-between h-[180px] group bg-black';
+          if (iconWrapper) {
+            iconWrapper.className = 'biz-icon-wrapper w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center text-[#053C8F] border border-gray-100 transition-all duration-300';
+          }
+          if (titleText) {
+            titleText.className = 'biz-card-title font-heading font-extrabold text-sm text-white transition-colors';
+          }
+          if (arrow) {
+            arrow.className = 'biz-card-arrow fa-solid fa-arrow-right text-white transition-transform group-hover:translate-x-1';
+          }
+          if (bgImg) {
+            bgImg.className = 'absolute inset-0 w-full h-full object-cover opacity-100 pointer-events-none z-0';
+          }
+          if (line) {
+            line.className = 'biz-card-line h-[1px] bg-white w-8 transition-all duration-300 origin-left';
+          }
+        } else {
+          // Inactive state (sharp corners, borderless transparent spacer, dimmed image, height is proper)
+          baseClass = 'biz-card-item relative overflow-hidden rounded-none border-2 border-transparent p-5 cursor-pointer transition-all duration-300 flex flex-col justify-between h-[180px] group bg-black';
+          if (iconWrapper) {
+            iconWrapper.className = 'biz-icon-wrapper w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center text-gray-400 border border-gray-100 transition-all duration-300';
+          }
+          if (titleText) {
+            titleText.className = 'biz-card-title font-heading font-bold text-sm text-white/80 transition-colors';
+          }
+          if (arrow) {
+            arrow.className = 'biz-card-arrow fa-solid fa-arrow-right text-white/50 transition-transform group-hover:translate-x-1';
+          }
+          if (bgImg) {
+            bgImg.className = 'absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-300 pointer-events-none z-0';
+          }
+          if (line) {
+            line.className = 'biz-card-line h-[1px] bg-white w-0 group-hover:w-8 transition-all duration-300 origin-left';
+          }
+        }
+
+        if (itemIdx === 4) {
+          baseClass += ' col-span-2';
+        }
+        item.className = baseClass;
+      });
+
+      // Update progress segments
+      segments.forEach((seg, segIdx) => {
+        if (segIdx === idx) {
+          seg.className = 'biz-segment w-12 h-[3px] bg-gray-900 rounded-full transition-all duration-300';
+        } else {
+          seg.className = 'biz-segment w-12 h-[3px] bg-gray-200 rounded-full transition-all duration-300';
+        }
+      });
+
+      // Update text indicator if it exists
+      const indicator = bizSection.querySelector('#biz-indicator-current');
+      if (indicator) {
+        indicator.textContent = String(idx + 1).padStart(2, '0');
+      }
+    }
+    // Scroll Reveal: slide up the grid container and right slides column from bottom when section comes into view
+    const bizGrid = bizSection.querySelector('.lg\\:col-span-8');
+    const bizSlides = bizSection.querySelector('.lg\\:col-span-4');
+
+    if (bizGrid) {
+      gsap.fromTo(bizGrid,
+        { y: 100, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: bizSection,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          }
+        }
+      );
+    }
+
+    if (bizSlides) {
+      gsap.fromTo(bizSlides,
+        { y: 100, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          delay: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: bizSection,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          }
+        }
+      );
+    }
+
+    // Initialize panel positions (Slide-up preparation)
+    panels.forEach((panel, index) => {
+      if (index !== 0) {
+        gsap.set(panel, { yPercent: 100, opacity: 0, zIndex: 5 });
+        panel.classList.add('invisible');
+        panel.classList.remove('visible');
+      } else {
+        gsap.set(panel, { yPercent: 0, opacity: 1, zIndex: 10 });
+        panel.classList.remove('invisible');
+        panel.classList.add('visible');
+      }
+    });
+
+    // Slide Switcher Function
+    function showSlide(idx) {
+      if (idx === activeIndex) return;
+
+      const prevPanel = panels[activeIndex];
+      const nextPanel = panels[idx];
+
+      // Toggle visibility classes for proper rendering
+      prevPanel.classList.add('invisible');
+      prevPanel.classList.remove('visible');
+      nextPanel.classList.remove('invisible');
+      nextPanel.classList.add('visible');
+
+      gsap.to(prevPanel, { yPercent: -100, opacity: 0, duration: 0.6, ease: "power2.out", zIndex: 5 });
+      gsap.fromTo(nextPanel, 
+        { yPercent: 100, opacity: 0, zIndex: 10 },
+        { yPercent: 0, opacity: 1, duration: 0.6, ease: "power2.out" }
+      );
+
+      updateActiveState(idx);
+    }
+
+    const bizUrls = [
+      'real-estate.html',
+      'overseas-trade.html',
+      'industrial-supply.html',
+      'garments.html',
+      'hospitality.html'
+    ];
+
+    // Card item hover and click triggers
+    cardItems.forEach((item, idx) => {
+      // Hover switches preview slide
+      item.addEventListener('mouseenter', () => {
+        showSlide(idx);
+      });
+
+      // Click navigates to details page
+      item.addEventListener('click', (e) => {
+        window.location.href = bizUrls[idx];
+      });
+    });
+
+    // Segment click triggers
+    segments.forEach((seg, idx) => {
+      seg.addEventListener('click', (e) => {
+        e.preventDefault();
+        showSlide(idx);
+      });
+    });
+
+    // Arrow controls
+    const prevBtn = bizSection.querySelector('#biz-prev-btn');
+    const nextBtn = bizSection.querySelector('#biz-next-btn');
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const prevIdx = (activeIndex - 1 + totalSlides) % totalSlides;
+        showSlide(prevIdx);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const nextIdx = (activeIndex + 1) % totalSlides;
+        showSlide(nextIdx);
+      });
+    }
   }
 });
 
