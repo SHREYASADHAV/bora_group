@@ -5,6 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
     console.warn("GSAP or ScrollTrigger CDN resources are offline. Falling back to CSS transitions.");
     
+    // Force show subpage hero elements if GSAP is unavailable
+    document.querySelectorAll('.hero-subtitle, .hero-title, .hero-text, .hero-ctas').forEach(el => {
+      el.classList.remove('opacity-0');
+    });
+
     // CSS-based intersection observer fallback
     const fadeSections = document.querySelectorAll('.fade-in-section');
     const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
@@ -24,6 +29,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 1. Register ScrollTrigger plugin
   gsap.registerPlugin(ScrollTrigger);
+
+  // Universal Page Hero entrance animation for subpages (real-estate, overseas-trade, industrial-supply, hospitality, etc.)
+  const subpageHeroSubtitle = document.querySelector('.hero-subtitle');
+  const subpageHeroTitle = document.querySelector('.hero-title');
+  const subpageHeroText = document.querySelector('.hero-text');
+  const subpageHeroCtas = document.querySelector('.hero-ctas');
+
+  if (subpageHeroSubtitle || subpageHeroTitle || subpageHeroText || subpageHeroCtas) {
+    // Remove opacity-0 class before GSAP timeline starts so GSAP inline styles control opacity
+    [subpageHeroSubtitle, subpageHeroTitle, subpageHeroText, subpageHeroCtas].forEach(el => {
+      if (el) el.classList.remove('opacity-0');
+    });
+
+    const heroTimeline = gsap.timeline({ delay: 0.15 });
+    
+    if (subpageHeroSubtitle) {
+      heroTimeline.fromTo(subpageHeroSubtitle, 
+        { opacity: 0, y: 30 }, 
+        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }
+      );
+    }
+    if (subpageHeroTitle) {
+      heroTimeline.fromTo(subpageHeroTitle, 
+        { opacity: 0, y: 30 }, 
+        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+        "-=0.6"
+      );
+    }
+    if (subpageHeroText) {
+      heroTimeline.fromTo(subpageHeroText, 
+        { opacity: 0, y: 30 }, 
+        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+        "-=0.6"
+      );
+    }
+    if (subpageHeroCtas) {
+      heroTimeline.fromTo(subpageHeroCtas, 
+        { opacity: 0, y: 30 }, 
+        { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+        "-=0.6"
+      );
+    }
+  }
 
   // Initialize Lenis smooth scroll
   let lenis;
