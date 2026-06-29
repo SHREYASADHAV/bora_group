@@ -110,6 +110,17 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeIdx = -1;
     let timerTween = null;
 
+    // Split each quote text into words wrapped in masks
+    quoteItems.forEach(quote => {
+      const text = quote.textContent.trim();
+      const words = text.split(/\s+/);
+      quote.innerHTML = words.map(word => 
+        `<span class="word-wrapper" style="display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 4px; margin-bottom: -4px;">` +
+        `<span class="word" style="display: inline-block;">${word}</span>` +
+        `</span>`
+      ).join(' ');
+    });
+
     // Show/hide fixed overlays when hero section leaves the viewport
     const heroVisibilityObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -157,17 +168,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
 
-      // 2. Quote transition
+      // 2. Quote transition (Masked Word Reveal)
       quoteItems.forEach((quote, qIdx) => {
+        const words = quote.querySelectorAll('.word');
         if (qIdx === idx) {
           gsap.killTweensOf(quote);
+          gsap.killTweensOf(words);
+          gsap.set(quote, { opacity: 1, y: 0, pointerEvents: 'auto' });
+          
           if (isInitial) {
-            gsap.set(quote, { opacity: 1, y: 0 });
+            gsap.set(words, { yPercent: 0, opacity: 1 });
           } else {
-            gsap.fromTo(quote, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
+            gsap.fromTo(words, 
+              { yPercent: 105, opacity: 0 }, 
+              { 
+                yPercent: 0, 
+                opacity: 1, 
+                duration: 0.85, 
+                stagger: 0.08, 
+                ease: 'power3.out' 
+              }
+            );
           }
         } else {
-          gsap.to(quote, { opacity: 0, y: -12, duration: 0.3, ease: 'power2.in' });
+          gsap.killTweensOf(quote);
+          gsap.killTweensOf(words);
+          gsap.to(quote, { 
+            opacity: 0, 
+            y: -12, 
+            duration: 0.35, 
+            ease: 'power2.in',
+            onComplete: () => {
+              gsap.set(words, { yPercent: 105, opacity: 0 });
+            }
+          });
         }
       });
 
