@@ -487,6 +487,7 @@ textarea {
   border: 1px solid rgba(0, 0, 0, 0.08) !important;
   border-radius: 0px !important; /* Sharp edges */
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  min-width: 240px !important; /* Prevents item wrapping */
 }
 
 .nav-dropdown-link {
@@ -494,11 +495,69 @@ textarea {
   font-family: var(--font-heading);
   border-radius: 0px !important; /* Sharp edges */
   text-transform: capitalize !important; /* First letter capital other small */
+  font-size: 12px !important; /* Increased by 3px from 9px */
+  line-height: 1.6 !important; /* Improved line height */
+  padding: 10px 20px !important; /* Increased padding */
 }
 
 .nav-dropdown-link:hover {
   color: #053C8F !important; /* Navy blue on hover */
   background-color: rgba(0, 0, 0, 0.04) !important; /* Soft gray hover background */
+}
+
+/* Navbar Link Font Sizes, Centered Animated Underlines & Active States */
+#navbar nav.hidden.md\:flex > a,
+#navbar nav.hidden.md\:flex > div > a {
+  font-size: 14px !important; /* Increased by 2px from 12px (text-xs) */
+  position: relative !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  transition: color 0.3s ease !important;
+}
+
+#navbar nav.hidden.md\:flex > a:hover,
+#navbar nav.hidden.md\:flex > div > a:hover {
+  color: #ffffff !important;
+}
+
+/* Active Text Color (Keep White, No Gold) */
+#navbar nav.hidden.md\:flex a.text-gold,
+#navbar nav.hidden.md\:flex div.text-gold > a,
+#navbar nav.hidden.md\:flex div > a.text-gold {
+  color: #ffffff !important;
+}
+
+/* Modern Animated Underline from Center with Blue Glow */
+#navbar nav.hidden.md\:flex > a::after,
+#navbar nav.hidden.md\:flex > div > a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px !important;
+  left: 50% !important;
+  width: 0;
+  height: 2px !important;
+  background-color: #2563EB !important;
+  background: #2563EB !important;
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.8) !important;
+  transform: translateX(-50%) !important;
+  transition: width 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+/* Expand underline on hover */
+#navbar nav.hidden.md\:flex > a:hover::after,
+#navbar nav.hidden.md\:flex > div > a:hover::after {
+  width: 100% !important;
+}
+
+/* Force keep active link's underline expanded */
+#navbar nav.hidden.md\:flex a.text-gold::after,
+#navbar nav.hidden.md\:flex div.text-gold > a::after,
+#navbar nav.hidden.md\:flex div > a.text-gold::after {
+  width: 100% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background-color: #2563EB !important;
+  background: #2563EB !important;
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.8) !important;
 }
 
 /* Adapt dropdown styling dynamically when the header is scrolled/white */
