@@ -966,3 +966,12 @@ footer ul.text-white\/60 {
   font-family: 'Montserrat', sans-serif;
   transition: all 0.3s ease-in-out !important;
 }
+
+/* Remove borders, outlines, and tap highlights from business cards and hero slides */
+.biz-card-item,
+.hero-card-item {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent;
+}
