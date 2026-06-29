@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
       cards.forEach((card, cIdx) => {
         const img = card.querySelector('img');
         if (cIdx === idx) {
-          gsap.to(card, { scale: 1.06, borderColor: '#E2D1B8', duration: 0.35, ease: 'power2.out' });
+          gsap.to(card, { scale: 1.06, borderColor: 'transparent', duration: 0.35, ease: 'power2.out' });
           card.classList.add('active-card');
           if (img) gsap.to(img, { opacity: 1, duration: 0.35 });
         } else {
@@ -710,7 +710,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let baseClass = '';
         if (itemIdx === idx) {
           // Active state (sharp corners, solid navy outline, bright image, height is proper)
-          baseClass = 'biz-card-item active relative overflow-hidden rounded-none border-2 border-[#053C8F] p-5 cursor-pointer transition-all duration-300 flex flex-col justify-between h-[180px] group bg-black';
+          baseClass = 'biz-card-item active relative overflow-hidden rounded-none border-2 border-transparent p-5 cursor-pointer transition-all duration-300 flex flex-col justify-between h-[180px] group bg-black';
           if (iconWrapper) {
             iconWrapper.className = 'biz-icon-wrapper w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center text-[#053C8F] border border-gray-100 transition-all duration-300';
           }
