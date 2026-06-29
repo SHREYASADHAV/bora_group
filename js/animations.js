@@ -649,7 +649,6 @@ document.addEventListener('DOMContentLoaded', () => {
         start: 'top top',
         end: '+=60%',
         pin: true,
-        pinSpacing: false,
         scrub: 1.2,
         invalidateOnRefresh: true,
       }
@@ -890,51 +889,6 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlide(nextIdx);
       });
     }
-  }
-
-  // 11. Stacking Sections Scroll Animation for Home Page (Option 1)
-  if (window.innerWidth >= 1024) {
-    const stackSections = [
-      document.getElementById('hero-carousel-section'),
-      document.getElementById('leadership-3d-section'),
-      document.getElementById('intro-3d-section'),
-      document.getElementById('businesses-sticky-section'),
-      document.getElementById('values-3d-section'),
-      document.getElementById('cta-3d-section')
-    ].filter(el => el !== null);
-
-    stackSections.forEach((section, i) => {
-      // Pin each section (except leadership-3d-section which is already pinned by leadershipTL)
-      if (section.id !== 'leadership-3d-section') {
-        ScrollTrigger.create({
-          trigger: section,
-          start: "top top",
-          pin: true,
-          pinSpacing: false,
-          end: "bottom top",
-          invalidateOnRefresh: true
-        });
-      }
-
-      // Add depth effect: scale down and fade out the leaving section as the next one enters
-      if (i < stackSections.length - 1) {
-        const nextSection = stackSections[i + 1];
-        
-        gsap.to(section, {
-          scale: 0.94,
-          opacity: 0.6,
-          yPercent: -10, // parallax upward shift
-          ease: "none",
-          scrollTrigger: {
-            trigger: nextSection,
-            start: "top bottom", // when next section starts entering
-            end: "top top",      // until next section is fully on screen
-            scrub: true,
-            invalidateOnRefresh: true
-          }
-        });
-      }
-    });
   }
 });
 
