@@ -110,6 +110,23 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeIdx = -1;
     let timerTween = null;
 
+    // Split each quote text into spans for letter-by-letter animation
+    quoteItems.forEach(quote => {
+      const text = quote.textContent.trim();
+      quote.innerHTML = '';
+      [...text].forEach(char => {
+        const span = document.createElement('span');
+        if (char === ' ') {
+          span.innerHTML = '&nbsp;';
+        } else {
+          span.textContent = char;
+        }
+        span.style.display = 'inline-block';
+        span.style.opacity = '0';
+        quote.appendChild(span);
+      });
+    });
+
     // Show/hide fixed overlays when hero section leaves the viewport
     const heroVisibilityObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -157,17 +174,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
 
-      // 2. Quote transition
+      // 2. Quote transition (Staggered letter reveal)
       quoteItems.forEach((quote, qIdx) => {
+        const letters = quote.querySelectorAll('span');
         if (qIdx === idx) {
           gsap.killTweensOf(quote);
+          gsap.killTweensOf(letters);
+          gsap.set(quote, { opacity: 1, y: 0, pointerEvents: 'auto' });
+          
           if (isInitial) {
-            gsap.set(quote, { opacity: 1, y: 0 });
+            gsap.set(letters, { opacity: 1, y: 0 });
           } else {
-            gsap.fromTo(quote, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
+            gsap.fromTo(letters, 
+              { opacity: 0, y: 10 }, 
+              { 
+                opacity: 1, 
+                y: 0, 
+                duration: 0.5, 
+                stagger: 0.03, 
+                ease: 'power2.inOut' 
+              }
+            );
           }
         } else {
-          gsap.to(quote, { opacity: 0, y: -12, duration: 0.3, ease: 'power2.in' });
+          gsap.killTweensOf(quote);
+          gsap.killTweensOf(letters);
+          gsap.to(quote, { 
+            opacity: 0, 
+            y: -12, 
+            duration: 0.3, 
+            ease: 'power2.in',
+            onComplete: () => {
+              gsap.set(letters, { opacity: 0, y: 10 });
+            }
+          });
         }
       });
 
