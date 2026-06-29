@@ -157,52 +157,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
 
-      // 2. Quote transition (Anime.js Letter Reveal)
+      // 2. Quote transition
       quoteItems.forEach((quote, qIdx) => {
         if (qIdx === idx) {
           gsap.killTweensOf(quote);
-          gsap.set(quote, { y: 0, opacity: 1, pointerEvents: 'auto' });
-
-          // Rebuild spans for character-by-character animation
-          quote.innerHTML = quote.textContent.trim().replace(/\S/g, "<span class='letter' style='display: inline-block; opacity: 0;'>$&</span>");
-
           if (isInitial) {
-            gsap.set(quote.querySelectorAll('.letter'), { opacity: 1 });
+            gsap.set(quote, { opacity: 1, y: 0 });
           } else {
-            if (typeof anime !== 'undefined') {
-              if (window.activeQuoteTimeline) {
-                window.activeQuoteTimeline.pause();
-              }
-              window.activeQuoteTimeline = anime.timeline({loop: true})
-                .add({
-                  targets: quote.querySelectorAll('.letter'),
-                  opacity: [0, 1],
-                  easing: "easeInOutQuad",
-                  duration: 2250,
-                  delay: (el, i) => 150 * (i + 1)
-                }).add({
-                  targets: quote,
-                  opacity: 0,
-                  duration: 1000,
-                  easing: "easeOutExpo",
-                  delay: 1000
-                });
-            } else {
-              // Fallback to GSAP stagger if Anime.js CDN is offline
-              gsap.fromTo(quote.querySelectorAll('.letter'), 
-                { opacity: 0 }, 
-                { 
-                  opacity: 1, 
-                  duration: 2.25, 
-                  stagger: 0.15, 
-                  ease: 'power2.inOut' 
-                }
-              );
-            }
+            gsap.fromTo(quote, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
           }
         } else {
-          gsap.killTweensOf(quote);
-          gsap.to(quote, { opacity: 0, duration: 0.3, ease: 'power2.in' });
+          gsap.to(quote, { opacity: 0, y: -12, duration: 0.3, ease: 'power2.in' });
         }
       });
 
