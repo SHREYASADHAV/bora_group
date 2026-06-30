@@ -617,18 +617,11 @@ textarea {
 .dotted-map-container {
   position: relative;
   width: 100%;
-  max-width: 800px;
+  max-width: 960px;
   margin: 0 auto;
   overflow: visible;
   border-radius: 1rem;
-  aspect-ratio: 1 / 1;
-  filter: drop-shadow(0 0 50px rgba(0, 149, 255, 0.08));
-}
-
-@media (min-width: 768px) {
-  .dotted-map-container {
-    aspect-ratio: 1.45 / 1;
-  }
+  aspect-ratio: 2 / 1 !important;
 }
 
 /* Real world map PNG — detailed silhouette background */
