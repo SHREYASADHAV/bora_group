@@ -1017,3 +1017,86 @@ footer ul.text-white\/60 {
   box-shadow: none !important;
   -webkit-tap-highlight-color: transparent;
 }
+
+/* ========================================
+   JOIN US SECTION CUSTOM STYLES
+   ======================================== */
+
+#join-us-section {
+  background-color: #FFFFFF !important;
+}
+
+.join-card-item {
+  position: relative;
+  border-radius: 0px !important;
+  overflow: hidden;
+  will-change: flex-grow, flex-basis, width, height;
+  -webkit-tap-highlight-color: transparent;
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
+/* Parallax Image container */
+.join-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+/* Bottom gradient overlay */
+.join-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(5, 5, 10, 0.95) 0%,
+    rgba(5, 5, 10, 0.45) 45%,
+    transparent 100%
+  );
+  pointer-events: none;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+}
+
+/* Styling descriptions */
+.join-card-text p {
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(12px);
+  will-change: opacity, transform;
+}
+
+/* Base Arrow styling */
+.join-card-arrow {
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, background-color, border-color, color;
+}
+
+/* Tablet Layout specific heights & Aspect Ratios */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .join-card-item {
+    height: 300px !important;
+  }
+  
+  .join-card-text p {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+}
+
+/* Mobile accordion spacing styles */
+@media (max-width: 767px) {
+  #join-expanding-cards {
+    height: 600px !important;
+  }
+  
+  .join-card-item {
+    transition: flex-grow 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                flex-basis 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+}
+

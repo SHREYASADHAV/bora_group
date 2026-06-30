@@ -922,5 +922,252 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   }
+
+  // 9. Premium Join Us Section Expanding Cards
+  const joinCardsContainer = document.getElementById('join-expanding-cards');
+  if (joinCardsContainer) {
+    const cards = gsap.utils.toArray('.join-card-item');
+    let activeIdx = -1; // No card is active initially on desktop
+    
+    // Set initial states for elements
+    const setInitialStates = () => {
+      activeIdx = -1; // Reset active state on resize/init
+      if (window.innerWidth >= 1024) {
+        cards.forEach(card => {
+          const img = card.querySelector('.join-card-img');
+          const p = card.querySelector('.join-card-text p');
+          const textContainer = card.querySelector('.join-card-text');
+          const arrow = card.querySelector('.join-card-arrow');
+          const icon = arrow.querySelector('svg, i');
+          
+          gsap.set(card, { flexGrow: 1, flexBasis: "0%", width: "auto" });
+          gsap.set(img, { scale: 1, x: 0, y: 0 });
+          gsap.set(p, { opacity: 0, y: 12 });
+          gsap.set(textContainer, { y: 12 });
+          gsap.set(arrow, { x: 0, backgroundColor: "transparent", color: "#ffffff", borderColor: "rgba(255,255,255,0.2)" });
+          if (icon) gsap.set(icon, { x: 0 });
+        });
+      } else if (window.innerWidth < 768) {
+        // Mobile accordion initial states - first is active
+        activeIdx = 0;
+        cards.forEach((card, idx) => {
+          const img = card.querySelector('.join-card-img');
+          const p = card.querySelector('.join-card-text p');
+          const textContainer = card.querySelector('.join-card-text');
+          const arrow = card.querySelector('.join-card-arrow');
+          
+          if (idx === 0) {
+            gsap.set(card, { flexGrow: 0, flexBasis: "280px" });
+            gsap.set(p, { opacity: 1, y: 0 });
+            gsap.set(textContainer, { y: 0 });
+            gsap.set(arrow, { x: 0, backgroundColor: "#ffffff", color: "#05050A", borderColor: "#ffffff" });
+          } else {
+            gsap.set(card, { flexGrow: 1, flexBasis: "0%" });
+            gsap.set(p, { opacity: 0, y: 12 });
+            gsap.set(textContainer, { y: 12 });
+            gsap.set(arrow, { x: 0, backgroundColor: "transparent", color: "#ffffff", borderColor: "rgba(255,255,255,0.2)" });
+          }
+          gsap.set(img, { scale: 1 });
+        });
+      } else {
+        // Tablet 2x2 grid initial states
+        cards.forEach(card => {
+          const img = card.querySelector('.join-card-img');
+          const p = card.querySelector('.join-card-text p');
+          const textContainer = card.querySelector('.join-card-text');
+          const arrow = card.querySelector('.join-card-arrow');
+          
+          gsap.set(card, { flexGrow: 1, flexBasis: "auto", width: "auto" });
+          gsap.set(img, { scale: 1 });
+          gsap.set(p, { opacity: 1, y: 0 });
+          gsap.set(textContainer, { y: 0 });
+          gsap.set(arrow, { x: 0, backgroundColor: "transparent", color: "#ffffff", borderColor: "rgba(255,255,255,0.2)" });
+        });
+      }
+    };
+    
+    setInitialStates();
+    window.addEventListener('resize', setInitialStates);
+    
+    // Interactions
+    cards.forEach((card, index) => {
+      const img = card.querySelector('.join-card-img');
+      const p = card.querySelector('.join-card-text p');
+      const textContainer = card.querySelector('.join-card-text');
+      const arrow = card.querySelector('.join-card-arrow');
+      const icon = arrow.querySelector('svg, i');
+      
+      // Desktop Hovers (does NOT expand card size)
+      card.addEventListener('mouseenter', () => {
+        if (window.innerWidth >= 1024) {
+          // Trigger micro-animations on hover (scale image, show text, slide arrow)
+          gsap.to(img, { scale: 1.08, duration: 0.6, ease: "power3.out", overwrite: "auto" });
+          gsap.to(textContainer, { y: 0, duration: 0.6, ease: "power3.out", overwrite: "auto" });
+          gsap.to(p, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", overwrite: "auto" });
+          gsap.to(arrow, {
+            backgroundColor: "#ffffff",
+            color: "#05050A",
+            borderColor: "#ffffff",
+            duration: 0.6,
+            ease: "power3.out",
+            overwrite: "auto"
+          });
+          if (icon) gsap.to(icon, { x: 8, duration: 0.6, ease: "power3.out", overwrite: "auto" });
+        }
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        if (window.innerWidth >= 1024) {
+          // ONLY reset if this card is NOT currently clicked/expanded
+          if (index !== activeIdx) {
+            gsap.to(img, { scale: 1, x: 0, y: 0, duration: 0.6, ease: "power3.out", overwrite: "auto" });
+            gsap.to(textContainer, { y: 12, duration: 0.6, ease: "power3.out", overwrite: "auto" });
+            gsap.to(p, { opacity: 0, y: 12, duration: 0.6, ease: "power3.out", overwrite: "auto" });
+            gsap.to(arrow, {
+              backgroundColor: "transparent",
+              color: "#ffffff",
+              borderColor: "rgba(255,255,255,0.2)",
+              duration: 0.6,
+              ease: "power3.out",
+              overwrite: "auto"
+            });
+            if (icon) gsap.to(icon, { x: 0, duration: 0.6, ease: "power3.out", overwrite: "auto" });
+          }
+        }
+      });
+      
+      // Desktop Parallax
+      card.addEventListener('mousemove', (e) => {
+        if (window.innerWidth >= 1024) {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const xPercent = (x / rect.width) - 0.5;
+          const yPercent = (y / rect.height) - 0.5;
+          
+          gsap.to(img, {
+            x: xPercent * -15,
+            y: yPercent * -15,
+            duration: 0.4,
+            ease: "power2.out",
+            overwrite: "auto"
+          });
+        }
+      });
+      
+      // Tablet Hovers
+      card.addEventListener('mouseenter', () => {
+        if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+          gsap.to(img, { scale: 1.08, duration: 0.6, ease: "power3.out", overwrite: "auto" });
+          gsap.to(arrow, {
+            backgroundColor: "#ffffff",
+            color: "#05050A",
+            borderColor: "#ffffff",
+            duration: 0.6,
+            ease: "power3.out",
+            overwrite: "auto"
+          });
+          if (icon) gsap.to(icon, { x: 8, duration: 0.6, ease: "power3.out", overwrite: "auto" });
+        }
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+          gsap.to(img, { scale: 1, duration: 0.6, ease: "power3.out", overwrite: "auto" });
+          gsap.to(arrow, {
+            backgroundColor: "transparent",
+            color: "#ffffff",
+            borderColor: "rgba(255,255,255,0.2)",
+            duration: 0.6,
+            ease: "power3.out",
+            overwrite: "auto"
+          });
+          if (icon) gsap.to(icon, { x: 0, duration: 0.6, ease: "power3.out", overwrite: "auto" });
+        }
+      });
+      
+      // Click handlers
+      card.addEventListener('click', () => {
+        if (window.innerWidth >= 1024) {
+          if (activeIdx === index) {
+            // Clicked active card - collapse it
+            activeIdx = -1;
+            
+            // Return all cards to equal width
+            gsap.to(cards, {
+              flexGrow: 1,
+              flexBasis: "0%",
+              duration: 0.6,
+              ease: "power3.inOut"
+            });
+            
+            // Reset active card styles back to hover states (since mouse is still on it, keep zoom, arrow etc.)
+            // But if mouse leaves, it will trigger mouseleave and reset.
+          } else {
+            // Collapse previous active card styles
+            const prevIdx = activeIdx;
+            activeIdx = index;
+            
+            if (prevIdx !== -1) {
+              const prevCard = cards[prevIdx];
+              const prevImg = prevCard.querySelector('.join-card-img');
+              const prevP = prevCard.querySelector('.join-card-text p');
+              const prevText = prevCard.querySelector('.join-card-text');
+              const prevArrow = prevCard.querySelector('.join-card-arrow');
+              const prevIcon = prevArrow.querySelector('svg, i');
+              
+              gsap.to(prevImg, { scale: 1, x: 0, y: 0, duration: 0.6, ease: "power3.inOut" });
+              gsap.to(prevP, { opacity: 0, y: 12, duration: 0.6, ease: "power3.inOut" });
+              gsap.to(prevText, { y: 12, duration: 0.6, ease: "power3.inOut" });
+              gsap.to(prevArrow, {
+                backgroundColor: "transparent",
+                color: "#ffffff",
+                borderColor: "rgba(255,255,255,0.2)",
+                duration: 0.6,
+                ease: "power3.inOut"
+              });
+              if (prevIcon) gsap.to(prevIcon, { x: 0, duration: 0.6, ease: "power3.inOut" });
+            }
+            
+            // Expand this card
+            gsap.to(card, {
+              flexGrow: 0,
+              flexBasis: "520px",
+              duration: 0.6,
+              ease: "power3.inOut"
+            });
+            
+            const shrunkenCards = cards.filter(c => c !== card);
+            gsap.to(shrunkenCards, {
+              flexGrow: 1,
+              flexBasis: "0px",
+              duration: 0.6,
+              ease: "power3.inOut"
+            });
+          }
+        } else if (window.innerWidth < 768) {
+          // Mobile vertical accordion click behavior
+          cards.forEach(c => {
+            const cImg = c.querySelector('.join-card-img');
+            const cP = c.querySelector('.join-card-text p');
+            const cTextContainer = c.querySelector('.join-card-text');
+            const cArrow = c.querySelector('.join-card-arrow');
+            
+            if (c === card) {
+              gsap.to(c, { flexGrow: 0, flexBasis: "280px", duration: 0.6, ease: "power3.inOut" });
+              gsap.to(cP, { opacity: 1, y: 0, duration: 0.6, ease: "power3.inOut" });
+              gsap.to(cTextContainer, { y: 0, duration: 0.6, ease: "power3.inOut" });
+              gsap.to(cArrow, { backgroundColor: "#ffffff", color: "#05050A", borderColor: "#ffffff", duration: 0.6, ease: "power3.inOut" });
+            } else {
+              gsap.to(c, { flexGrow: 1, flexBasis: "0px", duration: 0.6, ease: "power3.inOut" });
+              gsap.to(cP, { opacity: 0, y: 12, duration: 0.6, ease: "power3.inOut" });
+              gsap.to(cTextContainer, { y: 12, duration: 0.6, ease: "power3.inOut" });
+              gsap.to(cArrow, { backgroundColor: "transparent", color: "#ffffff", borderColor: "rgba(255,255,255,0.2)", duration: 0.6, ease: "power3.inOut" });
+            }
+          });
+        }
+      });
+    });
+  }
 });
 
