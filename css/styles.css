@@ -1100,3 +1100,29 @@ footer ul.text-white\/60 {
   }
 }
 
+/* ========================================
+   CAREER DETAILED PANELS STYLES
+   ======================================== */
+
+.join-job-accordion {
+  transition: all 0.3s ease;
+}
+.join-job-accordion:hover {
+  border-color: #C5A880 !important;
+}
+.join-job-accordion.active {
+  border-color: #C5A880 !important;
+  background-color: rgba(197, 168, 128, 0.03);
+}
+.join-job-accordion.active i {
+  transform: rotate(180deg);
+  color: #C5A880;
+}
+
+.join-content-panel input:focus,
+.join-content-panel select:focus {
+  border-color: #C5A880 !important;
+  box-shadow: 0 0 0 2px rgba(197, 168, 128, 0.1);
+}
+
+

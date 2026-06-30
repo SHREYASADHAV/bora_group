@@ -1101,8 +1101,7 @@ document.addEventListener('DOMContentLoaded', () => {
               ease: "power3.inOut"
             });
             
-            // Reset active card styles back to hover states (since mouse is still on it, keep zoom, arrow etc.)
-            // But if mouse leaves, it will trigger mouseleave and reset.
+            showPanel(-1);
           } else {
             // Collapse previous active card styles
             const prevIdx = activeIdx;
@@ -1144,30 +1143,267 @@ document.addEventListener('DOMContentLoaded', () => {
               duration: 0.6,
               ease: "power3.inOut"
             });
+            
+            showPanel(index);
           }
         } else if (window.innerWidth < 768) {
           // Mobile vertical accordion click behavior
-          cards.forEach(c => {
-            const cImg = c.querySelector('.join-card-img');
-            const cP = c.querySelector('.join-card-text p');
-            const cTextContainer = c.querySelector('.join-card-text');
-            const cArrow = c.querySelector('.join-card-arrow');
-            
-            if (c === card) {
-              gsap.to(c, { flexGrow: 0, flexBasis: "280px", duration: 0.6, ease: "power3.inOut" });
-              gsap.to(cP, { opacity: 1, y: 0, duration: 0.6, ease: "power3.inOut" });
-              gsap.to(cTextContainer, { y: 0, duration: 0.6, ease: "power3.inOut" });
-              gsap.to(cArrow, { backgroundColor: "#ffffff", color: "#05050A", borderColor: "#ffffff", duration: 0.6, ease: "power3.inOut" });
-            } else {
-              gsap.to(c, { flexGrow: 1, flexBasis: "0px", duration: 0.6, ease: "power3.inOut" });
+          if (activeIdx === index) {
+            // Collapse current active card and close panel
+            activeIdx = -1;
+            cards.forEach(c => {
+              const cP = c.querySelector('.join-card-text p');
+              const cTextContainer = c.querySelector('.join-card-text');
+              const cArrow = c.querySelector('.join-card-arrow');
+              
+              gsap.to(c, { flexGrow: 1, flexBasis: "0%", duration: 0.6, ease: "power3.inOut" });
               gsap.to(cP, { opacity: 0, y: 12, duration: 0.6, ease: "power3.inOut" });
               gsap.to(cTextContainer, { y: 12, duration: 0.6, ease: "power3.inOut" });
               gsap.to(cArrow, { backgroundColor: "transparent", color: "#ffffff", borderColor: "rgba(255,255,255,0.2)", duration: 0.6, ease: "power3.inOut" });
+            });
+            showPanel(-1);
+          } else {
+            activeIdx = index;
+            cards.forEach((c, idx) => {
+              const cImg = c.querySelector('.join-card-img');
+              const cP = c.querySelector('.join-card-text p');
+              const cTextContainer = c.querySelector('.join-card-text');
+              const cArrow = c.querySelector('.join-card-arrow');
+              
+              if (idx === index) {
+                gsap.to(c, { flexGrow: 0, flexBasis: "280px", duration: 0.6, ease: "power3.inOut" });
+                gsap.to(cP, { opacity: 1, y: 0, duration: 0.6, ease: "power3.inOut" });
+                gsap.to(cTextContainer, { y: 0, duration: 0.6, ease: "power3.inOut" });
+                gsap.to(cArrow, { backgroundColor: "#ffffff", color: "#05050A", borderColor: "#ffffff", duration: 0.6, ease: "power3.inOut" });
+              } else {
+                gsap.to(c, { flexGrow: 1, flexBasis: "0px", duration: 0.6, ease: "power3.inOut" });
+                gsap.to(cP, { opacity: 0, y: 12, duration: 0.6, ease: "power3.inOut" });
+                gsap.to(cTextContainer, { y: 12, duration: 0.6, ease: "power3.inOut" });
+                gsap.to(cArrow, { backgroundColor: "transparent", color: "#ffffff", borderColor: "rgba(255,255,255,0.2)", duration: 0.6, ease: "power3.inOut" });
+              }
+            });
+            showPanel(index);
+          }
+        } else {
+          // Tablet layout click behavior (toggles panel only)
+          if (activeIdx === index) {
+            activeIdx = -1;
+            showPanel(-1);
+          } else {
+            activeIdx = index;
+            showPanel(index);
+          }
+        }
+      });
+    });
+
+    // Content panels container and list
+    const contentContainer = document.getElementById('join-us-content-container');
+    const panels = [
+      document.getElementById('content-join-our-team'),
+      document.getElementById('content-our-values'),
+      document.getElementById('content-life-at-bora'),
+      document.getElementById('content-leadership-legacy')
+    ];
+
+    const showPanel = (idx) => {
+      if (!contentContainer) return;
+      
+      const prevActiveIdx = panels.findIndex(p => p && !p.classList.contains('hidden'));
+      
+      // If idx is -1, collapse everything
+      if (idx === -1) {
+        gsap.to(contentContainer, {
+          height: 0,
+          duration: 0.6,
+          ease: "power3.inOut",
+          onComplete: () => {
+            panels.forEach(p => {
+              if (p) {
+                p.classList.add('hidden');
+                p.style.opacity = 0;
+              }
+            });
+            ScrollTrigger.refresh();
+          }
+        });
+        return;
+      }
+
+      const targetPanel = panels[idx];
+      if (!targetPanel) return;
+
+      // If another panel was active, collapse it first
+      if (prevActiveIdx !== -1 && prevActiveIdx !== idx) {
+        const prevPanel = panels[prevActiveIdx];
+        gsap.to(prevPanel, {
+          opacity: 0,
+          y: -15,
+          duration: 0.3,
+          ease: "power2.inOut",
+          onComplete: () => {
+            prevPanel.classList.add('hidden');
+            
+            // Now expand the new one
+            targetPanel.classList.remove('hidden');
+            gsap.set(targetPanel, { opacity: 0, y: 20 });
+            
+            // Re-fetch height of target panel
+            const panelHeight = targetPanel.scrollHeight;
+            
+            gsap.to(contentContainer, {
+              height: panelHeight,
+              duration: 0.6,
+              ease: "power3.inOut",
+              onComplete: () => {
+                gsap.set(contentContainer, { height: "auto" }); // Allow accordion expansion without clipping
+                ScrollTrigger.refresh();
+              }
+            });
+            
+            gsap.to(targetPanel, {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              ease: "power3.out",
+              delay: 0.1
+            });
+            
+            // Smoothly scroll to container
+            setTimeout(() => {
+              const yOffset = -90;
+              const targetTop = contentContainer.getBoundingClientRect().top + window.pageYOffset + yOffset;
+              window.scrollTo({ top: targetTop, behavior: 'smooth' });
+            }, 100);
+          }
+        });
+      } else {
+        // No panel was open, simple expand
+        targetPanel.classList.remove('hidden');
+        gsap.set(targetPanel, { opacity: 0, y: 20 });
+        
+        const panelHeight = targetPanel.scrollHeight;
+        
+        gsap.to(contentContainer, {
+          height: panelHeight,
+          duration: 0.6,
+          ease: "power3.inOut",
+          onComplete: () => {
+            gsap.set(contentContainer, { height: "auto" });
+            ScrollTrigger.refresh();
+          }
+        });
+
+        gsap.to(targetPanel, {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power3.out",
+          delay: 0.1
+        });
+
+        // Smoothly scroll to container
+        setTimeout(() => {
+          const yOffset = -90;
+          const targetTop = contentContainer.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: targetTop, behavior: 'smooth' });
+        }, 100);
+      }
+    };
+
+    // Job Accordion click logic
+    const accordions = document.querySelectorAll('.join-job-accordion');
+    accordions.forEach(acc => {
+      acc.addEventListener('click', (e) => {
+        // Prevent toggle if clicking apply button
+        if (e.target.classList.contains('btn-apply-trigger')) return;
+
+        const detail = acc.querySelector('.join-job-detail');
+        const icon = acc.querySelector('i[data-lucide="chevron-down"], svg');
+        const isActive = acc.classList.contains('active');
+
+        // Close siblings
+        const siblingAccordions = acc.parentElement.querySelectorAll('.join-job-accordion');
+        siblingAccordions.forEach(s => {
+          if (s !== acc && s.classList.contains('active')) {
+            s.classList.remove('active');
+            const sDetail = s.querySelector('.join-job-detail');
+            if (sDetail) gsap.to(sDetail, { maxHeight: 0, duration: 0.3, ease: "power2.inOut" });
+          }
+        });
+
+        if (isActive) {
+          acc.classList.remove('active');
+          gsap.to(detail, {
+            maxHeight: 0,
+            duration: 0.4,
+            ease: "power3.inOut",
+            onComplete: () => { ScrollTrigger.refresh(); }
+          });
+        } else {
+          acc.classList.add('active');
+          
+          // Temporarily set height to auto to get scrollHeight
+          gsap.set(detail, { maxHeight: "none" });
+          const targetHeight = detail.scrollHeight;
+          gsap.set(detail, { maxHeight: 0 });
+
+          gsap.to(detail, {
+            maxHeight: targetHeight,
+            duration: 0.5,
+            ease: "power3.out",
+            onComplete: () => {
+              gsap.set(detail, { maxHeight: "none" }); // allow responsive reflow
+              ScrollTrigger.refresh();
             }
           });
         }
       });
     });
+
+    // Apply Button scrolling to form
+    const applyButtons = document.querySelectorAll('.btn-apply-trigger');
+    applyButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent accordion close
+        const formElement = document.getElementById('careers-apply-form');
+        if (formElement) {
+          const jobAccordion = btn.closest('.join-job-accordion');
+          const jobTitle = jobAccordion.querySelector('h5').textContent;
+          const selectElement = document.getElementById('applied-position-select');
+          if (selectElement) {
+            for (let i = 0; i < selectElement.options.length; i++) {
+              if (jobTitle.toLowerCase().includes(selectElement.options[i].text.toLowerCase()) || selectElement.options[i].text.toLowerCase().includes(jobTitle.toLowerCase())) {
+                selectElement.selectedIndex = i;
+                break;
+              }
+            }
+          }
+          const yOffset = -100;
+          const targetTop = formElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          window.scrollTo({ top: targetTop, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Explore Careers CTA Button
+    const exploreCta = document.querySelector('.btn-scroll-to-apply');
+    if (exploreCta) {
+      exploreCta.addEventListener('click', () => {
+        const firstCard = cards[0];
+        if (firstCard) {
+          firstCard.click();
+          setTimeout(() => {
+            const formElement = document.getElementById('careers-apply-form');
+            if (formElement) {
+              const yOffset = -100;
+              const targetTop = formElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+              window.scrollTo({ top: targetTop, behavior: 'smooth' });
+            }
+          }, 850);
+        }
+      });
+    }
   }
 });
 
