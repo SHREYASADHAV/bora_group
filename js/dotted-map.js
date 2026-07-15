@@ -1,16 +1,6 @@
-/**
- * Bora Group — Realistic 3D WebGL World Trade Map
- * Built with Three.js (local assets) + photorealistic textures & lighting
- * Locations: India HQ → Southeast Asia, Middle East, Central Africa,
- *             North America, Brazil, Greenland & Iceland, Northern Eurasia, Australia
- */
 (function () {
   'use strict';
 
-  // ---------- CONFIGURATION & DATA ----------
-  const MAP_WHITE = 0xffffff;
-  const MAP_WHITE_STR = '#ffffff';
-  
   const LOCATIONS = [
     {
       id: 'india', label: '🇮🇳 India (HQ)', subtitle: 'Headquarters / Origin',
@@ -59,476 +49,350 @@
     }
   ];
 
-  let container, scene, camera, renderer, globeGroup;
-  let earthMesh, cloudsMesh;
-  const pulseRings = [];
-  const collisionMeshes = [];
-  const travelBullets = [];
-  
-  // Dragging & Interaction variables
-  let isDragging = false;
-  let previousMousePosition = { x: 0, y: 0 };
-  let autoRotate = true;
-  let autoRotateTimeout;
-  
-  // Easing/Centering variables
-  let isCentering = false;
-  let targetRotX = 0;
-  let targetRotY = 0;
-  
-  // Raycasting
-  const raycaster = new THREE.Raycaster();
-  const mouse = new THREE.Vector2();
-  let hoveredLocation = null;
-  let tooltipEl = null;
-
-  // Globe dimensions (radius = 0.5 like turban's code)
-  const radius = 0.5;
-  const segments = 64;
-
   function init() {
-    container = document.getElementById('dotted-world-map');
+    const container = document.getElementById('dotted-world-map');
     if (!container) return;
 
-    // Clear container (remove amCharts leftovers if any)
     container.innerHTML = '';
-    
-    // Set container styles
     container.style.position = 'relative';
-    container.style.height = '520px';
+    container.style.height = 'auto';
+    container.style.minHeight = '400px';
     container.style.width = '100%';
-    container.style.background = 'transparent';
+    container.style.background = '#ffffff';
+    container.style.opacity = '0'; // Set up for fade-in
 
-    // ---- 1. Setup Three.js Scene, Camera, and Renderer ----
-    scene = new THREE.Scene();
-
-    const width = container.clientWidth || 960;
-    const height = container.clientHeight || 520;
-    
-    camera = new THREE.PerspectiveCamera(45, width / height, 0.01, 1000);
-    camera.position.z = 1.35; // Centered viewing distance
-
-    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    if (typeof renderer.setPixelRatio === 'function') {
-      renderer.setPixelRatio(window.devicePixelRatio || 1);
-    }
-    renderer.setSize(width, height);
-    renderer.setClearColor(0x000000, 0); // Transparent canvas background
-    container.appendChild(renderer.domElement);
-
-    // ---- 2. Lights (Realistic shading and terminator) ----
-    scene.add(new THREE.AmbientLight(0x444444)); // Ambient fills shadows
-
-    const sunLight = new THREE.DirectionalLight(0xffffff, 1.25);
-    sunLight.position.set(5, 3, 5); // Sun coming from the top-right-front
-    scene.add(sunLight);
-
-    // ---- 3. Create Globe Group ----
-    globeGroup = new THREE.Object3D(); // Object3D is universally supported across Three.js versions
-    // Rotate to face India by default
-    const defaultHQ = LOCATIONS.find(l => l.isHQ);
-    globeGroup.rotation.y = - (defaultHQ.lng + 140) * (Math.PI / 180);
-    globeGroup.rotation.x = - (defaultHQ.lat - 10) * (Math.PI / 180);
-    scene.add(globeGroup);
-
-    // ---- 4. Create Earth Mesh ----
-    earthMesh = new THREE.Mesh(
-      new THREE.SphereGeometry(radius, segments, segments),
-      new THREE.MeshPhongMaterial({
-        map:         loadTexture('images/earth/2_no_clouds_4k.jpg'),
-        bumpMap:     loadTexture('images/earth/elev_bump_4k.jpg'),
-        bumpScale:   0.015, // Enhanced topographic depth
-        specularMap: loadTexture('images/earth/water_4k.png'),
-        specular:    new THREE.Color(0x222222), // Oceans reflect light, land is matte
-        shininess:   12
-      })
-    );
-    globeGroup.add(earthMesh);
-
-    // ---- 5. Create Atmosphere Clouds Layer ----
-    cloudsMesh = new THREE.Mesh(
-      new THREE.SphereGeometry(radius + 0.005, segments, segments),
-      new THREE.MeshPhongMaterial({
-        map:         loadTexture('images/earth/fair_clouds_4k.png'),
-        transparent: true,
-        opacity:     0.4, // Soft atmospheric clouds
-        blending:    THREE.NormalBlending
-      })
-    );
-    globeGroup.add(cloudsMesh);
-
-    // ---- 6. Create Tooltip DOM Element ----
-    tooltipEl = document.createElement('div');
+    // 1. Create Tooltip DOM Element with White/Frosted Glass Gold-border Style
+    const tooltipEl = document.createElement('div');
     tooltipEl.style.position = 'absolute';
     tooltipEl.style.pointerEvents = 'none';
     tooltipEl.style.opacity = '0';
-    tooltipEl.style.background = 'rgba(5, 5, 10, 0.95)';
+    tooltipEl.style.background = 'rgba(255, 255, 255, 0.9)';
     tooltipEl.style.backdropFilter = 'blur(12px)';
     tooltipEl.style.webkitBackdropFilter = 'blur(12px)';
-    tooltipEl.style.border = '1px solid rgba(255, 255, 255, 0.35)';
-    tooltipEl.style.borderRadius = '10px';
-    tooltipEl.style.padding = '12px 14px';
-    tooltipEl.style.color = '#ffffff';
-    tooltipEl.style.fontSize = '11px';
+    tooltipEl.style.border = '1px solid rgba(212, 175, 55, 0.4)';
+    tooltipEl.style.borderRadius = '14px';
+    tooltipEl.style.padding = '14px 16px';
+    tooltipEl.style.color = '#333333';
+    tooltipEl.style.fontSize = '12px';
     tooltipEl.style.fontFamily = "'Montserrat', sans-serif";
-    tooltipEl.style.boxShadow = '0 12px 32px -8px rgba(0, 0, 0, 0.6)';
+    tooltipEl.style.boxShadow = '0 10px 30px -5px rgba(212, 175, 55, 0.15)';
     tooltipEl.style.zIndex = '1000';
-    tooltipEl.style.width = '210px';
-    tooltipEl.style.transition = 'opacity 0.25s ease';
+    tooltipEl.style.width = '240px';
+    tooltipEl.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+    tooltipEl.style.transform = 'translateY(10px)';
     container.appendChild(tooltipEl);
 
-    // ---- 7. Populate Locations (Markers, Pulses, Routes) ----
-    const hq = LOCATIONS.find(l => l.isHQ);
-    const hqPos = latLngToVector3(hq.lat, hq.lng, radius);
+    // 2. Setup D3 SVG
+    const svg = d3.select(container)
+      .append('svg')
+      .attr('width', 1200)
+      .attr('height', 600)
+      .attr('viewBox', '0 0 1200 600')
+      .style('width', '100%')
+      .style('height', 'auto')
+      .style('display', 'block')
+      .style('transform-origin', 'center');
 
-    LOCATIONS.forEach(loc => {
-      const pos = latLngToVector3(loc.lat, loc.lng, radius);
-      const normal = pos.clone().normalize();
+    // 3. Definitions for Shimmer, Glows, and Shadows
+    const defs = svg.append('defs');
 
-      // Solid Core Dot
-      const dot = new THREE.Mesh(
-        new THREE.SphereGeometry(loc.isHQ ? 0.009 : 0.007, 16, 16),
-        new THREE.MeshBasicMaterial({ color: MAP_WHITE })
-      );
-      dot.position.copy(pos);
-      globeGroup.add(dot);
+    // Continent Shimmer Gradient (Champagne Gold Base with Highlight)
+    const shimmerGrad = defs.append('linearGradient')
+      .attr('id', 'shimmerGrad')
+      .attr('x1', '0%')
+      .attr('y1', '0%')
+      .attr('x2', '100%')
+      .attr('y2', '0%');
+    shimmerGrad.append('stop').attr('offset', '0%').attr('stop-color', '#E7D7A8');
+    shimmerGrad.append('stop').attr('offset', '40%').attr('stop-color', '#E7D7A8');
+    shimmerGrad.append('stop').attr('offset', '50%').attr('stop-color', '#FFF2CC'); // Highlight shimmer
+    shimmerGrad.append('stop').attr('offset', '60%').attr('stop-color', '#D4AF37');
+    shimmerGrad.append('stop').attr('offset', '100%').attr('stop-color', '#D4AF37');
 
-      // Pulse Ring (laid flat on sphere surface)
-      const ringGeom = new THREE.RingGeometry(0.006, loc.isHQ ? 0.024 : 0.016, 32);
-      const ringMat = new THREE.MeshBasicMaterial({
-        color: MAP_WHITE,
-        side: THREE.DoubleSide,
-        transparent: true,
-        opacity: 0.65
-      });
-      const ring = new THREE.Mesh(ringGeom, ringMat);
-      ring.position.copy(pos).add(normal.clone().multiplyScalar(0.001)); // offset slightly to prevent depth fighting
-      setQuaternionFromUnitVectors(ring.quaternion, new THREE.Vector3(0, 0, 1), normal);
-      globeGroup.add(ring);
+    // Route Gradient (Gold fade out)
+    const routeGrad = defs.append('linearGradient')
+      .attr('id', 'routeGrad')
+      .attr('x1', '0%')
+      .attr('y1', '0%')
+      .attr('x2', '100%')
+      .attr('y2', '100%');
+    routeGrad.append('stop').attr('offset', '0%').attr('stop-color', '#D4AF37').attr('stop-opacity', '0.85');
+    routeGrad.append('stop').attr('offset', '100%').attr('stop-color', '#FFF2CC').attr('stop-opacity', '0.3');
 
-      pulseRings.push({
-        mesh: ring,
-        speed: loc.isHQ ? 0.014 : 0.010
-      });
+    // Particle Radial Gradient
+    const particleGrad = defs.append('radialGradient')
+      .attr('id', 'particleGrad')
+      .attr('cx', '50%')
+      .attr('cy', '50%')
+      .attr('r', '50%');
+    particleGrad.append('stop').attr('offset', '0%').attr('stop-color', '#FFF8DC').attr('stop-opacity', '1');
+    particleGrad.append('stop').attr('offset', '40%').attr('stop-color', '#D4AF37').attr('stop-opacity', '0.8');
+    particleGrad.append('stop').attr('offset', '100%').attr('stop-color', '#D4AF37').attr('stop-opacity', '0');
 
-      // Invisible larger raycast collision sphere (makes hover/click extremely responsive)
-      const colMesh = new THREE.Mesh(
-        new THREE.SphereGeometry(0.028, 8, 8),
-        new THREE.MeshBasicMaterial({ visible: false })
-      );
-      colMesh.position.copy(pos);
-      colMesh.userData = { data: loc };
-      globeGroup.add(colMesh);
-      collisionMeshes.push(colMesh);
+    // Ambient radial background glow
+    const ambientGlow = defs.append('radialGradient')
+      .attr('id', 'ambientGlow')
+      .attr('cx', '50%')
+      .attr('cy', '50%')
+      .attr('r', '50%');
+    ambientGlow.append('stop').attr('offset', '0%').attr('stop-color', '#D4AF37').attr('stop-opacity', '0.14');
+    ambientGlow.append('stop').attr('offset', '100%').attr('stop-color', '#D4AF37').attr('stop-opacity', '0');
 
-      // Create Route Line and Bullet (only from HQ to destinations)
-      if (!loc.isHQ) {
-        // Curve construction
-        const midPoint = new THREE.Vector3().addVectors(hqPos, pos).multiplyScalar(0.5);
-        const distance = hqPos.distanceTo(pos);
-        // Height of the route arc above the surface
-        const arcHeight = radius + distance * 0.22;
-        const controlPoint = midPoint.clone().normalize().multiplyScalar(arcHeight);
+    // Soft drop shadow for continents
+    const shadowFilter = defs.append('filter')
+      .attr('id', 'subtleShadow')
+      .attr('x', '-10%')
+      .attr('y', '-10%')
+      .attr('width', '120%')
+      .attr('height', '120%');
+    shadowFilter.append('feDropShadow')
+      .attr('dx', '0')
+      .attr('dy', '3')
+      .attr('stdDeviation', '4')
+      .attr('flood-color', '#D4AF37')
+      .attr('flood-opacity', '0.12');
 
-        const curve = new THREE.QuadraticBezierCurve3(hqPos, controlPoint, pos);
-        const points = curve.getPoints(40);
+    // Soft glow filter
+    const glowFilter = defs.append('filter')
+      .attr('id', 'softGlow')
+      .attr('x', '-20%')
+      .attr('y', '-20%')
+      .attr('width', '140%')
+      .attr('height', '140%');
+    glowFilter.append('feGaussianBlur')
+      .attr('stdDeviation', '2.5')
+      .attr('result', 'blur');
+    const feMerge = glowFilter.append('feMerge');
+    feMerge.append('feMergeNode').attr('in', 'blur');
+    feMerge.append('feMergeNode').attr('in', 'SourceGraphic');
 
-        // Draw curved dashed-like route line
-        let lineGeom;
-        if (typeof THREE.BufferGeometry !== 'undefined' && typeof THREE.BufferGeometry.prototype.setFromPoints === 'function') {
-          lineGeom = new THREE.BufferGeometry().setFromPoints(points);
-        } else {
-          lineGeom = new THREE.Geometry();
-          lineGeom.vertices = points;
+    // Draw background rect
+    svg.append('rect')
+      .attr('width', 1200)
+      .attr('height', 600)
+      .attr('fill', 'url(#ambientGlow)');
+
+    // Projection & Path Setup
+    const projection = d3.geoNaturalEarth1()
+      .scale(170)
+      .translate([600, 300]);
+
+    const pathGen = d3.geoPath(projection);
+
+    // Load GeoJSON data locally
+    d3.json('js/world-geojson.json').then(geojson => {
+      // Draw Continents
+      const continentsG = svg.append('g')
+        .attr('id', 'continents-layer')
+        .attr('filter', 'url(#subtleShadow)');
+
+      continentsG.selectAll('path')
+        .data(geojson.features)
+        .join('path')
+        .attr('d', pathGen)
+        .attr('fill', 'url(#shimmerGrad)')
+        .attr('stroke', '#D4AF37')
+        .attr('stroke-width', '0.4')
+        .attr('stroke-opacity', '0.6');
+
+      const hq = LOCATIONS.find(l => l.isHQ);
+      const indiaPoint = projection([hq.lng, hq.lat]);
+
+      // Layers groups
+      const routesG = svg.append('g').attr('id', 'routes-layer');
+      const particlesG = svg.append('g').attr('id', 'particles-layer');
+      const markersG = svg.append('g').attr('id', 'markers-layer');
+
+      // Register MotionPathPlugin with GSAP
+      if (typeof gsap !== 'undefined' && typeof MotionPathPlugin !== 'undefined') {
+        gsap.registerPlugin(MotionPathPlugin);
+      }
+
+      // Master GSAP Timeline for synced routes
+      const masterTimeline = gsap.timeline({ repeat: -1 });
+
+      LOCATIONS.forEach((loc, index) => {
+        const p = projection([loc.lng, loc.lat]);
+        if (!p) return;
+
+        // Draw Route Line and animate (HQ to destinations only)
+        if (!loc.isHQ) {
+          const routePathId = `vanilla-route-${index}`;
+          const dx = p[0] - indiaPoint[0];
+          const dy = p[1] - indiaPoint[1];
+          const dr = Math.sqrt(dx * dx + dy * dy);
+          const curve = 1.6;
+          const pathD = `M${indiaPoint[0]},${indiaPoint[1]} A${dr * curve},${dr * curve} 0 0,1 ${p[0]},${p[1]}`;
+
+          const routeLine = routesG.append('path')
+            .attr('id', routePathId)
+            .attr('d', pathD)
+            .attr('fill', 'none')
+            .attr('stroke', 'url(#routeGrad)')
+            .attr('stroke-width', '1.2')
+            .attr('stroke-linecap', 'round')
+            .attr('filter', 'url(#softGlow)')
+            .attr('opacity', '0.75');
+
+          const pathEl = routeLine.node();
+          const length = pathEl.getTotalLength();
+
+          routeLine
+            .attr('stroke-dasharray', length)
+            .attr('stroke-dashoffset', length);
+
+          const particle = particlesG.append('circle')
+            .attr('r', '3.5')
+            .attr('fill', 'url(#particleGrad)')
+            .attr('filter', 'url(#softGlow)');
+
+          // Animate line drawing
+          masterTimeline.fromTo(routeLine,
+            { strokeDashoffset: length },
+            { strokeDashoffset: 0, duration: 4, ease: 'none' },
+            0
+          );
+
+          // Animate particle along path
+          masterTimeline.to(particle, {
+            duration: 4,
+            ease: 'none',
+            motionPath: {
+              path: `#${routePathId}`,
+              autoRotate: false
+            }
+          }, 0);
         }
 
-        const lineMat = new THREE.LineBasicMaterial({
-          color: MAP_WHITE,
-          transparent: true,
-          opacity: 0.5
-        });
-        const routeLine = new THREE.Line(lineGeom, lineMat);
-        globeGroup.add(routeLine);
+        // Draw Location Marker Group
+        const markerGroup = markersG.append('g')
+          .attr('class', 'map-marker')
+          .attr('style', 'cursor: pointer;')
+          .on('mouseover', function (e) {
+            tooltipEl.innerHTML = `<div style="font-weight: 700; color: #C89B3C; margin-bottom: 4px; font-size: 13px;">${loc.label}</div>
+                                   <div style="color: #666666; margin-bottom: 6px; font-weight: 600; font-size: 11px;">${loc.subtitle}</div>
+                                   <div style="color: #444444; font-weight: 400; line-height: 1.5; font-size: 11px;">${loc.description}</div>`;
+            tooltipEl.style.opacity = '1';
+            tooltipEl.style.transform = 'translateY(0)';
+          })
+          .on('mousemove', function (e) {
+            const rect = container.getBoundingClientRect();
+            const tooltipWidth = tooltipEl.offsetWidth || 240;
+            const tooltipHeight = tooltipEl.offsetHeight || 100;
+            let left = e.clientX - rect.left - tooltipWidth / 2;
+            let top = e.clientY - rect.top - tooltipHeight - 15;
 
-        // Animated travel bullet
-        const bullet = new THREE.Mesh(
-          new THREE.SphereGeometry(0.008, 8, 8),
-          new THREE.MeshBasicMaterial({ color: MAP_WHITE })
-        );
-        globeGroup.add(bullet);
-        travelBullets.push({
-          mesh: bullet,
-          curve: curve,
-          progress: Math.random() // Start at random positions for natural flow
-        });
-      }
-    });
+            // Bound checks
+            if (left < 10) left = 10;
+            if (left + tooltipWidth > rect.width - 10) left = rect.width - tooltipWidth - 10;
+            if (top < 10) top = e.clientY - rect.top + 20;
 
-    // ---- 8. Mouse & Touch Event Listeners ----
-    container.addEventListener('mousedown', onMouseDown);
-    container.addEventListener('mousemove', onMouseMove);
-    window.addEventListener('mouseup', onMouseUp);
+            tooltipEl.style.left = left + 'px';
+            tooltipEl.style.top = top + 'px';
+          })
+          .on('mouseout', function () {
+            tooltipEl.style.opacity = '0';
+            tooltipEl.style.transform = 'translateY(10px)';
+          });
 
-    container.addEventListener('touchstart', onTouchStart, { passive: true });
-    container.addEventListener('touchmove', onTouchMove, { passive: true });
-    container.addEventListener('touchend', onTouchEnd);
+        if (loc.isHQ) {
+          // India HQ pulsing halo
+          const hqHalo = markerGroup.append('circle')
+            .attr('cx', p[0])
+            .attr('cy', p[1])
+            .attr('r', '6')
+            .attr('fill', 'none')
+            .attr('stroke', '#D4AF37')
+            .attr('stroke-width', '2')
+            .attr('opacity', '0.8');
 
-    window.addEventListener('resize', onWindowResize);
+          markerGroup.append('circle')
+            .attr('cx', p[0])
+            .attr('cy', p[1])
+            .attr('r', '7')
+            .attr('fill', 'none')
+            .attr('stroke', '#C89B3C')
+            .attr('stroke-width', '1');
 
-    // ---- 9. Start Animation Loop ----
-    animate();
-  }
+          markerGroup.append('circle')
+            .attr('cx', p[0])
+            .attr('cy', p[1])
+            .attr('r', '3.5')
+            .attr('fill', '#C89B3C');
 
-  // Helper: Load texture with fallback
-  function loadTexture(url) {
-    if (typeof THREE.ImageUtils !== 'undefined' && typeof THREE.ImageUtils.loadTexture === 'function') {
-      return THREE.ImageUtils.loadTexture(url);
-    } else if (typeof THREE.TextureLoader !== 'undefined') {
-      return new THREE.TextureLoader().load(url);
-    }
-  }
-
-  // Convert lat/lng to Vector3 on sphere
-  function latLngToVector3(lat, lng, sphereRadius) {
-    const phi = (90 - lat) * (Math.PI / 180);
-    const theta = (lng + 180) * (Math.PI / 180);
-    
-    const x = -(sphereRadius * Math.sin(phi) * Math.sin(theta));
-    const y = sphereRadius * Math.cos(phi);
-    const z = sphereRadius * Math.sin(phi) * Math.cos(theta);
-    return new THREE.Vector3(x, y, z);
-  }
-
-  // Helper: Update raycaster position (handles older and newer Three.js versions)
-  function updateRaycaster(mouse, camera, raycaster) {
-    if (typeof raycaster.setFromCamera === 'function') {
-      raycaster.setFromCamera(mouse, camera);
-    } else {
-      // Manual unproject for older Three.js (e.g. r61)
-      const vector = new THREE.Vector3(mouse.x, mouse.y, 0.5);
-      if (typeof vector.unproject === 'function') {
-        vector.unproject(camera);
-      } else if (typeof THREE.Projector !== 'undefined') {
-        const projector = new THREE.Projector();
-        projector.unprojectVector(vector, camera);
-      }
-      raycaster.ray.set(camera.position, vector.sub(camera.position).normalize());
-    }
-  }
-
-  // Helper: Set quaternion from unit vectors (handles older Three.js versions like r61)
-  function setQuaternionFromUnitVectors(quaternion, vFrom, vTo) {
-    if (typeof quaternion.setFromUnitVectors === 'function') {
-      quaternion.setFromUnitVectors(vFrom, vTo);
-    } else {
-      const v1 = vFrom.clone().normalize();
-      const v2 = vTo.clone().normalize();
-      const r = v1.dot(v2) + 1;
-      if (r < 0.0001) {
-        if (Math.abs(v1.x) > Math.abs(v1.z)) {
-          quaternion.set(-v1.y, v1.x, 0, 0).normalize();
+          // HQ pulse animation
+          gsap.fromTo(hqHalo,
+            { attr: { r: 6 }, opacity: 0.8 },
+            { attr: { r: 24 }, opacity: 0, duration: 2, repeat: -1, ease: 'power2.out' }
+          );
         } else {
-          quaternion.set(0, -v1.z, v1.y, 0).normalize();
+          // Destination Dot
+          markerGroup.append('circle')
+            .attr('cx', p[0])
+            .attr('cy', p[1])
+            .attr('r', '3')
+            .attr('fill', '#C89B3C');
+          
+          markerGroup.append('circle')
+            .attr('cx', p[0])
+            .attr('cy', p[1])
+            .attr('r', '6')
+            .attr('fill', 'none')
+            .attr('stroke', '#D4AF37')
+            .attr('stroke-width', '0.5')
+            .attr('opacity', '0.5');
         }
-      } else {
-        const cross = new THREE.Vector3().crossVectors(v1, v2);
-        quaternion.set(cross.x, cross.y, cross.z, r).normalize();
-      }
-    }
-  }
 
-  // ---- EVENT HANDLERS ----
+        // Location text labels (clean up emojis)
+        const labelText = loc.label.replace(/[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF]/g, '').trim();
 
-  function onMouseDown(e) {
-    isDragging = true;
-    isCentering = false;
-    autoRotate = false;
-    if (autoRotateTimeout) clearTimeout(autoRotateTimeout);
-    previousMousePosition = { x: e.clientX, y: e.clientY };
-  }
+        markerGroup.append('text')
+          .attr('x', p[0] + 7)
+          .attr('y', p[1] - 4)
+          .text(labelText)
+          .attr('font-size', '10px')
+          .attr('fill', '#7A6130')
+          .attr('font-family', "'Montserrat', sans-serif")
+          .attr('font-weight', '600')
+          .attr('opacity', '0.85')
+          .attr('letter-spacing', '0.04em');
+      });
 
-  function onMouseMove(e) {
-    // 1. Handle Dragging Rotation
-    if (isDragging) {
-      const deltaX = e.clientX - previousMousePosition.x;
-      const deltaY = e.clientY - previousMousePosition.y;
+      // Animate Shimmer across continents
+      gsap.fromTo("#shimmerGrad",
+        { attr: { x1: "-100%", x2: "0%" } },
+        { attr: { x1: "100%", x2: "200%" }, duration: 6, repeat: -1, ease: "none" }
+      );
 
-      globeGroup.rotation.y += deltaX * 0.004;
-      globeGroup.rotation.x += deltaY * 0.004;
-      
-      // Clamp vertical rotation
-      globeGroup.rotation.x = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, globeGroup.rotation.x));
-      previousMousePosition = { x: e.clientX, y: e.clientY };
-      return;
-    }
+      // Subtle Floating Animation for the entire map
+      gsap.to(svg.node(), {
+        y: -8,
+        duration: 5,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1
+      });
 
-    // 2. Handle Raycast Hover (Tooltip)
-    const rect = renderer.domElement.getBoundingClientRect();
-    mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-    mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+      // Viewport Entrance Animation using IntersectionObserver
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            gsap.fromTo(container,
+              { opacity: 0, y: 20 },
+              { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" }
+            );
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
 
-    updateRaycaster(mouse, camera, raycaster);
-    const intersects = raycaster.intersectObjects(collisionMeshes);
-
-    if (intersects.length > 0) {
-      container.style.cursor = 'pointer';
-      const loc = intersects[0].object.userData.data;
-      if (hoveredLocation !== loc) {
-        hoveredLocation = loc;
-        tooltipEl.innerHTML = `<div style="font-weight: bold; color: ${MAP_WHITE_STR}; margin-bottom: 3px; font-size:12px;">${loc.label}</div>
-                               <div style="color: #aaa; margin-bottom: 6px; font-weight: 500;">${loc.subtitle}</div>
-                               <div style="color: #ddd; font-weight: 300; line-height: 1.4;">${loc.description}</div>`;
-        tooltipEl.style.opacity = '1';
-      }
-      
-      // Position tooltip relative to container
-      const tooltipWidth = tooltipEl.offsetWidth || 210;
-      const tooltipHeight = tooltipEl.offsetHeight || 80;
-      let left = e.clientX - rect.left - tooltipWidth / 2;
-      let top = e.clientY - rect.top - tooltipHeight - 15;
-
-      // Bound checks
-      if (left < 10) left = 10;
-      if (left + tooltipWidth > rect.width - 10) left = rect.width - tooltipWidth - 10;
-      if (top < 10) top = e.clientY - rect.top + 20;
-
-      tooltipEl.style.left = left + 'px';
-      tooltipEl.style.top = top + 'px';
-    } else {
-      container.style.cursor = 'default';
-      hoveredLocation = null;
-      tooltipEl.style.opacity = '0';
-    }
-  }
-
-  function onMouseUp(e) {
-    if (isDragging) {
-      isDragging = false;
-      // Click detection: if delta is tiny, consider it a click
-      const rect = renderer.domElement.getBoundingClientRect();
-      const clickMouse = new THREE.Vector2();
-      clickMouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-      clickMouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
-
-      updateRaycaster(clickMouse, camera, raycaster);
-      const intersects = raycaster.intersectObjects(collisionMeshes);
-      if (intersects.length > 0) {
-        const loc = intersects[0].object.userData.data;
-        triggerCenterOnLocation(loc);
-      } else {
-        resetAutoRotationTimer();
-      }
-    }
-  }
-
-  function onTouchStart(e) {
-    if (e.touches.length === 1) {
-      isDragging = true;
-      isCentering = false;
-      autoRotate = false;
-      if (autoRotateTimeout) clearTimeout(autoRotateTimeout);
-      previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-    }
-  }
-
-  function onTouchMove(e) {
-    if (isDragging && e.touches.length === 1) {
-      const deltaX = e.touches[0].clientX - previousMousePosition.x;
-      const deltaY = e.touches[0].clientY - previousMousePosition.y;
-
-      globeGroup.rotation.y += deltaX * 0.004;
-      globeGroup.rotation.x += deltaY * 0.004;
-      globeGroup.rotation.x = Math.max(-Math.PI / 3, Math.min(Math.PI / 3, globeGroup.rotation.x));
-      
-      previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
-    }
-  }
-
-  function onTouchEnd(e) {
-    isDragging = false;
-    resetAutoRotationTimer();
-  }
-
-  function onWindowResize() {
-    if (!container || !renderer || !camera) return;
-    const width = container.clientWidth;
-    const height = container.clientHeight;
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
-    renderer.setSize(width, height);
-  }
-
-  // Trigger smooth centering transition
-  function triggerCenterOnLocation(loc) {
-    // Target rotations to align marker facing the camera
-    targetRotY = - (loc.lng + 90) * (Math.PI / 180);
-    targetRotX = - (loc.lat) * (Math.PI / 180);
-    
-    // Normalize targetRotY to prevent winding (rotating multiple circles)
-    const currentY = globeGroup.rotation.y;
-    const diff = (targetRotY - currentY) % (Math.PI * 2);
-    const normalizedDiff = ((diff + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
-    targetRotY = currentY + normalizedDiff;
-
-    isCentering = true;
-    resetAutoRotationTimer(10000); // Wait 10 seconds of inactivity before auto-rotating again
-  }
-
-  // Reset auto-rotation timeout
-  function resetAutoRotationTimer(delay = 4000) {
-    if (autoRotateTimeout) clearTimeout(autoRotateTimeout);
-    autoRotateTimeout = setTimeout(() => {
-      autoRotate = true;
-    }, delay);
-  }
-
-  // ---- ANIMATION LOOP ----
-  function animate() {
-    requestAnimationFrame(animate);
-
-    // 1. Rotate Clouds (independently, slightly faster than auto-rotation)
-    if (cloudsMesh) {
-      cloudsMesh.rotation.y += 0.0004;
-    }
-
-    // 2. Globe Auto-Rotation
-    if (autoRotate && !isDragging && !isCentering) {
-      globeGroup.rotation.y += 0.0010; // smooth constant rotation
-    }
-
-    // 3. Smooth Centering Interpolation
-    if (isCentering && !isDragging) {
-      globeGroup.rotation.y += (targetRotY - globeGroup.rotation.y) * 0.06;
-      globeGroup.rotation.x += (targetRotX - globeGroup.rotation.x) * 0.06;
-
-      if (Math.abs(targetRotY - globeGroup.rotation.y) < 0.001 && 
-          Math.abs(targetRotX - globeGroup.rotation.x) < 0.001) {
-        isCentering = false;
-      }
-    }
-
-    // 4. Animate Pulsing Rings
-    pulseRings.forEach(p => {
-      p.mesh.scale.addScalar(p.speed);
-      p.mesh.material.opacity -= p.speed * 1.5;
-      if (p.mesh.material.opacity <= 0) {
-        p.mesh.scale.set(1, 1, 1);
-        p.mesh.material.opacity = 0.65;
-      }
+      observer.observe(container);
+    }).catch(error => {
+      console.error("Error loading world GeoJSON:", error);
     });
-
-    // 5. Animate Travel Bullets along Curves
-    travelBullets.forEach(b => {
-      b.progress += 0.0035; // speed of route traffic
-      if (b.progress > 1) b.progress = 0;
-      const point = b.curve.getPointAt(b.progress);
-      b.mesh.position.copy(point);
-    });
-
-    renderer.render(scene, camera);
   }
 
-  // Initialize after page load
+  // Initialize
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
