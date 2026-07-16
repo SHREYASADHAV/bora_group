@@ -518,6 +518,285 @@
     </div>
   </section>
 
+  <!-- DYNAMIC MEDIA GALLERY -->
+  <section class="py-20 bg-light border-t border-gray-50 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <!-- Dropdown Toggle Header -->
+      <button id="gallery-toggle" class="w-full flex items-center justify-between py-6 px-8 bg-white border border-gray-100 hover:border-gold/30 transition-all duration-300 focus:outline-none group">
+        <div class="flex items-center space-x-4">
+          <div class="w-10 h-10 bg-navy/5 text-navy flex items-center justify-center transition-colors group-hover:bg-gold/10 group-hover:text-gold">
+            <i class="fa-regular fa-images text-lg"></i>
+          </div>
+          <div class="text-left">
+            <h3 class="font-heading font-extrabold text-navy text-lg uppercase tracking-wider">Explore Media Gallery</h3>
+            <p class="text-xs text-gray-500 font-light mt-0.5">Historical milestones, corporate divisions, and overseas operations</p>
+          </div>
+        </div>
+        <div class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-navy transition-all group-hover:border-gold group-hover:text-gold" id="gallery-chevron">
+          <i class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+        </div>
+      </button>
+
+      <!-- Collapsible Container (GSAP Animated) -->
+      <div id="gallery-content" class="overflow-hidden h-0 opacity-0 mt-4">
+        <div class="bg-white border border-gray-100 p-8 relative">
+          <!-- Slideshow Controls -->
+          <div class="absolute top-8 right-8 flex space-x-2 z-10">
+            <button id="gallery-prev" class="w-10 h-10 border border-gray-200 hover:border-gold hover:text-gold flex items-center justify-center bg-white text-navy transition-colors focus:outline-none">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button id="gallery-next" class="w-10 h-10 border border-gray-200 hover:border-gold hover:text-gold flex items-center justify-center bg-white text-navy transition-colors focus:outline-none">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <!-- Description and Header inside -->
+          <div class="mb-8 pr-32">
+            <h4 class="font-heading font-bold text-navy text-sm uppercase tracking-widest text-gold mb-1">Visual Archive</h4>
+            <p class="text-xs text-gray-500 font-light">A curated slideshow of the legacy, business divisions, and international network of BORA GROUP.</p>
+          </div>
+
+          <!-- Carousel Stage -->
+          <div class="overflow-hidden w-full relative">
+            <div id="gallery-track" class="flex space-x-6 w-max transition-transform duration-300">
+              <!-- Slide 1 -->
+              <div class="w-[380px] flex-shrink-0 group">
+                <div class="relative overflow-hidden aspect-[4/3] bg-gray-100 border border-gray-100">
+                  <img src="images/bora_brothers_founders.jpg" alt="Founding Brothers 1947" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                  <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/80 via-dark/40 to-transparent text-white">
+                    <div class="font-heading font-bold text-xs uppercase tracking-widest text-gold">1947</div>
+                    <div class="font-heading font-bold text-sm mt-0.5">The Founders</div>
+                    <div class="text-[10px] text-gray-300 font-light mt-0.5">Bora Brothers starting the business legacy.</div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Slide 2 -->
+              <div class="w-[380px] flex-shrink-0 group">
+                <div class="relative overflow-hidden aspect-[4/3] bg-gray-100 border border-gray-100">
+                  <img src="images/real_estate_launch.jpg" alt="Real Estate Division" class="w-full h-full object-cover transition-all duration-700">
+                  <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/80 via-dark/40 to-transparent text-white">
+                    <div class="font-heading font-bold text-xs uppercase tracking-widest text-gold">1975</div>
+                    <div class="font-heading font-bold text-sm mt-0.5">Real Estate Launch</div>
+                    <div class="text-[10px] text-gray-300 font-light mt-0.5">Pioneering luxury developments in Kopargaon.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="w-[380px] flex-shrink-0 group">
+                <div class="relative overflow-hidden aspect-[4/3] bg-gray-100 border border-gray-100">
+                  <img src="images/industrial_supplies.jpg" alt="Industrial Supplies Division" class="w-full h-full object-cover transition-all duration-700">
+                  <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/80 via-dark/40 to-transparent text-white">
+                    <div class="font-heading font-bold text-xs uppercase tracking-widest text-gold">1989</div>
+                    <div class="font-heading font-bold text-sm mt-0.5">Industrial Supplies Expansion</div>
+                    <div class="text-[10px] text-gray-300 font-light mt-0.5">Becoming a key regional distributor of glassware and bottles.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="w-[380px] flex-shrink-0 group">
+                <div class="relative overflow-hidden aspect-[4/3] bg-gray-100 border border-gray-100">
+                  <img src="images/bora_collection_store.jpg" alt="Bora Collection Store" class="w-full h-full object-cover transition-all duration-700">
+                  <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/80 via-dark/40 to-transparent text-white">
+                    <div class="font-heading font-bold text-xs uppercase tracking-widest text-gold">2000</div>
+                    <div class="font-heading font-bold text-sm mt-0.5">Bora Collection Launch</div>
+                    <div class="text-[10px] text-gray-300 font-light mt-0.5">Expanding into high-quality textiles and retail garments.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 5 -->
+              <div class="w-[380px] flex-shrink-0 group">
+                <div class="relative overflow-hidden aspect-[4/3] bg-gray-100 border border-gray-100">
+                  <img src="images/overseas_trade_ship.jpg" alt="Overseas Trade" class="w-full h-full object-cover transition-all duration-700">
+                  <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/80 via-dark/40 to-transparent text-white">
+                    <div class="font-heading font-bold text-xs uppercase tracking-widest text-gold">2005</div>
+                    <div class="font-heading font-bold text-sm mt-0.5">Overseas Trade Division</div>
+                    <div class="text-[10px] text-gray-300 font-light mt-0.5">Connecting international markets via shipping routes.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 6 -->
+              <div class="w-[380px] flex-shrink-0 group">
+                <div class="relative overflow-hidden aspect-[4/3] bg-gray-100 border border-gray-100">
+                  <img src="images/hotel_divya_palace.jpg" alt="Hotel Divya Palace" class="w-full h-full object-cover transition-all duration-700">
+                  <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/80 via-dark/40 to-transparent text-white">
+                    <div class="font-heading font-bold text-xs uppercase tracking-widest text-gold">2014</div>
+                    <div class="font-heading font-bold text-sm mt-0.5">Hotel Divya Palace</div>
+                    <div class="text-[10px] text-gray-300 font-light mt-0.5">Entering the hospitality sector with premium services.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 7 -->
+              <div class="w-[380px] flex-shrink-0 group">
+                <div class="relative overflow-hidden aspect-[4/3] bg-gray-100 border border-gray-100">
+                  <img src="images/bora_fashion_store.jpg" alt="Bora Fashion Store" class="w-full h-full object-cover transition-all duration-700">
+                  <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/80 via-dark/40 to-transparent text-white">
+                    <div class="font-heading font-bold text-xs uppercase tracking-widest text-gold">2014</div>
+                    <div class="font-heading font-bold text-sm mt-0.5">Bora Fashion Store</div>
+                    <div class="text-[10px] text-gray-300 font-light mt-0.5">Enhancing retail fashion and uniform supply lines.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 8 -->
+              <div class="w-[380px] flex-shrink-0 group">
+                <div class="relative overflow-hidden aspect-[4/3] bg-gray-100 border border-gray-100">
+                  <img src="images/export_grains.png" alt="Export Grains" class="w-full h-full object-cover transition-all duration-700">
+                  <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/80 via-dark/40 to-transparent text-white">
+                    <div class="font-heading font-bold text-xs uppercase tracking-widest text-gold">Trade</div>
+                    <div class="font-heading font-bold text-sm mt-0.5">Agricultural Grains</div>
+                    <div class="text-[10px] text-gray-300 font-light mt-0.5">High-volume export of premium grain varieties.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 9 -->
+              <div class="w-[380px] flex-shrink-0 group">
+                <div class="relative overflow-hidden aspect-[4/3] bg-gray-100 border border-gray-100">
+                  <img src="images/export_spices.png" alt="Export Spices" class="w-full h-full object-cover transition-all duration-700">
+                  <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/80 via-dark/40 to-transparent text-white">
+                    <div class="font-heading font-bold text-xs uppercase tracking-widest text-gold">Trade</div>
+                    <div class="font-heading font-bold text-sm mt-0.5">Organic Spice Blends</div>
+                    <div class="text-[10px] text-gray-300 font-light mt-0.5">Sourcing and exporting high-grade natural spices.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 10 -->
+              <div class="w-[380px] flex-shrink-0 group">
+                <div class="relative overflow-hidden aspect-[4/3] bg-gray-100 border border-gray-100">
+                  <img src="images/fresh_vegetables.png" alt="Fresh Vegetables" class="w-full h-full object-cover transition-all duration-700">
+                  <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/80 via-dark/40 to-transparent text-white">
+                    <div class="font-heading font-bold text-xs uppercase tracking-widest text-gold">Trade</div>
+                    <div class="font-heading font-bold text-sm mt-0.5">Fresh Agricultural Produce</div>
+                    <div class="text-[10px] text-gray-300 font-light mt-0.5">Direct farm-to-shipping-port supply logistics.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 11 -->
+              <div class="w-[380px] flex-shrink-0 group">
+                <div class="relative overflow-hidden aspect-[4/3] bg-gray-100 border border-gray-100">
+                  <img src="images/garments_textiles.png" alt="Garments & Textiles" class="w-full h-full object-cover transition-all duration-700">
+                  <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/80 via-dark/40 to-transparent text-white">
+                    <div class="font-heading font-bold text-xs uppercase tracking-widest text-gold">Garments</div>
+                    <div class="font-heading font-bold text-sm mt-0.5">Textile Manufacturing</div>
+                    <div class="text-[10px] text-gray-300 font-light mt-0.5">Premium uniforms and retail apparel line.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 12 -->
+              <div class="w-[380px] flex-shrink-0 group">
+                <div class="relative overflow-hidden aspect-[4/3] bg-gray-100 border border-gray-100">
+                  <img src="images/about_excellence.png" alt="Corporate Standards" class="w-full h-full object-cover transition-all duration-700">
+                  <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/80 via-dark/40 to-transparent text-white">
+                    <div class="font-heading font-bold text-xs uppercase tracking-widest text-gold">Excellence</div>
+                    <div class="font-heading font-bold text-sm mt-0.5">Standard of Excellence</div>
+                    <div class="text-[10px] text-gray-300 font-light mt-0.5">Committed to premium outcomes in all fields.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inline Script for Dropdown Collapse & Carousel behavior -->
+    <script>
+      (function() {
+        document.addEventListener('DOMContentLoaded', function() {
+          const toggleBtn = document.getElementById('gallery-toggle');
+          const content = document.getElementById('gallery-content');
+          const chevronIcon = document.querySelector('#gallery-chevron i');
+          const track = document.getElementById('gallery-track');
+          const prevBtn = document.getElementById('gallery-prev');
+          const nextBtn = document.getElementById('gallery-next');
+
+          if (!toggleBtn || !content || !track || !prevBtn || !nextBtn) return;
+
+          let isExpanded = false;
+          let currentIndex = 0;
+          const slideWidth = 380 + 24; // slide width (380px) + gap space-x-6 (24px)
+          const totalSlides = 12;
+
+          // Dropdown expansion toggle via GSAP
+          toggleBtn.addEventListener('click', function() {
+            isExpanded = !isExpanded;
+            if (isExpanded) {
+              gsap.to(content, { 
+                height: 'auto', 
+                opacity: 1, 
+                duration: 0.6, 
+                ease: 'power3.inOut',
+                onComplete: updateCarousel // update bounds once open
+              });
+              gsap.to(chevronIcon, { rotation: 180, duration: 0.4, ease: 'power2.out' });
+            } else {
+              gsap.to(content, { 
+                height: 0, 
+                opacity: 0, 
+                duration: 0.5, 
+                ease: 'power3.inOut' 
+              });
+              gsap.to(chevronIcon, { rotation: 0, duration: 0.4, ease: 'power2.out' });
+            }
+          });
+
+          // Helper to get number of visible slides on screen
+          function getVisibleSlides() {
+            const w = window.innerWidth;
+            if (w >= 1024) return 3;
+            if (w >= 768) return 2;
+            return 1;
+          }
+
+          // Main Carousel rendering update
+          function updateCarousel() {
+            const visible = getVisibleSlides();
+            const maxIndex = totalSlides - visible;
+            
+            // Boundary checks
+            if (currentIndex < 0) currentIndex = 0;
+            if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+            // Transition track horizontally
+            const tx = -currentIndex * slideWidth;
+            gsap.to(track, { x: tx, duration: 0.6, ease: 'power2.out' });
+
+            // Toggle active state on nav arrows
+            prevBtn.style.opacity = currentIndex === 0 ? '0.4' : '1';
+            prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+            nextBtn.style.opacity = currentIndex === maxIndex ? '0.4' : '1';
+            nextBtn.style.pointerEvents = currentIndex === maxIndex ? 'none' : 'auto';
+          }
+
+          nextBtn.addEventListener('click', function() {
+            currentIndex++;
+            updateCarousel();
+          });
+
+          prevBtn.addEventListener('click', function() {
+            currentIndex--;
+            updateCarousel();
+          });
+
+          // Setup initial disabled button state
+          prevBtn.style.opacity = '0.4';
+          prevBtn.style.pointerEvents = 'none';
+
+          window.addEventListener('resize', updateCarousel);
+        });
+      })();
+    </script>
+  </section>
+
   <!-- GLOBAL SOURCING & TRADE MAP -->
   <section class="py-24 lg:py-32 bg-white relative overflow-hidden border-t border-gray-50">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
