@@ -7,8 +7,8 @@
       label: '🌏 Southeast Asia',
       subtitle: 'Rice & Manufacturing',
       description: 'Direct imports of organic jasmine rice, spices, and export distribution of garments & textiles.',
-      left: 78.5,
-      top: 59.5,
+      left: 78.48,
+      top: 61.75,
       curveFactor: -0.1
     },
     {
@@ -16,8 +16,8 @@
       label: '🌍 Middle East',
       subtitle: 'Primary Distribution Hub',
       description: 'Heavy export trade of fresh seasonal vegetables, high-volume spices, and basmati grain varieties.',
-      left: 65.5,
-      top: 51.5,
+      left: 65.89,
+      top: 49.70,
       curveFactor: -0.15
     },
     {
@@ -25,8 +25,8 @@
       label: '🌍 Central Africa',
       subtitle: 'Resource & Cargo',
       description: 'Distributing wholesale industrial supplies and importing raw agricultural seeds.',
-      left: 56.5,
-      top: 67.5,
+      left: 55.03,
+      top: 66.15,
       curveFactor: 0.15
     },
     {
@@ -34,8 +34,8 @@
       label: '🌎 North America',
       subtitle: 'USA & Canada Export',
       description: 'Exporting agricultural grains, select spices, and custom textiles to key retail markets.',
-      left: 28.5,
-      top: 38.0,
+      left: 25.34,
+      top: 37.32,
       curveFactor: -0.2
     },
     {
@@ -43,8 +43,8 @@
       label: '🇧🇷 Brazil',
       subtitle: 'Sugar & Coffee Sourcing',
       description: 'Bulk imports of high-grade sugarcane products and raw arabica coffee beans for regional channels.',
-      left: 36.5,
-      top: 73.5,
+      left: 33.23,
+      top: 71.72,
       curveFactor: 0.2
     },
     {
@@ -52,8 +52,8 @@
       label: '🇬🇱 Greenland & Iceland',
       subtitle: 'Northern Distribution',
       description: 'Sourcing high-latitude niche supplies and coordinating climate-controlled cargo logistics.',
-      left: 38.5,
-      top: 17.5,
+      left: 38.47,
+      top: 16.86,
       curveFactor: -0.25
     },
     {
@@ -61,8 +61,8 @@
       label: '🌏 Northern Eurasia',
       subtitle: 'Eurasian Trade Routes',
       description: 'Trade routes for raw commodities, industrial hardware, and agricultural grain shipments.',
-      left: 61.5,
-      top: 30.0,
+      left: 64.04,
+      top: 30.37,
       curveFactor: -0.18
     },
     {
@@ -70,8 +70,8 @@
       label: '🇦🇺 Australia',
       subtitle: 'Oceanic Logistics',
       description: 'Exporting high-quality garments, wholesale spice blends, and custom trade shipments.',
-      left: 87.5,
-      top: 80.5,
+      left: 83.53,
+      top: 77.48,
       curveFactor: 0.22
     }
   ];
@@ -91,8 +91,8 @@
     const dynamicElements = svg.querySelectorAll('.route-path, .comet');
     dynamicElements.forEach(el => el.remove());
 
-    const hqLeft = 72;
-    const hqTop = 53.5;
+    const hqLeft = 72.54;
+    const hqTop = 51.82;
     const hqX = 1920 * (hqLeft / 100);
     const hqY = 1080 * (hqTop / 100);
 
