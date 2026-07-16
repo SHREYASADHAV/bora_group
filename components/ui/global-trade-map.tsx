@@ -148,9 +148,9 @@ export default function GlobalTradeMap() {
       .join("path")
       .attr("d", path as any)
       .attr("fill", "url(#shimmerGrad)")
-      .attr("stroke", "#D4AF37")
-      .attr("stroke-width", "0.4")
-      .attr("stroke-opacity", "0.6")
+      .attr("stroke", "#ffffff")
+      .attr("stroke-width", "0.45")
+      .attr("stroke-opacity", "0.9")
       .style("transform-origin", "center");
 
     const indiaPoint = projection([INDIA.lng, INDIA.lat]);
