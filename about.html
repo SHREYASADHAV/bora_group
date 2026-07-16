@@ -51,22 +51,8 @@
       position: relative;
       width: 100%;
       max-width: 1200px;
-      aspect-ratio: 1024 / 568;
-      background: #053C8F;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
-      border: 1px solid rgba(212, 175, 55, 0.15);
-    }
-    .map-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: fill;
-    }
-    .color-overlay {
-      display: none;
+      aspect-ratio: 2 / 1;
+      background: transparent;
     }
     svg.overlay {
       position: absolute;
@@ -548,30 +534,7 @@
 
       <!-- Premium World Map Stage -->
       <div class="stage-wrap gsap-reveal">
-        <div class="stage" id="stage">
-          <img class="map-img" src="images/world_map_blue.png" alt="Bora Group World Trade Map">
-          <div class="color-overlay"></div>
-          <svg class="overlay" id="svg-overlay" viewBox="0 0 1920 1080">
-            <defs>
-              <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#ffd166" />
-                <stop offset="100%" stop-color="#ff9f1c" />
-              </linearGradient>
-            </defs>
-          </svg>
-          
-          <!-- India HQ Pin -->
-          <div class="hq-pin" id="pin-india" style="left: 73.33%; top: 51.97%;">
-            <div class="hq-dot"></div>
-            <div class="hq-pulse p1"></div>
-            <div class="hq-pulse p2"></div>
-            <div class="hq-pulse p3"></div>
-            <div class="hq-label">INDIA HQ</div>
-          </div>
-
-          <!-- Pins Container -->
-          <div id="pins-container"></div>
-        </div>
+        <div class="stage" id="stage"></div>
       </div>
 
     </div>
@@ -743,7 +706,7 @@
   <script src="js/animations.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
-  <script src="js/dotted-map.js?v=7"></script>
+  <script src="js/dotted-map.js?v=8"></script>
   <script>
     lucide.createIcons();
 
