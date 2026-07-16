@@ -247,14 +247,14 @@
           .attr('filter', 'url(#softGlow)');
 
         // Animate line drawing
-        masterTimeline.fromTo(routeLine,
+        masterTimeline.fromTo(routeLine.node(),
           { strokeDashoffset: length },
           { strokeDashoffset: 0, duration: 4, ease: 'none' },
           0
         );
 
         // Animate particle along path
-        masterTimeline.to(particle, {
+        masterTimeline.to(particle.node(), {
           duration: 4,
           ease: 'none',
           motionPath: {
@@ -321,7 +321,7 @@
           .attr('fill', '#C89B3C');
 
         // HQ pulse animation
-        gsap.fromTo(hqHalo,
+        gsap.fromTo(hqHalo.node(),
           { attr: { r: 6 }, opacity: 0.8 },
           { attr: { r: 24 }, opacity: 0, duration: 2, repeat: -1, ease: 'power2.out' }
         );
@@ -359,7 +359,7 @@
     });
 
     // Animate Shimmer across continents
-    gsap.fromTo("#shimmerGrad",
+    gsap.fromTo(shimmerGrad.node(),
       { attr: { x1: "-100%", x2: "0%" } },
       { attr: { x1: "100%", x2: "200%" }, duration: 6, repeat: -1, ease: "none" }
     );
