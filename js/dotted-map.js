@@ -137,6 +137,16 @@
     routeGrad.append('stop').attr('offset', '0%').attr('stop-color', '#ffd166').attr('stop-opacity', '0.85');
     routeGrad.append('stop').attr('offset', '100%').attr('stop-color', '#ff9f1c').attr('stop-opacity', '0.3');
 
+    // Dot Gradient matching radial-gradient(circle at 35% 30%, #fff6d8, #ffd166 55%, #b3801a 100%)
+    const dotGrad = defs.append('radialGradient')
+      .attr('id', 'dotGrad')
+      .attr('cx', '35%')
+      .attr('cy', '30%')
+      .attr('r', '75%');
+    dotGrad.append('stop').attr('offset', '0%').attr('stop-color', '#fff6d8');
+    dotGrad.append('stop').attr('offset', '55%').attr('stop-color', '#ffd166');
+    dotGrad.append('stop').attr('offset', '100%').attr('stop-color', '#b3801a');
+
     // 3. Render the transparent blue map PNG directly as the backdrop layer inside the SVG
     svg.append('image')
       .attr('href', 'images/world_map_blue.png')
@@ -212,7 +222,7 @@
           .attr('cx', p[0])
           .attr('cy', p[1])
           .attr('r', '6')
-          .attr('fill', '#ffd166')
+          .attr('fill', 'url(#dotGrad)')
           .attr('stroke', '#ffffff')
           .attr('stroke-width', '1.5');
 
@@ -227,7 +237,7 @@
           .attr('cx', p[0])
           .attr('cy', p[1])
           .attr('r', '4.5')
-          .attr('fill', '#ffd166')
+          .attr('fill', 'url(#dotGrad)')
           .attr('stroke', '#ffffff')
           .attr('stroke-width', '1.5');
 
