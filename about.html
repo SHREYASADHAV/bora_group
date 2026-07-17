@@ -50,9 +50,28 @@
     .stage {
       position: relative;
       width: 100%;
-      max-width: 1200px;
+      max-width: 1920px;
       aspect-ratio: 2 / 1;
-      background: transparent;
+      background: #ffffff;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(0,0,0,0.08);
+    }
+    .map-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: grayscale(1) brightness(1.08);
+    }
+    .color-overlay {
+      position: absolute;
+      inset: 0;
+      background: #3a81cf;
+      mix-blend-mode: color;
+      pointer-events: none;
     }
     svg.overlay {
       position: absolute;
@@ -813,7 +832,10 @@
 
       <!-- Premium World Map Stage -->
       <div class="stage-wrap gsap-reveal">
-        <div class="stage" id="stage"></div>
+        <div class="stage" id="stage">
+          <img class="map-img" src="images/world_map_detailed.png" alt="Global Network Map">
+          <div class="color-overlay"></div>
+        </div>
       </div>
 
     </div>
@@ -985,7 +1007,7 @@
   <script src="js/animations.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/MotionPathPlugin.min.js"></script>
-  <script src="js/dotted-map.js?v=10"></script>
+  <script src="js/dotted-map.js?v=11"></script>
   <script>
     lucide.createIcons();
 

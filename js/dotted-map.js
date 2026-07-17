@@ -77,20 +77,17 @@
     }
   ];
 
-  // Custom mathematical Plate Carrée projection matching the stretched world_map_blue.png image
-  const projection = function(coords) {
-    const lng = coords[0];
-    const lat = coords[1];
-    const x = 576.0 + 3.0 * lng;
-    const y = 310.2 - 2.88 * lat;
-    return [x, y];
-  };
+  // Standard Equirectangular projection matching the world_map_detailed.png image (2:1 aspect ratio)
+  const projection = d3.geoEquirectangular()
+    .scale(1200 / (2 * Math.PI))
+    .translate([600, 300]);
 
   function init() {
     const container = document.getElementById('stage');
     if (!container) return;
 
-    container.innerHTML = '';
+    // Clear previous SVG overlays but preserve the backdrop image and color overlay
+    container.querySelectorAll('svg').forEach(el => el.remove());
     container.style.position = 'relative';
 
     // 1. Create Tooltip DOM Element (frosted glass style)
@@ -114,9 +111,10 @@
     tooltipEl.style.transform = 'translateY(8px)';
     container.appendChild(tooltipEl);
 
-    // 2. Setup D3 SVG Canvas
+    // 2. Setup D3 SVG Canvas with 'overlay' class to absolute-position it over the image
     const svg = d3.select(container)
       .append('svg')
+      .attr('class', 'overlay')
       .attr('width', 1200)
       .attr('height', 600)
       .attr('viewBox', '0 0 1200 600')
@@ -147,14 +145,7 @@
     dotGrad.append('stop').attr('offset', '55%').attr('stop-color', '#ffd166');
     dotGrad.append('stop').attr('offset', '100%').attr('stop-color', '#b3801a');
 
-    // 3. Render the transparent blue map PNG directly as the backdrop layer inside the SVG
-    svg.append('image')
-      .attr('href', 'images/world_map_blue.png')
-      .attr('x', 0)
-      .attr('y', 0)
-      .attr('width', 1200)
-      .attr('height', 600)
-      .attr('preserveAspectRatio', 'none');
+    // Backdrop image is loaded statically in HTML and overlayed by svg.overlay
 
     const hq = LOCATIONS.find(l => l.isHQ);
     const hqPoint = projection([hq.lng, hq.lat]);
