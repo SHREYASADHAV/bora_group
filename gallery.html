@@ -34,36 +34,16 @@
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="css/styles.css">
   <style>
-    /* Custom Marquee Scrolling Animations */
-    @keyframes marquee-left {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
+    /* Custom Scrollbar styling for horizontal containers on mobile */
+    .horizontal-container::-webkit-scrollbar {
+      height: 4px;
     }
-    @keyframes marquee-right {
-      0% {
-        transform: translateX(-50%);
-      }
-      100% {
-        transform: translateX(0);
-      }
+    .horizontal-container::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.05);
     }
-    .marquee-track-left {
-      display: flex;
-      width: max-content;
-      animation: marquee-left 40s linear infinite;
-    }
-    .marquee-track-right {
-      display: flex;
-      width: max-content;
-      animation: marquee-right 40s linear infinite;
-    }
-    .marquee-container:hover .marquee-track-left,
-    .marquee-container:hover .marquee-track-right {
-      animation-play-state: paused;
+    .horizontal-container::-webkit-scrollbar-thumb {
+      background: #C5A880;
+      border-radius: 2px;
     }
   </style>
 </head>
@@ -218,362 +198,230 @@
     </div>
   </div>
 
-  <!-- INNER PAGE HERO -->
-  <section class="relative py-28 lg:py-40 bg-dark overflow-hidden">
-    <div class="absolute inset-0 z-0">
-      <div class="parallax-bg absolute inset-0 bg-cover bg-center brightness-[0.25]" style="background-image: url('images/hero_bg4.jpg');"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-dark to-dark/50"></div>
-    </div>
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center mt-8">
-      <span class="text-xs font-heading font-semibold tracking-[0.2em] text-gold uppercase mb-3 inline-block">VISUAL ARCHIVE</span>
-      <h1 class="font-heading text-4xl sm:text-5xl font-extrabold text-white tracking-tight">Our Photo Gallery</h1>
-      <div class="w-12 h-1 bg-gold mx-auto mt-6"></div>
+  <!-- APPLE BENTO GRID HEADER SECTION -->
+  <section class="pt-32 pb-16 bg-dark relative overflow-hidden">
+    <!-- Glowing background elements -->
+    <div class="absolute top-0 left-1/4 w-[450px] h-[450px] bg-navy/10 rounded-full blur-[140px] pointer-events-none"></div>
+    <div class="absolute bottom-0 right-1/4 w-[350px] h-[350px] bg-gold/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      
+      <!-- Bento Grid Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[220px]">
+        
+        <!-- Tile 1: Massive Apple-Style Photo Gallery Title (Occupies 2 columns and 2 rows) -->
+        <div class="md:col-span-2 md:row-span-2 bg-[#09090E] border border-white/10 rounded-3xl p-8 sm:p-12 flex flex-col justify-between overflow-hidden relative group shadow-2xl transition-all duration-300 hover:border-gold/30">
+          <!-- Ambient glowing corner -->
+          <div class="absolute -right-16 -bottom-16 w-64 h-64 bg-gold/10 rounded-full blur-[90px] pointer-events-none transition-all duration-500 group-hover:bg-gold/20"></div>
+          
+          <div>
+            <span class="text-[10px] sm:text-xs font-heading font-semibold tracking-[0.25em] text-gold uppercase mb-4 inline-block">Bora Group • Visual Archive</span>
+          </div>
+          <div class="mt-auto">
+            <h1 class="font-heading text-5xl sm:text-7xl font-extrabold text-white tracking-tight leading-none mb-6">Photo Gallery</h1>
+            <p class="text-xs sm:text-sm text-white/60 font-light max-w-xl leading-relaxed">
+              Explore the rich visual history, diverse business verticals, and architectural milestones that define the BORA GROUP legacy since 1947.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tile 2: Founders Image (Occupies 1 column, 1 row) -->
+        <div class="bg-[#09090E] border border-white/10 rounded-3xl overflow-hidden relative group cursor-pointer shadow-lg hover:border-gold/30 transition-all duration-300" onclick="openLightboxBySrc('images/bora_brothers_founders.jpg')">
+          <img src="images/bora_brothers_founders.jpg" alt="Founders 1947" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/25 to-transparent p-6 flex flex-col justify-end text-white">
+            <span class="text-[9px] uppercase tracking-wider text-gold font-bold">1947</span>
+            <h3 class="font-heading font-bold text-sm mt-0.5">The Founding Brothers</h3>
+          </div>
+        </div>
+
+        <!-- Tile 3: Typographic Roots Highlight (Occupies 1 column, 1 row) -->
+        <div class="bg-[#09090E] border border-white/10 rounded-3xl p-6 flex flex-col justify-between overflow-hidden relative group shadow-lg hover:border-gold/30 transition-all duration-300">
+          <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-navy/20 rounded-full blur-2xl pointer-events-none"></div>
+          <div class="text-gold font-heading font-extrabold text-4xl tracking-tight">1947</div>
+          <div>
+            <h4 class="font-heading font-bold text-white text-xs uppercase tracking-wider mb-1">Corporate Roots</h4>
+            <p class="text-[10px] text-white/50 font-light leading-relaxed">
+              From Kopargaon roots to a diversified global conglomerate.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tile 4: Real Estate Image (Occupies 1 column, 1 row) -->
+        <div class="bg-[#09090E] border border-white/10 rounded-3xl overflow-hidden relative group cursor-pointer shadow-lg hover:border-gold/30 transition-all duration-300" onclick="openLightboxBySrc('images/real_estate_launch.jpg')">
+          <img src="images/real_estate_launch.jpg" alt="Bora Realty" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/25 to-transparent p-6 flex flex-col justify-end text-white">
+            <span class="text-[9px] uppercase tracking-wider text-gold font-bold">1975</span>
+            <h3 class="font-heading font-bold text-sm mt-0.5">Real Estate Division</h3>
+          </div>
+        </div>
+
+        <!-- Tile 5: Overseas Trade Image (Occupies 2 columns, 1 row) -->
+        <div class="md:col-span-2 bg-[#09090E] border border-white/10 rounded-3xl overflow-hidden relative group cursor-pointer shadow-lg hover:border-gold/30 transition-all duration-300" onclick="openLightboxBySrc('images/overseas_trade_ship.jpg')">
+          <img src="images/overseas_trade_ship.jpg" alt="Overseas Trade" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/15 to-transparent p-6 flex flex-col justify-end text-white">
+            <div class="flex items-center justify-between w-full">
+              <div>
+                <span class="text-[9px] uppercase tracking-wider text-gold font-bold">2005</span>
+                <h3 class="font-heading font-bold text-base mt-0.5">Overseas Trade Division</h3>
+                <p class="text-[10px] text-white/50 font-light mt-0.5 hidden sm:block">Connecting international markets via shipping routes and commodity operations.</p>
+              </div>
+              <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white group-hover:border-gold group-hover:text-gold transition-colors duration-300">
+                <i class="fa-solid fa-expand text-[10px]"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </section>
 
-  <!-- MARQUEE LOOP SECTION -->
-  <section class="py-16 bg-dark overflow-hidden relative border-b border-white/5">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,168,128,0.03)_0%,transparent_60%)] pointer-events-none"></div>
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-10 text-center md:text-left">
-      <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase mb-2 inline-block">Visual Flow</span>
-      <h2 class="text-2xl sm:text-3xl font-heading font-bold text-white">Seamless Historical & Division Loops</h2>
-      <p class="text-xs text-white/40 font-light mt-1">Hover over any loop to pause. Click a picture to view in large high-definition lightbox.</p>
-    </div>
-    
-    <!-- Loop Row 1: Left to Right (10 Images) -->
-    <div class="marquee-container overflow-hidden w-full mb-8 relative py-2">
-      <div class="marquee-track-left flex space-x-6">
-        <!-- Item 1 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/bora_brothers_founders.jpg')">
-          <img src="images/bora_brothers_founders.jpg" alt="The Founders" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">1947</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">The Founders</h4>
-          </div>
+  <!-- GSAP HORIZONTAL SCROLL CAROUSEL SECTION -->
+  <section id="scroll-carousel-section" class="bg-[#06060A] relative overflow-hidden">
+    <!-- Pinned horizontal track -->
+    <div class="horizontal-container flex items-center h-[550px] md:h-screen relative overflow-x-auto md:overflow-x-hidden md:w-[5000px] px-6 md:px-24 py-12 md:py-0">
+      
+      <!-- Slide 1: Welcome Intro Card -->
+      <div class="horizontal-slide w-[280px] sm:w-[460px] h-[380px] md:h-[450px] flex-shrink-0 flex flex-col justify-center pr-12 text-white">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase mb-2">Milestones</span>
+        <h2 class="text-3xl sm:text-5xl font-heading font-bold tracking-tight leading-tight">The Legacy Timeline</h2>
+        <div class="w-12 h-1 bg-gold mt-6 mb-6"></div>
+        <p class="text-xs sm:text-sm text-white/50 font-light leading-relaxed">
+          Scroll down to travel through our key historical moments and division launches. Drag, swipe, or scroll vertically to translate horizontal cards.
+        </p>
+        <div class="flex items-center space-x-2 mt-8 text-white/40 text-xs">
+          <i class="fa-solid fa-arrow-right animate-pulse"></i>
+          <span>Scroll down to begin</span>
         </div>
-        <!-- Item 2 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/real_estate_launch.jpg')">
-          <img src="images/real_estate_launch.jpg" alt="Bora Realty Pioneers" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">1975</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Bora Realty Pioneers</h4>
-          </div>
-        </div>
-        <!-- Item 3 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/real_estate_puja.jpg')">
-          <img src="images/real_estate_puja.jpg" alt="Bhoomi Puja" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">1995</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Bhoomi Puja Ceremony</h4>
-          </div>
-        </div>
-        <!-- Item 4 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/hero_real_estate.png')">
-          <img src="images/hero_real_estate.png" alt="Bora Realty Horizon" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Modern</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Luxury Living Complexes</h4>
-          </div>
-        </div>
-        <!-- Item 5 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/overseas_trade_ship.jpg')">
-          <img src="images/overseas_trade_ship.jpg" alt="Overseas Trade" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">2005</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Overseas Trade Routes</h4>
-          </div>
-        </div>
-        <!-- Item 6 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/export_grains.png')">
-          <img src="images/export_grains.png" alt="Grain Export" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Trade</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Bulk Grain Cargo</h4>
-          </div>
-        </div>
-        <!-- Item 7 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/export_spices.png')">
-          <img src="images/export_spices.png" alt="Spices Export" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Trade</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Natural Organic Spices</h4>
-          </div>
-        </div>
-        <!-- Item 8 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/fresh_vegetables.png')">
-          <img src="images/fresh_vegetables.png" alt="Fresh Vegetables" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Trade</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Fresh Agricultural Produce</h4>
-          </div>
-        </div>
-        <!-- Item 9 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/bora_collection_store.jpg')">
-          <img src="images/bora_collection_store.jpg" alt="Bora Collection Store" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">2000</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Bora Collection Launch</h4>
-          </div>
-        </div>
-        <!-- Item 10 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/bora_fashion_store.jpg')">
-          <img src="images/bora_fashion_store.jpg" alt="Bora Fashion Store" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">2014</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Bora Fashion Launch</h4>
-          </div>
-        </div>
+      </div>
 
-        <!-- DUPLICATE SET FOR LOOPING -->
-        <!-- Item 1 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/bora_brothers_founders.jpg')">
-          <img src="images/bora_brothers_founders.jpg" alt="The Founders" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">1947</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">The Founders</h4>
-          </div>
-        </div>
-        <!-- Item 2 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/real_estate_launch.jpg')">
-          <img src="images/real_estate_launch.jpg" alt="Bora Realty Pioneers" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">1975</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Bora Realty Pioneers</h4>
-          </div>
-        </div>
-        <!-- Item 3 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/real_estate_puja.jpg')">
-          <img src="images/real_estate_puja.jpg" alt="Bhoomi Puja" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">1995</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Bhoomi Puja Ceremony</h4>
-          </div>
-        </div>
-        <!-- Item 4 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/hero_real_estate.png')">
-          <img src="images/hero_real_estate.png" alt="Bora Realty Horizon" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Modern</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Luxury Living Complexes</h4>
-          </div>
-        </div>
-        <!-- Item 5 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/overseas_trade_ship.jpg')">
-          <img src="images/overseas_trade_ship.jpg" alt="Overseas Trade" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">2005</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Overseas Trade Routes</h4>
-          </div>
-        </div>
-        <!-- Item 6 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/export_grains.png')">
-          <img src="images/export_grains.png" alt="Grain Export" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Trade</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Bulk Grain Cargo</h4>
-          </div>
-        </div>
-        <!-- Item 7 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/export_spices.png')">
-          <img src="images/export_spices.png" alt="Spices Export" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Trade</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Natural Organic Spices</h4>
-          </div>
-        </div>
-        <!-- Item 8 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/fresh_vegetables.png')">
-          <img src="images/fresh_vegetables.png" alt="Fresh Vegetables" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Trade</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Fresh Agricultural Produce</h4>
-          </div>
-        </div>
-        <!-- Item 9 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/bora_collection_store.jpg')">
-          <img src="images/bora_collection_store.jpg" alt="Bora Collection Store" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">2000</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Bora Collection Launch</h4>
-          </div>
-        </div>
-        <!-- Item 10 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/bora_fashion_store.jpg')">
-          <img src="images/bora_fashion_store.jpg" alt="Bora Fashion Store" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">2014</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Bora Fashion Launch</h4>
+      <!-- Slide 2: Founders Card -->
+      <div class="horizontal-slide w-[260px] sm:w-[360px] h-[380px] md:h-[450px] flex-shrink-0 px-4 group cursor-pointer" onclick="openLightboxBySrc('images/bora_brothers_founders.jpg')">
+        <div class="w-full h-full bg-[#0D0D12] border border-white/5 rounded-3xl overflow-hidden relative shadow-xl transition-all duration-300 hover:border-gold/30">
+          <img src="images/bora_brothers_founders.jpg" alt="1947" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/30 to-transparent p-6 flex flex-col justify-end text-white">
+            <span class="text-[10px] font-bold text-gold uppercase tracking-wider">1947 • Legacy</span>
+            <h3 class="font-heading font-bold text-base mt-1">Corporate Foundation</h3>
+            <p class="text-[10px] text-white/60 font-light mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-relaxed">
+              Bora Brothers starting the business legacy with high discipline.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-    
-    <!-- Loop Row 2: Right to Left (10 Images) -->
-    <div class="marquee-container overflow-hidden w-full relative py-2">
-      <div class="marquee-track-right flex space-x-6">
-        <!-- Item 11 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/garments_textiles.png')">
-          <img src="images/garments_textiles.png" alt="Textile Manufacturing" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Garments</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Industrial Garment Mills</h4>
-          </div>
-        </div>
-        <!-- Item 12 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/hero_garments.png')">
-          <img src="images/hero_garments.png" alt="Premium Textiles" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Garments</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Uniform & Export Weaving</h4>
-          </div>
-        </div>
-        <!-- Item 13 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/hotel_divya_palace.jpg')">
-          <img src="images/hotel_divya_palace.jpg" alt="Hotel Divya Palace" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">2014</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Hotel Divya Palace Exterior</h4>
-          </div>
-        </div>
-        <!-- Item 14 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/hotel_3.jpg')">
-          <img src="images/hotel_3.jpg" alt="Hotel Suites" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Hospitality</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Luxury Guest Suites</h4>
-          </div>
-        </div>
-        <!-- Item 15 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/hotel_1.jpg')">
-          <img src="images/hotel_1.jpg" alt="Dining Rooms" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Hospitality</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Premium Dining Service</h4>
-          </div>
-        </div>
-        <!-- Item 16 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/industrial_supplies.jpg')">
-          <img src="images/industrial_supplies.jpg" alt="Industrial Supplies" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">1989</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Industrial Supplies Expansion</h4>
-          </div>
-        </div>
-        <!-- Item 17 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/industrial_1.jpg')">
-          <img src="images/industrial_1.jpg" alt="Glassware distribution" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Industrial</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Commercial Glass Bottles</h4>
-          </div>
-        </div>
-        <!-- Item 18 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/industrial_2.jpg')">
-          <img src="images/industrial_2.jpg" alt="Wholesale supply chain" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Industrial</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Container Logistics Center</h4>
-          </div>
-        </div>
-        <!-- Item 19 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/industrial_3.jpg')">
-          <img src="images/industrial_3.jpg" alt="Supply Desk" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Industrial</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Raw Glass Materials Distribution</h4>
-          </div>
-        </div>
-        <!-- Item 20 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/about_excellence.png')">
-          <img src="images/about_excellence.png" alt="Corporate Standards" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Corporate</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Excellence Benchmark</h4>
-          </div>
-        </div>
 
-        <!-- DUPLICATE SET FOR LOOPING -->
-        <!-- Item 11 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/garments_textiles.png')">
-          <img src="images/garments_textiles.png" alt="Textile Manufacturing" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Garments</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Industrial Garment Mills</h4>
-          </div>
-        </div>
-        <!-- Item 12 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/hero_garments.png')">
-          <img src="images/hero_garments.png" alt="Premium Textiles" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Garments</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Uniform & Export Weaving</h4>
-          </div>
-        </div>
-        <!-- Item 13 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/hotel_divya_palace.jpg')">
-          <img src="images/hotel_divya_palace.jpg" alt="Hotel Divya Palace" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">2014</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Hotel Divya Palace Exterior</h4>
-          </div>
-        </div>
-        <!-- Item 14 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/hotel_3.jpg')">
-          <img src="images/hotel_3.jpg" alt="Hotel Suites" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Hospitality</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Luxury Guest Suites</h4>
-          </div>
-        </div>
-        <!-- Item 15 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/hotel_1.jpg')">
-          <img src="images/hotel_1.jpg" alt="Dining Rooms" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Hospitality</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Premium Dining Service</h4>
-          </div>
-        </div>
-        <!-- Item 16 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/industrial_supplies.jpg')">
-          <img src="images/industrial_supplies.jpg" alt="Industrial Supplies" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">1989</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Industrial Supplies Expansion</h4>
-          </div>
-        </div>
-        <!-- Item 17 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/industrial_1.jpg')">
-          <img src="images/industrial_1.jpg" alt="Glassware distribution" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Industrial</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Commercial Glass Bottles</h4>
-          </div>
-        </div>
-        <!-- Item 18 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/industrial_2.jpg')">
-          <img src="images/industrial_2.jpg" alt="Wholesale supply chain" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Industrial</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Container Logistics Center</h4>
-          </div>
-        </div>
-        <!-- Item 19 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/industrial_3.jpg')">
-          <img src="images/industrial_3.jpg" alt="Supply Desk" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Industrial</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Raw Glass Materials Distribution</h4>
-          </div>
-        </div>
-        <!-- Item 20 -->
-        <div class="marquee-img-card w-[280px] sm:w-[360px] aspect-[4/3] flex-shrink-0 group overflow-hidden bg-gray-900 border border-white/5 rounded-xl relative cursor-pointer" onclick="openLightboxBySrc('images/about_excellence.png')">
-          <img src="images/about_excellence.png" alt="Corporate Standards" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
-          <div class="absolute bottom-0 inset-x-0 p-4 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <span class="text-[9px] uppercase tracking-wider text-gold font-semibold">Corporate</span>
-            <h4 class="text-xs font-heading font-bold mt-0.5">Excellence Benchmark</h4>
+      <!-- Slide 3: Real Estate Card -->
+      <div class="horizontal-slide w-[260px] sm:w-[360px] h-[380px] md:h-[450px] flex-shrink-0 px-4 group cursor-pointer" onclick="openLightboxBySrc('images/real_estate_launch.jpg')">
+        <div class="w-full h-full bg-[#0D0D12] border border-white/5 rounded-3xl overflow-hidden relative shadow-xl transition-all duration-300 hover:border-gold/30">
+          <img src="images/real_estate_launch.jpg" alt="1975" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/30 to-transparent p-6 flex flex-col justify-end text-white">
+            <span class="text-[10px] font-bold text-gold uppercase tracking-wider">1975 • Real Estate</span>
+            <h3 class="font-heading font-bold text-base mt-1">Bora Realty Pioneers</h3>
+            <p class="text-[10px] text-white/60 font-light mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-relaxed">
+              Pioneering modern high-end housing layouts in Kopargaon.
+            </p>
           </div>
         </div>
       </div>
+
+      <!-- Slide 4: Industrial Card -->
+      <div class="horizontal-slide w-[260px] sm:w-[360px] h-[380px] md:h-[450px] flex-shrink-0 px-4 group cursor-pointer" onclick="openLightboxBySrc('images/industrial_supplies.jpg')">
+        <div class="w-full h-full bg-[#0D0D12] border border-white/5 rounded-3xl overflow-hidden relative shadow-xl transition-all duration-300 hover:border-gold/30">
+          <img src="images/industrial_supplies.jpg" alt="1989" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/30 to-transparent p-6 flex flex-col justify-end text-white">
+            <span class="text-[10px] font-bold text-gold uppercase tracking-wider">1989 • Industrial</span>
+            <h3 class="font-heading font-bold text-base mt-1">Industrial Supplies Expansion</h3>
+            <p class="text-[10px] text-white/60 font-light mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-relaxed">
+              Becoming regional distributors of raw glass bottles and packaging.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Puja Card -->
+      <div class="horizontal-slide w-[260px] sm:w-[360px] h-[380px] md:h-[450px] flex-shrink-0 px-4 group cursor-pointer" onclick="openLightboxBySrc('images/real_estate_puja.jpg')">
+        <div class="w-full h-full bg-[#0D0D12] border border-white/5 rounded-3xl overflow-hidden relative shadow-xl transition-all duration-300 hover:border-gold/30">
+          <img src="images/real_estate_puja.jpg" alt="1995" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/30 to-transparent p-6 flex flex-col justify-end text-white">
+            <span class="text-[10px] font-bold text-gold uppercase tracking-wider">1995 • Ceremony</span>
+            <h3 class="font-heading font-bold text-base mt-1">Bhoomi Puja Foundation</h3>
+            <p class="text-[10px] text-white/60 font-light mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-relaxed">
+              Securing foundations for landmarks of commercial trust.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Garments Store Card -->
+      <div class="horizontal-slide w-[260px] sm:w-[360px] h-[380px] md:h-[450px] flex-shrink-0 px-4 group cursor-pointer" onclick="openLightboxBySrc('images/bora_collection_store.jpg')">
+        <div class="w-full h-full bg-[#0D0D12] border border-white/5 rounded-3xl overflow-hidden relative shadow-xl transition-all duration-300 hover:border-gold/30">
+          <img src="images/bora_collection_store.jpg" alt="2000" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/30 to-transparent p-6 flex flex-col justify-end text-white">
+            <span class="text-[10px] font-bold text-gold uppercase tracking-wider">2000 • Garments</span>
+            <h3 class="font-heading font-bold text-base mt-1">Bora Collection Launch</h3>
+            <p class="text-[10px] text-white/60 font-light mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-relaxed">
+              Pioneering high-quality textiles and retail garments.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Trade Card -->
+      <div class="horizontal-slide w-[260px] sm:w-[360px] h-[380px] md:h-[450px] flex-shrink-0 px-4 group cursor-pointer" onclick="openLightboxBySrc('images/overseas_trade_ship.jpg')">
+        <div class="w-full h-full bg-[#0D0D12] border border-white/5 rounded-3xl overflow-hidden relative shadow-xl transition-all duration-300 hover:border-gold/30">
+          <img src="images/overseas_trade_ship.jpg" alt="2005" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/30 to-transparent p-6 flex flex-col justify-end text-white">
+            <span class="text-[10px] font-bold text-gold uppercase tracking-wider">2005 • Trade</span>
+            <h3 class="font-heading font-bold text-base mt-1">Overseas Trade Division</h3>
+            <p class="text-[10px] text-white/60 font-light mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-relaxed">
+              Connecting global grain and spice demands with regional farmers.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Hospitality Card -->
+      <div class="horizontal-slide w-[260px] sm:w-[360px] h-[380px] md:h-[450px] flex-shrink-0 px-4 group cursor-pointer" onclick="openLightboxBySrc('images/hotel_divya_palace.jpg')">
+        <div class="w-full h-full bg-[#0D0D12] border border-white/5 rounded-3xl overflow-hidden relative shadow-xl transition-all duration-300 hover:border-gold/30">
+          <img src="images/hotel_divya_palace.jpg" alt="2014" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/30 to-transparent p-6 flex flex-col justify-end text-white">
+            <span class="text-[10px] font-bold text-gold uppercase tracking-wider">2014 • Hospitality</span>
+            <h3 class="font-heading font-bold text-base mt-1">Hotel Divya Palace</h3>
+            <p class="text-[10px] text-white/60 font-light mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-relaxed">
+              Entering the hospitality sector with premium suites and services.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Garments Fashion Card -->
+      <div class="horizontal-slide w-[260px] sm:w-[360px] h-[380px] md:h-[450px] flex-shrink-0 px-4 group cursor-pointer" onclick="openLightboxBySrc('images/bora_fashion_store.jpg')">
+        <div class="w-full h-full bg-[#0D0D12] border border-white/5 rounded-3xl overflow-hidden relative shadow-xl transition-all duration-300 hover:border-gold/30">
+          <img src="images/bora_fashion_store.jpg" alt="2014" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/30 to-transparent p-6 flex flex-col justify-end text-white">
+            <span class="text-[10px] font-bold text-gold uppercase tracking-wider">2014 • Garments</span>
+            <h3 class="font-heading font-bold text-base mt-1">Bora Fashion Store</h3>
+            <p class="text-[10px] text-white/60 font-light mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-relaxed">
+              Expanding apparel retailing and uniform production lines.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Corporate Standards Card -->
+      <div class="horizontal-slide w-[260px] sm:w-[360px] h-[380px] md:h-[450px] flex-shrink-0 px-4 group cursor-pointer" onclick="openLightboxBySrc('images/about_excellence.png')">
+        <div class="w-full h-full bg-[#0D0D12] border border-white/5 rounded-3xl overflow-hidden relative shadow-xl transition-all duration-300 hover:border-gold/30">
+          <img src="images/about_excellence.png" alt="Present" class="w-full h-full object-cover transition-all duration-700 group-hover:scale-105">
+          <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/30 to-transparent p-6 flex flex-col justify-end text-white">
+            <span class="text-[10px] font-bold text-gold uppercase tracking-wider">Modern • Corporate</span>
+            <h3 class="font-heading font-bold text-base mt-1">Standard of Excellence</h3>
+            <p class="text-[10px] text-white/60 font-light mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-relaxed">
+              Committed to operational integrity and premium values across all domains.
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1218,6 +1066,42 @@
         desc: "Committed to premium outcomes in all fields."
       }
     ];
+
+    // GSAP HORIZONTAL SCROLL TRIGGER SETUP
+    document.addEventListener('DOMContentLoaded', () => {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const section = document.querySelector('#scroll-carousel-section');
+      const container = document.querySelector('.horizontal-container');
+      const slides = document.querySelectorAll('.horizontal-slide');
+      
+      if (section && container && slides.length > 0) {
+        ScrollTrigger.matchMedia({
+          // Desktop & Tablet: Horizontal Scroll Pin Animation
+          "(min-width: 768px)": function() {
+            container.style.overflowX = "hidden";
+            
+            gsap.to(container, {
+              x: () => -(container.scrollWidth - window.innerWidth),
+              ease: "none",
+              scrollTrigger: {
+                trigger: section,
+                pin: true,
+                scrub: 1.2,
+                start: "top top",
+                end: () => "+=" + (container.scrollWidth - window.innerWidth),
+                invalidateOnRefresh: true
+              }
+            });
+          },
+          // Mobile: Native horizontal scroll, no vertical pin
+          "(max-width: 767px)": function() {
+            container.style.transform = "none";
+            container.style.overflowX = "auto";
+          }
+        });
+      }
+    });
 
     // FILTER LOGIC
     const filterBtns = document.querySelectorAll('.filter-btn');
