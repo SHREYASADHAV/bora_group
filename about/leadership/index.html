@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Leadership | BORA GROUP</title>
+  <meta name="description" content="Meet the visionary leadership and executive team driving Bora Group's long-term vision, growth, and legacy of trust across industries since 1947.">
+  <meta name="keywords" content="Bora Group Leadership, Jay Bora, Akshay Bora, Executive Team, Corporate Governance, Bora Group Chairman">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              DEFAULT: '#C5A880',
+              hover: '#D4AF37',
+              light: '#F5EFEB',
+            },
+            navy: {
+              DEFAULT: '#053C8F',
+              dark: '#022457',
+              light: '#F0F4F8'
+            },
+            dark: '#05050A',
+            light: '#F6F9FD'
+          },
+          fontFamily: {
+            sans: ['Flexo Soft', 'Poppins', 'sans-serif'],
+            heading: ['Buckin', 'Montserrat', 'sans-serif'],
+            serif: ['Buckin', 'Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- FontAwesome & Lucide Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="../../css/styles.css">
+  
+  <style>
+    /* Premium Minimal & Custom Utilities for Leadership Page */
+    .hero-pattern {
+      background-image: radial-gradient(rgba(197, 168, 128, 0.15) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    
+    .text-gradient-gold {
+      background: linear-gradient(135deg, #053C8F 0%, #C5A880 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .glass-card-light {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(229, 231, 235, 0.8);
+      box-shadow: 0 10px 30px -10px rgba(5, 60, 143, 0.05);
+    }
+    
+    .glass-card-light:hover {
+      border-color: rgba(197, 168, 128, 0.6);
+      box-shadow: 0 20px 40px -15px rgba(197, 168, 128, 0.2);
+    }
+
+    .quote-pattern {
+      background-image: radial-gradient(#053C8F 0.75px, transparent 0.75px);
+      background-size: 16px 16px;
+      opacity: 0.04;
+    }
+
+    /* Carousel track drag smooth cursor */
+    .carousel-drag-container {
+      cursor: grab;
+      user-select: none;
+    }
+    .carousel-drag-container:active {
+      cursor: grabbing;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 selection:bg-gold selection:text-dark antialiased">
+
+  <!-- Scroll Progress Indicator -->
+  <div id="scroll-indicator" class="fixed top-0 left-0 h-1 bg-gold z-[100] transition-all duration-75" style="width: 0%;"></div>
+
+  <!-- STICKY NAVBAR -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-white/80 backdrop-blur-md border-b border-gray-100/50">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="../../index.html" class="flex items-center group">
+        <img id="navbar-logo" src="../../images/logo_new.png" alt="BORA GROUP" class="h-10 transition-all duration-300 group-hover:scale-105">
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center space-x-8 font-heading text-xs font-semibold uppercase tracking-widest text-gray-700">
+        <a href="../../index.html" class="hover:text-gold transition-colors duration-300" data-i18n="nav_home">Home</a>
+        
+        <!-- About Dropdown -->
+        <div class="relative group py-2">
+          <a href="../../about.html" class="text-gold font-bold flex items-center space-x-1.5 transition-colors duration-300">
+            <span data-i18n="nav_about">About</span>
+            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 rounded-xl p-2 bg-dark/95 backdrop-blur-xl border border-white/10 shadow-2xl opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 text-white">
+            <a href="../../about/leadership" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase text-gold font-semibold bg-white/5 transition-all duration-200" data-i18n="nav_leadership">Our Leadership</a>
+            <a href="../../history.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold" data-i18n="nav_history">Our History</a>
+            <a href="../../about.html#vision-mission" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold" data-i18n="nav_vision">Vision & Mission</a>
+            <a href="../../about.html#overview" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold" data-i18n="nav_overview">Company Overview</a>
+            <a href="../../about.html#reviews" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold" data-i18n="nav_testimonials">Testimonials</a>
+            <a href="../../gallery.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold" data-i18n="nav_gallery">Photo Gallery</a>
+          </div>
+        </div>
+
+        <!-- Business Dropdown -->
+        <div class="relative group py-2">
+          <a href="../../business.html" class="hover:text-gold transition-colors duration-300 flex items-center space-x-1.5">
+            <span data-i18n="nav_business">Business</span>
+            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] lg:w-[560px] rounded-xl p-4 bg-dark/95 backdrop-blur-xl border border-white/10 shadow-2xl opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 text-white">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex flex-col space-y-1.5">
+                <a href="../../overseas-trade.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/5">
+                  <span class="dropdown-title block text-xs font-bold text-gold" data-i18n="nav_overseas">Overseas Trade</span>
+                  <span class="dropdown-subtitle text-[10px] text-gray-400">Global Import & Export</span>
+                </a>
+                <a href="../../real-estate.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/5">
+                  <span class="dropdown-title block text-xs font-bold text-gold" data-i18n="nav_realestate">Real Estate</span>
+                  <span class="dropdown-subtitle text-[10px] text-gray-400">Bora Realty</span>
+                </a>
+                <a href="../../garments.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/5">
+                  <span class="dropdown-title block text-xs font-bold text-gold" data-i18n="nav_garments">Garments & Fashion</span>
+                  <span class="dropdown-subtitle text-[10px] text-gray-400">Bora Collection, Bora Fashion</span>
+                </a>
+              </div>
+              <div class="flex flex-col space-y-1.5">
+                <a href="../../industrial-supply.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/5">
+                  <span class="dropdown-title block text-xs font-bold text-gold" data-i18n="nav_industrial">Industrial Supply</span>
+                  <span class="dropdown-subtitle text-[10px] text-gray-400">Industrial Solutions</span>
+                </a>
+                <a href="../../hospitality.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/5">
+                  <span class="dropdown-title block text-xs font-bold text-gold" data-i18n="nav_hospitality">Hospitality</span>
+                  <span class="dropdown-subtitle text-[10px] text-gray-400">Hotels & Services</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="../../contact.html" class="hover:text-gold transition-colors duration-300" data-i18n="nav_contact">Contact</a>
+      </nav>
+
+      <!-- Desktop Contact CTA -->
+      <div class="hidden lg:flex">
+        <a href="../../contact.html" class="btn-premium-gold text-[10px] px-6 py-2.5" data-i18n="nav_get_in_touch">Get In Touch</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-gray-800 hover:text-gold transition-colors focus:outline-none" aria-label="Toggle Mobile Menu">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE FULLSCREEN OVERLAY MENU -->
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 pt-28 text-white">
+    <div class="flex flex-col space-y-6 font-heading text-lg font-semibold uppercase tracking-widest">
+      <a href="../../index.html" class="hover:text-gold border-b border-white/5 pb-3">Home</a>
+      <a href="../../about/leadership" class="text-gold border-b border-white/5 pb-3">Our Leadership</a>
+      <a href="../../about.html" class="hover:text-gold border-b border-white/5 pb-3">About Us</a>
+      <a href="../../business.html" class="hover:text-gold border-b border-white/5 pb-3">Business</a>
+      <a href="../../careers.html" class="hover:text-gold border-b border-white/5 pb-3">Careers</a>
+      <a href="../../contact.html" class="hover:text-gold border-b border-white/5 pb-3">Contact</a>
+    </div>
+  </div>
+
+  <!-- SECTION 1 — HERO -->
+  <section class="relative h-screen min-h-[700px] bg-gradient-to-b from-white via-[#F6F9FD] to-white flex items-center justify-center overflow-hidden pt-20">
+    <div class="absolute inset-0 hero-pattern opacity-60 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(197,168,128,0.08)_0%,transparent_65%)] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-6 lg:px-8 text-center relative z-10">
+      <span class="hero-subtitle text-xs font-heading font-semibold tracking-[0.35em] text-gold uppercase mb-6 inline-block bg-gold/10 px-4 py-1.5 rounded-full border border-gold/20">
+        OUR LEADERSHIP
+      </span>
+      
+      <h1 class="hero-title text-4xl sm:text-6xl lg:text-7xl font-heading font-extrabold text-dark tracking-tight leading-[1.15] mb-8">
+        Leading with Vision.<br>
+        <span class="text-gradient-gold">Building with Trust.</span>
+      </h1>
+      
+      <p class="hero-text text-base sm:text-xl text-gray-600 font-light max-w-3xl mx-auto leading-relaxed mb-12">
+        For generations, Bora Group has been guided by visionary leadership, strong values, and an unwavering commitment to excellence across every business vertical.
+      </p>
+      
+      <div class="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#leadership" class="inline-flex items-center space-x-3 btn-premium-gold px-8 py-4 text-xs font-heading tracking-widest uppercase rounded-full shadow-lg hover:shadow-gold/20 transition-all duration-300 group">
+          <span>Meet Our Leaders</span>
+          <i class="fa-solid fa-arrow-down text-xs transition-transform duration-300 group-hover:translate-y-1"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator Bottom -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 opacity-70 hover:opacity-100 transition-opacity">
+      <span class="text-[10px] font-heading tracking-widest text-gray-400 uppercase">Scroll Down</span>
+      <div class="w-5 h-9 border-2 border-gray-300 rounded-full flex justify-center p-1">
+        <div class="w-1 h-2 bg-gold rounded-full animate-bounce"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — LEADERSHIP -->
+  <section id="leadership" class="py-24 sm:py-32 bg-white relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-20">
+        <span class="text-xs font-heading font-semibold tracking-[0.3em] text-gold uppercase mb-3 inline-block">
+          OUR LEADERSHIP
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-dark tracking-tight mb-4">
+          The People Shaping Bora Group's Future.
+        </h2>
+        <p class="text-base text-gray-500 font-light">
+          Meet the visionary minds directing our expansion, operational standard, and enduring heritage.
+        </p>
+      </div>
+
+      <!-- Two Leadership Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
+        
+        <!-- Card 1: Jay Bora -->
+        <div class="gsap-leadership-card glass-card-light rounded-3xl overflow-hidden transition-all duration-500 flex flex-col justify-between group">
+          <div class="relative overflow-hidden aspect-[4/5] bg-gray-100">
+            <img src="../../images/jay_bora.jpg" alt="Jay Bora - Chairman" class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-dark/20 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-40"></div>
+            <div class="absolute bottom-6 left-6 right-6">
+              <span class="text-[10px] font-heading tracking-[0.25em] text-gold uppercase font-bold bg-dark/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 inline-block mb-2">CHAIRMAN</span>
+              <h3 class="text-2xl sm:text-3xl font-heading font-bold text-white tracking-wide">Jay Bora</h3>
+            </div>
+          </div>
+          <div class="p-8 sm:p-10 flex-1 flex flex-col justify-between bg-white/60">
+            <p class="text-sm sm:text-base text-gray-600 font-light leading-relaxed mb-6">
+              Leads the long-term vision and strategic direction of Bora Group while strengthening trust, growth, and diversified business excellence across every sector.
+            </p>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-heading text-navy font-semibold uppercase tracking-wider">Executive Office</span>
+              <span class="w-8 h-8 rounded-full bg-gold/10 text-gold flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-gold group-hover:text-white">
+                <i class="fa-solid fa-crown text-xs"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Akshay Bora -->
+        <div class="gsap-leadership-card glass-card-light rounded-3xl overflow-hidden transition-all duration-500 flex flex-col justify-between group">
+          <div class="relative overflow-hidden aspect-[4/5] bg-gradient-to-br from-navy-dark to-dark flex items-center justify-center">
+            <!-- Structured Executive Portrait / Vector Overlay -->
+            <svg class="w-full h-full text-white/10 absolute inset-0" viewBox="0 0 100 100" preserveAspectRatio="none">
+              <path d="0,100 L100,0 L100,100 Z" fill="currentColor" opacity="0.1" />
+            </svg>
+            <div class="relative z-10 text-center p-8">
+              <div class="w-28 h-28 mx-auto rounded-full bg-gold/20 border-2 border-gold/40 flex items-center justify-center text-gold mb-4 shadow-xl group-hover:scale-110 transition-transform duration-500">
+                <i class="fa-solid fa-user-tie text-4xl"></i>
+              </div>
+              <span class="text-[10px] font-heading tracking-[0.25em] text-gold uppercase font-bold bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 inline-block mb-2">MANAGING DIRECTOR</span>
+              <h3 class="text-2xl sm:text-3xl font-heading font-bold text-white tracking-wide">Akshay Bora</h3>
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent opacity-60"></div>
+          </div>
+          <div class="p-8 sm:p-10 flex-1 flex flex-col justify-between bg-white/60">
+            <p class="text-sm sm:text-base text-gray-600 font-light leading-relaxed mb-6">
+              Drives innovation, operational excellence, and business expansion while building future-ready opportunities across the Group’s international verticals.
+            </p>
+            <div class="pt-4 border-t border-gray-100 flex items-center justify-between">
+              <span class="text-xs font-heading text-navy font-semibold uppercase tracking-wider">Managing Directorate</span>
+              <span class="w-8 h-8 rounded-full bg-gold/10 text-gold flex items-center justify-center transition-transform group-hover:scale-110 group-hover:bg-gold group-hover:text-white">
+                <i class="fa-solid fa-chart-line text-xs"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — LEADERSHIP PHILOSOPHY -->
+  <section class="py-24 sm:py-32 bg-[#F6F9FD] relative overflow-hidden border-y border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left Column: Copy -->
+        <div class="gsap-philosophy-left">
+          <span class="text-xs font-heading font-semibold tracking-[0.3em] text-gold uppercase mb-4 inline-block">
+            PHILOSOPHY & VALUES
+          </span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold text-dark tracking-tight leading-tight mb-8">
+            Leadership Philosophy
+          </h2>
+          <p class="text-base sm:text-lg text-gray-600 font-light leading-relaxed mb-8">
+            Our leadership believes in building sustainable businesses through integrity, innovation, responsibility, and long-term relationships. Every decision is guided by trust, quality, and continuous growth.
+          </p>
+
+          <div class="space-y-4">
+            <div class="flex items-start space-x-4">
+              <div class="w-10 h-10 rounded-xl bg-gold/10 text-gold flex items-center justify-center shrink-0 mt-1">
+                <i class="fa-solid fa-handshake text-sm"></i>
+              </div>
+              <div>
+                <h4 class="font-heading font-bold text-sm text-dark uppercase tracking-wider">Trust-Centric Governance</h4>
+                <p class="text-xs text-gray-500 font-light mt-1">Prioritizing transparent partner relationships and stakeholder integrity since 1947.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start space-x-4">
+              <div class="w-10 h-10 rounded-xl bg-navy/10 text-navy flex items-center justify-center shrink-0 mt-1">
+                <i class="fa-solid fa-compass text-sm"></i>
+              </div>
+              <div>
+                <h4 class="font-heading font-bold text-sm text-dark uppercase tracking-wider">Sustainable Expansion</h4>
+                <p class="text-xs text-gray-500 font-light mt-1">Pioneering green developments, global trade ethical standards, and industrial precision.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Abstract Parallax Graphic -->
+        <div class="gsap-philosophy-right relative flex justify-center items-center">
+          <div class="w-full max-w-md aspect-square rounded-3xl bg-gradient-to-tr from-navy to-dark p-8 shadow-2xl relative overflow-hidden flex flex-col justify-between border border-white/10 group">
+            <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-gold/20 rounded-full blur-3xl group-hover:bg-gold/30 transition-colors duration-500"></div>
+            <div class="absolute -left-10 -top-10 w-64 h-64 bg-navy/40 rounded-full blur-3xl"></div>
+            
+            <div class="relative z-10 flex justify-between items-center">
+              <span class="text-xs font-heading font-bold text-gold tracking-widest uppercase">EST. 1947</span>
+              <i class="fa-solid fa-cubes-stacked text-gold/60 text-2xl"></i>
+            </div>
+            
+            <div class="relative z-10 text-center my-auto py-8">
+              <div class="w-20 h-20 mx-auto rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-gold mb-6 shadow-inner">
+                <i class="fa-solid fa-gem text-3xl"></i>
+              </div>
+              <h3 class="text-2xl font-heading font-bold text-white tracking-wider mb-2">Excellence in Action</h3>
+              <p class="text-xs text-white/60 font-light max-w-xs mx-auto">Creating enduring value across Real Estate, Trade, Industrial Supplies, Fashion & Hospitality.</p>
+            </div>
+            
+            <div class="relative z-10 pt-4 border-t border-white/10 flex justify-between text-[10px] text-white/40 uppercase tracking-widest font-heading">
+              <span>BORA GROUP PHILOSOPHY</span>
+              <span>VISION 2030</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — EXECUTIVE TEAM CAROUSEL -->
+  <section class="py-24 sm:py-32 bg-white relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 mb-12">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-xs font-heading font-semibold tracking-[0.3em] text-gold uppercase mb-3 inline-block">
+          EXECUTIVE TEAM
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-dark tracking-tight mb-4">
+          The Professionals Driving Bora Group Every Day.
+        </h2>
+        <p class="text-base text-gray-500 font-light">
+          Hover to pause scroll • Drag or swipe horizontally to explore
+        </p>
+      </div>
+    </div>
+
+    <!-- Infinite Scrolling Track -->
+    <div id="executive-carousel-container" class="carousel-drag-container overflow-hidden py-4">
+      <div id="executive-carousel-track" class="flex space-x-6 sm:space-x-8 w-max">
+        
+        <!-- Card 1: Finance Director -->
+        <div class="executive-card w-72 sm:w-80 shrink-0 glass-card-light rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-gold/40 group">
+          <div class="w-16 h-16 rounded-2xl bg-gold/10 text-gold flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gold group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-calculator text-xl"></i>
+          </div>
+          <span class="text-[9px] font-heading font-bold text-gold uppercase tracking-widest block mb-1">FINANCE & INVESTMENTS</span>
+          <h3 class="text-lg font-heading font-bold text-dark mb-1">Finance Director</h3>
+          <span class="text-xs text-navy font-semibold block mb-3">Executive Board</span>
+          <p class="text-xs text-gray-500 font-light leading-relaxed">
+            Oversees financial planning, capital allocation, and business performance across all corporate entities.
+          </p>
+        </div>
+
+        <!-- Card 2: Operations Head -->
+        <div class="executive-card w-72 sm:w-80 shrink-0 glass-card-light rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-gold/40 group">
+          <div class="w-16 h-16 rounded-2xl bg-navy/10 text-navy flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-navy group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-gears text-xl"></i>
+          </div>
+          <span class="text-[9px] font-heading font-bold text-gold uppercase tracking-widest block mb-1">OPERATIONAL EXCELLENCE</span>
+          <h3 class="text-lg font-heading font-bold text-dark mb-1">Operations Head</h3>
+          <span class="text-xs text-navy font-semibold block mb-3">Group Operations</span>
+          <p class="text-xs text-gray-500 font-light leading-relaxed">
+            Manages day-to-day operations and cross-functional synergy across all business divisions.
+          </p>
+        </div>
+
+        <!-- Card 3: Real Estate Director -->
+        <div class="executive-card w-72 sm:w-80 shrink-0 glass-card-light rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-gold/40 group">
+          <div class="w-16 h-16 rounded-2xl bg-gold/10 text-gold flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gold group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-city text-xl"></i>
+          </div>
+          <span class="text-[9px] font-heading font-bold text-gold uppercase tracking-widest block mb-1">BORA REALTY</span>
+          <h3 class="text-lg font-heading font-bold text-dark mb-1">Real Estate Director</h3>
+          <span class="text-xs text-navy font-semibold block mb-3">Property Development</span>
+          <p class="text-xs text-gray-500 font-light leading-relaxed">
+            Leads residential and commercial developments with structural integrity and modern architectural standard.
+          </p>
+        </div>
+
+        <!-- Card 4: Global Trade Head -->
+        <div class="executive-card w-72 sm:w-80 shrink-0 glass-card-light rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-gold/40 group">
+          <div class="w-16 h-16 rounded-2xl bg-navy/10 text-navy flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-navy group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-earth-americas text-xl"></i>
+          </div>
+          <span class="text-[9px] font-heading font-bold text-gold uppercase tracking-widest block mb-1">OVERSEAS DIVISION</span>
+          <h3 class="text-lg font-heading font-bold text-dark mb-1">Global Trade Head</h3>
+          <span class="text-xs text-navy font-semibold block mb-3">Import & Export</span>
+          <p class="text-xs text-gray-500 font-light leading-relaxed">
+            Handles international trade, commodity sourcing, supply chain logistics, and worldwide export markets.
+          </p>
+        </div>
+
+        <!-- Card 5: Industrial Supply Manager -->
+        <div class="executive-card w-72 sm:w-80 shrink-0 glass-card-light rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-gold/40 group">
+          <div class="w-16 h-16 rounded-2xl bg-gold/10 text-gold flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gold group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-industry text-xl"></i>
+          </div>
+          <span class="text-[9px] font-heading font-bold text-gold uppercase tracking-widest block mb-1">INDUSTRIAL SOLUTIONS</span>
+          <h3 class="text-lg font-heading font-bold text-dark mb-1">Industrial Supply Manager</h3>
+          <span class="text-xs text-navy font-semibold block mb-3">Manufacturing & Supplies</span>
+          <p class="text-xs text-gray-500 font-light leading-relaxed">
+            Oversees industrial solutions, B2B procurement, and high-spec manufacturing partnerships.
+          </p>
+        </div>
+
+        <!-- Card 6: Garments & Fashion Head -->
+        <div class="executive-card w-72 sm:w-80 shrink-0 glass-card-light rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-gold/40 group">
+          <div class="w-16 h-16 rounded-2xl bg-navy/10 text-navy flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-navy group-hover:text-white transition-all duration-300">
+            <i class="fa-solid fa-shirt text-xl"></i>
+          </div>
+          <span class="text-[9px] font-heading font-bold text-gold uppercase tracking-widest block mb-1">BORA COLLECTION</span>
+          <h3 class="text-lg font-heading font-bold text-dark mb-1">Garments & Fashion Head</h3>
+          <span class="text-xs text-navy font-semibold block mb-3">Textiles & Apparel</span>
+          <p class="text-xs text-gray-500 font-light leading-relaxed">
+            Leads Bora Collection and Bora Fashion operations, retail expansion, and textile quality control.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — COMPANY VALUES -->
+  <section class="py-24 sm:py-32 bg-[#F6F9FD] border-t border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-heading font-semibold tracking-[0.3em] text-gold uppercase mb-3 inline-block">
+          CORE VALUES
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-dark tracking-tight mb-4">
+          Guiding Pillars of Governance
+        </h2>
+        <p class="text-base text-gray-500 font-light">
+          The four cornerstone principles that define every decision and investment across Bora Group.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Value 1: Integrity -->
+        <div class="gsap-value-card glass-card-light rounded-3xl p-8 text-center transition-all duration-300 hover:-translate-y-2 group">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-gold/10 text-gold flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gold group-hover:text-white transition-all duration-300 shadow-sm">
+            <i class="fa-solid fa-shield-halved text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-heading font-bold text-dark mb-3">Integrity</h3>
+          <p class="text-xs text-gray-500 font-light leading-relaxed">
+            Uncompromising ethics and complete transparency in every transaction, contract, and partnership.
+          </p>
+        </div>
+
+        <!-- Value 2: Innovation -->
+        <div class="gsap-value-card glass-card-light rounded-3xl p-8 text-center transition-all duration-300 hover:-translate-y-2 group">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-navy/10 text-navy flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-navy group-hover:text-white transition-all duration-300 shadow-sm">
+            <i class="fa-solid fa-lightbulb text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-heading font-bold text-dark mb-3">Innovation</h3>
+          <p class="text-xs text-gray-500 font-light leading-relaxed">
+            Embracing modern technology, sustainable development practices, and future-ready business models.
+          </p>
+        </div>
+
+        <!-- Value 3: Excellence -->
+        <div class="gsap-value-card glass-card-light rounded-3xl p-8 text-center transition-all duration-300 hover:-translate-y-2 group">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-gold/10 text-gold flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-gold group-hover:text-white transition-all duration-300 shadow-sm">
+            <i class="fa-solid fa-award text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-heading font-bold text-dark mb-3">Excellence</h3>
+          <p class="text-xs text-gray-500 font-light leading-relaxed">
+            Setting rigorous standards of quality in engineering, sourcing, customer care, and operational delivery.
+          </p>
+        </div>
+
+        <!-- Value 4: Trust -->
+        <div class="gsap-value-card glass-card-light rounded-3xl p-8 text-center transition-all duration-300 hover:-translate-y-2 group">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-navy/10 text-navy flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-navy group-hover:text-white transition-all duration-300 shadow-sm">
+            <i class="fa-solid fa-heart-handshake text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-heading font-bold text-dark mb-3">Trust</h3>
+          <p class="text-xs text-gray-500 font-light leading-relaxed">
+            Building multi-generational relationships with clients, employees, and global trade stakeholders.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6 — LEADERSHIP QUOTE -->
+  <section class="py-24 sm:py-32 bg-[#F8FAFC] relative overflow-hidden border-b border-gray-100">
+    <div class="absolute inset-0 quote-pattern pointer-events-none"></div>
+    
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10 gsap-quote-section">
+      <div class="w-12 h-12 rounded-full bg-gold/10 text-gold flex items-center justify-center mx-auto mb-8">
+        <i class="fa-solid fa-quote-left text-xl"></i>
+      </div>
+      
+      <blockquote class="text-2xl sm:text-4xl lg:text-4xl font-serif italic text-dark leading-relaxed font-normal mb-10">
+        "True growth is measured not only by success in business, but by the legacy of trust and excellence we leave behind."
+      </blockquote>
+      
+      <div>
+        <h4 class="font-heading font-bold text-base text-dark uppercase tracking-widest mb-1">Jay Bora</h4>
+        <span class="text-xs text-gold font-semibold tracking-wider uppercase block">Chairman, Bora Group</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7 — JOIN BORA GROUP CTA -->
+  <section class="py-24 sm:py-32 bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,168,128,0.15)_0%,transparent_60%)] pointer-events-none"></div>
+    
+    <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10 gsap-cta-section">
+      <span class="text-xs font-heading font-semibold tracking-[0.35em] text-gold uppercase mb-4 inline-block">
+        CAREERS & OPPORTUNITIES
+      </span>
+      
+      <h2 class="text-3xl sm:text-5xl font-heading font-extrabold text-white tracking-tight mb-6">
+        Grow With Our Team
+      </h2>
+      
+      <p class="text-base sm:text-lg text-white/70 font-light max-w-2xl mx-auto leading-relaxed mb-10">
+        Join Bora Group and become part of a legacy driven by innovation, integrity, and excellence across multiple global industries.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="../../careers.html" class="btn-premium-gold px-8 py-4 text-xs font-heading tracking-widest uppercase rounded-full shadow-lg">
+          Explore Careers
+        </a>
+        <a href="../../contact.html" class="px-8 py-4 text-xs font-heading tracking-widest uppercase rounded-full border border-white/20 text-white hover:bg-white/10 transition-colors">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCKING FOOTER -->
+  <footer class="footer-glassmorphism pt-20 pb-10 border-t border-gray-200 relative overflow-hidden bg-dark text-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div>
+          <span class="font-heading font-extrabold text-xl tracking-widest text-white block mb-6">
+            BORA <span class="text-gold">GROUP</span>
+          </span>
+          <p class="text-xs text-white/50 leading-relaxed font-light mb-6">
+            Diversified business group delivering consistent value, disciplined execution, and long-term relationships across multiple industries since 1947.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/917304733333" target="_blank" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Quick Links</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li><a href="../../index.html" class="hover:text-gold transition-colors">Home Page</a></li>
+            <li><a href="../../about/leadership" class="hover:text-gold transition-colors text-gold">Our Leadership</a></li>
+            <li><a href="../../about.html" class="hover:text-gold transition-colors">Company Profile</a></li>
+            <li><a href="../../business.html" class="hover:text-gold transition-colors">Business Sectors</a></li>
+            <li><a href="../../contact.html" class="hover:text-gold transition-colors">Contact Desk</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Our Operations</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li><a href="../../real-estate.html" class="hover:text-gold transition-colors">Real Estate Development</a></li>
+            <li><a href="../../overseas-trade.html" class="hover:text-gold transition-colors">Overseas Trade Division</a></li>
+            <li><a href="../../garments.html" class="hover:text-gold transition-colors">Garment Production</a></li>
+            <li><a href="../../industrial-supply.html" class="hover:text-gold transition-colors">Industrial Supplies</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Inquiries</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li class="flex items-start space-x-3">
+              <i class="fa-solid fa-location-dot text-gold mt-0.5"></i>
+              <span>Kopargaon, Maharashtra, India</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa-solid fa-phone text-gold"></i>
+              <a href="tel:+917304733333" class="hover:text-gold transition-colors">+91 73047 33333</a>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa-solid fa-envelope text-gold"></i>
+              <a href="mailto:sales@boragroup.co.in" class="hover:text-gold transition-colors">sales@boragroup.co.in</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-white/30">
+        <div>© 2026 BORA GROUP. ALL RIGHTS RESERVED.</div>
+        <div class="flex space-x-6">
+          <a href="#" class="hover:text-gold transition-colors">PRIVACY POLICY</a>
+          <a href="#" class="hover:text-gold transition-colors">TERMS OF USE</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/917304733333" target="_blank" rel="noopener noreferrer" class="whatsapp-float fixed bottom-8 right-8 z-50 bg-emerald-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300" aria-label="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+  </a>
+
+  <!-- GSAP Core & ScrollTrigger & Draggable -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+
+  <script src="../../js/main.js"></script>
+
+  <!-- Page Specific GSAP Animations & Interactive Carousel -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+
+      // 1. Hero Animation Timeline
+      if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const heroTl = gsap.timeline({ delay: 0.1 });
+        heroTl.fromTo('.hero-subtitle', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" })
+              .fromTo('.hero-title', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, "-=0.5")
+              .fromTo('.hero-text', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, "-=0.5")
+              .fromTo('.hero-ctas', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, "-=0.5");
+
+        // 2. Leadership Cards ScrollTrigger
+        gsap.from('.gsap-leadership-card', {
+          scrollTrigger: {
+            trigger: '#leadership',
+            start: 'top 75%',
+          },
+          opacity: 0,
+          y: 40,
+          duration: 0.9,
+          stagger: 0.2,
+          ease: 'power3.out'
+        });
+
+        // 3. Leadership Philosophy Parallax Movement
+        gsap.from('.gsap-philosophy-left', {
+          scrollTrigger: {
+            trigger: '.gsap-philosophy-left',
+            start: 'top 80%',
+          },
+          opacity: 0,
+          x: -40,
+          duration: 1,
+          ease: 'power3.out'
+        });
+
+        gsap.to('.gsap-philosophy-right', {
+          scrollTrigger: {
+            trigger: '.gsap-philosophy-right',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1
+          },
+          y: -30,
+          ease: 'none'
+        });
+
+        // 4. Company Values Upward Animation
+        gsap.from('.gsap-value-card', {
+          scrollTrigger: {
+            trigger: '.gsap-value-card',
+            start: 'top 80%',
+          },
+          opacity: 0,
+          y: 50,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'power3.out'
+        });
+
+        // 5. Quote Section Fade In
+        gsap.from('.gsap-quote-section', {
+          scrollTrigger: {
+            trigger: '.gsap-quote-section',
+            start: 'top 80%',
+          },
+          opacity: 0,
+          scale: 0.96,
+          duration: 1,
+          ease: 'power3.out'
+        });
+
+        // 6. Join Bora Group CTA Rise Animation
+        gsap.from('.gsap-cta-section', {
+          scrollTrigger: {
+            trigger: '.gsap-cta-section',
+            start: 'top 80%',
+          },
+          opacity: 0,
+          y: 40,
+          duration: 0.9,
+          ease: 'power3.out'
+        });
+      }
+
+      // 7. Executive Team Infinite Carousel Logic (Seamless Continuous Scroll + Drag/Swipe + Hover Pause)
+      const carouselContainer = document.getElementById('executive-carousel-container');
+      const carouselTrack = document.getElementById('executive-carousel-track');
+
+      if (carouselContainer && carouselTrack) {
+        // Clone cards for infinite seamless loop
+        const originalCards = Array.from(carouselTrack.children);
+        originalCards.forEach(card => {
+          const clone = card.cloneNode(true);
+          carouselTrack.appendChild(clone);
+        });
+
+        let speed = 1.2; // pixels per frame
+        let isPaused = false;
+        let isDragging = false;
+        let startX = 0;
+        let scrollLeft = 0;
+        let currentX = 0;
+
+        function animateCarousel() {
+          if (!isPaused && !isDragging) {
+            currentX -= speed;
+            const trackWidth = carouselTrack.scrollWidth / 2;
+            if (Math.abs(currentX) >= trackWidth) {
+              currentX = 0;
+            }
+            carouselTrack.style.transform = `translate3d(${currentX}px, 0, 0)`;
+          }
+          requestAnimationFrame(animateCarousel);
+        }
+
+        // Pause on Hover
+        carouselContainer.addEventListener('mouseenter', () => isPaused = true);
+        carouselContainer.addEventListener('mouseleave', () => {
+          isPaused = false;
+          isDragging = false;
+        });
+
+        // Mouse Drag Support
+        carouselContainer.addEventListener('mousedown', (e) => {
+          isDragging = true;
+          startX = e.pageX - currentX;
+        });
+
+        window.addEventListener('mouseup', () => {
+          if (isDragging) {
+            isDragging = false;
+          }
+        });
+
+        carouselContainer.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          e.preventDefault();
+          const x = e.pageX;
+          currentX = x - startX;
+          const trackWidth = carouselTrack.scrollWidth / 2;
+          if (currentX > 0) currentX = -trackWidth;
+          if (Math.abs(currentX) >= trackWidth) currentX = 0;
+          carouselTrack.style.transform = `translate3d(${currentX}px, 0, 0)`;
+        });
+
+        // Touch Swipe Support
+        carouselContainer.addEventListener('touchstart', (e) => {
+          isDragging = true;
+          startX = e.touches[0].pageX - currentX;
+        }, { passive: true });
+
+        carouselContainer.addEventListener('touchend', () => {
+          isDragging = false;
+        });
+
+        carouselContainer.addEventListener('touchmove', (e) => {
+          if (!isDragging) return;
+          const x = e.touches[0].pageX;
+          currentX = x - startX;
+          const trackWidth = carouselTrack.scrollWidth / 2;
+          if (currentX > 0) currentX = -trackWidth;
+          if (Math.abs(currentX) >= trackWidth) currentX = 0;
+          carouselTrack.style.transform = `translate3d(${currentX}px, 0, 0)`;
+        }, { passive: true });
+
+        requestAnimationFrame(animateCarousel);
+      }
+    });
+  </script>
+</body>
+</html>

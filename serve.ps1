@@ -42,11 +42,10 @@ while ($listener.Active -or $true) {
                 $decodedUrl = [System.Uri]::UnescapeDataString($rawUrl)
                 
                 # Route root and subdirectories to index.html
-                if ($decodedUrl -eq "/" -or $decodedUrl.EndsWith("/")) {
-                    $filePath = Join-Path $basePath "index.html"
-                } else {
-                    $cleanUrl = $decodedUrl.TrimStart('/').Replace('/', [System.IO.Path]::DirectorySeparatorChar)
-                    $filePath = Join-Path $basePath $cleanUrl
+                $cleanUrl = $decodedUrl.TrimStart('/').Replace('/', [System.IO.Path]::DirectorySeparatorChar)
+                $filePath = Join-Path $basePath $cleanUrl
+                if (Test-Path $filePath -PathType Container) {
+                    $filePath = Join-Path $filePath "index.html"
                 }
                 
                 if (Test-Path $filePath -PathType Leaf) {
