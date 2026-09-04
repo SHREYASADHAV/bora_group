@@ -226,8 +226,7 @@
         <!-- CTAs -->
         <div class="flex flex-wrap gap-4 items-center justify-center lg:justify-start pt-2">
           <a href="#shop-categories" class="btn-premium-gold text-xs px-8 py-4 shadow-xl shadow-gold/20 flex items-center gap-2">
-            <span>Explore Collection</span>
-            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            <span>Explore Collection →</span>
           </a>
           <a href="#shirting-brands-section" class="btn-premium-outline text-xs px-8 py-4 border-white/25 text-white hover:bg-white hover:text-dark transition-all">
             View Brands
@@ -253,7 +252,7 @@
   <div class="bg-dark border-y border-white/10 relative z-30">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 py-3 flex flex-col md:flex-row items-center justify-between gap-3 text-white">
       <div class="flex items-center gap-2 flex-shrink-0 text-gold font-heading text-xs font-bold uppercase tracking-widest">
-        <i class="fa-solid fa-award"></i>
+        <span class="w-1.5 h-1.5 bg-gold inline-block"></span>
         <span>Mill Partners & Houses:</span>
       </div>
       <div class="marquee-wrapper flex-1">
@@ -308,8 +307,8 @@
           <span id="discovery-count" class="text-xs font-heading font-semibold text-gold bg-gold/10 border border-gold/30 px-3.5 py-1.5 garment-sharp">
             Searching Catalogue...
           </span>
-          <button type="button" id="mobile-filter-open-btn" class="lg:hidden btn-premium-gold text-xs px-4 py-2 flex items-center gap-1.5">
-            <i class="fa-solid fa-sliders text-[11px]"></i> Filters
+          <button type="button" id="mobile-filter-open-btn" class="lg:hidden btn-premium-gold text-xs px-4 py-2">
+            Filters
           </button>
         </div>
       </div>
@@ -318,9 +317,8 @@
       <div class="bg-stone-800/90 garment-sharp p-4 lg:p-6 border border-stone-700 shadow-xl backdrop-blur-md">
         
         <!-- Search Field -->
-        <div class="relative mb-4">
-          <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 text-sm"></i>
-          <input type="text" id="filter-search" placeholder="Search by fabric, brand (e.g. Raymond, Linen, Banarasi, Chinos)..." class="w-full bg-stone-900 text-white placeholder-stone-400 garment-sharp pl-11 pr-4 py-3 text-xs sm:text-sm border border-stone-700 focus:outline-none focus:border-gold transition-colors font-sans">
+        <div class="mb-4">
+          <input type="text" id="filter-search" placeholder="Search by fabric, brand (e.g. Raymond, Linen, Banarasi, Chinos)..." class="w-full bg-stone-900 text-white placeholder-stone-400 garment-sharp px-4 py-3 text-xs sm:text-sm border border-stone-700 focus:outline-none focus:border-gold transition-colors font-sans">
         </div>
 
         <!-- Filter Dropdowns (Desktop) -->
@@ -380,8 +378,8 @@
 
           <!-- Clear Button -->
           <div class="flex items-end">
-            <button type="button" id="clear-filters-btn" class="w-full bg-stone-700 hover:bg-stone-600 text-stone-200 font-heading font-bold text-xs uppercase tracking-wider py-2.5 px-3 garment-sharp transition-colors flex items-center justify-center gap-1.5">
-              <i class="fa-solid fa-rotate-left text-[10px]"></i> Clear
+            <button type="button" id="clear-filters-btn" class="w-full bg-stone-700 hover:bg-stone-600 text-stone-200 font-heading font-bold text-xs uppercase tracking-wider py-2.5 px-3 garment-sharp transition-colors flex items-center justify-center">
+              Clear Filters
             </button>
           </div>
 
@@ -401,11 +399,11 @@
   <div id="filter-drawer-backdrop" class="filter-drawer-backdrop lg:hidden"></div>
   <div id="filter-drawer" class="filter-drawer lg:hidden">
     <div class="flex items-center justify-between pb-4 border-b border-stone-200 mb-4">
-      <h3 class="font-heading font-bold text-base text-navy flex items-center gap-2">
-        <i class="fa-solid fa-sliders text-gold"></i> Filter Catalog
+      <h3 class="font-heading font-bold text-base text-navy">
+        Filter Catalog
       </h3>
-      <button type="button" id="mobile-filter-close-btn" class="w-8 h-8 garment-sharp bg-stone-100 flex items-center justify-center text-stone-600 hover:text-navy border border-stone-200">
-        <i class="fa-solid fa-xmark text-sm"></i>
+      <button type="button" id="mobile-filter-close-btn" class="w-8 h-8 garment-sharp bg-stone-100 flex items-center justify-center text-stone-600 hover:text-navy border border-stone-200 font-bold">
+        ✕
       </button>
     </div>
     
@@ -644,15 +642,14 @@
             </p>
           </div>
 
-          <!-- Real Photographic Showcase -->
-          <div class="garment-img-frame h-48 w-full border border-stone-200 my-6">
+          <!-- Real Photographic Showcase - True Architectural Square -->
+          <div class="garment-img-frame aspect-square max-w-sm mx-auto w-full border border-stone-200 my-6">
             <img src="images/garment_accessory_cufflinks.jpg" alt="Bora Group Luxury Garment Accessories" class="w-full h-full object-cover">
           </div>
           
           <div>
             <button type="button" onclick="triggerDiscoverySearch('Accessories')" class="btn-premium-gold w-full text-xs py-3.5 shadow-sm inline-flex items-center justify-center gap-2">
-              <span>Explore All Accessories</span>
-              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              <span>Explore All Accessories →</span>
             </button>
           </div>
         </div>

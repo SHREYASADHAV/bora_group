@@ -262,19 +262,64 @@
   transform: scale(1.05);
 }
 
+/* Strict Universal Architectural Policy: Absolute Square Ratio & Zero Border Radius */
+.aspect-square {
+  aspect-ratio: 1 / 1 !important;
+}
+
+#shop-categories,
+#shop-categories *,
+#ready-made,
+#ready-made *,
+#shirting-fabrics,
+#shirting-fabrics *,
+#suiting-fabrics,
+#suiting-fabrics *,
+#shirting-brands-section,
+#shirting-brands-section *,
+#saree-brands-section,
+#saree-brands-section *,
+#saree-collection,
+#saree-collection *,
+#uniform-solutions,
+#uniform-solutions *,
+#accessories-section,
+#accessories-section *,
+#discovery-section,
+#discovery-section * {
+  border-radius: 0 !important;
+}
+
 /* Product Tile Accent Border */
 .product-tile {
   border: 1px solid var(--garment-border);
   background: #FFFFFF;
-  padding: 1.25rem;
+  padding: 1rem;
   transition: all 0.25s ease;
   border-radius: 0 !important;
+  position: relative;
 }
 
 .product-tile:hover {
   border-color: var(--garment-gold);
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.08);
+}
+
+.product-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--garment-gold);
+  transition: width 0.3s ease;
+  z-index: 10;
+}
+
+.product-tile:hover::before {
+  width: 100%;
 }
 
 /* Section 11: Brand Marquee */

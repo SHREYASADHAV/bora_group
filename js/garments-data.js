@@ -1,7 +1,7 @@
 /**
  * BORA GROUP — Garments & Textile Catalogue Data Architecture
  * Pure structured data for all garment collections, fabric lines, brands, and discovery indices.
- * Fully enriched with authentic brand logos and curated high-resolution photography.
+ * Fully enriched with authentic brand logos and accurate individual product photography.
  */
 
 const GARMENTS_DATA = {
@@ -76,7 +76,7 @@ const GARMENTS_DATA = {
     }
   ],
 
-  // Section 02: Ready-Made Collection
+  // Section 02: Ready-Made Collection with Accurate Individual Product Images
   readyMade: {
     men: [
       {
@@ -84,13 +84,13 @@ const GARMENTS_DATA = {
         description: "Sharp cuts and daily refinement tailored for modern gentleman lifestyle",
         image: "images/garment_men_formal.jpg",
         items: [
-          { name: "Formal Shirts", note: "Crisp Collars & Refined Drapes" },
-          { name: "Casual Shirts", note: "Linen, Oxford & Chambray" },
-          { name: "Trousers", note: "Pleated & Flat-Front Tailoring" },
-          { name: "Chinos", note: "Breathable Stretch Twill" },
-          { name: "Jeans", note: "Classic Indigo & Washed Denims" },
-          { name: "T-Shirts", note: "Superfine Combed Cotton" },
-          { name: "Polos", note: "Pique Cotton & Contrast Trims" }
+          { name: "Formal Shirts", note: "Crisp Collars & Refined Drapes", image: "images/products/men_formal_shirt.jpg" },
+          { name: "Casual Shirts", note: "Linen, Oxford & Chambray", image: "images/products/men_casual_shirt.jpg" },
+          { name: "Trousers", note: "Pleated & Flat-Front Tailoring", image: "images/products/men_trousers.jpg" },
+          { name: "Chinos", note: "Breathable Stretch Twill", image: "images/products/men_chinos.jpg" },
+          { name: "Jeans", note: "Classic Indigo & Washed Denims", image: "images/products/men_jeans.jpg" },
+          { name: "T-Shirts", note: "Superfine Combed Cotton", image: "images/products/men_tshirt.jpg" },
+          { name: "Polos", note: "Pique Cotton & Contrast Trims", image: "images/products/men_polo.jpg" }
         ]
       },
       {
@@ -98,9 +98,9 @@ const GARMENTS_DATA = {
         description: "Timeless traditional cuts celebrating festive heritage and celebratory occasions",
         image: "images/garment_men_ethnic.jpg",
         items: [
-          { name: "Kurtas", note: "Intricate Threadwork & Silk Blends" },
-          { name: "Kurta-Pyjamas", note: "Complete Festive Ensembles" },
-          { name: "Nehru / Modi Jackets", note: "Mandarin Collar Structure & Brass Accents" }
+          { name: "Kurtas", note: "Intricate Threadwork & Silk Blends", image: "images/products/men_kurta.jpg" },
+          { name: "Kurta-Pyjamas", note: "Complete Festive Ensembles", image: "images/products/men_kurta_pyjama.jpg" },
+          { name: "Nehru / Modi Jackets", note: "Mandarin Collar Structure & Brass Accents", image: "images/products/men_nehru_jacket.jpg" }
         ]
       },
       {
@@ -108,11 +108,11 @@ const GARMENTS_DATA = {
         description: "Distinguished outerwear engineered for commanding presence and comfortable active wear",
         image: "images/garment_men_outerwear.jpg",
         items: [
-          { name: "Jackets", note: "All-Season Weather & Style Coats" },
-          { name: "Blazers", note: "Structured Shoulders & Italian Fall" },
-          { name: "Suits", note: "Two-Piece & Three-Piece Tailoring" },
-          { name: "Track Pants", note: "Performance Stretch Leisure" },
-          { name: "Shorts", note: "Relaxed Weekend Twill & Linens" }
+          { name: "Jackets", note: "All-Season Weather & Style Coats", image: "images/products/men_jacket.jpg" },
+          { name: "Blazers", note: "Structured Shoulders & Italian Fall", image: "images/products/men_blazer.jpg" },
+          { name: "Suits", note: "Two-Piece & Three-Piece Tailoring", image: "images/products/men_suit.jpg" },
+          { name: "Track Pants", note: "Performance Stretch Leisure", image: "images/products/men_track_pants.jpg" },
+          { name: "Shorts", note: "Relaxed Weekend Twill & Linens", image: "images/products/men_shorts.jpg" }
         ]
       },
       {
@@ -120,8 +120,8 @@ const GARMENTS_DATA = {
         description: "Soft foundational layers crafted for supreme breathable ease",
         image: "images/garment_men_essentials.jpg",
         items: [
-          { name: "Nightwear", note: "Pure Cotton Lounge Sets & Pyjamas" },
-          { name: "Innerwear", note: "Breathable Combed Cotton Knits" }
+          { name: "Nightwear", note: "Pure Cotton Lounge Sets & Pyjamas", image: "images/products/men_nightwear.jpg" },
+          { name: "Innerwear", note: "Breathable Combed Cotton Knits", image: "images/products/men_innerwear.jpg" }
         ]
       }
     ],
@@ -132,14 +132,14 @@ const GARMENTS_DATA = {
         description: "Versatile, breathable daily wear blending comfort and contemporary silhouette",
         image: "images/garment_women_casual.jpg",
         items: [
-          { name: "Kurtis", note: "Printed, A-Line & Straight Cuts" },
-          { name: "Tops", note: "Fluid Georgettes, Cottons & Crepes" },
-          { name: "Shirts", note: "Tailored Linens & Relaxed Silks" },
-          { name: "T-Shirts", note: "Bio-Washed Everyday Basics" },
-          { name: "Jeans", note: "High-Rise, Flare & Slim Stretch" },
-          { name: "Pants", note: "Cigarette & Tapered Formal Trousers" },
-          { name: "Leggings", note: "Four-Way Stretch Bio-Polished Cotton" },
-          { name: "Palazzo", note: "Wide-Leg Flowing Rayon & Crepe" }
+          { name: "Kurtis", note: "Printed, A-Line & Straight Cuts", image: "images/products/women_kurti.jpg" },
+          { name: "Tops", note: "Fluid Georgettes, Cottons & Crepes", image: "images/products/women_top.jpg" },
+          { name: "Shirts", note: "Tailored Linens & Relaxed Silks", image: "images/products/women_shirt.jpg" },
+          { name: "T-Shirts", note: "Bio-Washed Everyday Basics", image: "images/products/women_tshirt.jpg" },
+          { name: "Jeans", note: "High-Rise, Flare & Slim Stretch", image: "images/products/women_jeans.jpg" },
+          { name: "Pants", note: "Cigarette & Tapered Formal Trousers", image: "images/products/women_pants.jpg" },
+          { name: "Leggings", note: "Four-Way Stretch Bio-Polished Cotton", image: "images/products/women_leggings.jpg" },
+          { name: "Palazzo", note: "Wide-Leg Flowing Rayon & Crepe", image: "images/products/women_palazzo.jpg" }
         ]
       },
       {
@@ -147,11 +147,11 @@ const GARMENTS_DATA = {
         description: "Regal craftsmanship embodying India's opulent embroidery and hand-woven art",
         image: "images/garment_women_ethnic.jpg",
         items: [
-          { name: "Kurta Sets", note: "Coordinated Dupatta & Pant Sets" },
-          { name: "Salwar Suits", note: "Chanderi, Chiffon & Silk Silhouettes" },
-          { name: "Dresses", note: "Maxi & Midi Fusion silhouettes" },
-          { name: "Gowns", note: "Floor-Length Red Carpet Elegance" },
-          { name: "Lehengas", note: "Zari, Mirror & Resham Bridal Heritage" }
+          { name: "Kurta Sets", note: "Coordinated Dupatta & Pant Sets", image: "images/products/women_kurta_set.jpg" },
+          { name: "Salwar Suits", note: "Chanderi, Chiffon & Silk Silhouettes", image: "images/products/women_salwar_suit.jpg" },
+          { name: "Dresses", note: "Maxi & Midi Fusion Silhouettes", image: "images/products/women_dress.jpg" },
+          { name: "Gowns", note: "Floor-Length Red Carpet Elegance", image: "images/products/women_gown.jpg" },
+          { name: "Lehengas", note: "Zari, Mirror & Resham Bridal Heritage", image: "images/products/women_lehenga.jpg" }
         ]
       },
       {
@@ -159,8 +159,8 @@ const GARMENTS_DATA = {
         description: "Statement party attire and coordinated sets designed for memorable evenings",
         image: "images/garment_women_occasion.jpg",
         items: [
-          { name: "Party Wear", note: "Contemporary Cocktail Attire" },
-          { name: "Co-ord Sets", note: "Tailored Monochromatic Two-Pieces" }
+          { name: "Party Wear", note: "Contemporary Cocktail Attire", image: "images/products/women_party_wear.jpg" },
+          { name: "Co-ord Sets", note: "Tailored Monochromatic Two-Pieces", image: "images/products/women_coord_set.jpg" }
         ]
       },
       {
@@ -168,8 +168,8 @@ const GARMENTS_DATA = {
         description: "Delicate comfort wear prioritising soft skin feel and all-day flexibility",
         image: "images/garment_women_essentials.jpg",
         items: [
-          { name: "Nightwear", note: "Pure Cotton Kaftans & Satin Sleepwear" },
-          { name: "Innerwear", note: "Seamless, Wirefree & Cotton Lingerie" }
+          { name: "Nightwear", note: "Pure Cotton Kaftans & Satin Sleepwear", image: "images/products/women_nightwear.jpg" },
+          { name: "Innerwear", note: "Seamless, Wirefree & Cotton Lingerie", image: "images/products/women_innerwear.jpg" }
         ]
       }
     ],
@@ -180,16 +180,16 @@ const GARMENTS_DATA = {
         description: "Playful designs, vibrant shades, and gentle hypoallergenic cottons built for active kids",
         image: "images/garment_kids_collection.jpg",
         items: [
-          { name: "T-Shirts", note: "Playful Prints & Breathable Soft Cotton" },
-          { name: "Jeans", note: "Durable Flexible Denim for Active Days" },
-          { name: "Trousers", note: "Smart Chinos & Elasticated Waist Trousers" },
-          { name: "Shorts", note: "Casual Cargo & Breezy Cotton Shorts" },
-          { name: "Frocks", note: "Twirly Cotton, Lace & Tiered Frocks" },
-          { name: "Dresses", note: "Party Dresses & Floral Day Frocks" },
-          { name: "Ethnic Wear", note: "Junior Kurta-Pyjamas, Sherwanis & Lehengas" },
-          { name: "Party Wear", note: "Blazer Sets, Gowns & Tuxedo Accents" },
-          { name: "Nightwear", note: "Ultra-Soft Organic Cotton Sleep Sets" },
-          { name: "Infant Sets", note: "Newborn Rompers, Onesies & Gentle Mitts" }
+          { name: "T-Shirts", note: "Playful Prints & Breathable Soft Cotton", image: "images/products/kids_tshirt.jpg" },
+          { name: "Jeans", note: "Durable Flexible Denim for Active Days", image: "images/products/kids_jeans.jpg" },
+          { name: "Trousers", note: "Smart Chinos & Elasticated Waist Trousers", image: "images/products/kids_trousers.jpg" },
+          { name: "Shorts", note: "Casual Cargo & Breezy Cotton Shorts", image: "images/products/kids_shorts.jpg" },
+          { name: "Frocks", note: "Twirly Cotton, Lace & Tiered Frocks", image: "images/products/kids_frock.jpg" },
+          { name: "Dresses", note: "Party Dresses & Floral Day Frocks", image: "images/products/kids_dress.jpg" },
+          { name: "Ethnic Wear", note: "Junior Kurta-Pyjamas, Sherwanis & Lehengas", image: "images/products/kids_ethnic.jpg" },
+          { name: "Party Wear", note: "Blazer Sets, Gowns & Tuxedo Accents", image: "images/products/kids_party_wear.jpg" },
+          { name: "Nightwear", note: "Ultra-Soft Organic Cotton Sleep Sets", image: "images/products/kids_nightwear.jpg" },
+          { name: "Infant Sets", note: "Newborn Rompers, Onesies & Gentle Mitts", image: "images/products/kids_infant_set.jpg" }
         ]
       }
     ]
@@ -528,18 +528,18 @@ const GARMENTS_DATA = {
     }
   ],
 
-  // Section 09: Accessories
+  // Section 09: Accessories with Individual Images
   accessories: {
     heading: "Accessories",
     description: "Complete your look with carefully selected fashion and garment accessories.",
     image: "images/garment_accessory_cufflinks.jpg",
     items: [
-      { name: "Silk Pocket Squares", note: "Pure Mulberry Silk Hand-Rolled Edges" },
-      { name: "Executive Neckties", note: "Jacquard & Microfiber Silk Formals" },
-      { name: "Brass & Onyx Cufflinks", note: "Handcrafted Luxury Metal Fasteners" },
-      { name: "Leather Belts", note: "Top-Grain Reversible Italian Leather" },
-      { name: "Ethnic Dupattas & Stoles", note: "Chanderi, Pashmina & Zari Accents" },
-      { name: "Saree Brooches & Pins", note: "Gold-Toned Traditional Fasteners" }
+      { name: "Silk Pocket Squares", note: "Pure Mulberry Silk Hand-Rolled Edges", image: "images/products/acc_pocket_square.jpg" },
+      { name: "Executive Neckties", note: "Jacquard & Microfiber Silk Formals", image: "images/products/acc_necktie.jpg" },
+      { name: "Brass & Onyx Cufflinks", note: "Handcrafted Luxury Metal Fasteners", image: "images/products/acc_cufflinks.jpg" },
+      { name: "Leather Belts", note: "Top-Grain Reversible Italian Leather", image: "images/products/acc_belt.jpg" },
+      { name: "Ethnic Dupattas & Stoles", note: "Chanderi, Pashmina & Zari Accents", image: "images/products/acc_dupatta.jpg" },
+      { name: "Saree Brooches & Pins", note: "Gold-Toned Traditional Fasteners", image: "images/products/acc_brooch.jpg" }
     ]
   },
 
@@ -569,33 +569,33 @@ const GARMENTS_DATA = {
     "Padmavati Textile"
   ],
 
-  // Section 10: Smart Filter / Discovery Items Index
+  // Section 10: Smart Filter / Discovery Items Index with Accurate Images
   discoveryCatalog: [
     // Men's Ready-Made
-    { id: "m1", title: "Executive Formal Shirt", category: "Men", type: "Ready-Made", fabric: "Cotton", design: "Solids", brand: "Raymond", note: "Classic collar formal wear", image: "images/garment_men_formal.jpg" },
-    { id: "m2", title: "Pure Linen Casual Shirt", category: "Men", type: "Ready-Made", fabric: "Linen", design: "Plain", brand: "Linen Club", note: "Relaxed breathable fit", image: "images/garment_men_formal.jpg" },
-    { id: "m3", title: "Tailored Formal Trousers", category: "Men", type: "Ready-Made", fabric: "Polyester Viscose", design: "Plain", brand: "Siyaram's", note: "Sharp crease retention", image: "images/garment_men_formal.jpg" },
-    { id: "m4", title: "Smart Stretch Chinos", category: "Men", type: "Ready-Made", fabric: "Cotton", design: "Solids", brand: "Arvind", note: "Four-season daily stretch", image: "images/garment_men_formal.jpg" },
-    { id: "m5", title: "Classic Straight Jeans", category: "Men", type: "Ready-Made", fabric: "Cotton", design: "Plain", brand: "Arvind", note: "Durable ring-spun denim", image: "images/garment_men_formal.jpg" },
-    { id: "m6", title: "Combed Cotton Pique Polo", category: "Men", type: "Ready-Made", fabric: "Cotton", design: "Solids", brand: "Gini & House", note: "Sporty weekend essential", image: "images/garment_men_formal.jpg" },
-    { id: "m7", title: "Royal Silk Kurta", category: "Men", type: "Ready-Made", fabric: "Cotton", design: "Self Design", brand: "Bora Collection", note: "Festive celebration ensemble", image: "images/garment_men_ethnic.jpg" },
-    { id: "m8", title: "Mandarin Nehru Jacket", category: "Men", type: "Ready-Made", fabric: "Wool Blend", design: "Self Design", brand: "Raymond", note: "Structured ceremonial vest", image: "images/garment_men_ethnic.jpg" },
-    { id: "m9", title: "Executive Two-Piece Suit", category: "Men", type: "Ready-Made", fabric: "Wool Blend", design: "Solids", brand: "Reid & Taylor", note: "Classic British tailoring", image: "images/garment_men_outerwear.jpg" },
-    { id: "m10", title: "Classic Track Pants", category: "Men", type: "Ready-Made", fabric: "Cotton", design: "Plain", brand: "Bora Fashion", note: "Relaxed leisure wear", image: "images/garment_men_essentials.jpg" },
+    { id: "m1", title: "Executive Formal Shirt", category: "Men", type: "Ready-Made", fabric: "Cotton", design: "Solids", brand: "Raymond", note: "Classic collar formal wear", image: "images/products/men_formal_shirt.jpg" },
+    { id: "m2", title: "Pure Linen Casual Shirt", category: "Men", type: "Ready-Made", fabric: "Linen", design: "Plain", brand: "Linen Club", note: "Relaxed breathable fit", image: "images/products/men_casual_shirt.jpg" },
+    { id: "m3", title: "Tailored Formal Trousers", category: "Men", type: "Ready-Made", fabric: "Polyester Viscose", design: "Plain", brand: "Siyaram's", note: "Sharp crease retention", image: "images/products/men_trousers.jpg" },
+    { id: "m4", title: "Smart Stretch Chinos", category: "Men", type: "Ready-Made", fabric: "Cotton", design: "Solids", brand: "Arvind", note: "Four-season daily stretch", image: "images/products/men_chinos.jpg" },
+    { id: "m5", title: "Classic Straight Jeans", category: "Men", type: "Ready-Made", fabric: "Cotton", design: "Plain", brand: "Arvind", note: "Durable ring-spun denim", image: "images/products/men_jeans.jpg" },
+    { id: "m6", title: "Combed Cotton Pique Polo", category: "Men", type: "Ready-Made", fabric: "Cotton", design: "Solids", brand: "Gini & House", note: "Sporty weekend essential", image: "images/products/men_polo.jpg" },
+    { id: "m7", title: "Royal Silk Kurta", category: "Men", type: "Ready-Made", fabric: "Cotton", design: "Self Design", brand: "Bora Collection", note: "Festive celebration ensemble", image: "images/products/men_kurta.jpg" },
+    { id: "m8", title: "Mandarin Nehru Jacket", category: "Men", type: "Ready-Made", fabric: "Wool Blend", design: "Self Design", brand: "Raymond", note: "Structured ceremonial vest", image: "images/products/men_nehru_jacket.jpg" },
+    { id: "m9", title: "Executive Two-Piece Suit", category: "Men", type: "Ready-Made", fabric: "Wool Blend", design: "Solids", brand: "Reid & Taylor", note: "Classic British tailoring", image: "images/products/men_suit.jpg" },
+    { id: "m10", title: "Classic Track Pants", category: "Men", type: "Ready-Made", fabric: "Cotton", design: "Plain", brand: "Bora Fashion", note: "Relaxed leisure wear", image: "images/products/men_track_pants.jpg" },
 
     // Women's Ready-Made
-    { id: "w1", title: "Hand-Block Printed Kurti", category: "Women", type: "Ready-Made", fabric: "Cotton", design: "Prints", brand: "Bora Fashion", note: "Daily ethnic flair", image: "images/garment_women_casual.jpg" },
-    { id: "w2", title: "Chiffon Embroidered Anarkali", category: "Women", type: "Ready-Made", fabric: "Silk Blend", design: "Prints", brand: "Vinay Fashion", note: "Festive wedding elegance", image: "images/garment_women_ethnic.jpg" },
-    { id: "w3", title: "Tailored Linen Shirt", category: "Women", type: "Ready-Made", fabric: "Linen", design: "Stripes", brand: "Linen Club", note: "Workplace sophistication", image: "images/garment_women_casual.jpg" },
-    { id: "w4", title: "Flowing Rayon Palazzo", category: "Women", type: "Ready-Made", fabric: "Lyocell", design: "Solids", brand: "Bora Fashion", note: "Comfort-fit wide leg", image: "images/garment_women_casual.jpg" },
-    { id: "w5", title: "Bridal Silk Lehenga Set", category: "Women", type: "Ready-Made", fabric: "Silk Blend", design: "Self Design", brand: "Rajtext", note: "Regal zardozi craftsmanship", image: "images/garment_women_ethnic.jpg" },
-    { id: "w6", title: "Contemporary Party Co-ord Set", category: "Women", type: "Ready-Made", fabric: "Polyester Viscose", design: "Solids", brand: "Vinay Fashion", note: "Modern cocktail silhouette", image: "images/garment_women_occasion.jpg" },
+    { id: "w1", title: "Hand-Block Printed Kurti", category: "Women", type: "Ready-Made", fabric: "Cotton", design: "Prints", brand: "Bora Fashion", note: "Daily ethnic flair", image: "images/products/women_kurti.jpg" },
+    { id: "w2", title: "Chiffon Embroidered Anarkali", category: "Women", type: "Ready-Made", fabric: "Silk Blend", design: "Prints", brand: "Vinay Fashion", note: "Festive wedding elegance", image: "images/products/women_salwar_suit.jpg" },
+    { id: "w3", title: "Tailored Linen Shirt", category: "Women", type: "Ready-Made", fabric: "Linen", design: "Stripes", brand: "Linen Club", note: "Workplace sophistication", image: "images/products/women_shirt.jpg" },
+    { id: "w4", title: "Flowing Rayon Palazzo", category: "Women", type: "Ready-Made", fabric: "Lyocell", design: "Solids", brand: "Bora Fashion", note: "Comfort-fit wide leg", image: "images/products/women_palazzo.jpg" },
+    { id: "w5", title: "Bridal Silk Lehenga Set", category: "Women", type: "Ready-Made", fabric: "Silk Blend", design: "Self Design", brand: "Rajtext", note: "Regal zardozi craftsmanship", image: "images/products/women_lehenga.jpg" },
+    { id: "w6", title: "Contemporary Party Co-ord Set", category: "Women", type: "Ready-Made", fabric: "Polyester Viscose", design: "Solids", brand: "Vinay Fashion", note: "Modern cocktail silhouette", image: "images/products/women_coord_set.jpg" },
 
     // Kids' Ready-Made
-    { id: "k1", title: "Junior Graphic Cotton T-Shirt", category: "Kids", type: "Ready-Made", fabric: "Cotton", design: "Prints", brand: "Gini & House", note: "Soft combed playwear", image: "images/garment_kids_collection.jpg" },
-    { id: "k2", title: "Kids Flexible Denim Jeans", category: "Kids", type: "Ready-Made", fabric: "Cotton", design: "Plain", brand: "Arvind", note: "Elasticated comfortable waist", image: "images/garment_kids_collection.jpg" },
-    { id: "k3", title: "Junior Festive Kurta Set", category: "Kids", type: "Ready-Made", fabric: "Cotton", design: "Self Design", brand: "Bora Fashion", note: "Traditional festive wear", image: "images/garment_kids_collection.jpg" },
-    { id: "k4", title: "Girls Floral Party Frock", category: "Kids", type: "Ready-Made", fabric: "Cotton", design: "Prints", brand: "Bora Fashion", note: "Tiered twirl dress", image: "images/garment_kids_collection.jpg" },
+    { id: "k1", title: "Junior Graphic Cotton T-Shirt", category: "Kids", type: "Ready-Made", fabric: "Cotton", design: "Prints", brand: "Gini & House", note: "Soft combed playwear", image: "images/products/kids_tshirt.jpg" },
+    { id: "k2", title: "Kids Flexible Denim Jeans", category: "Kids", type: "Ready-Made", fabric: "Cotton", design: "Plain", brand: "Arvind", note: "Elasticated comfortable waist", image: "images/products/kids_jeans.jpg" },
+    { id: "k3", title: "Junior Festive Kurta Set", category: "Kids", type: "Ready-Made", fabric: "Cotton", design: "Self Design", brand: "Bora Fashion", note: "Traditional festive wear", image: "images/products/kids_ethnic.jpg" },
+    { id: "k4", title: "Girls Floral Party Frock", category: "Kids", type: "Ready-Made", fabric: "Cotton", design: "Prints", brand: "Bora Fashion", note: "Tiered twirl dress", image: "images/products/kids_frock.jpg" },
 
     // Fabrics — Shirting
     { id: "f1", title: "Giza Cotton 100s Fabric", category: "Shirting", type: "Fabric", fabric: "Giza Cotton", design: "Plain", brand: "Arvind", note: "Luxury shirting yardage", image: "images/shirting_roll.jpg" },
@@ -630,8 +630,8 @@ const GARMENTS_DATA = {
     { id: "u3", title: "Healthcare Scrub & Coat Material", category: "Uniforms", type: "Uniform", fabric: "Poly Cotton", design: "Plain", brand: "Bombay Dyeing", note: "Hygiene autoclavable finish", image: "images/uniform_institutional.jpg" },
 
     // Accessories
-    { id: "a1", title: "Mulberry Silk Pocket Square", category: "Accessories", type: "Ready-Made", fabric: "Silk Blend", design: "Prints", brand: "Raymond", note: "Hand-rolled hem", image: "images/garment_accessory_cufflinks.jpg" },
-    { id: "a2", title: "Executive Jacquard Necktie", category: "Accessories", type: "Ready-Made", fabric: "Silk Blend", design: "Checks", brand: "J. Hampstead", note: "Formal boardroom knot", image: "images/garment_accessory_cufflinks.jpg" }
+    { id: "a1", title: "Mulberry Silk Pocket Square", category: "Accessories", type: "Ready-Made", fabric: "Silk Blend", design: "Prints", brand: "Raymond", note: "Hand-rolled hem", image: "images/products/acc_pocket_square.jpg" },
+    { id: "a2", title: "Executive Jacquard Necktie", category: "Accessories", type: "Ready-Made", fabric: "Silk Blend", design: "Checks", brand: "J. Hampstead", note: "Formal boardroom knot", image: "images/products/acc_necktie.jpg" }
   ]
 };
 

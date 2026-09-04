@@ -1,6 +1,6 @@
 /**
  * BORA GROUP — Garments & Textile Interactive Engine
- * Architectural Layout, Crisp Real Photography, Authentic Brand Logos, Zero Rounded Corners.
+ * Architectural Layout, Accurate Square Images for Every Title, Zero Rounded Corners, Zero Icons.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,37 +10,37 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 1. SHOP BY CATEGORY SECTION (Render & Smooth Jump)
+  // 1. SHOP BY CATEGORY SECTION (8 Categories - Accurate Square Photos)
   // =========================================================================
   const categoryGrid = document.getElementById('shop-category-grid');
   if (categoryGrid) {
     categoryGrid.innerHTML = GARMENTS_DATA.shopCategories.map((cat, idx) => `
       <a href="${cat.anchor}" data-category-id="${cat.id}" data-tab="${cat.filterTab || ''}" class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
         <div>
-          <!-- Crisp Photographic Header Frame -->
-          <div class="garment-img-frame h-48 sm:h-52 w-full border-b border-stone-200 relative">
+          <!-- Accurate Square Image Frame -->
+          <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
             <img src="${cat.image}" alt="${cat.title}" loading="lazy" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-            <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/60 backdrop-blur-sm px-3 py-1 border border-white/20">
+            <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">
               ${cat.tag}
             </span>
             <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">0${idx + 1}</span>
           </div>
 
-          <div class="p-6">
-            <h3 class="font-heading font-bold text-xl sm:text-2xl text-navy group-hover:text-gold transition-colors duration-300">
+          <div class="p-5 sm:p-6">
+            <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">
               ${cat.title}
             </h3>
-            <p class="font-sans text-xs sm:text-sm text-stone-500 font-normal leading-relaxed mt-2.5">
+            <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2">
               ${cat.description}
             </p>
           </div>
         </div>
 
-        <div class="p-6 pt-0 mt-auto">
+        <div class="p-5 sm:p-6 pt-0 mt-auto">
           <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
-            <span class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
-              Explore Collection <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1.5 transition-transform duration-300"></i>
+            <span class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors">
+              Explore Collection →
             </span>
           </div>
         </div>
@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // =========================================================================
   // 2. READY-MADE COLLECTION (Tabs: MEN | WOMEN | KIDS)
+  // Each Product Has Its Own Accurate Square Image & Strictly Sharp Edges
   // =========================================================================
   const readyMadeContainer = document.getElementById('ready-made-container');
   const readyMadeTabs = document.querySelectorAll('.ready-made-tab');
@@ -69,62 +70,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const groups = GARMENTS_DATA.readyMade[gender];
 
     readyMadeContainer.innerHTML = `
-      <div class="space-y-12 animate-fade-in">
+      <div class="space-y-14 animate-fade-in">
         ${groups.map(group => `
           <div class="bg-white border border-stone-200 p-6 sm:p-8 lg:p-10 shadow-sm garment-sharp">
-            <!-- Group Header with Real Photography & Info -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pb-6 mb-8 border-b border-stone-200">
-              <div class="lg:col-span-8 flex flex-col justify-between">
-                <div>
-                  <div class="flex items-center gap-2 mb-2">
-                    <span class="w-2 h-2 bg-gold inline-block"></span>
-                    <span class="text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-gold">
-                      Ready-Made • ${gender.toUpperCase()}
-                    </span>
-                  </div>
-                  <h4 class="font-heading font-extrabold text-2xl sm:text-3xl text-navy">
-                    ${group.subgroup}
-                  </h4>
-                  <p class="font-sans text-xs sm:text-sm text-stone-600 max-w-xl leading-relaxed mt-2.5">
-                    ${group.description}
-                  </p>
-                </div>
-                <div class="mt-4 pt-4 border-t border-stone-100 flex items-center gap-4 text-xs font-heading font-bold text-stone-500 uppercase tracking-wider">
-                  <span>${group.items.length} Curated Styles</span>
-                  <span class="text-stone-300">•</span>
-                  <span>Premium Grade Textiles</span>
-                </div>
-              </div>
-
-              <!-- Photographic Frame for Subgroup -->
-              <div class="lg:col-span-4">
-                <div class="garment-img-frame h-44 sm:h-52 w-full border border-stone-200 relative">
-                  <img src="${group.image}" alt="${group.subgroup}" loading="lazy" class="w-full h-full object-cover">
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                  <span class="absolute bottom-2.5 left-3 text-[10px] font-heading font-bold uppercase tracking-wider text-white bg-black/60 px-2 py-0.5 backdrop-blur-sm">
-                    ${group.subgroup} Showcase
+            <!-- Group Header -->
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-6 mb-8 border-b border-stone-200">
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="w-1.5 h-1.5 bg-gold inline-block"></span>
+                  <span class="text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-gold">
+                    Ready-Made • ${gender.toUpperCase()}
                   </span>
                 </div>
+                <h4 class="font-heading font-extrabold text-2xl sm:text-3xl text-navy">
+                  ${group.subgroup}
+                </h4>
               </div>
+              <p class="font-sans text-xs sm:text-sm text-stone-500 max-w-lg leading-relaxed mt-2 sm:mt-0">
+                ${group.description}
+              </p>
             </div>
 
-            <!-- Clean Architectural Product Tiles -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            <!-- Clean Architectural Product Grid: Accurate Square Images for Every Title -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
               ${group.items.map(item => `
-                <div class="product-tile garment-sharp group cursor-pointer hover:border-gold/80" onclick="triggerDiscoverySearch('${item.name}')">
-                  <div class="flex items-center justify-between mb-2">
-                    <span class="text-[9px] font-mono text-stone-400 uppercase tracking-wider">BORA READY-WEAR</span>
-                    <span class="w-1.5 h-1.5 bg-gold/50 group-hover:bg-gold transition-colors"></span>
+                <div class="product-tile garment-sharp group cursor-pointer hover:border-gold transition-all duration-300 bg-white border border-stone-200 p-3 sm:p-4 flex flex-col justify-between" onclick="triggerDiscoverySearch('${item.name}')">
+                  <div>
+                    <!-- Accurate Square Image for Title -->
+                    <div class="garment-img-frame aspect-square w-full mb-3 border border-stone-150 relative overflow-hidden bg-stone-100">
+                      <img src="${item.image}" alt="${item.name}" loading="lazy" class="w-full h-full object-cover">
+                      <span class="absolute bottom-2 left-2 text-[8px] font-heading font-bold uppercase tracking-wider text-white bg-black/75 px-1.5 py-0.5 border border-white/20">
+                        ${gender.toUpperCase()}
+                      </span>
+                    </div>
+
+                    <h5 class="font-heading font-bold text-sm sm:text-base text-stone-900 group-hover:text-gold transition-colors leading-tight">
+                      ${item.name}
+                    </h5>
+                    <p class="font-sans text-[11px] text-stone-500 mt-1 line-clamp-2 leading-relaxed">
+                      ${item.note}
+                    </p>
                   </div>
-                  <h5 class="font-heading font-bold text-sm sm:text-base text-stone-900 group-hover:text-gold transition-colors">
-                    ${item.name}
-                  </h5>
-                  <p class="font-sans text-[11px] text-stone-500 mt-1 line-clamp-2 leading-relaxed">
-                    ${item.note}
-                  </p>
+
                   <div class="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 group-hover:text-gold transition-colors">
-                    <span>Explore Fabric</span>
-                    <i class="fa-solid fa-arrow-right text-[8px] transform group-hover:translate-x-1 transition-transform"></i>
+                    <span>View Fabric</span>
+                    <span>→</span>
                   </div>
                 </div>
               `).join('')}
@@ -226,9 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (filtered.length === 0) {
       shirtingCardsGrid.innerHTML = `
         <div class="col-span-full py-16 text-center bg-white border border-stone-200 p-8 garment-sharp">
-          <div class="w-12 h-12 bg-stone-100 text-stone-600 flex items-center justify-center mx-auto mb-4 text-xl border border-stone-300">
-            <i class="fa-solid fa-filter"></i>
-          </div>
+          <span class="text-xs font-mono text-stone-400 uppercase tracking-widest block mb-2">[ FILTER EMPTY ]</span>
           <h4 class="font-heading font-bold text-lg text-navy">No Fabric Matching Both Criteria</h4>
           <p class="font-sans text-xs text-stone-500 mt-1 max-w-sm mx-auto">
             Try resetting either the Fabric type or Design pattern to view our signature shirting rolls.
@@ -252,10 +240,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     shirtingCardsGrid.innerHTML = filtered.map(item => `
-      <div class="garment-card garment-sharp bg-white border border-stone-200 p-6 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+      <div class="garment-card garment-sharp bg-white border border-stone-200 p-5 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
         <div>
-          <!-- Real Photographic Fabric Weave Frame -->
-          <div class="garment-img-frame h-36 w-full mb-5 border border-stone-200 relative">
+          <!-- Accurate Fabric Roll Square/Architectural Frame -->
+          <div class="garment-img-frame aspect-square w-full mb-4 border border-stone-200 relative">
             <img src="${item.image}" alt="${item.name}" loading="lazy" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
             <span class="absolute top-2.5 right-2.5 text-[9px] font-heading font-bold uppercase tracking-widest text-gold bg-black/80 px-2 py-0.5 border border-gold/30">
@@ -281,10 +269,10 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <div class="mt-5 pt-4 border-t border-stone-150 flex items-center justify-between">
-          <button type="button" onclick="triggerDiscoverySearch('${item.fabric}')" class="text-[11px] font-heading font-bold uppercase tracking-wider text-navy group-hover:text-gold transition-colors flex items-center gap-1">
-            Find Garments <i class="fa-solid fa-arrow-right text-[9px] transform group-hover:translate-x-1 transition-transform"></i>
+          <button type="button" onclick="triggerDiscoverySearch('${item.fabric}')" class="text-[11px] font-heading font-bold uppercase tracking-wider text-navy group-hover:text-gold transition-colors">
+            Find Garments →
           </button>
-          <span class="text-[10px] font-heading text-stone-400 font-bold uppercase">Bora Mill Sourced</span>
+          <span class="text-[10px] font-heading text-stone-400 font-bold uppercase">Bora Sourced</span>
         </div>
       </div>
     `).join('');
@@ -293,15 +281,15 @@ document.addEventListener('DOMContentLoaded', () => {
   initShirtingFilters();
 
   // =========================================================================
-  // 4. SUITING FABRICS (8 Luxury Suiting Cards)
+  // 4. SUITING FABRICS (8 Luxury Suiting Cards - Accurate Square/Sharp Frames)
   // =========================================================================
   const suitingGrid = document.getElementById('suiting-fabrics-grid');
   if (suitingGrid) {
     suitingGrid.innerHTML = GARMENTS_DATA.suiting.fabrics.map((item, idx) => `
-      <div class="garment-card garment-sharp bg-white border border-stone-200 p-6 sm:p-7 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+      <div class="garment-card garment-sharp bg-white border border-stone-200 p-5 sm:p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
         <div>
-          <!-- Real Photographic Suiting Roll Frame -->
-          <div class="garment-img-frame h-36 w-full mb-5 border border-stone-200 relative">
+          <!-- Accurate Fabric Suiting Frame -->
+          <div class="garment-img-frame aspect-video sm:aspect-square w-full mb-4 border border-stone-200 relative">
             <img src="${item.image}" alt="${item.name}" loading="lazy" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent"></div>
             <div class="absolute top-2.5 left-2.5">
@@ -331,8 +319,8 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <div class="pt-5 mt-5 border-t border-stone-150 flex items-center justify-between">
-          <button type="button" onclick="triggerDiscoverySearch('${item.name}')" class="text-xs font-heading font-bold uppercase tracking-wider text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
-            Explore Suiting <i class="fa-solid fa-arrow-right text-[9px] transform group-hover:translate-x-1.5 transition-transform"></i>
+          <button type="button" onclick="triggerDiscoverySearch('${item.name}')" class="text-xs font-heading font-bold uppercase tracking-wider text-navy group-hover:text-gold transition-colors">
+            Explore Suiting →
           </button>
           <span class="text-[10px] font-mono text-stone-400">#SUIT-0${idx + 1}</span>
         </div>
@@ -341,7 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 5. SHIRTING BRANDS (15 Brands Grid with Authentic Logos)
+  // 5. SHIRTING BRANDS (15 Brands Grid - Authentic Logos, Sharp White Tiles)
   // =========================================================================
   const shirtingBrandsGrid = document.getElementById('shirting-brands-grid');
   if (shirtingBrandsGrid) {
@@ -365,14 +353,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div class="pt-3 mt-3 border-t border-stone-150 flex items-center justify-between text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 group-hover:text-gold transition-colors">
           <span>Official Mill Partner</span>
-          <i class="fa-solid fa-arrow-right text-[8px] transform group-hover:translate-x-1 transition-transform"></i>
+          <span>→</span>
         </div>
       </div>
     `).join('');
   }
 
   // =========================================================================
-  // 6. SAREE BRANDS (7 Brands Grid with Authentic Logos)
+  // 6. SAREE BRANDS (7 Brands Grid - Authentic Logos, Sharp White Tiles)
   // =========================================================================
   const sareeBrandsGrid = document.getElementById('saree-brands-grid');
   if (sareeBrandsGrid) {
@@ -396,22 +384,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div class="pt-3 mt-3 border-t border-stone-150 flex items-center justify-between text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 group-hover:text-gold transition-colors">
           <span>Exclusive Collection</span>
-          <i class="fa-solid fa-arrow-right text-[8px] transform group-hover:translate-x-1 transition-transform"></i>
+          <span>→</span>
         </div>
       </div>
     `).join('');
   }
 
   // =========================================================================
-  // 7. SAREE COLLECTION (7 Traditional Categories with Real Photos)
+  // 7. SAREE COLLECTION (7 Categories - Accurate Square Photos)
   // =========================================================================
   const sareeCollectionGrid = document.getElementById('saree-collection-grid');
   if (sareeCollectionGrid) {
     sareeCollectionGrid.innerHTML = GARMENTS_DATA.sareeCollection.map(saree => `
-      <div class="garment-card garment-sharp bg-white border border-stone-200 p-6 sm:p-7 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+      <div class="garment-card garment-sharp bg-white border border-stone-200 p-5 sm:p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
         <div>
-          <!-- Crisp Real Photography Frame for Saree -->
-          <div class="garment-img-frame h-52 sm:h-60 w-full mb-5 border border-stone-200 relative">
+          <!-- Accurate Square Image Frame for Saree -->
+          <div class="garment-img-frame aspect-square w-full mb-4 border border-stone-200 relative">
             <img src="${saree.image}" alt="${saree.name}" loading="lazy" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
             <span class="absolute top-3 left-3 text-[9px] font-heading font-bold uppercase tracking-[0.2em] text-white bg-black/70 px-2.5 py-1 border border-white/20 backdrop-blur-sm">
@@ -436,8 +424,8 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <div class="pt-5 mt-6 border-t border-stone-150 flex items-center justify-between">
-          <button type="button" onclick="triggerDiscoverySearch('${saree.name}')" class="text-xs font-heading font-bold uppercase tracking-wider text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
-            View Saree Styles <i class="fa-solid fa-arrow-right text-[9px] transform group-hover:translate-x-1.5 transition-transform"></i>
+          <button type="button" onclick="triggerDiscoverySearch('${saree.name}')" class="text-xs font-heading font-bold uppercase tracking-wider text-navy group-hover:text-gold transition-colors">
+            View Saree Styles →
           </button>
           <span class="text-[10px] font-heading font-semibold text-stone-400 uppercase">Handloom Heritage</span>
         </div>
@@ -446,15 +434,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 8. UNIFORMS SECTION (3 Cards: School, Corporate, Institutional)
+  // 8. UNIFORMS SECTION (3 Cards - Accurate Square Photos)
   // =========================================================================
   const uniformsGrid = document.getElementById('uniforms-grid');
   if (uniformsGrid) {
     uniformsGrid.innerHTML = GARMENTS_DATA.uniforms.map(uni => `
-      <div class="garment-card garment-sharp bg-white border border-stone-200 p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+      <div class="garment-card garment-sharp bg-white border border-stone-200 p-6 sm:p-7 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
         <div>
-          <!-- Real Photography Frame for Uniforms -->
-          <div class="garment-img-frame h-48 sm:h-52 w-full mb-6 border border-stone-200 relative">
+          <!-- Accurate Square Image Frame for Uniforms -->
+          <div class="garment-img-frame aspect-square w-full mb-6 border border-stone-200 relative">
             <img src="${uni.image}" alt="${uni.title}" loading="lazy" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
             <span class="absolute bottom-3 left-3 text-[10px] font-heading font-bold uppercase tracking-[0.15em] text-white bg-black/70 px-2.5 py-1 border border-white/20">
@@ -482,7 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div class="pt-6 mt-8 border-t border-stone-150">
           <a href="enquiry-garments.html?subject=${encodeURIComponent(uni.title)}" class="btn-premium-gold w-full text-center text-xs py-3 block shadow-sm">
-            Enquire Now <i class="fa-solid fa-arrow-right text-[9px] ml-1.5"></i>
+            Enquire Now →
           </a>
         </div>
       </div>
@@ -490,17 +478,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 9. ACCESSORIES SECTION (Architectural Layout with Photo)
+  // 9. ACCESSORIES SECTION (Each Item Has An Accurate Square Photo)
   // =========================================================================
   const accessoriesItems = document.getElementById('accessories-items-grid');
   if (accessoriesItems) {
     accessoriesItems.innerHTML = GARMENTS_DATA.accessories.items.map(acc => `
-      <div class="p-4 bg-white border border-stone-200 hover:border-gold transition-colors garment-sharp flex flex-col justify-between">
+      <div class="p-3 sm:p-4 bg-white border border-stone-200 hover:border-gold transition-all duration-300 garment-sharp flex flex-col justify-between group cursor-pointer" onclick="triggerDiscoverySearch('${acc.name}')">
         <div>
-          <h5 class="font-heading font-bold text-xs uppercase tracking-wider text-navy">${acc.name}</h5>
+          <!-- Accurate Square Image for Accessory -->
+          <div class="garment-img-frame aspect-square w-full mb-3 border border-stone-150 relative bg-stone-100">
+            <img src="${acc.image}" alt="${acc.name}" loading="lazy" class="w-full h-full object-cover">
+          </div>
+          <h5 class="font-heading font-bold text-xs uppercase tracking-wider text-navy group-hover:text-gold transition-colors">${acc.name}</h5>
           <p class="text-[11px] font-sans text-stone-500 mt-1 leading-relaxed">${acc.note}</p>
         </div>
-        <span class="text-[9px] font-mono text-gold font-bold uppercase mt-3 pt-2 border-t border-stone-100">BORA CURATED</span>
+        <div class="mt-3 pt-2 border-t border-stone-100 flex items-center justify-between text-[9px] font-mono text-stone-400 group-hover:text-gold transition-colors">
+          <span>CURATED ACCENT</span>
+          <span>→</span>
+        </div>
       </div>
     `).join('');
   }
@@ -585,9 +580,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (results.length === 0) {
       discoveryResultsGrid.innerHTML = `
         <div class="col-span-full py-16 text-center bg-white border border-stone-200 p-8 garment-sharp">
-          <div class="w-12 h-12 bg-stone-100 text-stone-600 flex items-center justify-center mx-auto mb-4 text-xl border border-stone-300">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
+          <span class="text-xs font-mono text-stone-400 uppercase tracking-widest block mb-2">[ 0 RESULTS ]</span>
           <h4 class="font-heading font-bold text-lg text-navy">No Matches Found</h4>
           <p class="font-sans text-xs text-stone-500 mt-1 max-w-sm mx-auto">
             We couldn't find items matching your current criteria. Try adjusting your filters or resetting the search.
@@ -601,10 +594,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     discoveryResultsGrid.innerHTML = results.map(item => `
-      <div class="garment-card garment-sharp bg-white p-5 border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+      <div class="garment-card garment-sharp bg-white p-4 border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
         <div>
           ${item.image ? `
-            <div class="garment-img-frame h-32 w-full mb-3 border border-stone-150">
+            <div class="garment-img-frame aspect-square w-full mb-3 border border-stone-150">
               <img src="${item.image}" alt="${item.title}" loading="lazy" class="w-full h-full object-cover">
             </div>
           ` : ''}
@@ -629,8 +622,8 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <div class="mt-4 pt-3 border-t border-stone-150 flex items-center justify-between">
-          <a href="enquiry-garments.html?subject=${encodeURIComponent(item.title + ' - ' + item.brand)}" class="text-[11px] font-heading font-bold uppercase tracking-wider text-navy group-hover:text-gold transition-colors flex items-center gap-1">
-            Inquire Fabric <i class="fa-solid fa-arrow-right text-[8px] ml-1"></i>
+          <a href="enquiry-garments.html?subject=${encodeURIComponent(item.title + ' - ' + item.brand)}" class="text-[11px] font-heading font-bold uppercase tracking-wider text-navy group-hover:text-gold transition-colors">
+            Inquire Fabric →
           </a>
           <span class="text-[10px] font-mono text-stone-400">#${item.id}</span>
         </div>
