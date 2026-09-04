@@ -1,0 +1,106 @@
+/* ==========================================================================
+   BORA GROUP — INDUSTRIAL SUPPLY STYLING
+   Aesthetics: Premium, B2B, Modern, Minimal, Industrial, Trustworthy
+   ========================================================================== */
+
+:root {
+  --ind-cream: #FAF9F6;
+  --ind-slate: #F4F6F9;
+  --ind-charcoal: #18181B;
+  --ind-navy: #053C8F;
+  --ind-gold: #C5A880;
+  --ind-gold-hover: #D4AF37;
+  --ind-border: rgba(0, 0, 0, 0.08);
+  --ind-border-hover: rgba(197, 168, 128, 0.45);
+}
+
+/* Industrial Card Elevation & Transitions */
+.ind-card {
+  background: #FFFFFF;
+  border: 1px solid var(--ind-border);
+  border-radius: 1.25rem;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.ind-card:hover {
+  border-color: var(--ind-border-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -10px rgba(5, 5, 10, 0.06), 0 0 0 1px rgba(197, 168, 128, 0.25);
+}
+
+/* Subtle Image Scale on Hover */
+.ind-img-zoom {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ind-card:hover .ind-img-zoom {
+  transform: scale(1.03);
+}
+
+/* Industrial Micro Texture Swatch Patterns */
+.texture-industrial-grid {
+  background-color: #14171F;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.texture-clean-lab {
+  background-color: #F8FAFC;
+  background-image: radial-gradient(rgba(5, 60, 143, 0.06) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.texture-packaging-cardboard {
+  background-color: #FDFBF7;
+  background-image: repeating-linear-gradient(0deg, rgba(197, 168, 128, 0.08) 0, rgba(197, 168, 128, 0.08) 1px, transparent 0, transparent 8px);
+}
+
+/* Section 08: Mobile Discovery Bottom Sheet */
+.ind-filter-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(5, 5, 10, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 90;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.ind-filter-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ind-filter-drawer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 85vh;
+  background-color: #FFFFFF;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  z-index: 100;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25);
+  padding: 1.5rem;
+}
+
+.ind-filter-drawer.active {
+  transform: translateY(0);
+}
+
+/* Reduced Motion Respect */
+@media (prefers-reduced-motion: reduce) {
+  .ind-card, .ind-img-zoom, .ind-filter-drawer {
+    transition: none !important;
+    transform: none !important;
+  }
+}
