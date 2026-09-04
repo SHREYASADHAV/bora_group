@@ -1,0 +1,318 @@
+/* ==========================================================================
+   BORA GROUP — GARMENTS & TEXTILES LUXURY STYLING
+   Aesthetics: Premium, Minimal, Editorial, Modern Indian, Textile-Inspired
+   ========================================================================== */
+
+/* Root Variables & Textile Tone Palette */
+:root {
+  --garment-cream: #FAF8F5;
+  --garment-sand: #F3EFE9;
+  --garment-card-bg: rgba(255, 255, 255, 0.88);
+  --garment-card-border: rgba(197, 168, 128, 0.22);
+  --garment-card-border-hover: rgba(197, 168, 128, 0.65);
+  --garment-charcoal: #18181B;
+  --garment-muted: #52525B;
+  --garment-gold: #C5A880;
+  --garment-gold-deep: #A98457;
+  --garment-navy: #053C8F;
+  --garment-navy-dark: #032152;
+}
+
+/* Base Textile Section Backgrounds */
+.bg-textile-warm {
+  background-color: var(--garment-cream);
+  background-image: radial-gradient(rgba(197, 168, 128, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-textile-card {
+  background: var(--garment-card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--garment-card-border);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bg-textile-card:hover {
+  border-color: var(--garment-card-border-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px -10px rgba(5, 5, 10, 0.07), 0 0 0 1px rgba(197, 168, 128, 0.3);
+}
+
+/* Subtle Textile Weave Swatch Visuals */
+.swatch-pattern-cotton {
+  background-color: #f7f6f2;
+  background-image: repeating-linear-gradient(45deg, rgba(197, 168, 128, 0.12) 0, rgba(197, 168, 128, 0.12) 1px, transparent 0, transparent 50%);
+  background-size: 8px 8px;
+}
+
+.swatch-pattern-linen {
+  background-color: #f4efe6;
+  background-image: 
+    linear-gradient(90deg, rgba(180, 145, 100, 0.09) 1px, transparent 0),
+    linear-gradient(rgba(180, 145, 100, 0.09) 1px, transparent 0);
+  background-size: 6px 6px;
+}
+
+.swatch-pattern-wool {
+  background-color: #242730;
+  background-image: radial-gradient(rgba(197, 168, 128, 0.25) 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+
+.swatch-pattern-silk {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 50%, #fed7aa 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.swatch-pattern-silk::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent 40%, rgba(255, 255, 255, 0.6) 50%, transparent 60%);
+  transform: rotate(25deg);
+  opacity: 0.6;
+}
+
+/* Section 02: Category Tabs */
+.category-tab-btn {
+  position: relative;
+  font-family: var(--font-heading) !important;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #71717A;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: #FFFFFF;
+  transition: all 0.25s ease-out;
+  cursor: pointer;
+}
+
+.category-tab-btn:hover {
+  color: var(--garment-charcoal);
+  border-color: rgba(197, 168, 128, 0.4);
+  background-color: #FAF9F6;
+}
+
+.category-tab-btn.active {
+  color: #FFFFFF;
+  background-color: var(--garment-charcoal);
+  border-color: var(--garment-charcoal);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.category-tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: var(--garment-gold);
+  border-radius: 50%;
+}
+
+/* Section 03 & 10: Filter Chips */
+.filter-chip {
+  font-family: var(--font-heading) !important;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #FFFFFF;
+  color: #52525B;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.filter-chip:hover {
+  border-color: var(--garment-gold);
+  color: var(--garment-charcoal);
+  background-color: #FFFDF9;
+  transform: translateY(-1px);
+}
+
+.filter-chip.active {
+  background-color: var(--garment-gold);
+  border-color: var(--garment-gold-deep);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(197, 168, 128, 0.35);
+}
+
+/* Brand Cards Styling */
+.brand-tile {
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1rem;
+  padding: 1.5rem 1.25rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 130px;
+}
+
+.brand-tile:hover {
+  border-color: var(--garment-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(197, 168, 128, 0.3);
+}
+
+.brand-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1.25rem;
+  right: 1.25rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--garment-gold), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.brand-tile:hover::before {
+  opacity: 1;
+}
+
+/* Section 11: Brand Marquee */
+.marquee-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1.25rem 0;
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 2.5rem;
+  animation: marqueeScroll 42s linear infinite;
+  will-change: transform;
+}
+
+.marquee-wrapper:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  transition: color 0.25s ease;
+  white-space: nowrap;
+}
+
+.marquee-item:hover {
+  color: var(--garment-gold);
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Prefers-reduced-motion for marquee and animations */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    overflow-x: auto;
+    width: 100%;
+    scrollbar-width: thin;
+  }
+  .bg-textile-card, .brand-tile, .filter-chip {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Section 10: Mobile Bottom Sheet Filter Drawer */
+.filter-drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(5, 5, 10, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 90;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.filter-drawer-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.filter-drawer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 85vh;
+  background-color: #FFFFFF;
+  border-top-left-radius: 1.75rem;
+  border-top-right-radius: 1.75rem;
+  z-index: 100;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25);
+  padding: 1.5rem;
+}
+
+.filter-drawer.active {
+  transform: translateY(0);
+}
+
+/* Product Tile Accent Border */
+.product-tile {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: #FFFFFF;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  transition: all 0.25s ease;
+}
+
+.product-tile:hover {
+  border-color: rgba(197, 168, 128, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.06);
+}
+
+/* Indian Textile Motif Accents */
+.motif-border {
+  background-image: linear-gradient(90deg, transparent, var(--garment-gold), transparent);
+  height: 1px;
+  width: 100%;
+}
+
+.gold-foil-text {
+  background: linear-gradient(135deg, #D4AF37 0%, #C5A880 40%, #E8D3A8 70%, #9C7844 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bora Garments & Textiles | BORA GROUP</title>
-  <meta name="description" content="Explore BORA GROUP's Garments & Textiles division featuring Bora Collection and Bora Fashion, crafting confidence through premium men's clothing and style.">
+  <title>Garments | Bora Group</title>
+  <meta name="description" content="Explore Bora Group’s collection of premium shirting and suiting fabrics, sarees, ready-made garments, trusted brands and fashion for men, women and kids.">
+  
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -18,7 +19,13 @@
             },
             navy: '#053C8F',
             dark: '#05050A',
-            light: '#F6F9FD'
+            light: '#F6F9FD',
+            textile: {
+              cream: '#FAF8F5',
+              sand: '#F3EFE9',
+              charcoal: '#18181B',
+              stone: '#71717A'
+            }
           },
           fontFamily: {
             sans: ['Flexo Soft', 'Poppins', 'sans-serif'],
@@ -29,13 +36,15 @@
       }
     }
   </script>
+
   <!-- Styles & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/garments.css">
 </head>
-<body class="bg-white text-gray-800 selection:bg-gold selection:text-white">
+<body class="bg-[#FAF8F5] text-stone-800 selection:bg-gold selection:text-white antialiased overflow-x-hidden">
 
   <!-- Scroll Progress -->
   <div id="scroll-indicator" class="fixed top-0 left-0 h-1 bg-gold z-[100] transition-all duration-75" style="width: 0%;"></div>
@@ -64,8 +73,8 @@
             <a href="about.html#vision-mission" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_vision">Vision & Mission</a>
             <a href="about.html#overview" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_overview">Company Overview</a>
             <a href="about.html#reviews" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_testimonials">Testimonials</a>
-          <a href="gallery.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_gallery">Photo Gallery</a>
-            </div>
+            <a href="gallery.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_gallery">Photo Gallery</a>
+          </div>
         </div>
 
         <!-- Business Dropdown -->
@@ -74,9 +83,8 @@
             <span data-i18n="nav_business">Business</span>
             <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
           </a>
-                              <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] lg:w-[560px] rounded-xl p-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] lg:w-[560px] rounded-xl p-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
             <div class="grid grid-cols-2 gap-4">
-              <!-- Left Column: 3 Items -->
               <div class="flex flex-col space-y-1.5">
                 <a href="overseas-trade.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
                   <span class="dropdown-title" data-i18n="nav_overseas">Overseas Trade</span>
@@ -91,7 +99,6 @@
                   <span class="dropdown-subtitle">Bora Collection, Bora Fashion</span>
                 </a>
               </div>
-              <!-- Right Column: 2 Items -->
               <div class="flex flex-col space-y-1.5">
                 <a href="industrial-supply.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
                   <span class="dropdown-title" data-i18n="nav_industrial">Industrial Supply</span>
@@ -108,8 +115,6 @@
 
         <a href="contact.html" class="text-white/80 hover:text-white transition-colors duration-300" data-i18n="nav_contact">Contact</a>
       </nav>
-
-
 
       <!-- Desktop Contact CTA -->
       <div class="hidden lg:flex">
@@ -144,8 +149,8 @@
           <a href="about.html#vision-mission" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_vision">Vision & Mission</a>
           <a href="about.html#overview" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_overview">Company Overview</a>
           <a href="about.html#reviews" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_testimonials">Testimonials</a>
-        <a href="gallery.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_gallery">Photo Gallery</a>
-          </div>
+          <a href="gallery.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_gallery">Photo Gallery</a>
+        </div>
       </div>
 
       <!-- Mobile Business Accordion -->
@@ -154,7 +159,7 @@
           <span data-i18n="nav_business">Business</span>
           <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
         </button>
-                <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 flex flex-col space-y-3 mt-3 text-sm font-normal tracking-wider text-white/60">
+        <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 flex flex-col space-y-3 mt-3 text-sm font-normal tracking-wider text-white/60">
           <a href="overseas-trade.html" class="hover:text-gold transition-colors block py-1">
             <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_overseas">Overseas Trade</span>
             <span class="block text-[10px] text-white/50 font-normal mt-0.5">Global Import & Export</span>
@@ -178,8 +183,6 @@
         </div>
       </div>
 
-
-
       <a href="contact.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors" data-i18n="nav_contact">Contact</a>
     </div>
     
@@ -190,476 +193,497 @@
       </div>
     </div>
   </div>
-  <!-- HERO SECTION -->
-  <section class="garments-hero-section relative min-h-screen flex items-center justify-center overflow-hidden bg-dark text-white py-28 lg:py-36 perspective-container preserve-3d">
-    <!-- Full-Screen Slideshow Background -->
-    <div class="garments-hero-bg absolute inset-0 z-0 overflow-hidden bg-dark will-change-3d">
-      <!-- Slide 1 (Bora Collection) -->
-      <div class="garments-hero-slide absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out">
-        <img src="images/bora_collection_store.jpg" alt="Bora Collection Storefront" class="w-full h-full object-cover brightness-[0.45] contrast-[1.05]">
-      </div>
-      <!-- Slide 2 (Bora Fashion) -->
-      <div class="garments-hero-slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
-        <img src="images/bora_fashion_store.jpg" alt="Bora Fashion Storefront" class="w-full h-full object-cover brightness-[0.45] contrast-[1.05]">
-      </div>
 
-      <!-- Overlays for dark aesthetics and contrast -->
-      <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-dark/50 z-10 pointer-events-none"></div>
-      <div class="absolute inset-0 bg-black/55 z-10 pointer-events-none"></div>
+  <!-- HERO SECTION -->
+  <section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-dark text-white pt-32 pb-24 lg:pt-40 lg:pb-28">
+    <!-- Editorial Fashion / Textile Visual Background with subtle motion -->
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <img src="images/hero_garments.png" alt="Bora Group Luxury Textiles and Garments" class="w-full h-full object-cover object-center brightness-[0.38] contrast-[1.08] scale-105 transition-transform duration-1000 ease-out">
+      <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/40 to-dark/60 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(5,5,10,0.6)_100%)] pointer-events-none"></div>
     </div>
 
-    <div class="garments-hero-content max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full preserve-3d will-change-3d">
-      <div class="max-w-3xl space-y-8 text-left gsap-reveal preserve-3d">
-        <!-- Achievement Badge -->
-        <div class="inline-flex items-center space-x-2 bg-gold/10 border border-gold/25 rounded-full py-1.5 px-4 text-gold hover:bg-gold/15 transition-all duration-300">
-          <span class="text-[9px] font-heading font-bold uppercase tracking-wider">Achievement</span>
-          <span class="w-[1px] h-3 bg-gold/40"></span>
-          <span class="text-[9px] font-heading font-semibold uppercase tracking-wider flex items-center">
-            Rated Best Fabric Stores in Region <i class="fa-solid fa-arrow-right text-[7px] ml-1.5"></i>
-          </span>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-20 w-full text-center lg:text-left">
+      <div class="max-w-3xl space-y-8 mx-auto lg:mx-0 gsap-reveal">
+        
+        <!-- Eyebrow -->
+        <div class="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-gold/30 rounded-full py-2 px-5 text-gold shadow-sm">
+          <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+          <span class="text-[11px] font-heading font-bold uppercase tracking-[0.25em]">BORA GROUP • GARMENTS</span>
         </div>
 
-        <h1 class="font-heading text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-tight lg:leading-none text-white" data-i18n="garments_hero_title">
-          Pioneering Premium<br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold to-gold-hover">Apparel & Textiles</span>
+        <!-- Heading -->
+        <h1 class="font-heading text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-white">
+          Style, Fabric & Tradition — <br class="hidden sm:inline">
+          <span class="gold-foil-text">All Under One Roof</span>
         </h1>
 
-        <p class="font-sans text-sm sm:text-base font-light text-white/70 max-w-xl leading-relaxed" data-i18n="garments_hero_desc">
-          Since 1947, BORA GROUP has delivered premium custom fabrics, traditional wear, and ready-to-wear apparel, serving generations with trusted craftsmanship, style, and uncompromising quality.
+        <!-- Description -->
+        <p class="font-sans text-base sm:text-lg font-light text-stone-200 max-w-2xl leading-relaxed">
+          Explore trusted textile brands, premium fabrics, sarees and ready-made fashion for men, women and kids.
         </p>
 
         <!-- CTAs -->
-        <div class="flex flex-wrap gap-4 items-center pt-2">
-          <a href="#brands-section" class="btn-premium-gold text-xs px-8 py-3.5 shadow-lg shadow-gold/20" data-i18n="garments_explore_brands">Explore Our Brands</a>
-          <a href="contact.html" class="btn-premium-outline text-xs px-8 py-3.5 border-white/20 text-white hover:bg-white hover:text-dark" data-i18n="nav_contact">Get In Touch</a>
+        <div class="flex flex-wrap gap-4 items-center justify-center lg:justify-start pt-2">
+          <a href="#shop-categories" class="btn-premium-gold text-xs px-8 py-4 shadow-xl shadow-gold/20 flex items-center gap-2">
+            <span>Explore Collection</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+          <a href="#shirting-brands-section" class="btn-premium-outline text-xs px-8 py-4 border-white/25 text-white hover:bg-white hover:text-dark transition-all">
+            View Brands
+          </a>
         </div>
 
-        <!-- Social Proof Rating -->
-        <div class="flex items-center space-x-4 pt-6 border-t border-white/10">
-          <!-- Overlapping Avatars -->
-          <div class="flex -space-x-3 overflow-hidden">
-            <div class="inline-block h-8 w-8 rounded-full border-2 border-white bg-gradient-to-tr from-gold to-gold/70 text-white font-bold text-[10px] flex items-center justify-center shadow-sm select-none">SB</div>
-            <div class="inline-block h-8 w-8 rounded-full border-2 border-white bg-gradient-to-tr from-navy to-navy/70 text-white font-bold text-[10px] flex items-center justify-center shadow-sm select-none">JB</div>
-            <div class="inline-block h-8 w-8 rounded-full border-2 border-white bg-gradient-to-tr from-gray-700 to-gray-600 text-white font-bold text-[10px] flex items-center justify-center shadow-sm select-none">AS</div>
-            <div class="inline-block h-8 w-8 rounded-full border-2 border-white bg-gradient-to-tr from-gold-hover to-gold text-white font-bold text-[10px] flex items-center justify-center shadow-sm select-none">PB</div>
-          </div>
-          <div>
-            <div class="flex text-gold text-xs mb-0.5">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <span class="text-[10px] font-heading font-semibold uppercase tracking-wider text-white/50">10,000+ Happy Patrons</span>
-          </div>
+        <!-- Quick Anchor Badges -->
+        <div class="pt-6 border-t border-white/10 flex flex-wrap gap-3 items-center justify-center lg:justify-start text-[11px] font-heading font-semibold uppercase tracking-wider text-white/60">
+          <a href="#ready-made" class="hover:text-gold transition-colors flex items-center gap-1.5"><i class="fa-solid fa-shirt text-gold"></i> Ready-Made</a>
+          <span class="text-white/20">•</span>
+          <a href="#shirting-fabrics" class="hover:text-gold transition-colors flex items-center gap-1.5"><i class="fa-solid fa-scissors text-gold"></i> Shirting</a>
+          <span class="text-white/20">•</span>
+          <a href="#suiting-fabrics" class="hover:text-gold transition-colors flex items-center gap-1.5"><i class="fa-solid fa-vest text-gold"></i> Suiting</a>
+          <span class="text-white/20">•</span>
+          <a href="#saree-collection" class="hover:text-gold transition-colors flex items-center gap-1.5"><i class="fa-solid fa-gem text-gold"></i> Sarees</a>
         </div>
-      </div>
-    </div>
-      <!-- Partner Logos strip (Add instant credibility) -->
-      <div class="mt-28 border-t border-white/10 pt-10 text-center gsap-reveal">
-        <span class="text-[9px] font-heading font-bold tracking-[0.3em] uppercase text-gray-400 block mb-8">PARTNERED WITH INDIA'S LEADING FABRIC MILLS</span>
-        <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-45 grayscale hover:opacity-75 hover:grayscale-0 transition-all duration-300">
-          <span class="font-heading text-sm font-extrabold tracking-widest text-white uppercase select-none">Raymond</span>
-          <span class="font-heading text-sm font-extrabold tracking-widest text-white uppercase select-none">Siyaram</span>
-          <span class="font-heading text-sm font-extrabold tracking-widest text-white uppercase select-none">Arvind</span>
-          <span class="font-heading text-sm font-extrabold tracking-widest text-white uppercase select-none">Mafatlal</span>
-          <span class="font-heading text-sm font-extrabold tracking-widest text-white uppercase select-none">Reid &amp; Taylor</span>
-        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- QUICK STATISTICS WINDOW -->
-  <section class="py-16 bg-light border-y border-gray-100 relative z-20">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-          <div class="text-3xl font-heading font-extrabold text-navy counter-val" data-target="79" data-suffix=" Years">0</div>
-          <div class="text-[10px] text-gray-400 uppercase tracking-widest font-semibold mt-1" data-i18n="garments_stat_experience">Garmenting Sourcing</div>
-        </div>
-        <div>
-          <div class="text-3xl font-heading font-extrabold text-navy counter-val" data-target="2" data-suffix=" Flagships">0</div>
-          <div class="text-[10px] text-gray-400 uppercase tracking-widest font-semibold mt-1" data-i18n="garments_stat_categories">Product Categories</div>
-        </div>
-        <div>
-          <div class="text-3xl font-heading font-extrabold text-navy counter-val" data-target="100" data-suffix="%">0</div>
-          <div class="text-[10px] text-gray-400 uppercase tracking-widest font-semibold mt-1" data-i18n="garments_stat_quality">Quality Commitment</div>
-        </div>
-        <div>
-          <div class="text-3xl font-heading font-extrabold text-navy counter-val" data-start="1900" data-target="1947" data-prefix="" data-suffix="">1900</div>
-          <div class="text-[10px] text-gray-400 uppercase tracking-widest font-semibold mt-1" data-i18n="garments_stat_heritage">Heritage Foundation</div>
+  <!-- SECTION 11: CONTINUOUS BRAND STRIP MARQUEE (Top Teaser) -->
+  <div class="bg-dark border-y border-white/10 relative z-30">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-3 flex flex-col md:flex-row items-center justify-between gap-3 text-white">
+      <div class="flex items-center gap-2 flex-shrink-0 text-gold font-heading text-xs font-bold uppercase tracking-widest">
+        <i class="fa-solid fa-award"></i>
+        <span>Mill Partners & Houses:</span>
+      </div>
+      <div class="marquee-wrapper flex-1">
+        <div id="marquee-track" class="marquee-track">
+          <!-- Marquee populated dynamically by js/garments.js with all 22 brands -->
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- BRANDS SECTION (Bento Grid Layout) -->
-  <section id="brands-section" class="py-24 bg-white relative">
+  <!-- SECTION 01 — SHOP BY CATEGORY -->
+  <section id="shop-categories" class="py-24 bg-[#FAF8F5] relative border-b border-stone-200/60">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-20 gsap-reveal">
-        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase">OUR DIVISIONS</span>
-        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy mt-2">Garments & Retail Collections</h2>
-        <div class="w-12 h-1 bg-gold mx-auto mt-4"></div>
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block mb-2">CURATED CATALOGUE</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy">Shop by Category</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4"></div>
+        <p class="font-sans text-sm text-stone-500 font-normal mt-4">
+          Discover a complete universe of fine fabrics, bespoke suitings, heirloom sarees, and ready-to-wear silhouettes.
+        </p>
       </div>
 
-      <!-- Bento Grid Container -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        
-        <!-- Top Bento Box (Bora Collection) - Wide Full-width card -->
-        <div class="lg:col-span-12 premium-card bg-light/35 p-8 lg:p-12 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col lg:flex-row gap-12 items-center justify-between gsap-reveal">
-          <!-- Text left -->
-          <div class="flex-1 space-y-6 text-left">
-            <div class="flex items-center space-x-2">
-              <span class="w-8 h-[1px] bg-gold"></span>
-              <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase">REFINED ELEGANCE</span>
-            </div>
-            <h3 class="text-3xl font-heading font-extrabold text-navy tracking-tight leading-tight">Bora Collection</h3>
-            <p class="text-sm font-light text-gray-600 leading-relaxed">
-              Discover a refined range of premium fabrics, traditional wear, and uniforms crafted for comfort, quality, and style. From custom suitings to everyday essentials, Bora Collection brings elegance and trusted craftsmanship together.
-            </p>
-            <div class="italic text-xs text-gold font-serif border-l-2 border-gold/40 pl-4 py-1.5 bg-white/70 pr-4 rounded-r-xl">
-              "Fusing comfort with classic luxury to redefine retail textile standards."
-            </div>
-            <!-- Category Badges -->
-            <div class="flex flex-wrap gap-2 pt-2">
-              <span class="bg-white border border-gray-150 text-navy text-[11px] uppercase tracking-wider font-heading font-bold px-4 py-2.5 rounded-lg"><i class="fa-solid fa-scissors text-gold mr-2"></i> Suitings & Shirtings</span>
-              <span class="bg-white border border-gray-150 text-navy text-[11px] uppercase tracking-wider font-heading font-bold px-4 py-2.5 rounded-lg"><i class="fa-solid fa-person-dress text-gold mr-2"></i> Sarees</span>
-              <span class="bg-white border border-gray-150 text-navy text-[11px] uppercase tracking-wider font-heading font-bold px-4 py-2.5 rounded-lg"><i class="fa-solid fa-graduation-cap text-gold mr-2"></i> School & College Dresses</span>
-              <span class="bg-white border border-gray-150 text-navy text-[11px] uppercase tracking-wider font-heading font-bold px-4 py-2.5 rounded-lg"><i class="fa-solid fa-scroll text-gold mr-2"></i> Other Fabrics</span>
-            </div>
-          </div>
-          <!-- Image right -->
-          <div class="w-full lg:w-[45%] h-[300px] rounded-2xl overflow-hidden shadow-md flex-shrink-0">
-            <img src="images/bora_collection_store.jpg" alt="Bora Collection Storefront" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-          </div>
-        </div>
-
-        <!-- Bottom-Left Bento Box (Bora Fashion) -->
-        <div class="lg:col-span-6 premium-card bg-light/35 p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between gsap-reveal">
-          <div>
-            <!-- Image on top -->
-            <div class="w-full h-[220px] rounded-2xl overflow-hidden shadow-sm mb-6">
-              <img src="images/bora_fashion_store.jpg" alt="Bora Fashion Storefront" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-            </div>
-            <div class="flex items-center space-x-2 mb-4">
-              <span class="w-8 h-[1px] bg-gold"></span>
-              <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase">CONTEMPORARY VIBE</span>
-            </div>
-            <h3 class="text-2xl font-heading font-extrabold text-navy mb-3 tracking-tight">Bora Fashion</h3>
-            <p class="text-xs font-light text-gray-500 leading-relaxed mb-6">
-              A premium destination for contemporary fashion, offering a carefully curated selection of readymade apparel for men, ladies, and kids.
-            </p>
-          </div>
-          <!-- Categories List -->
-          <div class="border-t border-gray-200/60 pt-4 flex flex-wrap gap-1.5">
-            <span class="bg-white text-navy border border-gray-150 text-[10px] uppercase tracking-widest font-heading font-bold px-3.5 py-2 rounded-md"><i class="fa-solid fa-users text-gold mr-1.5"></i> Family Readymades</span>
-            <span class="bg-white text-navy border border-gray-150 text-[10px] uppercase tracking-widest font-heading font-bold px-3.5 py-2 rounded-md"><i class="fa-solid fa-shirt text-gold mr-1.5"></i> Shirts & Pants</span>
-            <span class="bg-white text-navy border border-gray-150 text-[10px] uppercase tracking-widest font-heading font-bold px-3.5 py-2 rounded-md"><i class="fa-solid fa-palette text-gold mr-1.5"></i> Kurtas & Dresses</span>
-            <span class="bg-white text-navy border border-gray-150 text-[10px] uppercase tracking-widest font-heading font-bold px-3.5 py-2 rounded-md"><i class="fa-solid fa-vest text-gold mr-1.5"></i> Innerwear</span>
-          </div>
-        </div>
-
-        <!-- Bottom-Right Bento Box (Institutional Uniforms) -->
-        <div class="lg:col-span-6 premium-card bg-light/35 p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between gsap-reveal">
-          <div>
-            <!-- Image on top -->
-            <div class="w-full h-[220px] rounded-2xl overflow-hidden shadow-sm mb-6">
-              <img src="images/garments_textiles.png" alt="Institutional Uniform Sourcing" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-            </div>
-            <div class="flex items-center space-x-2 mb-4">
-              <span class="w-8 h-[1px] bg-gold"></span>
-              <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase">BULK SOLUTIONS</span>
-            </div>
-            <h3 class="text-2xl font-heading font-extrabold text-navy mb-3 tracking-tight">Institutional Sourcing</h3>
-            <p class="text-xs font-light text-gray-500 leading-relaxed mb-6">
-              Providing bulk manufacturing contracts for school, college, and corporate dress uniforms with customized logo embroideries and premium fittings.
-            </p>
-          </div>
-          <!-- Categories List -->
-          <div class="border-t border-gray-200/60 pt-4 flex flex-wrap gap-1.5">
-            <span class="bg-white text-navy border border-gray-150 text-[10px] uppercase tracking-widest font-heading font-bold px-3.5 py-2 rounded-md"><i class="fa-solid fa-graduation-cap text-gold mr-1.5"></i> School Dresses</span>
-            <span class="bg-white text-navy border border-gray-150 text-[10px] uppercase tracking-widest font-heading font-bold px-3.5 py-2 rounded-md"><i class="fa-solid fa-building text-gold mr-1.5"></i> College Uniforms</span>
-            <span class="bg-white text-navy border border-gray-150 text-[10px] uppercase tracking-widest font-heading font-bold px-3.5 py-2 rounded-md"><i class="fa-solid fa-industry text-gold mr-1.5"></i> Industrial Workwear</span>
-          </div>
-        </div>
-
+      <!-- 8 Category Cards Grid -->
+      <div id="shop-category-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <!-- Populated via js/garments.js from GARMENTS_DATA.shopCategories -->
       </div>
+
     </div>
   </section>
 
-  <!-- WHY CHOOSE US SECTION -->
-  <section class="py-24 bg-light relative border-t border-gray-100">
+  <!-- SECTION 10 — SMART FILTER / DISCOVERY BAR -->
+  <section id="discovery-section" class="py-16 bg-stone-900 text-white relative">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-20 gsap-reveal">
-        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase">OUR STRENGTHS</span>
-        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy mt-2">Why Choose Bora Garments?</h2>
-        <div class="w-12 h-1 bg-gold mx-auto mt-4"></div>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 gsap-stagger-container">
-        
-        <!-- Strength 1 -->
-        <div class="premium-card bg-white p-8 group gsap-stagger-item shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="w-12 h-12 rounded-2xl bg-gold/10 text-gold flex items-center justify-center mb-6 group-hover:bg-gold group-hover:text-white transition-all duration-300">
-            <i class="fa-solid fa-gem text-lg"></i>
-          </div>
-          <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider mb-2">Finest Sourcing</h4>
-          <p class="text-[10px] text-gray-500 font-light leading-relaxed">
-            Direct sourcing of premium cotton, wool, and silk fabrics from India's most prestigious textile manufacturers.
-          </p>
-        </div>
-
-        <!-- Strength 2 -->
-        <div class="premium-card bg-white p-8 group gsap-stagger-item shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="w-12 h-12 rounded-2xl bg-gold/10 text-gold flex items-center justify-center mb-6 group-hover:bg-gold group-hover:text-white transition-all duration-300">
-            <i class="fa-solid fa-ruler-combined text-lg"></i>
-          </div>
-          <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider mb-2">Bespoke Tailoring</h4>
-          <p class="text-[10px] text-gray-500 font-light leading-relaxed">
-            In-house master tailors ensuring perfect drape, fit, and elegant customization for custom suitings.
-          </p>
-        </div>
-
-        <!-- Strength 3 -->
-        <div class="premium-card bg-white p-8 group gsap-stagger-item shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="w-12 h-12 rounded-2xl bg-gold/10 text-gold flex items-center justify-center mb-6 group-hover:bg-gold group-hover:text-white transition-all duration-300">
-            <i class="fa-solid fa-shield-halved text-lg"></i>
-          </div>
-          <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider mb-2">Uniform Durability</h4>
-          <p class="text-[10px] text-gray-500 font-light leading-relaxed">
-            Double-stitched garments engineered to withstand daily institutional wear while retaining color fastness.
-          </p>
-        </div>
-
-        <!-- Strength 4 -->
-        <div class="premium-card bg-white p-8 group gsap-stagger-item shadow-sm hover:shadow-md transition-all duration-300">
-          <div class="w-12 h-12 rounded-2xl bg-gold/10 text-gold flex items-center justify-center mb-6 group-hover:bg-gold group-hover:text-white transition-all duration-300">
-            <i class="fa-solid fa-clock text-lg"></i>
-          </div>
-          <h4 class="font-heading font-bold text-xs text-navy uppercase tracking-wider mb-2">79-Year Legacy</h4>
-          <p class="text-[10px] text-gray-500 font-light leading-relaxed">
-            A trusted family heritage built upon commercial integrity, commercial execution, and customer care.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS SECTION -->
-  <section class="py-24 bg-white relative border-t border-gray-100">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-20 gsap-reveal">
-        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase">TESTIMONIALS</span>
-        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy mt-2">What Our Customers Say</h2>
-        <div class="w-12 h-1 bg-gold mx-auto mt-4"></div>
-      </div>
-
-      <!-- Testimonials grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 gsap-stagger-container">
-        
-        <!-- Card 1 -->
-        <div class="premium-card bg-light/30 p-8 rounded-3xl border border-gray-150/70 flex flex-col justify-between gsap-stagger-item">
-          <div>
-            <div class="flex text-gold text-xs mb-4">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <p class="font-serif italic text-xs text-gray-600 leading-relaxed mb-6">
-              "Bora Collection has been my family's preferred store for custom wedding sherwanis and corporate suitings for over two generations. Unmatched fabric options and fit."
-            </p>
-          </div>
-          <div class="flex items-center space-x-3.5 border-t border-gray-200/60 pt-4">
-            <div class="w-8 h-8 rounded-full bg-navy/10 text-navy font-bold text-[10px] flex items-center justify-center">RS</div>
-            <div>
-              <span class="font-heading text-xs font-bold text-navy block">Ramesh Shah</span>
-              <span class="text-[9px] text-gray-400 uppercase tracking-wider block">Patron, Kopargaon</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="premium-card bg-light/30 p-8 rounded-3xl border border-gray-150/70 flex flex-col justify-between gsap-stagger-item">
-          <div>
-            <div class="flex text-gold text-xs mb-4">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <p class="font-serif italic text-xs text-gray-600 leading-relaxed mb-6">
-              "We outsourced our annual institutional uniform manufacturing to Bora Group. The fabric strength, stitching quality, and prompt delivery exceeded our school expectations."
-            </p>
-          </div>
-          <div class="flex items-center space-x-3.5 border-t border-gray-200/60 pt-4">
-            <div class="w-8 h-8 rounded-full bg-gold/10 text-gold font-bold text-[10px] flex items-center justify-center">MS</div>
-            <div>
-              <span class="font-heading text-xs font-bold text-navy block">Maria D'Souza</span>
-              <span class="text-[9px] text-gray-400 uppercase tracking-wider block">Administrator, Sacred Heart</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="premium-card bg-light/30 p-8 rounded-3xl border border-gray-150/70 flex flex-col justify-between gsap-stagger-item">
-          <div>
-            <div class="flex text-gold text-xs mb-4">
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-              <i class="fa-solid fa-star"></i>
-            </div>
-            <p class="font-serif italic text-xs text-gray-600 leading-relaxed mb-6">
-              "Bora Fashion offers the best readymade collections in the region. Their kids and ladies collections are modern, durable, and very reasonably priced."
-            </p>
-          </div>
-          <div class="flex items-center space-x-3.5 border-t border-gray-200/60 pt-4">
-            <div class="w-8 h-8 rounded-full bg-gray-700/10 text-gray-700 font-bold text-[10px] flex items-center justify-center">PS</div>
-            <div>
-              <span class="font-heading text-xs font-bold text-navy block">Pooja S.</span>
-              <span class="text-[9px] text-gray-400 uppercase tracking-wider block">Retail Customer, Nashik</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ SECTION (Split screen layout) -->
-  <section class="py-24 bg-light relative border-t border-gray-100">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-        
-        <!-- Left Side Header -->
-        <div class="lg:col-span-5 space-y-6 text-left gsap-reveal">
-          <div class="flex items-center space-x-2">
-            <span class="w-8 h-[1px] bg-gold"></span>
-            <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase">SUPPORT CENTRE</span>
-          </div>
-          <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy leading-tight">
-            Frequently Asked Questions
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+        <div>
+          <span class="text-[10px] font-heading font-bold uppercase tracking-[0.25em] text-gold block mb-1">
+            SMART TEXTILE DIRECTORY
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-heading font-bold text-white">
+            Find What You’re Looking For
           </h2>
-          <p class="text-gray-600 font-light leading-relaxed text-sm">
-            Quickly find answers to common questions regarding custom tailoring, bulk fabric orders, store operating hours, and institutional sourcing contracts.
+          <p class="font-sans text-xs sm:text-sm text-stone-400 mt-1">
+            Instantly filter through garments, fabric weaves, brands, and traditional wear.
           </p>
-          <div class="pt-4">
-            <a href="contact.html" class="inline-flex items-center text-xs font-heading font-bold uppercase tracking-wider text-gold hover:text-gold-hover transition-colors duration-300">
-              Still Have Questions? Contact Us <i class="fa-solid fa-arrow-right ml-2 text-[8px]"></i>
-            </a>
-          </div>
         </div>
 
-        <!-- Right Side Accordion items -->
-        <div class="lg:col-span-7 space-y-4 gsap-reveal">
-          
-          <!-- Accordion Item 1 -->
-          <div class="faq-accordion-item bg-white rounded-2xl border border-gray-150/70 overflow-hidden transition-all duration-300 shadow-sm">
-            <button class="faq-accordion-header w-full p-6 text-left flex justify-between items-center focus:outline-none select-none">
-              <span class="font-heading text-xs font-bold text-navy uppercase tracking-wider">Do you provide custom tailoring for suitings and shirtings?</span>
-              <i class="fa-solid fa-plus faq-icon text-gold text-xs transition-transform duration-300 flex-shrink-0 ml-4"></i>
-            </button>
-            <div class="faq-accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-              <div class="px-6 pb-6 text-xs text-gray-500 font-light leading-relaxed border-t border-gray-50 pt-4">
-                Yes! Both our retail outlets feature master tailors in-house who specialize in bespoke suitings, shirtings, and traditional wear, ensuring a perfect custom fit for weddings and daily events.
-              </div>
-            </div>
-          </div>
-
-          <!-- Accordion Item 2 -->
-          <div class="faq-accordion-item bg-white rounded-2xl border border-gray-150/70 overflow-hidden transition-all duration-300 shadow-sm">
-            <button class="faq-accordion-header w-full p-6 text-left flex justify-between items-center focus:outline-none select-none">
-              <span class="font-heading text-xs font-bold text-navy uppercase tracking-wider">What is the minimum order quantity for school or college uniforms?</span>
-              <i class="fa-solid fa-plus faq-icon text-gold text-xs transition-transform duration-300 flex-shrink-0 ml-4"></i>
-            </button>
-            <div class="faq-accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-              <div class="px-6 pb-6 text-xs text-gray-500 font-light leading-relaxed border-t border-gray-50 pt-4">
-                We cater to both bulk institutional contracts and individual retail uniform sales. For custom institutional orders with logo embroidery, please get in touch with our sourcing desk.
-              </div>
-            </div>
-          </div>
-
-          <!-- Accordion Item 3 -->
-          <div class="faq-accordion-item bg-white rounded-2xl border border-gray-150/70 overflow-hidden transition-all duration-300 shadow-sm">
-            <button class="faq-accordion-header w-full p-6 text-left flex justify-between items-center focus:outline-none select-none">
-              <span class="font-heading text-xs font-bold text-navy uppercase tracking-wider">Where are your retail outlets located?</span>
-              <i class="fa-solid fa-plus faq-icon text-gold text-xs transition-transform duration-300 flex-shrink-0 ml-4"></i>
-            </button>
-            <div class="faq-accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-              <div class="px-6 pb-6 text-xs text-gray-500 font-light leading-relaxed border-t border-gray-50 pt-4">
-                Our flagship stores, Bora Collection and Bora Fashion, are located in Kopargaon, Maharashtra, serving customers from across the region with retail apparel and fabrics.
-              </div>
-            </div>
-          </div>
-
-          <!-- Accordion Item 4 -->
-          <div class="faq-accordion-item bg-white rounded-2xl border border-gray-150/70 overflow-hidden transition-all duration-300 shadow-sm">
-            <button class="faq-accordion-header w-full p-6 text-left flex justify-between items-center focus:outline-none select-none">
-              <span class="font-heading text-xs font-bold text-navy uppercase tracking-wider">Do you source organic or sustainable fabrics?</span>
-              <i class="fa-solid fa-plus faq-icon text-gold text-xs transition-transform duration-300 flex-shrink-0 ml-4"></i>
-            </button>
-            <div class="faq-accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-              <div class="px-6 pb-6 text-xs text-gray-500 font-light leading-relaxed border-t border-gray-50 pt-4">
-                Yes, we offer organic cotton, premium linen, and sustainable blends as part of our sourcing commitments to support ethical and eco-friendly clothing production.
-              </div>
-            </div>
-          </div>
-
+        <!-- Mobile Filter Drawer Trigger & Live Counter -->
+        <div class="flex items-center gap-3">
+          <span id="discovery-count" class="text-xs font-heading font-semibold text-gold bg-gold/10 border border-gold/20 px-3.5 py-1.5 rounded-full">
+            Searching Catalogue...
+          </span>
+          <button type="button" id="mobile-filter-open-btn" class="lg:hidden btn-premium-gold text-xs px-4 py-2 flex items-center gap-1.5">
+            <i class="fa-solid fa-sliders text-[11px]"></i> Filters
+          </button>
         </div>
       </div>
+
+      <!-- Search & Desktop Dropdowns Bar -->
+      <div class="bg-stone-800/80 rounded-2xl p-4 lg:p-6 border border-stone-700/60 shadow-xl backdrop-blur-md">
+        
+        <!-- Search Field -->
+        <div class="relative mb-4">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 text-sm"></i>
+          <input type="text" id="filter-search" placeholder="Search by fabric, brand (e.g. Raymond, Linen, Banarasi, Chinos)..." class="w-full bg-stone-900/90 text-white placeholder-stone-400 rounded-xl pl-11 pr-4 py-3 text-xs sm:text-sm border border-stone-700 focus:outline-none focus:border-gold transition-colors font-sans">
+        </div>
+
+        <!-- Filter Dropdowns (Desktop) -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+          
+          <!-- Category -->
+          <div>
+            <label class="block text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 mb-1">Category</label>
+            <select id="filter-category" class="w-full bg-stone-900 text-stone-200 border border-stone-700 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-gold font-sans">
+              <option value="All">All Categories</option>
+              <option value="Men">Men</option>
+              <option value="Women">Women</option>
+              <option value="Kids">Kids</option>
+              <option value="Sarees">Sarees</option>
+              <option value="Shirting">Shirting</option>
+              <option value="Suiting">Suiting</option>
+              <option value="Uniforms">Uniforms</option>
+              <option value="Accessories">Accessories</option>
+            </select>
+          </div>
+
+          <!-- Type -->
+          <div>
+            <label class="block text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 mb-1">Type</label>
+            <select id="filter-type" class="w-full bg-stone-900 text-stone-200 border border-stone-700 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-gold font-sans">
+              <option value="All">All Types</option>
+              <option value="Ready-Made">Ready-Made</option>
+              <option value="Fabric">Fabric</option>
+              <option value="Saree">Saree</option>
+              <option value="Uniform">Uniform</option>
+            </select>
+          </div>
+
+          <!-- Fabric -->
+          <div>
+            <label class="block text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 mb-1">Fabric</label>
+            <select id="filter-fabric" class="w-full bg-stone-900 text-stone-200 border border-stone-700 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-gold font-sans">
+              <!-- Populated by JS with Shirting + Suiting fabrics -->
+            </select>
+          </div>
+
+          <!-- Design -->
+          <div>
+            <label class="block text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 mb-1">Design</label>
+            <select id="filter-design" class="w-full bg-stone-900 text-stone-200 border border-stone-700 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-gold font-sans">
+              <!-- Populated by JS -->
+            </select>
+          </div>
+
+          <!-- Brand -->
+          <div>
+            <label class="block text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 mb-1">Brand</label>
+            <select id="filter-brand" class="w-full bg-stone-900 text-stone-200 border border-stone-700 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-gold font-sans">
+              <!-- Populated with all 22 brands by JS -->
+            </select>
+          </div>
+
+          <!-- Clear Button -->
+          <div class="flex items-end">
+            <button type="button" id="clear-filters-btn" class="w-full bg-stone-700 hover:bg-stone-600 text-stone-200 font-heading font-bold text-xs uppercase tracking-wider py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-rotate-left text-[10px]"></i> Clear
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Filtered Results Grid -->
+      <div id="discovery-results-grid" class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <!-- Live cards populated by js/garments.js -->
+      </div>
+
     </div>
   </section>
 
-  <!-- STATEMENT BANNER / CONFIDENT CTA -->
-  <section class="py-24 bg-dark text-white relative overflow-hidden">
-    <!-- Backdrop radial -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(5,60,143,0.15)_0%,transparent_60%)]"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,168,128,0.08)_0%,transparent_60%)]"></div>
+  <!-- Mobile Bottom Sheet / Filter Drawer -->
+  <div id="filter-drawer-backdrop" class="filter-drawer-backdrop lg:hidden"></div>
+  <div id="filter-drawer" class="filter-drawer lg:hidden">
+    <div class="flex items-center justify-between pb-4 border-b border-stone-200 mb-4">
+      <h3 class="font-heading font-bold text-base text-navy flex items-center gap-2">
+        <i class="fa-solid fa-sliders text-gold"></i> Filter Catalog
+      </h3>
+      <button type="button" id="mobile-filter-close-btn" class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 hover:text-navy">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+    </div>
+    
+    <p class="text-xs text-stone-500 mb-4">
+      Select your desired criteria below to refine all textiles, brands, and garments.
+    </p>
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        <!-- Left details -->
-        <div class="lg:col-span-7 text-left space-y-6 gsap-reveal">
-          <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block">GET IN TOUCH</span>
-          <h3 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight leading-none">
-            Ready to Experience<br> Premium Fabrics?
-          </h3>
-          <p class="text-xs sm:text-sm font-light text-white/70 max-w-xl leading-relaxed">
-            Visit our retail stores in Kopargaon to explore custom tailoring options, or get in touch with our institutional sourcing desk to arrange bulk fabric samples.
+    <div class="space-y-4">
+      <button type="button" id="mobile-apply-filters-btn" class="btn-premium-gold w-full text-xs py-3">
+        Apply Filters
+      </button>
+      <button type="button" onclick="resetDiscoveryFilters()" class="w-full text-center text-xs font-heading font-bold text-stone-500 hover:text-navy py-2">
+        Reset All
+      </button>
+    </div>
+  </div>
+
+  <!-- SECTION 02 — READY-MADE COLLECTION -->
+  <section id="ready-made" class="py-24 bg-white relative border-b border-stone-200/60">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block mb-2">RETAIL FASHION CATALOGUE</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy">Ready-Made Collection</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4"></div>
+        <p class="font-sans text-sm text-stone-500 font-normal mt-4">
+          Complete family fashion organized by modern daily essentials, traditional festive attire, and distinguished outerwear.
+        </p>
+      </div>
+
+      <!-- Category Tabs (MEN | WOMEN | KIDS) -->
+      <div class="flex justify-center items-center gap-3 mb-14" role="tablist">
+        <button type="button" role="tab" aria-selected="true" data-tab="men" class="category-tab-btn ready-made-tab active">
+          Men's Wear
+        </button>
+        <button type="button" role="tab" aria-selected="false" data-tab="women" class="category-tab-btn ready-made-tab">
+          Women's Wear
+        </button>
+        <button type="button" role="tab" aria-selected="false" data-tab="kids" class="category-tab-btn ready-made-tab">
+          Kids' Wear
+        </button>
+      </div>
+
+      <!-- Responsive Product / Category Grid -->
+      <div id="ready-made-container">
+        <!-- Rendered dynamically by js/garments.js with all subcategories and items -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 03 — SHIRTING FABRICS -->
+  <section id="shirting-fabrics" class="py-24 bg-[#FAF8F5] relative border-b border-stone-200/60">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block mb-2">FINE WEAVES</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy">Shirting Fabrics</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4"></div>
+        <p class="font-sans text-sm text-stone-500 font-normal mt-4">
+          Premium fabrics crafted for comfort, character and style.
+        </p>
+      </div>
+
+      <!-- Filter Controls Box -->
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-sm mb-12">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-stone-100">
+          <div>
+            <h3 class="font-heading font-bold text-lg text-navy">Interactive Weave Explorer</h3>
+            <p class="font-sans text-xs text-stone-500 mt-0.5">Filter by pure yarn type and design pattern to see signature drapes.</p>
+          </div>
+          <span id="shirting-results-count" class="text-xs font-heading font-bold text-gold bg-gold/10 px-3.5 py-1.5 rounded-full self-start lg:self-auto">
+            Showing Weaves
+          </span>
+        </div>
+
+        <!-- Filter Group 1: Fabric Types -->
+        <div class="pt-6">
+          <span class="text-[11px] font-heading font-bold uppercase tracking-wider text-stone-400 block mb-3">
+            FABRIC TYPES
+          </span>
+          <div id="shirting-fabric-chips" class="flex flex-wrap gap-2">
+            <!-- [Cotton] [Giza Cotton] [Paper Cotton] [Egyptian Cotton] [Pure Linen] [Poplin] [Oxford] [Lyocell] -->
+          </div>
+        </div>
+
+        <!-- Filter Group 2: Designs -->
+        <div class="pt-6 mt-6 border-t border-stone-100">
+          <span class="text-[11px] font-heading font-bold uppercase tracking-wider text-stone-400 block mb-3">
+            DESIGN PATTERNS
+          </span>
+          <div id="shirting-design-chips" class="flex flex-wrap gap-2">
+            <!-- [Checks] [Stripes] [Plain] [Prints] [Self Design] [Solids] -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Shirting Cards Grid -->
+      <div id="shirting-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Rendered dynamically by js/garments.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 04 — SUITING FABRICS -->
+  <section id="suiting-fabrics" class="py-24 bg-white relative border-b border-stone-200/60">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block mb-2">BESPOKE TAILORING</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy">Suiting Fabrics</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4"></div>
+        <p class="font-sans text-sm text-stone-500 font-normal mt-4">
+          Fine fabrics for tailored elegance.
+        </p>
+      </div>
+
+      <!-- 8 Suiting Fabric Cards -->
+      <div id="suiting-fabrics-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Populated via js/garments.js with all 8 suiting types & benefit tags -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 05 — SHIRTING BRANDS -->
+  <section id="shirting-brands-section" class="py-24 bg-[#FAF8F5] relative border-b border-stone-200/60">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block mb-2">OFFICIAL MILL PARTNERS</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy">Trusted Shirting Brands</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4"></div>
+        <p class="font-sans text-sm text-stone-500 font-normal mt-4">
+          Direct affiliations with India's most celebrated textile manufacturing conglomerates and weavers.
+        </p>
+      </div>
+
+      <!-- 15 Shirting Brands Grid (Desktop: 4-5 cols, Tablet: 3 cols, Mobile: 2 cols) -->
+      <div id="shirting-brands-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+        <!-- Populated via js/garments.js with Raymond, Siyaram's, J. Hampstead, Arvind, Digjam, Vimal, Grasim, Linen Club, OCM, Mafatlal, Birla Century, Ruby Mills, Reid & Taylor, Bombay Dyeing, Gini & House -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 06 — SAREE BRANDS -->
+  <section id="saree-brands-section" class="py-24 bg-white relative border-b border-stone-200/60">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block mb-2">HERITAGE SAREE HOUSES</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy">Saree Brands</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4"></div>
+        <p class="font-sans text-sm text-stone-500 font-normal mt-4">
+          Iconic saree brands trusted across generations for festival, bridal, and festive grace.
+        </p>
+      </div>
+
+      <!-- 7 Saree Brands Grid -->
+      <div id="saree-brands-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <!-- Populated via js/garments.js with Laxmipati Saree, Rajtext, Vipul Fashion, Triveni Saree, Ruchi Saree, Vinay Fashion, Padmavati Textile -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 07 — SAREE COLLECTION -->
+  <section id="saree-collection" class="py-24 bg-[#FAF8F5] relative border-b border-stone-200/60">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block mb-2">TIMELESS WEAVES</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy">Sarees</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4"></div>
+        <p class="font-sans text-sm text-stone-500 font-normal mt-4">
+          Timeless Indian craftsmanship, reimagined for every occasion.
+        </p>
+      </div>
+
+      <!-- 7 Saree Categories Grid -->
+      <div id="saree-collection-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Populated via js/garments.js: Silk Banarasi, Kanjivaram, Cotton, Paithani, Satin, Organza, Bandhani -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 08 — UNIFORMS -->
+  <section id="uniform-solutions" class="py-24 bg-white relative border-b border-stone-200/60">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block mb-2">INSTITUTIONAL APPAREL</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy">Uniform Solutions</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4"></div>
+        <p class="font-sans text-sm text-stone-500 font-normal mt-4">
+          Reliable apparel solutions engineered for durability, institutional identity, and everyday comfort.
+        </p>
+      </div>
+
+      <!-- 3 Clean Uniform Cards -->
+      <div id="uniforms-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Populated via js/garments.js: School Uniforms, Corporate Uniforms, Institutional Uniforms -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 09 — ACCESSORIES -->
+  <section id="accessories-section" class="py-24 bg-[#FAF8F5] relative border-b border-stone-200/60">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <div class="bg-white rounded-3xl p-8 lg:p-14 border border-stone-200/80 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-10">
+        
+        <div class="max-w-xl text-left space-y-4">
+          <span class="text-[10px] font-heading font-bold uppercase tracking-[0.25em] text-gold block">
+            FINISHING TOUCHES
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy">Accessories</h2>
+          <p class="font-sans text-sm sm:text-base text-stone-600 leading-relaxed font-light">
+            Complete your look with carefully selected fashion and garment accessories.
           </p>
-          <div class="flex flex-wrap gap-4 pt-2">
-            <a href="enquiry-garments.html" class="btn-premium-gold text-xs px-8 py-3.5 shadow-lg shadow-gold/10">Request Bulk Quote</a>
-            <a href="contact.html" class="btn-premium-outline text-xs px-8 py-3.5 border-white/20 text-white hover:bg-white hover:text-dark">Locate Our Stores</a>
+          
+          <div class="pt-2">
+            <button type="button" onclick="triggerDiscoverySearch('Accessories')" class="btn-premium-gold text-xs px-8 py-3.5 shadow-sm inline-flex items-center gap-2">
+              <span>Explore Accessories</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
           </div>
         </div>
-        <!-- Right details: visual mockup -->
-        <div class="lg:col-span-5 relative flex justify-center lg:justify-end items-center gsap-reveal">
-          <div class="w-full max-w-sm rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative">
-            <img src="images/bora_collection_store.jpg" alt="Bora Collection Store Entrance" class="w-full h-[250px] object-cover brightness-75">
-            <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/20 to-transparent"></div>
-            <div class="absolute bottom-6 left-6 text-left">
-              <span class="text-[9px] font-heading font-bold tracking-widest text-gold uppercase">FLAGSHIP STORE</span>
-              <h4 class="font-heading font-bold text-sm text-white mt-1">Bora Collection, Kopargaon</h4>
-            </div>
-          </div>
+
+        <div id="accessories-items-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full lg:w-auto">
+          <!-- Populated by js/garments.js with silk pocket squares, neckties, cufflinks, belts, dupattas, and brooches -->
         </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 12 — FINAL FULL-WIDTH CTA -->
+  <section class="py-24 bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(5,60,143,0.2)_0%,transparent_60%)] pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(197,168,128,0.12)_0%,transparent_60%)] pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-6 lg:px-8 relative z-10 text-center space-y-8 gsap-reveal">
+      <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block">
+        BORA GROUP TEXTILE HERITAGE
+      </span>
+      <h2 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-6xl text-white tracking-tight leading-tight">
+        Find Your Perfect Fabric & Style
+      </h2>
+      <p class="text-sm sm:text-base font-light text-stone-300 max-w-2xl mx-auto leading-relaxed">
+        Discover trusted brands, premium fabrics and complete family fashion at Bora Group.
+      </p>
+      
+      <div class="flex flex-wrap gap-4 justify-center pt-4">
+        <a href="#shop-categories" class="btn-premium-gold text-xs px-8 py-4 shadow-xl shadow-gold/20">
+          Explore Garments
+        </a>
+        <a href="contact.html" class="btn-premium-outline text-xs px-8 py-4 border-white/20 text-white hover:bg-white hover:text-dark">
+          Contact Us
+        </a>
       </div>
     </div>
   </section>
 
   <!-- DOCKING FOOTER -->
-  <footer class="footer-glassmorphism pt-20 pb-10 border-t border-gray-200 relative overflow-hidden">
+  <footer class="footer-glassmorphism pt-20 pb-10 border-t border-gray-200 relative overflow-hidden bg-dark text-white">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(27,70,213,0.05)_0%,transparent_50%)]"></div>
     
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
@@ -747,13 +771,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
+  <!-- Project Scripts -->
   <script src="js/main.js"></script>
   <script src="js/animations.js"></script>
+  <script src="js/garments-data.js"></script>
+  <script src="js/garments.js"></script>
   <script>
-    lucide.createIcons();
+    if (window.lucide) {
+      lucide.createIcons();
+    }
   </script>
 </body>
 </html>
-
-
-
