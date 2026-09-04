@@ -1,7 +1,6 @@
 /**
  * BORA GROUP — Industrial Supply Catalogue Data Architecture
- * Structured data models for categories, products, packaging solutions, materials, and discovery search.
- * Rich photographic assets replacing icons for a clean, sharp, editorial B2B catalogue.
+ * 100% Accurate Photographic Assets corresponding directly to each specific category & product.
  */
 
 const INDUSTRIAL_DATA = {
@@ -12,7 +11,7 @@ const INDUSTRIAL_DATA = {
       name: "Chemicals",
       description: "Industrial and commercial chemical supplies.",
       anchor: "#chemicals",
-      image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80",
+      image: "images/ind_chemicals.jpg",
       tag: "Raw Materials",
       material: "Chemicals"
     },
@@ -21,7 +20,7 @@ const INDUSTRIAL_DATA = {
       name: "Glass Containers",
       description: "Glass containers for packaging and industrial applications.",
       anchor: "#glass-containers",
-      image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=800&q=80",
+      image: "images/ind_glass_containers.jpg",
       tag: "Packaging",
       material: "Glass"
     },
@@ -30,7 +29,7 @@ const INDUSTRIAL_DATA = {
       name: "PET Products",
       description: "Reliable PET packaging solutions.",
       anchor: "#pet-products",
-      image: "https://images.unsplash.com/photo-1589365278144-c9e705f843ba?auto=format&fit=crop&w=800&q=80",
+      image: "images/ind_pet_bottles.jpg",
       tag: "Containers",
       material: "PET"
     },
@@ -39,7 +38,7 @@ const INDUSTRIAL_DATA = {
       name: "Packaging Materials",
       description: "Essential materials for secure and efficient packaging.",
       anchor: "#packaging",
-      image: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=800&q=80",
+      image: "images/ind_packaging_materials.jpg",
       tag: "Logistics",
       material: "Packaging"
     },
@@ -48,7 +47,7 @@ const INDUSTRIAL_DATA = {
       name: "Tapes",
       description: "Industrial and packaging tapes for everyday applications.",
       anchor: "#packaging",
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+      image: "images/ind_packaging_tapes.jpg",
       tag: "Fastening",
       material: "PP"
     },
@@ -57,7 +56,7 @@ const INDUSTRIAL_DATA = {
       name: "Boxes",
       description: "Practical packaging and storage solutions.",
       anchor: "#packaging",
-      image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80",
+      image: "images/ind_boxes.jpg",
       tag: "Corrugated",
       material: "Packaging"
     },
@@ -66,7 +65,7 @@ const INDUSTRIAL_DATA = {
       name: "Printing",
       description: "Printing solutions for packaging and business requirements.",
       anchor: "#packaging",
-      image: "https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=800&q=80",
+      image: "images/ind_printing.jpg",
       tag: "Customization",
       material: "Printing"
     },
@@ -75,7 +74,7 @@ const INDUSTRIAL_DATA = {
       name: "Caps & Closures",
       description: "Reliable closures for bottles and containers.",
       anchor: "#caps-closures",
-      image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80",
+      image: "images/ind_aluminium_caps.jpg",
       tag: "Closures",
       material: "Aluminium / PP"
     },
@@ -84,7 +83,7 @@ const INDUSTRIAL_DATA = {
       name: "Preforms",
       description: "PET preforms for bottle manufacturing and packaging.",
       anchor: "#preforms",
-      image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=800&q=80",
+      image: "images/ind_pet_preforms.jpg",
       tag: "Manufacturing",
       material: "PET"
     }
@@ -96,7 +95,7 @@ const INDUSTRIAL_DATA = {
       id: "pet-jars",
       name: "PET Jars",
       description: "Durable, transparent jars designed for storage, dry goods, cosmetic, and food packaging applications.",
-      image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=900&q=80",
+      image: "images/ind_pet_jars.jpg",
       material: "PET",
       category: "PET Products"
     },
@@ -104,7 +103,7 @@ const INDUSTRIAL_DATA = {
       id: "pet-bottles",
       name: "PET Bottles",
       description: "Lightweight, shatter-resistant bottles engineered for beverages, liquids, oils, and chemical packaging lines.",
-      image: "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&w=900&q=80",
+      image: "images/ind_pet_bottles.jpg",
       material: "PET",
       category: "PET Products"
     }
@@ -116,7 +115,7 @@ const INDUSTRIAL_DATA = {
       id: "aluminium-caps",
       name: "Aluminium Caps",
       description: "Precision-formed aluminium closures offering secure sealing, tamper resistance, and corrosion-resistant performance.",
-      image: "https://images.unsplash.com/photo-1546554137-f86b9593a222?auto=format&fit=crop&w=900&q=80",
+      image: "images/ind_aluminium_caps.jpg",
       material: "Aluminium",
       category: "Caps & Closures"
     },
@@ -124,7 +123,7 @@ const INDUSTRIAL_DATA = {
       id: "pp-caps",
       name: "PP Caps",
       description: "High-grade polypropylene caps designed with dependable threading, tight closures, and versatile chemical compatibility.",
-      image: "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=900&q=80",
+      image: "images/ind_pp_caps.jpg",
       material: "PP",
       category: "Caps & Closures"
     }
@@ -136,7 +135,7 @@ const INDUSTRIAL_DATA = {
       id: "sol-packaging-materials",
       name: "Packaging Materials",
       description: "Protective wrapping, liners, bubble films, and foundational materials engineered for safe product transit.",
-      image: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=800&q=80",
+      image: "images/ind_packaging_materials.jpg",
       material: "Packaging",
       category: "Packaging Materials"
     },
@@ -144,7 +143,7 @@ const INDUSTRIAL_DATA = {
       id: "sol-tapes",
       name: "Tapes",
       description: "Heavy-duty adhesive, masking, BOPP, and reinforced industrial tapes for carton sealing and pallet bundling.",
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+      image: "images/ind_packaging_tapes.jpg",
       material: "PP",
       category: "Tapes"
     },
@@ -152,7 +151,7 @@ const INDUSTRIAL_DATA = {
       id: "sol-boxes",
       name: "Boxes",
       description: "Corrugated shipping cartons, rigid storage boxes, and die-cut product boxes tailored for warehousing efficiency.",
-      image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80",
+      image: "images/ind_boxes.jpg",
       material: "Packaging",
       category: "Boxes"
     },
@@ -160,7 +159,7 @@ const INDUSTRIAL_DATA = {
       id: "sol-printing",
       name: "Printing",
       description: "Industrial label printing, outer carton branding, and commercial print solutions for packaging presentation.",
-      image: "https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=800&q=80",
+      image: "images/ind_printing.jpg",
       material: "Printing",
       category: "Printing"
     }
@@ -177,7 +176,7 @@ const INDUSTRIAL_DATA = {
       category: "Chemicals",
       material: "Other",
       description: "Supply solutions for processing, industrial hygiene, and commercial applications.",
-      image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80",
+      image: "images/ind_chemicals.jpg",
       anchor: "#chemicals"
     },
     {
@@ -186,7 +185,7 @@ const INDUSTRIAL_DATA = {
       category: "Glass Containers",
       material: "Glass",
       description: "High-clarity glass containers for food, beverage, and industrial product bottling.",
-      image: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=600&q=80",
+      image: "images/ind_glass_containers.jpg",
       anchor: "#glass-containers"
     },
     {
@@ -195,7 +194,7 @@ const INDUSTRIAL_DATA = {
       category: "PET Products",
       material: "PET",
       description: "Clear and durable PET jars for consumer goods, pantry items, and dry formulations.",
-      image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80",
+      image: "images/ind_pet_jars.jpg",
       anchor: "#pet-products"
     },
     {
@@ -204,7 +203,7 @@ const INDUSTRIAL_DATA = {
       category: "PET Products",
       material: "PET",
       description: "Lightweight PET bottles designed for automated filling and high-speed bottling lines.",
-      image: "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?auto=format&fit=crop&w=600&q=80",
+      image: "images/ind_pet_bottles.jpg",
       anchor: "#pet-products"
     },
     {
@@ -213,7 +212,7 @@ const INDUSTRIAL_DATA = {
       category: "Packaging Materials",
       material: "Packaging",
       description: "Essential protective packing layers, stretch wraps, and transit cushioning solutions.",
-      image: "https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=600&q=80",
+      image: "images/ind_packaging_materials.jpg",
       anchor: "#packaging"
     },
     {
@@ -222,7 +221,7 @@ const INDUSTRIAL_DATA = {
       category: "Tapes",
       material: "PP",
       description: "Reliable pressure-sensitive and reinforced tapes for strong carton sealing.",
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80",
+      image: "images/ind_packaging_tapes.jpg",
       anchor: "#packaging"
     },
     {
@@ -231,7 +230,7 @@ const INDUSTRIAL_DATA = {
       category: "Boxes",
       material: "Packaging",
       description: "Multi-ply corrugated boxes engineered for stacking strength and supply chain durability.",
-      image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80",
+      image: "images/ind_boxes.jpg",
       anchor: "#packaging"
     },
     {
@@ -240,7 +239,7 @@ const INDUSTRIAL_DATA = {
       category: "Printing",
       material: "Printing",
       description: "Professional printing services for packaging boxes, labels, and commercial applications.",
-      image: "https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=600&q=80",
+      image: "images/ind_printing.jpg",
       anchor: "#packaging"
     },
     {
@@ -249,7 +248,7 @@ const INDUSTRIAL_DATA = {
       category: "Caps & Closures",
       material: "Aluminium",
       description: "Precision-engineered aluminium caps designed for airtight sealing on bottles and jars.",
-      image: "https://images.unsplash.com/photo-1546554137-f86b9593a222?auto=format&fit=crop&w=600&q=80",
+      image: "images/ind_aluminium_caps.jpg",
       anchor: "#caps-closures"
     },
     {
@@ -258,7 +257,7 @@ const INDUSTRIAL_DATA = {
       category: "Caps & Closures",
       material: "PP",
       description: "Durable PP closures designed for bottles, containers, and chemical packaging lines.",
-      image: "https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=600&q=80",
+      image: "images/ind_pp_caps.jpg",
       anchor: "#caps-closures"
     },
     {
@@ -267,7 +266,7 @@ const INDUSTRIAL_DATA = {
       category: "Preforms",
       material: "PET",
       description: "High-grade transparent PET preforms engineered for stretch blow molding into bottles.",
-      image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=600&q=80",
+      image: "images/ind_pet_preforms.jpg",
       anchor: "#preforms"
     }
   ],
