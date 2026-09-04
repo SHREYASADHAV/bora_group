@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80">
+  <rect width="100%" height="100%" fill="#FFFFFF"/>
+  <g transform="translate(15, 14)">
+    <circle cx="26" cy="28" r="12" fill="#005696"/>
+    <text x="26" y="33" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF" text-anchor="middle">B</text>
+    <text x="122" y="34" font-family="'Montserrat', Arial, sans-serif" font-size="21" font-weight="900" letter-spacing="1" fill="#005696" text-anchor="middle">BOMBAY DYEING</text>
+    <text x="122" y="47" font-family="'Montserrat', sans-serif" font-size="6" font-weight="700" letter-spacing="3" fill="#666666" text-anchor="middle">SINCE 1879 • TRUSTED FABRICS</text>
+  </g>
+</svg>

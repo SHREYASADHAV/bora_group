@@ -1,6 +1,6 @@
 /**
  * BORA GROUP — Garments & Textile Interactive Engine
- * Handles tabs, filter matrices, discovery search, marquee, and mobile filter drawers.
+ * Architectural Layout, Crisp Real Photography, Authentic Brand Logos, Zero Rounded Corners.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,39 +15,41 @@ document.addEventListener('DOMContentLoaded', () => {
   const categoryGrid = document.getElementById('shop-category-grid');
   if (categoryGrid) {
     categoryGrid.innerHTML = GARMENTS_DATA.shopCategories.map((cat, idx) => `
-      <a href="${cat.anchor}" data-category-id="${cat.id}" data-tab="${cat.filterTab || ''}" class="shop-cat-card group relative bg-white rounded-2xl p-6 sm:p-7 border border-stone-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
-        <div class="absolute -top-12 -right-12 w-32 h-32 bg-gold/5 rounded-full blur-2xl group-hover:bg-gold/15 transition-all duration-500 pointer-events-none"></div>
-        
+      <a href="${cat.anchor}" data-category-id="${cat.id}" data-tab="${cat.filterTab || ''}" class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
         <div>
-          <div class="flex items-center justify-between mb-5">
-            <span class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-stone-100 text-stone-800 group-hover:bg-gold group-hover:text-white transition-all duration-300 shadow-sm">
-              <i class="${cat.icon} text-lg"></i>
-            </span>
-            <span class="text-[10px] font-heading font-bold uppercase tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-full">
+          <!-- Crisp Photographic Header Frame -->
+          <div class="garment-img-frame h-48 sm:h-52 w-full border-b border-stone-200 relative">
+            <img src="${cat.image}" alt="${cat.title}" loading="lazy" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/60 backdrop-blur-sm px-3 py-1 border border-white/20">
               ${cat.tag}
             </span>
+            <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">0${idx + 1}</span>
           </div>
 
-          <h3 class="font-heading font-bold text-xl sm:text-2xl text-navy group-hover:text-gold transition-colors duration-300">
-            ${cat.title}
-          </h3>
-          <p class="font-sans text-xs sm:text-sm text-stone-500 font-normal leading-relaxed mt-2.5">
-            ${cat.description}
-          </p>
+          <div class="p-6">
+            <h3 class="font-heading font-bold text-xl sm:text-2xl text-navy group-hover:text-gold transition-colors duration-300">
+              ${cat.title}
+            </h3>
+            <p class="font-sans text-xs sm:text-sm text-stone-500 font-normal leading-relaxed mt-2.5">
+              ${cat.description}
+            </p>
+          </div>
         </div>
 
-        <div class="pt-6 mt-6 border-t border-stone-100 flex items-center justify-between">
-          <span class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
-            Explore <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1.5 transition-transform duration-300"></i>
-          </span>
-          <span class="text-[10px] font-mono text-stone-400 font-medium">0${idx + 1}</span>
+        <div class="p-6 pt-0 mt-auto">
+          <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+            <span class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+              Explore Collection <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1.5 transition-transform duration-300"></i>
+            </span>
+          </div>
         </div>
       </a>
     `).join('');
 
     // Clicking category cards that link to tabs activates the tab
     categoryGrid.querySelectorAll('.shop-cat-card').forEach(card => {
-      card.addEventListener('click', (e) => {
+      card.addEventListener('click', () => {
         const tab = card.getAttribute('data-tab');
         if (tab) {
           switchReadyMadeTab(tab);
@@ -69,35 +71,60 @@ document.addEventListener('DOMContentLoaded', () => {
     readyMadeContainer.innerHTML = `
       <div class="space-y-12 animate-fade-in">
         ${groups.map(group => `
-          <div class="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border border-stone-200/80 shadow-sm">
-            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-6 mb-6 border-b border-stone-150">
-              <div>
-                <span class="text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-gold block mb-1">
-                  Ready-Made • ${gender.toUpperCase()}
-                </span>
-                <h4 class="font-heading font-extrabold text-2xl text-navy">
-                  ${group.subgroup}
-                </h4>
+          <div class="bg-white border border-stone-200 p-6 sm:p-8 lg:p-10 shadow-sm garment-sharp">
+            <!-- Group Header with Real Photography & Info -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pb-6 mb-8 border-b border-stone-200">
+              <div class="lg:col-span-8 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="w-2 h-2 bg-gold inline-block"></span>
+                    <span class="text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-gold">
+                      Ready-Made • ${gender.toUpperCase()}
+                    </span>
+                  </div>
+                  <h4 class="font-heading font-extrabold text-2xl sm:text-3xl text-navy">
+                    ${group.subgroup}
+                  </h4>
+                  <p class="font-sans text-xs sm:text-sm text-stone-600 max-w-xl leading-relaxed mt-2.5">
+                    ${group.description}
+                  </p>
+                </div>
+                <div class="mt-4 pt-4 border-t border-stone-100 flex items-center gap-4 text-xs font-heading font-bold text-stone-500 uppercase tracking-wider">
+                  <span>${group.items.length} Curated Styles</span>
+                  <span class="text-stone-300">•</span>
+                  <span>Premium Grade Textiles</span>
+                </div>
               </div>
-              <p class="font-sans text-xs text-stone-500 max-w-md">
-                ${group.description}
-              </p>
+
+              <!-- Photographic Frame for Subgroup -->
+              <div class="lg:col-span-4">
+                <div class="garment-img-frame h-44 sm:h-52 w-full border border-stone-200 relative">
+                  <img src="${group.image}" alt="${group.subgroup}" loading="lazy" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-2.5 left-3 text-[10px] font-heading font-bold uppercase tracking-wider text-white bg-black/60 px-2 py-0.5 backdrop-blur-sm">
+                    ${group.subgroup} Showcase
+                  </span>
+                </div>
+              </div>
             </div>
 
+            <!-- Clean Architectural Product Tiles -->
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               ${group.items.map(item => `
-                <div class="product-tile group cursor-pointer hover:border-gold/60" onclick="triggerDiscoverySearch('${item.name}')">
-                  <div class="w-10 h-10 rounded-xl bg-stone-50 text-stone-700 flex items-center justify-center mb-3 group-hover:bg-gold/15 group-hover:text-gold transition-colors">
-                    <i class="${item.icon} text-sm"></i>
+                <div class="product-tile garment-sharp group cursor-pointer hover:border-gold/80" onclick="triggerDiscoverySearch('${item.name}')">
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-[9px] font-mono text-stone-400 uppercase tracking-wider">BORA READY-WEAR</span>
+                    <span class="w-1.5 h-1.5 bg-gold/50 group-hover:bg-gold transition-colors"></span>
                   </div>
-                  <h5 class="font-heading font-bold text-sm text-stone-800 group-hover:text-gold transition-colors">
+                  <h5 class="font-heading font-bold text-sm sm:text-base text-stone-900 group-hover:text-gold transition-colors">
                     ${item.name}
                   </h5>
-                  <p class="font-sans text-[11px] text-stone-400 mt-1 line-clamp-1">
+                  <p class="font-sans text-[11px] text-stone-500 mt-1 line-clamp-2 leading-relaxed">
                     ${item.note}
                   </p>
-                  <div class="mt-3 flex items-center gap-1 text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 group-hover:text-gold transition-colors">
-                    Explore <i class="fa-solid fa-arrow-right text-[8px] transform group-hover:translate-x-1 transition-transform"></i>
+                  <div class="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 group-hover:text-gold transition-colors">
+                    <span>Explore Fabric</span>
+                    <i class="fa-solid fa-arrow-right text-[8px] transform group-hover:translate-x-1 transition-transform"></i>
                   </div>
                 </div>
               `).join('')}
@@ -148,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fabric chips
     const fabricList = ['All', ...GARMENTS_DATA.shirting.fabrics];
     fabricChipsContainer.innerHTML = fabricList.map(fab => `
-      <button type="button" class="filter-chip ${fab === 'All' ? 'active' : ''}" data-type="fabric" data-val="${fab}">
+      <button type="button" class="filter-chip garment-sharp ${fab === 'All' ? 'active' : ''}" data-type="fabric" data-val="${fab}">
         ${fab}
       </button>
     `).join('');
@@ -156,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Design chips
     const designList = ['All', ...GARMENTS_DATA.shirting.designs];
     designChipsContainer.innerHTML = designList.map(des => `
-      <button type="button" class="filter-chip ${des === 'All' ? 'active' : ''}" data-type="design" data-val="${des}">
+      <button type="button" class="filter-chip garment-sharp ${des === 'All' ? 'active' : ''}" data-type="design" data-val="${des}">
         ${des}
       </button>
     `).join('');
@@ -198,13 +225,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (filtered.length === 0) {
       shirtingCardsGrid.innerHTML = `
-        <div class="col-span-full py-16 text-center bg-white rounded-3xl border border-stone-200/80 p-8">
-          <div class="w-16 h-16 rounded-full bg-gold/10 text-gold flex items-center justify-center mx-auto mb-4 text-xl">
-            <i class="fa-solid fa-filter-circle-xmark"></i>
+        <div class="col-span-full py-16 text-center bg-white border border-stone-200 p-8 garment-sharp">
+          <div class="w-12 h-12 bg-stone-100 text-stone-600 flex items-center justify-center mx-auto mb-4 text-xl border border-stone-300">
+            <i class="fa-solid fa-filter"></i>
           </div>
           <h4 class="font-heading font-bold text-lg text-navy">No Fabric Matching Both Criteria</h4>
           <p class="font-sans text-xs text-stone-500 mt-1 max-w-sm mx-auto">
-            Try resetting either the Fabric type or Design pattern to see our signature shirting rolls.
+            Try resetting either the Fabric type or Design pattern to view our signature shirting rolls.
           </p>
           <button type="button" id="reset-shirting-btn" class="mt-4 btn-premium-gold text-xs px-5 py-2">
             Reset Shirting Filters
@@ -225,19 +252,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     shirtingCardsGrid.innerHTML = filtered.map(item => `
-      <div class="bg-white rounded-2xl p-6 border border-stone-200/80 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
+      <div class="garment-card garment-sharp bg-white border border-stone-200 p-6 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-between group">
         <div>
-          <div class="flex items-center justify-between gap-2 mb-4">
-            <span class="text-[10px] font-heading font-bold uppercase tracking-widest text-gold bg-gold/10 px-2.5 py-1 rounded-md">
+          <!-- Real Photographic Fabric Weave Frame -->
+          <div class="garment-img-frame h-36 w-full mb-5 border border-stone-200 relative">
+            <img src="${item.image}" alt="${item.name}" loading="lazy" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+            <span class="absolute top-2.5 right-2.5 text-[9px] font-heading font-bold uppercase tracking-widest text-gold bg-black/80 px-2 py-0.5 border border-gold/30">
               ${item.badge}
             </span>
-            <span class="text-[10px] font-mono text-stone-400 font-medium">${item.design}</span>
-          </div>
-
-          <!-- Subtle weave texture visualizer -->
-          <div class="h-28 w-full rounded-xl swatch-pattern-cotton mb-5 border border-stone-200/60 p-4 flex flex-col justify-end group-hover:border-gold/50 transition-colors">
-            <span class="text-[9px] font-heading font-semibold uppercase tracking-wider text-stone-500">Fabric Composition</span>
-            <span class="text-xs font-heading font-bold text-stone-800">${item.fabric}</span>
+            <div class="absolute bottom-2 left-3 right-3 flex items-center justify-between text-white">
+              <span class="text-xs font-heading font-bold">${item.fabric}</span>
+              <span class="text-[10px] font-mono text-stone-300">${item.design}</span>
+            </div>
           </div>
 
           <h4 class="font-heading font-bold text-base text-navy group-hover:text-gold transition-colors">
@@ -247,17 +274,17 @@ document.addEventListener('DOMContentLoaded', () => {
             ${item.description}
           </p>
 
-          <div class="mt-4 pt-3 border-t border-stone-100 text-[11px] font-sans text-stone-600 space-y-1">
-            <p><span class="font-semibold text-stone-700">Specs:</span> ${item.characteristics}</p>
-            <p><span class="font-semibold text-stone-700">Best For:</span> ${item.bestFor}</p>
+          <div class="mt-4 pt-3 border-t border-stone-150 text-[11px] font-sans text-stone-600 space-y-1">
+            <p><span class="font-semibold text-stone-800">Specs:</span> ${item.characteristics}</p>
+            <p><span class="font-semibold text-stone-800">Best For:</span> ${item.bestFor}</p>
           </div>
         </div>
 
-        <div class="mt-5 pt-4 border-t border-stone-100 flex items-center justify-between">
+        <div class="mt-5 pt-4 border-t border-stone-150 flex items-center justify-between">
           <button type="button" onclick="triggerDiscoverySearch('${item.fabric}')" class="text-[11px] font-heading font-bold uppercase tracking-wider text-navy group-hover:text-gold transition-colors flex items-center gap-1">
             Find Garments <i class="fa-solid fa-arrow-right text-[9px] transform group-hover:translate-x-1 transition-transform"></i>
           </button>
-          <span class="text-[10px] font-heading text-stone-400 font-bold uppercase">Bora Sourced</span>
+          <span class="text-[10px] font-heading text-stone-400 font-bold uppercase">Bora Mill Sourced</span>
         </div>
       </div>
     `).join('');
@@ -271,29 +298,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const suitingGrid = document.getElementById('suiting-fabrics-grid');
   if (suitingGrid) {
     suitingGrid.innerHTML = GARMENTS_DATA.suiting.fabrics.map((item, idx) => `
-      <div class="bg-white rounded-2xl p-6 sm:p-7 border border-stone-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+      <div class="garment-card garment-sharp bg-white border border-stone-200 p-6 sm:p-7 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
         <div>
-          <!-- Texture Swatch Banner -->
-          <div class="h-20 w-full rounded-xl swatch-pattern-wool mb-5 border border-stone-800 p-4 flex items-center justify-between text-white">
-            <div>
-              <span class="text-[9px] font-heading font-bold tracking-widest text-gold uppercase block">Fine Weave</span>
-              <span class="text-xs font-mono text-stone-300">${item.weight}</span>
+          <!-- Real Photographic Suiting Roll Frame -->
+          <div class="garment-img-frame h-36 w-full mb-5 border border-stone-200 relative">
+            <img src="${item.image}" alt="${item.name}" loading="lazy" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent"></div>
+            <div class="absolute top-2.5 left-2.5">
+              <span class="text-[9px] font-mono uppercase tracking-widest text-gold bg-black/80 px-2 py-0.5 border border-gold/30">
+                SUITING 0${idx + 1}
+              </span>
             </div>
-            <span class="text-xs font-heading font-semibold text-gold/80 px-2 py-1 bg-black/40 rounded border border-gold/20">
-              ${item.weave}
-            </span>
+            <div class="absolute bottom-2 left-3 right-3 flex items-center justify-between text-white">
+              <span class="text-xs font-mono text-stone-200">${item.weight}</span>
+              <span class="text-[10px] font-heading font-semibold text-gold bg-black/60 px-2 py-0.5 border border-gold/30">
+                ${item.weave}
+              </span>
+            </div>
           </div>
 
-          <span class="text-[10px] font-mono text-stone-400 block mb-1">SUITING BLEND 0${idx + 1}</span>
           <h4 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors">
             ${item.name}
           </h4>
 
-          <div class="inline-block my-2 text-[11px] font-heading font-semibold uppercase tracking-wider text-gold bg-gold/10 px-3 py-1 rounded-full">
+          <div class="inline-block my-2 text-[10px] font-heading font-bold uppercase tracking-wider text-gold bg-gold/10 px-2.5 py-1 border border-gold/20">
             ${item.tagline}
           </div>
 
-          <p class="font-sans text-xs sm:text-sm text-stone-500 leading-relaxed mt-2">
+          <p class="font-sans text-xs sm:text-sm text-stone-600 leading-relaxed mt-2">
             ${item.description}
           </p>
         </div>
@@ -302,32 +334,36 @@ document.addEventListener('DOMContentLoaded', () => {
           <button type="button" onclick="triggerDiscoverySearch('${item.name}')" class="text-xs font-heading font-bold uppercase tracking-wider text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
             Explore Suiting <i class="fa-solid fa-arrow-right text-[9px] transform group-hover:translate-x-1.5 transition-transform"></i>
           </button>
-          <i class="fa-solid fa-scissors text-stone-300 group-hover:text-gold transition-colors"></i>
+          <span class="text-[10px] font-mono text-stone-400">#SUIT-0${idx + 1}</span>
         </div>
       </div>
     `).join('');
   }
 
   // =========================================================================
-  // 5. SHIRTING BRANDS (15 Brands Grid)
+  // 5. SHIRTING BRANDS (15 Brands Grid with Authentic Logos)
   // =========================================================================
   const shirtingBrandsGrid = document.getElementById('shirting-brands-grid');
   if (shirtingBrandsGrid) {
     shirtingBrandsGrid.innerHTML = GARMENTS_DATA.shirtingBrands.map(brand => `
-      <div class="brand-tile group" onclick="triggerDiscoverySearch('${brand.name}')" role="button" tabindex="0" aria-label="Brand ${brand.name}">
+      <div class="brand-tile garment-sharp group cursor-pointer" onclick="triggerDiscoverySearch('${brand.name}')" role="button" tabindex="0" aria-label="Brand ${brand.name}">
         <div>
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-[9px] font-heading font-bold uppercase tracking-widest text-gold">${brand.heritage}</span>
-            <span class="text-[9px] font-sans text-stone-400 font-medium">${brand.origin}</span>
+          <!-- Authentic Brand Logo Frame -->
+          <div class="brand-logo-frame border-b border-stone-100 pb-3 mb-3">
+            <img src="${brand.logo}" alt="${brand.name} logo" loading="lazy">
           </div>
-          <h4 class="font-heading font-extrabold text-lg sm:text-xl text-navy group-hover:text-gold transition-colors">
-            ${brand.name}
-          </h4>
-          <p class="font-sans text-[11px] text-stone-500 mt-1.5 line-clamp-2">
+
+          <div class="flex items-center justify-between mb-1.5 text-[9px] font-heading font-bold uppercase tracking-wider">
+            <span class="text-gold">${brand.heritage}</span>
+            <span class="text-stone-400 font-sans">${brand.origin}</span>
+          </div>
+
+          <p class="font-sans text-[11px] text-stone-500 line-clamp-2 leading-relaxed mt-1">
             ${brand.specialty}
           </p>
         </div>
-        <div class="pt-3 mt-3 border-t border-stone-100 flex items-center justify-between text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 group-hover:text-gold transition-colors">
+
+        <div class="pt-3 mt-3 border-t border-stone-150 flex items-center justify-between text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 group-hover:text-gold transition-colors">
           <span>Official Mill Partner</span>
           <i class="fa-solid fa-arrow-right text-[8px] transform group-hover:translate-x-1 transition-transform"></i>
         </div>
@@ -336,25 +372,29 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 6. SAREE BRANDS (7 Brands Grid)
+  // 6. SAREE BRANDS (7 Brands Grid with Authentic Logos)
   // =========================================================================
   const sareeBrandsGrid = document.getElementById('saree-brands-grid');
   if (sareeBrandsGrid) {
     sareeBrandsGrid.innerHTML = GARMENTS_DATA.sareeBrands.map(brand => `
-      <div class="brand-tile group" onclick="triggerDiscoverySearch('${brand.name}')" role="button" tabindex="0" aria-label="Brand ${brand.name}">
+      <div class="brand-tile garment-sharp group cursor-pointer" onclick="triggerDiscoverySearch('${brand.name}')" role="button" tabindex="0" aria-label="Brand ${brand.name}">
         <div>
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-[9px] font-heading font-bold uppercase tracking-widest text-gold">${brand.heritage}</span>
-            <span class="text-[9px] font-sans text-stone-400 font-medium">${brand.origin}</span>
+          <!-- Authentic Brand Logo Frame -->
+          <div class="brand-logo-frame border-b border-stone-100 pb-3 mb-3">
+            <img src="${brand.logo}" alt="${brand.name} logo" loading="lazy">
           </div>
-          <h4 class="font-heading font-extrabold text-lg sm:text-xl text-navy group-hover:text-gold transition-colors">
-            ${brand.name}
-          </h4>
-          <p class="font-sans text-[11px] text-stone-500 mt-1.5 line-clamp-2">
+
+          <div class="flex items-center justify-between mb-1.5 text-[9px] font-heading font-bold uppercase tracking-wider">
+            <span class="text-gold">${brand.heritage}</span>
+            <span class="text-stone-400 font-sans">${brand.origin}</span>
+          </div>
+
+          <p class="font-sans text-[11px] text-stone-500 line-clamp-2 leading-relaxed mt-1">
             ${brand.specialty}
           </p>
         </div>
-        <div class="pt-3 mt-3 border-t border-stone-100 flex items-center justify-between text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 group-hover:text-gold transition-colors">
+
+        <div class="pt-3 mt-3 border-t border-stone-150 flex items-center justify-between text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 group-hover:text-gold transition-colors">
           <span>Exclusive Collection</span>
           <i class="fa-solid fa-arrow-right text-[8px] transform group-hover:translate-x-1 transition-transform"></i>
         </div>
@@ -363,33 +403,35 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 7. SAREE COLLECTION (7 Traditional Categories)
+  // 7. SAREE COLLECTION (7 Traditional Categories with Real Photos)
   // =========================================================================
   const sareeCollectionGrid = document.getElementById('saree-collection-grid');
   if (sareeCollectionGrid) {
     sareeCollectionGrid.innerHTML = GARMENTS_DATA.sareeCollection.map(saree => `
-      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+      <div class="garment-card garment-sharp bg-white border border-stone-200 p-6 sm:p-7 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
         <div>
-          <!-- Silk Swatch Aesthetic Header -->
-          <div class="h-24 w-full rounded-2xl swatch-pattern-silk p-4 flex flex-col justify-between border border-amber-200/60 mb-5 relative">
-            <div class="flex items-center justify-between">
-              <span class="text-[9px] font-heading font-bold uppercase tracking-[0.2em] text-amber-900 bg-white/70 px-2.5 py-0.5 rounded-full backdrop-blur-sm">
-                ${saree.tag}
-              </span>
-              <i class="fa-solid fa-gem text-amber-700 text-xs"></i>
-            </div>
-            <span class="text-[11px] font-heading font-bold text-stone-800">${saree.origin}</span>
+          <!-- Crisp Real Photography Frame for Saree -->
+          <div class="garment-img-frame h-52 sm:h-60 w-full mb-5 border border-stone-200 relative">
+            <img src="${saree.image}" alt="${saree.name}" loading="lazy" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+            <span class="absolute top-3 left-3 text-[9px] font-heading font-bold uppercase tracking-[0.2em] text-white bg-black/70 px-2.5 py-1 border border-white/20 backdrop-blur-sm">
+              ${saree.tag}
+            </span>
+            <span class="absolute bottom-3 left-3 text-xs font-heading font-bold text-white drop-shadow-sm">
+              ${saree.origin}
+            </span>
           </div>
 
           <h4 class="font-heading font-bold text-2xl text-navy group-hover:text-gold transition-colors">
             ${saree.name}
           </h4>
-          <p class="font-sans text-xs sm:text-sm text-stone-500 leading-relaxed mt-2.5">
+          <p class="font-sans text-xs sm:text-sm text-stone-600 leading-relaxed mt-2.5">
             ${saree.description}
           </p>
 
-          <div class="mt-4 py-2.5 px-3.5 rounded-xl bg-amber-50/60 border border-amber-100 text-[11px] font-heading font-medium text-amber-900">
-            <i class="fa-solid fa-sparkles text-gold mr-1"></i> ${saree.details}
+          <div class="mt-4 py-2.5 px-3.5 bg-stone-50 border border-stone-200 text-[11px] font-heading font-medium text-stone-700">
+            <span class="text-gold font-bold uppercase tracking-wider block text-[9px] mb-0.5">Weave &amp; Craft Details</span>
+            ${saree.details}
           </div>
         </div>
 
@@ -409,27 +451,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const uniformsGrid = document.getElementById('uniforms-grid');
   if (uniformsGrid) {
     uniformsGrid.innerHTML = GARMENTS_DATA.uniforms.map(uni => `
-      <div class="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+      <div class="garment-card garment-sharp bg-white border border-stone-200 p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
         <div>
-          <div class="w-14 h-14 rounded-2xl bg-stone-100 text-navy group-hover:bg-navy group-hover:text-gold flex items-center justify-center text-xl transition-all duration-300 shadow-sm mb-6">
-            <i class="${uni.icon}"></i>
+          <!-- Real Photography Frame for Uniforms -->
+          <div class="garment-img-frame h-48 sm:h-52 w-full mb-6 border border-stone-200 relative">
+            <img src="${uni.image}" alt="${uni.title}" loading="lazy" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <span class="absolute bottom-3 left-3 text-[10px] font-heading font-bold uppercase tracking-[0.15em] text-white bg-black/70 px-2.5 py-1 border border-white/20">
+              ${uni.category}
+            </span>
           </div>
 
-          <span class="text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-gold block mb-1">
-            ${uni.category}
-          </span>
           <h4 class="font-heading font-extrabold text-2xl text-navy">
             ${uni.title}
           </h4>
 
-          <p class="font-sans text-xs sm:text-sm text-stone-500 leading-relaxed mt-3">
+          <p class="font-sans text-xs sm:text-sm text-stone-600 leading-relaxed mt-3">
             ${uni.description}
           </p>
 
-          <ul class="mt-6 space-y-2.5 pt-4 border-t border-stone-100">
+          <ul class="mt-6 space-y-2.5 pt-4 border-t border-stone-150">
             ${uni.features.map(feat => `
-              <li class="flex items-center text-xs font-sans text-stone-600">
-                <i class="fa-solid fa-check text-gold text-[10px] mr-2.5"></i>
+              <li class="flex items-center text-xs font-sans text-stone-700">
+                <span class="w-1.5 h-1.5 bg-gold inline-block mr-2.5"></span>
                 <span>${feat}</span>
               </li>
             `).join('')}
@@ -446,14 +490,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 9. ACCESSORIES SECTION (Minimal Category Card)
+  // 9. ACCESSORIES SECTION (Architectural Layout with Photo)
   // =========================================================================
   const accessoriesItems = document.getElementById('accessories-items-grid');
   if (accessoriesItems) {
     accessoriesItems.innerHTML = GARMENTS_DATA.accessories.items.map(acc => `
-      <div class="p-4 rounded-xl bg-stone-50 border border-stone-150 hover:border-gold/50 transition-colors">
-        <h5 class="font-heading font-bold text-xs uppercase tracking-wider text-navy">${acc.name}</h5>
-        <p class="text-[11px] font-sans text-stone-500 mt-1">${acc.note}</p>
+      <div class="p-4 bg-white border border-stone-200 hover:border-gold transition-colors garment-sharp flex flex-col justify-between">
+        <div>
+          <h5 class="font-heading font-bold text-xs uppercase tracking-wider text-navy">${acc.name}</h5>
+          <p class="text-[11px] font-sans text-stone-500 mt-1 leading-relaxed">${acc.note}</p>
+        </div>
+        <span class="text-[9px] font-mono text-gold font-bold uppercase mt-3 pt-2 border-t border-stone-100">BORA CURATED</span>
       </div>
     `).join('');
   }
@@ -537,8 +584,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (results.length === 0) {
       discoveryResultsGrid.innerHTML = `
-        <div class="col-span-full py-16 text-center bg-white rounded-3xl border border-stone-200/80 p-8">
-          <div class="w-16 h-16 rounded-full bg-gold/10 text-gold flex items-center justify-center mx-auto mb-4 text-xl">
+        <div class="col-span-full py-16 text-center bg-white border border-stone-200 p-8 garment-sharp">
+          <div class="w-12 h-12 bg-stone-100 text-stone-600 flex items-center justify-center mx-auto mb-4 text-xl border border-stone-300">
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
           <h4 class="font-heading font-bold text-lg text-navy">No Matches Found</h4>
@@ -554,28 +601,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     discoveryResultsGrid.innerHTML = results.map(item => `
-      <div class="bg-white rounded-2xl p-5 border border-stone-200/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+      <div class="garment-card garment-sharp bg-white p-5 border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
         <div>
-          <div class="flex items-center justify-between text-[10px] font-heading font-bold uppercase tracking-wider mb-3">
-            <span class="text-gold bg-gold/10 px-2.5 py-0.5 rounded-full">${item.type}</span>
-            <span class="text-stone-400">${item.category}</span>
+          ${item.image ? `
+            <div class="garment-img-frame h-32 w-full mb-3 border border-stone-150">
+              <img src="${item.image}" alt="${item.title}" loading="lazy" class="w-full h-full object-cover">
+            </div>
+          ` : ''}
+
+          <div class="flex items-center justify-between text-[10px] font-heading font-bold uppercase tracking-wider mb-2">
+            <span class="text-gold bg-gold/10 px-2 py-0.5 border border-gold/20">${item.type}</span>
+            <span class="text-stone-400 font-mono">${item.category}</span>
           </div>
 
           <h5 class="font-heading font-bold text-base text-navy group-hover:text-gold transition-colors">
             ${item.title}
           </h5>
-          <p class="font-sans text-xs text-stone-500 mt-1">
+          <p class="font-sans text-xs text-stone-500 mt-1 leading-relaxed">
             ${item.note}
           </p>
 
-          <div class="mt-4 pt-3 border-t border-stone-100 flex flex-wrap gap-1.5 text-[10px] font-heading font-semibold">
-            <span class="px-2 py-0.5 rounded bg-stone-100 text-stone-700">Fabric: ${item.fabric}</span>
-            <span class="px-2 py-0.5 rounded bg-stone-100 text-stone-700">Design: ${item.design}</span>
-            <span class="px-2 py-0.5 rounded bg-stone-100 text-stone-700">Brand: ${item.brand}</span>
+          <div class="mt-4 pt-3 border-t border-stone-150 flex flex-wrap gap-1.5 text-[10px] font-heading font-semibold">
+            <span class="px-2 py-0.5 bg-stone-100 text-stone-700 border border-stone-200">Fabric: ${item.fabric}</span>
+            <span class="px-2 py-0.5 bg-stone-100 text-stone-700 border border-stone-200">Design: ${item.design}</span>
+            <span class="px-2 py-0.5 bg-stone-100 text-stone-700 border border-stone-200">Brand: ${item.brand}</span>
           </div>
         </div>
 
-        <div class="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between">
+        <div class="mt-4 pt-3 border-t border-stone-150 flex items-center justify-between">
           <a href="enquiry-garments.html?subject=${encodeURIComponent(item.title + ' - ' + item.brand)}" class="text-[11px] font-heading font-bold uppercase tracking-wider text-navy group-hover:text-gold transition-colors flex items-center gap-1">
             Inquire Fabric <i class="fa-solid fa-arrow-right text-[8px] ml-1"></i>
           </a>
@@ -660,8 +713,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Generate two sets for infinite seamless loop
     const brandsDoubled = [...GARMENTS_DATA.marqueeBrands, ...GARMENTS_DATA.marqueeBrands];
     marqueeTrack.innerHTML = brandsDoubled.map(b => `
-      <div class="marquee-item" onclick="triggerDiscoverySearch('${b}')" role="button" tabindex="0">
-        <span class="w-1.5 h-1.5 rounded-full bg-gold"></span>
+      <div class="marquee-item cursor-pointer" onclick="triggerDiscoverySearch('${b}')" role="button" tabindex="0">
+        <span class="w-1.5 h-1.5 bg-gold inline-block"></span>
         <span>${b}</span>
       </div>
     `).join('');

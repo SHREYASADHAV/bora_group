@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80">
+  <rect width="100%" height="100%" fill="#FFFFFF"/>
+  <!-- Raymond Signature Red script & bold serif -->
+  <g transform="translate(15, 14)">
+    <path d="M10,42 Q28,10 48,22 Q68,34 85,14" stroke="#D32F2F" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.4"/>
+    <text x="105" y="38" font-family="'Cinzel', 'Playfair Display', 'Times New Roman', serif" font-size="28" font-weight="900" letter-spacing="3" fill="#1B1B1B" text-anchor="middle">Raymond</text>
+    <text x="105" y="51" font-family="'Montserrat', sans-serif" font-size="6.5" font-weight="700" letter-spacing="4" fill="#D32F2F" text-anchor="middle">SINCE 1925</text>
+  </g>
+</svg>

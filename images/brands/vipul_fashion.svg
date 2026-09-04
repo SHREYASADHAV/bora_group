@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80">
+  <rect width="100%" height="100%" fill="#FFFFFF"/>
+  <g transform="translate(15, 14)">
+    <path d="M22,16 L32,38 L42,16" stroke="#9333EA" stroke-width="4" stroke-linecap="square" fill="none"/>
+    <text x="122" y="36" font-family="'Playfair Display', Georgia, serif" font-size="25" font-weight="800" letter-spacing="2" fill="#581C87" text-anchor="middle">VIPUL</text>
+    <text x="122" y="49" font-family="'Montserrat', sans-serif" font-size="6.5" font-weight="700" letter-spacing="4" fill="#9333EA" text-anchor="middle">FASHIONS • SINCE 1974</text>
+  </g>
+</svg>

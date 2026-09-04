@@ -207,9 +207,9 @@
       <div class="max-w-3xl space-y-8 mx-auto lg:mx-0 gsap-reveal">
         
         <!-- Eyebrow -->
-        <div class="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-gold/30 rounded-full py-2 px-5 text-gold shadow-sm">
-          <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
-          <span class="text-[11px] font-heading font-bold uppercase tracking-[0.25em]">BORA GROUP • GARMENTS</span>
+        <div class="inline-flex items-center gap-3 bg-white/10 border border-gold/30 px-4 py-2 backdrop-blur-sm garment-sharp">
+          <span class="w-1.5 h-1.5 bg-gold"></span>
+          <span class="text-[11px] font-heading font-bold uppercase tracking-[0.25em] text-gold">BORA GROUP • GARMENTS</span>
         </div>
 
         <!-- Heading -->
@@ -236,13 +236,13 @@
 
         <!-- Quick Anchor Badges -->
         <div class="pt-6 border-t border-white/10 flex flex-wrap gap-3 items-center justify-center lg:justify-start text-[11px] font-heading font-semibold uppercase tracking-wider text-white/60">
-          <a href="#ready-made" class="hover:text-gold transition-colors flex items-center gap-1.5"><i class="fa-solid fa-shirt text-gold"></i> Ready-Made</a>
+          <a href="#ready-made" class="hover:text-gold transition-colors flex items-center gap-1.5">Ready-Made</a>
           <span class="text-white/20">•</span>
-          <a href="#shirting-fabrics" class="hover:text-gold transition-colors flex items-center gap-1.5"><i class="fa-solid fa-scissors text-gold"></i> Shirting</a>
+          <a href="#shirting-fabrics" class="hover:text-gold transition-colors flex items-center gap-1.5">Shirting</a>
           <span class="text-white/20">•</span>
-          <a href="#suiting-fabrics" class="hover:text-gold transition-colors flex items-center gap-1.5"><i class="fa-solid fa-vest text-gold"></i> Suiting</a>
+          <a href="#suiting-fabrics" class="hover:text-gold transition-colors flex items-center gap-1.5">Suiting</a>
           <span class="text-white/20">•</span>
-          <a href="#saree-collection" class="hover:text-gold transition-colors flex items-center gap-1.5"><i class="fa-solid fa-gem text-gold"></i> Sarees</a>
+          <a href="#saree-collection" class="hover:text-gold transition-colors flex items-center gap-1.5">Sarees</a>
         </div>
 
       </div>
@@ -305,7 +305,7 @@
 
         <!-- Mobile Filter Drawer Trigger & Live Counter -->
         <div class="flex items-center gap-3">
-          <span id="discovery-count" class="text-xs font-heading font-semibold text-gold bg-gold/10 border border-gold/20 px-3.5 py-1.5 rounded-full">
+          <span id="discovery-count" class="text-xs font-heading font-semibold text-gold bg-gold/10 border border-gold/30 px-3.5 py-1.5 garment-sharp">
             Searching Catalogue...
           </span>
           <button type="button" id="mobile-filter-open-btn" class="lg:hidden btn-premium-gold text-xs px-4 py-2 flex items-center gap-1.5">
@@ -315,12 +315,12 @@
       </div>
 
       <!-- Search & Desktop Dropdowns Bar -->
-      <div class="bg-stone-800/80 rounded-2xl p-4 lg:p-6 border border-stone-700/60 shadow-xl backdrop-blur-md">
+      <div class="bg-stone-800/90 garment-sharp p-4 lg:p-6 border border-stone-700 shadow-xl backdrop-blur-md">
         
         <!-- Search Field -->
         <div class="relative mb-4">
           <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 text-sm"></i>
-          <input type="text" id="filter-search" placeholder="Search by fabric, brand (e.g. Raymond, Linen, Banarasi, Chinos)..." class="w-full bg-stone-900/90 text-white placeholder-stone-400 rounded-xl pl-11 pr-4 py-3 text-xs sm:text-sm border border-stone-700 focus:outline-none focus:border-gold transition-colors font-sans">
+          <input type="text" id="filter-search" placeholder="Search by fabric, brand (e.g. Raymond, Linen, Banarasi, Chinos)..." class="w-full bg-stone-900 text-white placeholder-stone-400 garment-sharp pl-11 pr-4 py-3 text-xs sm:text-sm border border-stone-700 focus:outline-none focus:border-gold transition-colors font-sans">
         </div>
 
         <!-- Filter Dropdowns (Desktop) -->
@@ -329,7 +329,7 @@
           <!-- Category -->
           <div>
             <label class="block text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 mb-1">Category</label>
-            <select id="filter-category" class="w-full bg-stone-900 text-stone-200 border border-stone-700 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-gold font-sans">
+            <select id="filter-category" class="w-full bg-stone-900 text-stone-200 border border-stone-700 garment-sharp px-3 py-2.5 text-xs focus:outline-none focus:border-gold font-sans">
               <option value="All">All Categories</option>
               <option value="Men">Men</option>
               <option value="Women">Women</option>
@@ -345,7 +345,7 @@
           <!-- Type -->
           <div>
             <label class="block text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 mb-1">Type</label>
-            <select id="filter-type" class="w-full bg-stone-900 text-stone-200 border border-stone-700 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-gold font-sans">
+            <select id="filter-type" class="w-full bg-stone-900 text-stone-200 border border-stone-700 garment-sharp px-3 py-2.5 text-xs focus:outline-none focus:border-gold font-sans">
               <option value="All">All Types</option>
               <option value="Ready-Made">Ready-Made</option>
               <option value="Fabric">Fabric</option>
@@ -357,7 +357,7 @@
           <!-- Fabric -->
           <div>
             <label class="block text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 mb-1">Fabric</label>
-            <select id="filter-fabric" class="w-full bg-stone-900 text-stone-200 border border-stone-700 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-gold font-sans">
+            <select id="filter-fabric" class="w-full bg-stone-900 text-stone-200 border border-stone-700 garment-sharp px-3 py-2.5 text-xs focus:outline-none focus:border-gold font-sans">
               <!-- Populated by JS with Shirting + Suiting fabrics -->
             </select>
           </div>
@@ -365,7 +365,7 @@
           <!-- Design -->
           <div>
             <label class="block text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 mb-1">Design</label>
-            <select id="filter-design" class="w-full bg-stone-900 text-stone-200 border border-stone-700 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-gold font-sans">
+            <select id="filter-design" class="w-full bg-stone-900 text-stone-200 border border-stone-700 garment-sharp px-3 py-2.5 text-xs focus:outline-none focus:border-gold font-sans">
               <!-- Populated by JS -->
             </select>
           </div>
@@ -373,14 +373,14 @@
           <!-- Brand -->
           <div>
             <label class="block text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 mb-1">Brand</label>
-            <select id="filter-brand" class="w-full bg-stone-900 text-stone-200 border border-stone-700 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-gold font-sans">
+            <select id="filter-brand" class="w-full bg-stone-900 text-stone-200 border border-stone-700 garment-sharp px-3 py-2.5 text-xs focus:outline-none focus:border-gold font-sans">
               <!-- Populated with all 22 brands by JS -->
             </select>
           </div>
 
           <!-- Clear Button -->
           <div class="flex items-end">
-            <button type="button" id="clear-filters-btn" class="w-full bg-stone-700 hover:bg-stone-600 text-stone-200 font-heading font-bold text-xs uppercase tracking-wider py-2 px-3 rounded-lg transition-colors flex items-center justify-center gap-1.5">
+            <button type="button" id="clear-filters-btn" class="w-full bg-stone-700 hover:bg-stone-600 text-stone-200 font-heading font-bold text-xs uppercase tracking-wider py-2.5 px-3 garment-sharp transition-colors flex items-center justify-center gap-1.5">
               <i class="fa-solid fa-rotate-left text-[10px]"></i> Clear
             </button>
           </div>
@@ -404,7 +404,7 @@
       <h3 class="font-heading font-bold text-base text-navy flex items-center gap-2">
         <i class="fa-solid fa-sliders text-gold"></i> Filter Catalog
       </h3>
-      <button type="button" id="mobile-filter-close-btn" class="w-8 h-8 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 hover:text-navy">
+      <button type="button" id="mobile-filter-close-btn" class="w-8 h-8 garment-sharp bg-stone-100 flex items-center justify-center text-stone-600 hover:text-navy border border-stone-200">
         <i class="fa-solid fa-xmark text-sm"></i>
       </button>
     </div>
@@ -473,13 +473,13 @@
       </div>
 
       <!-- Filter Controls Box -->
-      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-sm mb-12">
-        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-stone-100">
+      <div class="bg-white garment-sharp p-6 sm:p-8 border border-stone-200 shadow-sm mb-12">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-stone-200">
           <div>
             <h3 class="font-heading font-bold text-lg text-navy">Interactive Weave Explorer</h3>
             <p class="font-sans text-xs text-stone-500 mt-0.5">Filter by pure yarn type and design pattern to see signature drapes.</p>
           </div>
-          <span id="shirting-results-count" class="text-xs font-heading font-bold text-gold bg-gold/10 px-3.5 py-1.5 rounded-full self-start lg:self-auto">
+          <span id="shirting-results-count" class="text-xs font-heading font-bold text-gold bg-gold/10 border border-gold/30 px-3.5 py-1.5 garment-sharp self-start lg:self-auto">
             Showing Weaves
           </span>
         </div>
@@ -624,30 +624,47 @@
   </section>
 
   <!-- SECTION 09 — ACCESSORIES -->
-  <section id="accessories-section" class="py-24 bg-[#FAF8F5] relative border-b border-stone-200/60">
+  <section id="accessories-section" class="py-24 bg-[#FAF8F5] relative border-b border-stone-200">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       
-      <div class="bg-white rounded-3xl p-8 lg:p-14 border border-stone-200/80 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-10">
+      <div class="bg-white garment-sharp border border-stone-200 shadow-sm grid grid-cols-1 lg:grid-cols-12 overflow-hidden">
         
-        <div class="max-w-xl text-left space-y-4">
-          <span class="text-[10px] font-heading font-bold uppercase tracking-[0.25em] text-gold block">
-            FINISHING TOUCHES
-          </span>
-          <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy">Accessories</h2>
-          <p class="font-sans text-sm sm:text-base text-stone-600 leading-relaxed font-light">
-            Complete your look with carefully selected fashion and garment accessories.
-          </p>
+        <!-- Left Editorial Showcase with Photo -->
+        <div class="lg:col-span-5 p-8 lg:p-12 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-stone-200">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="w-2 h-2 bg-gold inline-block"></span>
+              <span class="text-[10px] font-heading font-bold uppercase tracking-[0.25em] text-gold">
+                FINISHING TOUCHES
+              </span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy">Accessories</h2>
+            <p class="font-sans text-sm text-stone-600 leading-relaxed font-light mt-3">
+              Complete your look with carefully selected fashion and garment accessories.
+            </p>
+          </div>
+
+          <!-- Real Photographic Showcase -->
+          <div class="garment-img-frame h-48 w-full border border-stone-200 my-6">
+            <img src="images/garment_accessory_cufflinks.jpg" alt="Bora Group Luxury Garment Accessories" class="w-full h-full object-cover">
+          </div>
           
-          <div class="pt-2">
-            <button type="button" onclick="triggerDiscoverySearch('Accessories')" class="btn-premium-gold text-xs px-8 py-3.5 shadow-sm inline-flex items-center gap-2">
-              <span>Explore Accessories</span>
+          <div>
+            <button type="button" onclick="triggerDiscoverySearch('Accessories')" class="btn-premium-gold w-full text-xs py-3.5 shadow-sm inline-flex items-center justify-center gap-2">
+              <span>Explore All Accessories</span>
               <i class="fa-solid fa-arrow-right text-[10px]"></i>
             </button>
           </div>
         </div>
 
-        <div id="accessories-items-grid" class="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full lg:w-auto">
-          <!-- Populated by js/garments.js with silk pocket squares, neckties, cufflinks, belts, dupattas, and brooches -->
+        <!-- Right Architectural Items Grid -->
+        <div class="lg:col-span-7 p-8 lg:p-12 bg-stone-50/50">
+          <span class="text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 block mb-4">
+            CURATED ACCENTS CATALOGUE
+          </span>
+          <div id="accessories-items-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Populated by js/garments.js with silk pocket squares, neckties, cufflinks, belts, dupattas, and brooches -->
+          </div>
         </div>
 
       </div>

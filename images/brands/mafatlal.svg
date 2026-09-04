@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80">
+  <rect width="100%" height="100%" fill="#FFFFFF"/>
+  <g transform="translate(20, 16)">
+    <path d="M20,18 L32,32 L44,18 L32,38 Z" fill="#006064"/>
+    <text x="120" y="36" font-family="'Montserrat', sans-serif" font-size="25" font-weight="800" letter-spacing="3" fill="#006064" text-anchor="middle">MAFATLAL</text>
+    <text x="120" y="49" font-family="'Montserrat', sans-serif" font-size="6" font-weight="700" letter-spacing="3" fill="#888888" text-anchor="middle">SINCE 1905 • FABRICS</text>
+  </g>
+</svg>

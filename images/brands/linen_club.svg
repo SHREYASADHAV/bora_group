@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80">
+  <rect width="100%" height="100%" fill="#FFFFFF"/>
+  <g transform="translate(15, 14)">
+    <!-- Flax Flower Emblem -->
+    <path d="M30,12 C24,18 24,26 30,32 C36,26 36,18 30,12 Z" fill="#2E7D32"/>
+    <path d="M22,22 C28,24 34,24 40,22" stroke="#C5A880" stroke-width="1.5" fill="none"/>
+    <text x="125" y="33" font-family="'Playfair Display', Georgia, serif" font-size="23" font-weight="800" letter-spacing="2" fill="#1B382B" text-anchor="middle">LINEN CLUB</text>
+    <text x="125" y="47" font-family="'Montserrat', sans-serif" font-size="6.5" font-weight="700" letter-spacing="3" fill="#C5A880" text-anchor="middle">100% PURE EUROPEAN LINEN</text>
+  </g>
+</svg>

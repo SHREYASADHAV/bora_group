@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 80" width="240" height="80">
+  <rect width="100%" height="100%" fill="#FFFFFF"/>
+  <g transform="translate(15, 14)">
+    <polygon points="32,12 44,36 20,36" fill="#C2410C"/>
+    <text x="122" y="36" font-family="'Cinzel', 'Playfair Display', serif" font-size="24" font-weight="800" letter-spacing="3" fill="#9A3412" text-anchor="middle">VINAY</text>
+    <text x="122" y="49" font-family="'Montserrat', sans-serif" font-size="6.5" font-weight="700" letter-spacing="3" fill="#C2410C" text-anchor="middle">FASHION • COUTURE</text>
+  </g>
+</svg>
