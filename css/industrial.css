@@ -1,70 +1,109 @@
 /* ==========================================================================
    BORA GROUP — INDUSTRIAL SUPPLY STYLING
-   Aesthetics: Premium, B2B, Modern, Minimal, Industrial, Trustworthy
+   Aesthetics: Architectural, Clean, Sharp Edges (No Rounded Corners), Editorial B2B
    ========================================================================== */
 
 :root {
-  --ind-cream: #FAF9F6;
-  --ind-slate: #F4F6F9;
-  --ind-charcoal: #18181B;
+  --ind-cream: #FBFBFA;
+  --ind-slate: #F2F3F5;
+  --ind-charcoal: #121316;
   --ind-navy: #053C8F;
   --ind-gold: #C5A880;
   --ind-gold-hover: #D4AF37;
-  --ind-border: rgba(0, 0, 0, 0.08);
-  --ind-border-hover: rgba(197, 168, 128, 0.45);
+  --ind-border: #E5E7EB;
+  --ind-border-hover: #C5A880;
 }
 
-/* Industrial Card Elevation & Transitions */
+/* Sharp, Architectural Edge Policy — Strictly No Rounded Corners */
+.ind-sharp,
+.ind-card,
+.ind-img-frame,
+.ind-badge,
+.ind-btn,
+.ind-input,
+.ind-select,
+.ind-filter-drawer,
+.ind-modal {
+  border-radius: 0 !important;
+}
+
+/* Industrial Card Structure */
 .ind-card {
   background: #FFFFFF;
   border: 1px solid var(--ind-border);
-  border-radius: 1.25rem;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .ind-card:hover {
   border-color: var(--ind-border-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 16px 32px -10px rgba(5, 5, 10, 0.06), 0 0 0 1px rgba(197, 168, 128, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.08);
 }
 
-/* Subtle Image Scale on Hover */
-.ind-img-zoom {
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+/* Top Accent Line on Hover */
+.ind-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--ind-gold);
+  transition: width 0.35s ease;
+  z-index: 10;
 }
 
-.ind-card:hover .ind-img-zoom {
-  transform: scale(1.03);
+.ind-card:hover::before {
+  width: 100%;
 }
 
-/* Industrial Micro Texture Swatch Patterns */
-.texture-industrial-grid {
-  background-color: #14171F;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 20px 20px;
+/* Crisp Image Framing */
+.ind-img-frame {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: #F3F4F6;
 }
 
-.texture-clean-lab {
-  background-color: #F8FAFC;
-  background-image: radial-gradient(rgba(5, 60, 143, 0.06) 1px, transparent 1px);
-  background-size: 16px 16px;
+.ind-img-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.texture-packaging-cardboard {
-  background-color: #FDFBF7;
-  background-image: repeating-linear-gradient(0deg, rgba(197, 168, 128, 0.08) 0, rgba(197, 168, 128, 0.08) 1px, transparent 0, transparent 8px);
+.ind-card:hover .ind-img-frame img {
+  transform: scale(1.04);
 }
 
-/* Section 08: Mobile Discovery Bottom Sheet */
+/* Sharp B2B Action Link */
+.ind-action-link {
+  font-family: var(--font-heading) !important;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ind-navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.25s ease;
+}
+
+.ind-card:hover .ind-action-link {
+  color: var(--ind-gold);
+}
+
+/* Sharp Bottom Sheet Filter Drawer for Mobile */
 .ind-filter-backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(5, 5, 10, 0.65);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  background-color: rgba(18, 19, 22, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 90;
   opacity: 0;
   pointer-events: none;
@@ -83,23 +122,25 @@
   bottom: 0;
   max-height: 85vh;
   background-color: #FFFFFF;
-  border-top-left-radius: 1.5rem;
-  border-top-right-radius: 1.5rem;
+  border-top: 2px solid var(--ind-gold);
   z-index: 100;
   transform: translateY(100%);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   overflow-y: auto;
   box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25);
-  padding: 1.5rem;
+  padding: 2rem;
+  border-radius: 0 !important;
 }
 
 .ind-filter-drawer.active {
   transform: translateY(0);
 }
 
-/* Reduced Motion Respect */
+/* Reduced Motion Override */
 @media (prefers-reduced-motion: reduce) {
-  .ind-card, .ind-img-zoom, .ind-filter-drawer {
+  .ind-card,
+  .ind-img-frame img,
+  .ind-filter-drawer {
     transition: none !important;
     transform: none !important;
   }

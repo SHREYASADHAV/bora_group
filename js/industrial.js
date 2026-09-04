@@ -1,6 +1,6 @@
 /**
  * BORA GROUP — Industrial Supply Interactive Controller
- * Manages category cards, product grids, discovery filtering, and mobile drawer.
+ * Clean, architectural layouts with sharp edges (no rounded corners) and realistic photography.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,72 +10,77 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 01 — SHOP BY CATEGORY
+  // 01 — SHOP BY CATEGORY (Clean Sharp Cards with Photography)
   // =========================================================================
   const categoryGrid = document.getElementById('industrial-category-grid');
   if (categoryGrid) {
     categoryGrid.innerHTML = INDUSTRIAL_DATA.categories.map((cat, idx) => `
-      <a href="${cat.anchor}" class="ind-card group p-6 sm:p-7 flex flex-col justify-between" aria-label="${cat.name}">
-        <div>
-          <div class="flex items-center justify-between mb-5">
-            <span class="w-12 h-12 rounded-xl bg-stone-100 text-navy flex items-center justify-center text-lg group-hover:bg-navy group-hover:text-gold transition-colors duration-300">
-              <i class="${cat.icon}"></i>
-            </span>
-            <span class="text-[10px] font-heading font-bold uppercase tracking-widest text-stone-400 bg-stone-50 border border-stone-200/60 px-2.5 py-1 rounded-md">
-              ${cat.tag}
-            </span>
-          </div>
-
-          <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors">
-            ${cat.name}
-          </h3>
-          <p class="font-sans text-xs sm:text-sm text-stone-500 font-normal leading-relaxed mt-2">
-            ${cat.description}
-          </p>
+      <a href="${cat.anchor}" class="ind-card group ind-sharp" aria-label="${cat.name}">
+        <!-- Realistic Product Image Frame -->
+        <div class="ind-img-frame h-52 sm:h-56">
+          <img src="${cat.image}" alt="${cat.name}" loading="lazy" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity"></div>
+          <span class="absolute top-4 left-4 text-[9px] font-heading font-bold uppercase tracking-[0.2em] text-white bg-black/75 px-2.5 py-1 ind-sharp border-l-2 border-gold">
+            ${cat.tag}
+          </span>
         </div>
 
-        <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
-          <span class="text-xs font-heading font-bold uppercase tracking-wider text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
-            Explore <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1.5 transition-transform"></i>
-          </span>
-          <span class="text-[10px] font-mono text-stone-300">0${idx + 1}</span>
+        <div class="p-6 sm:p-7 flex flex-col justify-between flex-1 bg-white">
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-mono text-stone-400 font-medium">SECTOR 0${idx + 1}</span>
+              <span class="text-[10px] font-heading font-semibold uppercase tracking-wider text-gold">${cat.material}</span>
+            </div>
+
+            <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-200">
+              ${cat.name}
+            </h3>
+            <p class="font-sans text-xs sm:text-sm text-stone-600 font-normal leading-relaxed mt-2.5">
+              ${cat.description}
+            </p>
+          </div>
+
+          <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+            <span class="ind-action-link">
+              Explore <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1.5 transition-transform duration-200"></i>
+            </span>
+          </div>
         </div>
       </a>
     `).join('');
   }
 
   // =========================================================================
-  // 02 — PET PRODUCTS (PET Jars & PET Bottles)
+  // 02 — PET PRODUCTS (Large Creative Split Layout with Photography)
   // =========================================================================
   const petGrid = document.getElementById('pet-products-grid');
   if (petGrid) {
     petGrid.innerHTML = INDUSTRIAL_DATA.petProducts.map(prod => `
-      <div class="ind-card group flex flex-col md:flex-row items-center overflow-hidden">
-        <div class="w-full md:w-1/2 h-64 md:h-80 bg-stone-100 relative overflow-hidden flex items-center justify-center p-8">
-          <div class="w-24 h-24 rounded-full bg-white/80 shadow-md text-navy flex items-center justify-center text-4xl group-hover:scale-110 transition-transform duration-500">
-            <i class="${prod.icon}"></i>
-          </div>
-          <span class="absolute top-4 left-4 text-[10px] font-heading font-bold uppercase tracking-wider text-stone-500 bg-white/90 backdrop-blur px-2.5 py-1 rounded">
-            ${prod.material} Material
-          </span>
+      <div class="ind-card group ind-sharp flex flex-col md:flex-row overflow-hidden border border-stone-200">
+        <div class="w-full md:w-1/2 ind-img-frame h-64 md:h-auto min-h-[260px]">
+          <img src="${prod.image}" alt="${prod.name}" loading="lazy" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
         </div>
-        <div class="w-full md:w-1/2 p-8 lg:p-10 flex flex-col justify-between h-full">
+        <div class="w-full md:w-1/2 p-8 lg:p-10 flex flex-col justify-between bg-white">
           <div>
-            <span class="text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-gold block mb-1">
-              CONTAINER COMPONENT
-            </span>
-            <h4 class="font-heading font-extrabold text-2xl lg:text-3xl text-navy group-hover:text-gold transition-colors">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[9px] font-heading font-bold uppercase tracking-[0.2em] text-gold block">
+                POLYETHYLENE TEREPHTHALATE
+              </span>
+              <span class="text-[10px] font-mono text-stone-400">100% RECYCLABLE</span>
+            </div>
+            <h4 class="font-heading font-extrabold text-2xl lg:text-3xl text-navy group-hover:text-gold transition-colors duration-200">
               ${prod.name}
             </h4>
-            <p class="font-sans text-xs sm:text-sm text-stone-500 leading-relaxed mt-3">
+            <p class="font-sans text-xs sm:text-sm text-stone-600 leading-relaxed mt-3.5">
               ${prod.description}
             </p>
           </div>
-          <div class="pt-6 mt-6 border-t border-stone-150 flex items-center justify-between">
-            <a href="enquiry-industrial.html?subject=${encodeURIComponent(prod.name)}" class="text-xs font-heading font-bold uppercase tracking-wider text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
-              Explore →
+          <div class="pt-6 mt-8 border-t border-stone-150 flex items-center justify-between">
+            <a href="enquiry-industrial.html?subject=${encodeURIComponent(prod.name)}" class="ind-action-link">
+              Explore <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition-transform"></i>
             </a>
-            <span class="text-[11px] font-sans text-stone-400">B2B Sourcing</span>
+            <span class="text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400">B2B Standard</span>
           </div>
         </div>
       </div>
@@ -83,62 +88,69 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 03 — CAPS & CLOSURES (Aluminium Caps & PP Caps)
+  // 03 — CAPS & CLOSURES (Premium Photo Cards)
   // =========================================================================
   const capsGrid = document.getElementById('caps-closures-grid');
   if (capsGrid) {
     capsGrid.innerHTML = INDUSTRIAL_DATA.capsAndClosures.map(cap => `
-      <div class="ind-card group p-8 flex flex-col justify-between">
-        <div>
-          <div class="w-14 h-14 rounded-2xl bg-stone-100 text-navy flex items-center justify-center text-2xl mb-6 group-hover:bg-navy group-hover:text-gold transition-colors">
-            <i class="${cap.icon}"></i>
-          </div>
-          <span class="text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-gold block mb-1">
-            ${cap.material} SPECIFICATION
+      <div class="ind-card group ind-sharp border border-stone-200">
+        <div class="ind-img-frame h-64 sm:h-72">
+          <img src="${cap.image}" alt="${cap.name}" loading="lazy" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          <span class="absolute bottom-4 left-4 text-[9px] font-heading font-bold uppercase tracking-[0.2em] text-white bg-black/80 px-3 py-1 border-l-2 border-gold">
+            ${cap.material} Closure
           </span>
-          <h4 class="font-heading font-extrabold text-2xl text-navy group-hover:text-gold transition-colors">
-            ${cap.name}
-          </h4>
-          <p class="font-sans text-xs sm:text-sm text-stone-500 leading-relaxed mt-3">
-            ${cap.description}
-          </p>
         </div>
-        <div class="pt-6 mt-6 border-t border-stone-150 flex items-center justify-between">
-          <a href="enquiry-industrial.html?subject=${encodeURIComponent(cap.name)}" class="text-xs font-heading font-bold uppercase tracking-wider text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
-            Enquire About Caps <i class="fa-solid fa-arrow-right text-[10px]"></i>
-          </a>
-          <span class="text-[10px] font-mono text-stone-400 uppercase">${cap.material}</span>
+        <div class="p-8 flex flex-col justify-between flex-1 bg-white">
+          <div>
+            <h4 class="font-heading font-extrabold text-2xl text-navy group-hover:text-gold transition-colors duration-200">
+              ${cap.name}
+            </h4>
+            <p class="font-sans text-xs sm:text-sm text-stone-600 leading-relaxed mt-3">
+              ${cap.description}
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-stone-150 flex items-center justify-between">
+            <a href="enquiry-industrial.html?subject=${encodeURIComponent(cap.name)}" class="ind-action-link">
+              Enquire About Caps <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </a>
+            <span class="text-[10px] font-mono text-stone-400 uppercase">Sealing Solution</span>
+          </div>
         </div>
       </div>
     `).join('');
   }
 
   // =========================================================================
-  // 04 — PACKAGING SOLUTIONS (4 Cards)
+  // 04 — PACKAGING SOLUTIONS (4 Clean Sharp Cards with Photography)
   // =========================================================================
   const packagingGrid = document.getElementById('packaging-solutions-grid');
   if (packagingGrid) {
     packagingGrid.innerHTML = INDUSTRIAL_DATA.packagingSolutions.map(sol => `
-      <div class="ind-card group p-7 flex flex-col justify-between">
+      <div class="ind-card group ind-sharp border border-stone-200 flex flex-col justify-between">
         <div>
-          <div class="w-12 h-12 rounded-xl bg-stone-100 text-navy flex items-center justify-center text-xl mb-5 group-hover:bg-navy group-hover:text-gold transition-colors">
-            <i class="${sol.icon}"></i>
+          <div class="ind-img-frame h-48">
+            <img src="${sol.image}" alt="${sol.name}" loading="lazy" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 text-[9px] font-heading font-bold uppercase tracking-wider text-white bg-black/70 px-2 py-0.5">
+              ${sol.category}
+            </span>
           </div>
-          <span class="text-[10px] font-heading font-bold uppercase tracking-wider text-gold block mb-1">
-            B2B CATALOGUE
-          </span>
-          <h4 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors">
-            ${sol.name}
-          </h4>
-          <p class="font-sans text-xs sm:text-sm text-stone-500 leading-relaxed mt-2.5">
-            ${sol.description}
-          </p>
+
+          <div class="p-6">
+            <h4 class="font-heading font-bold text-lg text-navy group-hover:text-gold transition-colors duration-200">
+              ${sol.name}
+            </h4>
+            <p class="font-sans text-xs text-stone-600 leading-relaxed mt-2">
+              ${sol.description}
+            </p>
+          </div>
         </div>
-        <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
-          <a href="enquiry-industrial.html?subject=${encodeURIComponent(sol.name)}" class="text-xs font-heading font-bold uppercase tracking-wider text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
-            Explore →
+
+        <div class="px-6 pb-6 pt-2 border-t border-stone-100 flex items-center justify-between">
+          <a href="enquiry-industrial.html?subject=${encodeURIComponent(sol.name)}" class="ind-action-link">
+            Explore <i class="fa-solid fa-arrow-right text-[9px] transform group-hover:translate-x-1 transition-transform"></i>
           </a>
-          <span class="text-[10px] font-heading font-semibold text-stone-400 uppercase">Enterprise</span>
+          <span class="text-[9px] font-mono text-stone-400 uppercase">Catalogue</span>
         </div>
       </div>
     `).join('');
@@ -185,15 +197,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (filtered.length === 0) {
       discResultsGrid.innerHTML = `
-        <div class="col-span-full py-12 text-center bg-white rounded-2xl border border-stone-200 p-8">
-          <div class="w-14 h-14 rounded-full bg-stone-100 text-stone-400 flex items-center justify-center mx-auto mb-3 text-lg">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
-          <h4 class="font-heading font-bold text-base text-navy">No Matches Found</h4>
-          <p class="font-sans text-xs text-stone-500 mt-1 max-w-sm mx-auto">
-            Try adjusting your search keywords or reset the category/material filters.
+        <div class="col-span-full py-16 text-center bg-stone-900 border border-stone-800 p-8 ind-sharp">
+          <h4 class="font-heading font-bold text-lg text-white">No Matches Found</h4>
+          <p class="font-sans text-xs text-stone-400 mt-1 max-w-sm mx-auto">
+            Try adjusting your search keywords or clear filters to view the full product index.
           </p>
-          <button type="button" onclick="resetIndustrialDiscovery()" class="mt-4 btn-premium-gold text-xs px-4 py-2">
+          <button type="button" onclick="resetIndustrialDiscovery()" class="mt-5 btn-premium-gold text-xs px-5 py-2.5 ind-sharp">
             Clear Filters
           </button>
         </div>
@@ -202,26 +211,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     discResultsGrid.innerHTML = filtered.map(item => `
-      <div class="bg-white rounded-xl p-5 border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
-        <div>
-          <div class="flex items-center justify-between text-[10px] font-heading font-bold uppercase tracking-wider mb-2">
-            <span class="text-gold bg-gold/10 px-2 py-0.5 rounded">${item.category}</span>
-            <span class="text-stone-400">${item.material !== 'Other' ? item.material : 'Supply'}</span>
-          </div>
-          <h5 class="font-heading font-bold text-base text-navy group-hover:text-gold transition-colors">
-            ${item.name}
-          </h5>
-          <p class="font-sans text-xs text-stone-500 mt-1.5 line-clamp-2">
-            ${item.description}
-          </p>
+      <div class="bg-stone-900 border border-stone-800 hover:border-gold/50 transition-all flex flex-col justify-between ind-sharp group">
+        <div class="ind-img-frame h-36">
+          <img src="${item.image}" alt="${item.name}" loading="lazy" class="w-full h-full object-cover">
+          <span class="absolute top-2 left-2 text-[9px] font-heading font-bold uppercase tracking-wider text-white bg-black/80 px-2 py-0.5">
+            ${item.category}
+          </span>
         </div>
-        <div class="pt-4 mt-4 border-t border-stone-100 flex items-center justify-between">
-          <a href="${item.anchor}" class="text-xs font-heading font-bold uppercase tracking-wider text-navy group-hover:text-gold transition-colors flex items-center gap-1">
-            View Details <i class="fa-solid fa-arrow-right text-[9px] ml-1"></i>
-          </a>
-          <a href="enquiry-industrial.html?subject=${encodeURIComponent(item.name)}" class="text-[11px] text-stone-400 hover:text-gold transition-colors font-medium">
-            Enquire
-          </a>
+
+        <div class="p-5 flex-1 flex flex-col justify-between">
+          <div>
+            <span class="text-[9px] font-mono text-gold block mb-1 uppercase tracking-wider">${item.material !== 'Other' ? item.material : 'Supply'}</span>
+            <h5 class="font-heading font-bold text-sm text-white group-hover:text-gold transition-colors">
+              ${item.name}
+            </h5>
+            <p class="font-sans text-xs text-stone-400 mt-1.5 line-clamp-2">
+              ${item.description}
+            </p>
+          </div>
+
+          <div class="pt-4 mt-4 border-t border-stone-800 flex items-center justify-between">
+            <a href="${item.anchor}" class="text-[11px] font-heading font-bold uppercase tracking-wider text-gold hover:text-white transition-colors flex items-center gap-1">
+              View Section <i class="fa-solid fa-arrow-right text-[8px] ml-1"></i>
+            </a>
+            <a href="enquiry-industrial.html?subject=${encodeURIComponent(item.name)}" class="text-[11px] text-stone-500 hover:text-white transition-colors font-medium">
+              Enquire
+            </a>
+          </div>
         </div>
       </div>
     `).join('');
@@ -274,22 +290,25 @@ document.addEventListener('DOMContentLoaded', () => {
   renderDiscovery();
 
   // =========================================================================
-  // 09 — WHY CHOOSE BORA GROUP (4 Columns)
+  // 09 — WHY CHOOSE BORA GROUP (Clean Sharp Minimalist Layout)
   // =========================================================================
   const whyGrid = document.getElementById('why-choose-us-grid');
   if (whyGrid) {
     whyGrid.innerHTML = INDUSTRIAL_DATA.whyChooseUs.map(point => `
-      <div class="bg-white rounded-2xl p-7 border border-stone-200/80 shadow-sm flex flex-col justify-between group hover:border-gold/50 transition-colors">
+      <div class="bg-white p-8 border border-stone-200 ind-sharp flex flex-col justify-between group hover:border-gold transition-colors duration-200">
         <div>
-          <div class="w-12 h-12 rounded-xl bg-stone-100 text-navy group-hover:bg-navy group-hover:text-gold flex items-center justify-center text-xl mb-5 transition-colors">
-            <i class="${point.icon}"></i>
-          </div>
-          <h4 class="font-heading font-bold text-base text-navy uppercase tracking-wider mb-2">
+          <span class="font-mono text-2xl font-bold text-stone-300 group-hover:text-gold transition-colors block mb-4">
+            ${point.stat}
+          </span>
+          <h4 class="font-heading font-bold text-base text-navy uppercase tracking-wider mb-2.5">
             ${point.title}
           </h4>
-          <p class="font-sans text-xs text-stone-500 leading-relaxed">
+          <p class="font-sans text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
             ${point.description}
           </p>
+        </div>
+        <div class="pt-6 mt-6 border-t border-stone-100">
+          <span class="text-[9px] font-heading font-bold uppercase tracking-widest text-stone-400">Bora Standard</span>
         </div>
       </div>
     `).join('');
