@@ -1,0 +1,171 @@
+/* ==========================================================================
+   BORA GROUP — BUSINESS VERTICALS STYLING
+   Aesthetics: Architectural, Clean, Sharp Edges (No Rounded Corners), Equal Boxes
+   ========================================================================== */
+
+:root {
+  --biz-gold: #C5A880;
+  --biz-gold-hover: #D4AF37;
+  --biz-navy: #053C8F;
+  --biz-navy-dark: #032152;
+  --biz-dark: #05050A;
+  --biz-border: #E5E7EB;
+  --biz-border-hover: #C5A880;
+}
+
+/* Sharp, Architectural Edge Policy — Strictly No Rounded Corners */
+.biz-sharp,
+.biz-sharp *,
+.biz-box,
+.biz-box *,
+.biz-badge,
+.biz-btn-primary,
+.biz-btn-secondary,
+.biz-img-frame,
+.biz-tag {
+  border-radius: 0 !important;
+}
+
+/* Equal Business Box Card */
+.biz-box {
+  background: #FFFFFF;
+  border: 1px solid var(--biz-border);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 0 !important;
+}
+
+.biz-box:hover {
+  transform: translateY(-6px);
+  border-color: var(--biz-border-hover);
+  box-shadow: 0 16px 36px rgba(5, 60, 143, 0.08), 0 4px 16px rgba(197, 168, 128, 0.12);
+}
+
+/* Top Accent Line on Hover */
+.biz-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--biz-gold);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: all 0.35s ease;
+  z-index: 20;
+}
+
+.biz-box:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Primary Equal Button (Signature Bora Gold 3D Box) */
+.biz-btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading, 'Buckin', 'Montserrat', sans-serif);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--biz-dark);
+  background: linear-gradient(135deg, var(--biz-gold) 0%, #E2D1B8 100%);
+  border: 1px solid var(--biz-gold);
+  border-radius: 0 !important;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(197, 168, 128, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.biz-btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #E2D1B8 0%, var(--biz-gold-hover) 100%);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.35s ease;
+}
+
+.biz-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+  color: #000000;
+  border-color: var(--biz-gold-hover);
+}
+
+.biz-btn-primary:hover::before {
+  opacity: 1;
+}
+
+.biz-btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Secondary Equal Button (Architectural Navy Outline Box) */
+.biz-btn-secondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading, 'Buckin', 'Montserrat', sans-serif);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--biz-navy);
+  background: transparent;
+  border: 1px solid #D1D5DB;
+  border-radius: 0 !important;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.biz-btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--biz-navy);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.35s ease;
+}
+
+.biz-btn-secondary:hover {
+  transform: translateY(-2px);
+  color: #FFFFFF;
+  border-color: var(--biz-navy);
+  box-shadow: 0 6px 18px rgba(5, 60, 143, 0.2);
+}
+
+.biz-btn-secondary:hover::before {
+  opacity: 1;
+}
+
+.biz-btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Sharp WhatsApp Button */
+.whatsapp-float.biz-sharp {
+  border-radius: 0 !important;
+}
+
+.whatsapp-float.biz-sharp .pulse {
+  border-radius: 0 !important;
+}

@@ -34,8 +34,9 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/business.css">
 </head>
-<body class="bg-white text-gray-800 selection:bg-gold selection:text-dark">
+<body class="bg-white text-gray-800 selection:bg-gold selection:text-dark biz-sharp">
 
   <!-- Scroll Progress -->
   <div id="scroll-indicator" class="fixed top-0 left-0 h-1 bg-gold z-[100] transition-all duration-75" style="width: 0%;"></div>
@@ -58,14 +59,14 @@
             <span data-i18n="nav_about">About</span>
             <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
           </a>
-          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-xl p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
-            <a href="about/leadership" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_leadership">Our Leadership</a>
-            <a href="history.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_history">Our History</a>
-            <a href="about.html#vision-mission" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_vision">Vision & Mission</a>
-            <a href="about.html#overview" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_overview">Company Overview</a>
-            <a href="about.html#reviews" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_testimonials">Testimonials</a>
-          <a href="gallery.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_gallery">Photo Gallery</a>
-            </div>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 biz-sharp border border-white/10">
+            <a href="about/leadership" class="nav-dropdown-link block px-4 py-2.5 text-[9px] tracking-wider uppercase transition-all duration-200 biz-sharp" data-i18n="nav_leadership">Our Leadership</a>
+            <a href="history.html" class="nav-dropdown-link block px-4 py-2.5 text-[9px] tracking-wider uppercase transition-all duration-200 biz-sharp" data-i18n="nav_history">Our History</a>
+            <a href="about.html#vision-mission" class="nav-dropdown-link block px-4 py-2.5 text-[9px] tracking-wider uppercase transition-all duration-200 biz-sharp" data-i18n="nav_vision">Vision & Mission</a>
+            <a href="about.html#overview" class="nav-dropdown-link block px-4 py-2.5 text-[9px] tracking-wider uppercase transition-all duration-200 biz-sharp" data-i18n="nav_overview">Company Overview</a>
+            <a href="about.html#reviews" class="nav-dropdown-link block px-4 py-2.5 text-[9px] tracking-wider uppercase transition-all duration-200 biz-sharp" data-i18n="nav_testimonials">Testimonials</a>
+            <a href="gallery.html" class="nav-dropdown-link block px-4 py-2.5 text-[9px] tracking-wider uppercase transition-all duration-200 biz-sharp" data-i18n="nav_gallery">Photo Gallery</a>
+          </div>
         </div>
 
         <!-- Business Dropdown -->
@@ -74,30 +75,30 @@
             <span data-i18n="nav_business">Business</span>
             <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
           </a>
-                              <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] lg:w-[560px] rounded-xl p-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] lg:w-[560px] p-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 biz-sharp border border-white/10">
             <div class="grid grid-cols-2 gap-4">
               <!-- Left Column: 3 Items -->
               <div class="flex flex-col space-y-1.5">
-                <a href="overseas-trade.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                <a href="overseas-trade.html" class="nav-dropdown-link block px-4 py-3 transition-all duration-200 biz-sharp">
                   <span class="dropdown-title" data-i18n="nav_overseas">Overseas Trade</span>
                   <span class="dropdown-subtitle">Global Import & Export</span>
                 </a>
-                <a href="real-estate.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                <a href="real-estate.html" class="nav-dropdown-link block px-4 py-3 transition-all duration-200 biz-sharp">
                   <span class="dropdown-title" data-i18n="nav_realestate">Real Estate</span>
                   <span class="dropdown-subtitle">Bora Realty</span>
                 </a>
-                <a href="garments.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                <a href="garments.html" class="nav-dropdown-link block px-4 py-3 transition-all duration-200 biz-sharp">
                   <span class="dropdown-title" data-i18n="nav_garments">Garments & Fashion</span>
                   <span class="dropdown-subtitle">Bora Collection, Bora Fashion</span>
                 </a>
               </div>
               <!-- Right Column: 2 Items -->
               <div class="flex flex-col space-y-1.5">
-                <a href="industrial-supply.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                <a href="industrial-supply.html" class="nav-dropdown-link block px-4 py-3 transition-all duration-200 biz-sharp">
                   <span class="dropdown-title" data-i18n="nav_industrial">Industrial Supply</span>
                   <span class="dropdown-subtitle">Industrial Solutions</span>
                 </a>
-                <a href="hospitality.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                <a href="hospitality.html" class="nav-dropdown-link block px-4 py-3 transition-all duration-200 biz-sharp">
                   <span class="dropdown-title" data-i18n="nav_hospitality">Hospitality</span>
                   <span class="dropdown-subtitle">Hotels</span>
                 </a>
@@ -106,15 +107,12 @@
           </div>
         </div>
 
-
         <a href="contact.html" class="text-white/80 hover:text-white transition-colors duration-300" data-i18n="nav_contact">Contact</a>
       </nav>
 
-
-
       <!-- Desktop Contact CTA -->
       <div class="hidden lg:flex">
-        <a href="contact.html" class="btn-premium-gold text-[10px] px-6 py-2.5" data-i18n="nav_get_in_touch">Get In Touch</a>
+        <a href="contact.html" class="btn-premium-gold text-[10px] px-6 py-2.5 biz-sharp" data-i18n="nav_get_in_touch">Get In Touch</a>
       </div>
 
       <!-- Mobile Hamburger Button -->
@@ -130,7 +128,7 @@
   </header>
 
   <!-- MOBILE MENU -->
-  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 pt-28">
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 pt-28 biz-sharp">
     <div class="flex flex-col space-y-6 font-heading text-lg font-semibold uppercase tracking-widest">
       <a href="index.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors" data-i18n="nav_home">Home</a>
       
@@ -185,8 +183,8 @@
     </div>
     
     <div class="flex flex-col space-y-6">
-      <a href="contact.html" class="btn-premium-gold text-center text-xs" data-i18n="nav_request_consulting">Request Consulting</a>
-      <div class="text-center text-[10px] uppercase tracking-widest text-white/40">
+      <a href="contact.html" class="btn-premium-gold text-center text-xs biz-sharp" data-i18n="nav_request_consulting">Request Consulting</a>
+      <div class="text-center text-[10px] uppercase tracking-widest text-white/40 font-mono">
         © 2026 BORA GROUP
       </div>
     </div>
@@ -205,124 +203,347 @@
     </div>
   </section>
 
-  <!-- BUSINESS SECTORS SECTION -->
-  <section class="py-24 bg-light relative">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+  <!-- BUSINESS SECTORS SECTION (Equal 5 Boxes Architecture) -->
+  <section class="py-20 lg:py-24 bg-[#F8F9FA] relative border-b border-stone-200">
+    <div class="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section intro -->
-      <div class="text-center max-w-3xl mx-auto mb-20 gsap-reveal">
-        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy" data-i18n="biz_lead_title">Diversification Across Key Markets</h2>
-        <p class="text-gray-500 font-light mt-4 text-sm sm:text-base leading-relaxed" data-i18n="biz_p1">
-          Through deliberate execution and adherence to long-term governance values, each of our business verticals operates with high professional integrity.
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <div class="inline-flex items-center gap-2 bg-stone-100 border border-stone-200 px-3 py-1 mb-3 biz-sharp">
+          <span class="w-1.5 h-1.5 bg-gold"></span>
+          <span class="text-[10px] font-heading font-bold uppercase tracking-[0.25em] text-navy">PORTFOLIO OVERVIEW</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-navy uppercase tracking-wider" data-i18n="biz_lead_title">Diversification Across Key Markets</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4 mb-4"></div>
+        <p class="text-stone-500 font-light text-sm sm:text-base leading-relaxed" data-i18n="biz_p1">
+          Through deliberate execution and adherence to long-term governance values, each of our 5 business verticals operates with high professional integrity and disciplined operational excellence.
         </p>
       </div>
 
-      <!-- Grid container -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 gsap-stagger-container">
+      <!-- Equal 5 Boxes Grid Container -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5 xl:gap-6 items-stretch">
         
-        <!-- Overseas Trade -->
-        <div class="premium-card bg-white flex flex-col justify-between overflow-hidden group gsap-stagger-item shadow-sm">
-          <div class="zoom-img-container h-56 relative bg-gray-200">
-            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80" alt="Overseas Trade Division" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent"></div>
-            <!-- Dynamic Vibe Badge -->
-            <span class="absolute top-4 left-4 bg-orange-500 text-white text-[9px] uppercase tracking-widest font-heading font-semibold py-1 px-3.5 rounded-full">Global Trade</span>
-          </div>
-          <div class="p-8 flex-grow flex flex-col justify-between">
-            <div>
-              <h3 class="font-heading font-bold text-lg text-navy mb-3" data-i18n="biz_ot_title">Overseas Trade</h3>
-              <p class="text-xs text-gray-500 leading-relaxed font-light mb-6" data-i18n="biz_ot_desc">
-                Supplying premium vegetables, spices, grains, and high-quality garments to global buyers with precise international logistical execution.
-              </p>
+        <!-- 01 Overseas Trade -->
+        <div id="overseas-trade" class="biz-box group shadow-sm flex flex-col justify-between">
+          <div>
+            <!-- Box Meta Header -->
+            <div class="flex items-center justify-between px-4 py-3 border-b border-stone-100 bg-stone-50/70">
+              <div class="flex items-center gap-1.5">
+                <span class="font-mono text-xs font-bold text-navy">01</span>
+                <span class="text-stone-300 text-xs">/</span>
+                <span class="text-[9px] font-heading font-bold uppercase tracking-wider text-stone-500">DIVISION</span>
+              </div>
+              <span class="text-[9px] font-heading font-bold uppercase tracking-widest text-navy bg-white border border-stone-200 px-2 py-0.5">
+                Global Trade
+              </span>
             </div>
-            <div class="flex gap-4">
-              <a href="overseas-trade.html" class="btn-premium-orange text-center text-[10px] flex-1 py-3" data-i18n="biz_explore">Explore Division</a>
-              <a href="enquiry-export.html" class="relative inline-flex items-center justify-center py-3 text-center text-[10px] font-heading font-semibold uppercase tracking-widest text-orange-500 border border-orange-500/30 rounded-full flex-1 transition-all duration-300 hover:bg-orange-500 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/20 active:translate-y-0" data-i18n="biz_quote_export">Get Quote</a>
+
+            <!-- Box Photographic View -->
+            <div class="relative h-48 sm:h-52 overflow-hidden bg-stone-900">
+              <img src="images/overseas_trade_ship.jpg" alt="Overseas Trade Division" class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 brightness-[0.88] group-hover:brightness-100">
+              <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-2.5 left-3.5 right-3.5 flex items-center justify-between text-white/90">
+                <span class="text-[9px] font-mono uppercase tracking-wider text-gold font-semibold">EST. 1982</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-white/60 group-hover:text-gold transition-colors"></i>
+              </div>
+            </div>
+
+            <!-- Box Content -->
+            <div class="p-4 sm:p-5">
+              <div class="min-h-[50px] flex flex-col justify-start">
+                <h3 class="font-heading font-bold text-base lg:text-lg text-navy leading-snug group-hover:text-gold transition-colors" data-i18n="biz_ot_title">
+                  Overseas Trade
+                </h3>
+                <p class="text-[10px] uppercase font-mono tracking-wider text-stone-400 font-semibold mt-0.5">
+                  Global Import &amp; Export
+                </p>
+              </div>
+
+              <div class="w-8 h-[2px] bg-gold my-2.5"></div>
+
+              <p class="text-xs text-stone-600 leading-relaxed font-light min-h-[64px]" data-i18n="biz_ot_desc">
+                Supplying premium vegetables, spices, grains, and agricultural commodities to global buyers with precise international logistical execution.
+              </p>
+
+              <!-- Capability Tags -->
+              <div class="mt-3 pt-3 border-t border-stone-100 flex flex-wrap gap-1 min-h-[50px] content-start">
+                <span class="text-[9px] font-mono text-stone-600 bg-stone-50 border border-stone-200 px-1.5 py-0.5">Spices &amp; Grains</span>
+                <span class="text-[9px] font-mono text-stone-600 bg-stone-50 border border-stone-200 px-1.5 py-0.5">Bulk Export</span>
+                <span class="text-[9px] font-mono text-stone-600 bg-stone-50 border border-stone-200 px-1.5 py-0.5">Global Freight</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Equal Box Action Buttons -->
+          <div class="p-4 sm:p-5 pt-0">
+            <div class="flex flex-col gap-2 pt-3 border-t border-stone-100">
+              <a href="overseas-trade.html" class="biz-btn-primary w-full py-2.5 text-[10px] flex items-center justify-center gap-1.5" data-i18n="biz_explore">
+                <span>Explore Division</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+              <a href="enquiry-export.html" class="biz-btn-secondary w-full py-2 text-[10px]" data-i18n="biz_quote_export">
+                Get Quote
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Real Estate -->
-        <div class="premium-card bg-white flex flex-col justify-between overflow-hidden group gsap-stagger-item shadow-sm">
-          <div class="zoom-img-container h-56 relative bg-gray-200">
-            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Real Estate Division" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent"></div>
-            <!-- Dynamic Vibe Badge -->
-            <span class="absolute top-4 left-4 bg-navy text-white text-[9px] uppercase tracking-widest font-heading font-semibold py-1 px-3.5 rounded-full">Development</span>
-          </div>
-          <div class="p-8 flex-grow flex flex-col justify-between">
-            <div>
-              <h3 class="font-heading font-bold text-lg text-navy mb-3" data-i18n="biz_re_title">Real Estate</h3>
-              <p class="text-xs text-gray-500 leading-relaxed font-light mb-6" data-i18n="biz_re_desc">
+        <!-- 02 Real Estate -->
+        <div id="real-estate" class="biz-box group shadow-sm flex flex-col justify-between">
+          <div>
+            <!-- Box Meta Header -->
+            <div class="flex items-center justify-between px-4 py-3 border-b border-stone-100 bg-stone-50/70">
+              <div class="flex items-center gap-1.5">
+                <span class="font-mono text-xs font-bold text-navy">02</span>
+                <span class="text-stone-300 text-xs">/</span>
+                <span class="text-[9px] font-heading font-bold uppercase tracking-wider text-stone-500">DIVISION</span>
+              </div>
+              <span class="text-[9px] font-heading font-bold uppercase tracking-widest text-navy bg-white border border-stone-200 px-2 py-0.5">
+                Development
+              </span>
+            </div>
+
+            <!-- Box Photographic View -->
+            <div class="relative h-48 sm:h-52 overflow-hidden bg-stone-900">
+              <img src="images/real_estate_launch.jpg" alt="Real Estate Division" class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 brightness-[0.88] group-hover:brightness-100">
+              <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-2.5 left-3.5 right-3.5 flex items-center justify-between text-white/90">
+                <span class="text-[9px] font-mono uppercase tracking-wider text-gold font-semibold">EST. 2010</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-white/60 group-hover:text-gold transition-colors"></i>
+              </div>
+            </div>
+
+            <!-- Box Content -->
+            <div class="p-4 sm:p-5">
+              <div class="min-h-[50px] flex flex-col justify-start">
+                <h3 class="font-heading font-bold text-base lg:text-lg text-navy leading-snug group-hover:text-gold transition-colors" data-i18n="biz_re_title">
+                  Real Estate
+                </h3>
+                <p class="text-[10px] uppercase font-mono tracking-wider text-stone-400 font-semibold mt-0.5">
+                  Bora Realty &amp; Infra
+                </p>
+              </div>
+
+              <div class="w-8 h-[2px] bg-gold my-2.5"></div>
+
+              <p class="text-xs text-stone-600 leading-relaxed font-light min-h-[64px]" data-i18n="biz_re_desc">
                 Creating luxurious residential properties, incorporating state-of-the-art construction materials, strict timeliness, and structural integrity.
               </p>
+
+              <!-- Capability Tags -->
+              <div class="mt-3 pt-3 border-t border-stone-100 flex flex-wrap gap-1 min-h-[50px] content-start">
+                <span class="text-[9px] font-mono text-stone-600 bg-stone-50 border border-stone-200 px-1.5 py-0.5">Luxury Living</span>
+                <span class="text-[9px] font-mono text-stone-600 bg-stone-50 border border-stone-200 px-1.5 py-0.5">Commercial Hubs</span>
+                <span class="text-[9px] font-mono text-stone-600 bg-stone-50 border border-stone-200 px-1.5 py-0.5">Master Planning</span>
+              </div>
             </div>
-            <div class="flex gap-4">
-              <a href="real-estate.html" class="btn-premium-navy text-center text-[10px] flex-1 py-3" data-i18n="biz_explore">Explore Division</a>
-              <a href="enquiry-real-estate.html" class="relative inline-flex items-center justify-center py-3 text-center text-[10px] font-heading font-semibold uppercase tracking-widest text-navy border border-navy/30 rounded-full flex-1 transition-all duration-300 hover:bg-navy hover:text-white hover:-translate-y-1 hover:shadow-lg hover:shadow-navy/20 active:translate-y-0" data-i18n="biz_quote_real_estate">Get Quote</a>
+          </div>
+
+          <!-- Equal Box Action Buttons -->
+          <div class="p-4 sm:p-5 pt-0">
+            <div class="flex flex-col gap-2 pt-3 border-t border-stone-100">
+              <a href="real-estate.html" class="biz-btn-primary w-full py-2.5 text-[10px] flex items-center justify-center gap-1.5" data-i18n="biz_explore">
+                <span>Explore Division</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+              <a href="enquiry-real-estate.html" class="biz-btn-secondary w-full py-2 text-[10px]" data-i18n="biz_quote_real_estate">
+                Get Quote
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Garments -->
-        <div id="garments" class="premium-card bg-white flex flex-col justify-between overflow-hidden group gsap-stagger-item shadow-sm">
-          <div class="zoom-img-container h-56 relative bg-gray-200">
-            <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=800&q=80" alt="Garments Division" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent"></div>
-            <span class="absolute top-4 left-4 bg-gray-800 text-white text-[9px] uppercase tracking-widest font-heading font-semibold py-1 px-3.5 rounded-full">Production</span>
-          </div>
-          <div class="p-8 flex-grow flex flex-col justify-between">
-            <div>
-              <h3 class="font-heading font-bold text-lg text-navy mb-3" data-i18n="biz_gt_title">Garments & Textiles</h3>
-              <p class="text-xs text-gray-500 leading-relaxed font-light mb-6" data-i18n="biz_gt_desc">
-                Fulfilling custom tailoring and bulk garment export contracts. Our modern mills satisfy premium international compliance guidelines.
+        <!-- 03 Garments & Textiles -->
+        <div id="garments" class="biz-box group shadow-sm flex flex-col justify-between">
+          <div>
+            <!-- Box Meta Header -->
+            <div class="flex items-center justify-between px-4 py-3 border-b border-stone-100 bg-stone-50/70">
+              <div class="flex items-center gap-1.5">
+                <span class="font-mono text-xs font-bold text-navy">03</span>
+                <span class="text-stone-300 text-xs">/</span>
+                <span class="text-[9px] font-heading font-bold uppercase tracking-wider text-stone-500">DIVISION</span>
+              </div>
+              <span class="text-[9px] font-heading font-bold uppercase tracking-widest text-navy bg-white border border-stone-200 px-2 py-0.5">
+                Production
+              </span>
+            </div>
+
+            <!-- Box Photographic View -->
+            <div class="relative h-48 sm:h-52 overflow-hidden bg-stone-900">
+              <img src="images/garments_textiles.png" alt="Garments Division" class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 brightness-[0.88] group-hover:brightness-100">
+              <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-2.5 left-3.5 right-3.5 flex items-center justify-between text-white/90">
+                <span class="text-[9px] font-mono uppercase tracking-wider text-gold font-semibold">EST. 1978</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-white/60 group-hover:text-gold transition-colors"></i>
+              </div>
+            </div>
+
+            <!-- Box Content -->
+            <div class="p-4 sm:p-5">
+              <div class="min-h-[50px] flex flex-col justify-start">
+                <h3 class="font-heading font-bold text-base lg:text-lg text-navy leading-snug group-hover:text-gold transition-colors" data-i18n="biz_gt_title">
+                  Garments &amp; Textiles
+                </h3>
+                <p class="text-[10px] uppercase font-mono tracking-wider text-stone-400 font-semibold mt-0.5">
+                  Bora Collection &amp; Fashion
+                </p>
+              </div>
+
+              <div class="w-8 h-[2px] bg-gold my-2.5"></div>
+
+              <p class="text-xs text-stone-600 leading-relaxed font-light min-h-[64px]" data-i18n="biz_gt_desc">
+                Fulfilling custom tailoring, institutional uniforms, and bulk garment export contracts with modern mills satisfying premium compliance guidelines.
               </p>
+
+              <!-- Capability Tags -->
+              <div class="mt-3 pt-3 border-t border-stone-100 flex flex-wrap gap-1 min-h-[50px] content-start">
+                <span class="text-[9px] font-mono text-stone-600 bg-stone-50 border border-stone-200 px-1.5 py-0.5">Apparel Retail</span>
+                <span class="text-[9px] font-mono text-stone-600 bg-stone-50 border border-stone-200 px-1.5 py-0.5">Uniform Solutions</span>
+                <span class="text-[9px] font-mono text-stone-600 bg-stone-50 border border-stone-200 px-1.5 py-0.5">Bulk Contracts</span>
+              </div>
             </div>
-            <div class="flex gap-4">
-              <a href="garments.html" class="btn-premium-gold text-center text-[10px] flex-1 py-3" data-i18n="biz_explore">Explore Division</a>
-              <a href="enquiry-garments.html" class="relative inline-flex items-center justify-center py-3 text-center text-[10px] font-heading font-semibold uppercase tracking-widest text-gold border border-gold/40 rounded-full flex-1 transition-all duration-300 hover:bg-gold hover:text-dark hover:-translate-y-1 hover:shadow-lg hover:shadow-gold/20 active:translate-y-0" data-i18n="biz_quote_garments">Get Quote</a>
+          </div>
+
+          <!-- Equal Box Action Buttons -->
+          <div class="p-4 sm:p-5 pt-0">
+            <div class="flex flex-col gap-2 pt-3 border-t border-stone-100">
+              <a href="garments.html" class="biz-btn-primary w-full py-2.5 text-[10px] flex items-center justify-center gap-1.5" data-i18n="biz_explore">
+                <span>Explore Division</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+              <a href="enquiry-garments.html" class="biz-btn-secondary w-full py-2 text-[10px]" data-i18n="biz_quote_garments">
+                Get Quote
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Industrial Supply -->
-        <div id="industrial" class="premium-card bg-white flex flex-col justify-between overflow-hidden group gsap-stagger-item shadow-sm">
-          <div class="zoom-img-container h-56 relative bg-gray-200">
-            <img src="images/industrial_supplies.jpg" alt="Industrial Supply" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent"></div>
-            <span class="absolute top-4 left-4 bg-gray-800 text-white text-[9px] uppercase tracking-widest font-heading font-semibold py-1 px-3.5 rounded-full">Supplies</span>
-          </div>
-          <div class="p-8 flex-grow flex flex-col justify-between">
-            <div>
-              <h3 class="font-heading font-bold text-lg text-navy mb-3" data-i18n="biz_is_title">Industrial Supplies</h3>
-              <p class="text-xs text-gray-500 leading-relaxed font-light mb-6" data-i18n="biz_is_desc">
-                Delivering machine assemblies, engineering tools, and standard components to processing mills and manufacturing sectors since 1995.
+        <!-- 04 Industrial Supplies -->
+        <div id="industrial" class="biz-box group shadow-sm flex flex-col justify-between">
+          <div>
+            <!-- Box Meta Header -->
+            <div class="flex items-center justify-between px-4 py-3 border-b border-stone-100 bg-stone-50/70">
+              <div class="flex items-center gap-1.5">
+                <span class="font-mono text-xs font-bold text-navy">04</span>
+                <span class="text-stone-300 text-xs">/</span>
+                <span class="text-[9px] font-heading font-bold uppercase tracking-wider text-stone-500">DIVISION</span>
+              </div>
+              <span class="text-[9px] font-heading font-bold uppercase tracking-widest text-navy bg-white border border-stone-200 px-2 py-0.5">
+                Supplies
+              </span>
+            </div>
+
+            <!-- Box Photographic View -->
+            <div class="relative h-48 sm:h-52 overflow-hidden bg-stone-900">
+              <img src="images/industrial_supplies.jpg" alt="Industrial Supply" class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 brightness-[0.88] group-hover:brightness-100">
+              <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-2.5 left-3.5 right-3.5 flex items-center justify-between text-white/90">
+                <span class="text-[9px] font-mono uppercase tracking-wider text-gold font-semibold">EST. 1995</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-white/60 group-hover:text-gold transition-colors"></i>
+              </div>
+            </div>
+
+            <!-- Box Content -->
+            <div class="p-4 sm:p-5">
+              <div class="min-h-[50px] flex flex-col justify-start">
+                <h3 class="font-heading font-bold text-base lg:text-lg text-navy leading-snug group-hover:text-gold transition-colors" data-i18n="biz_is_title">
+                  Industrial Supplies
+                </h3>
+                <p class="text-[10px] uppercase font-mono tracking-wider text-stone-400 font-semibold mt-0.5">
+                  Industrial Solutions &amp; Containers
+                </p>
+              </div>
+
+              <div class="w-8 h-[2px] bg-gold my-2.5"></div>
+
+              <p class="text-xs text-stone-600 leading-relaxed font-light min-h-[64px]" data-i18n="biz_is_desc">
+                Delivering machine assemblies, engineering tools, packaging containers, and standard components to processing mills and manufacturing sectors since 1995.
               </p>
+
+              <!-- Capability Tags -->
+              <div class="mt-3 pt-3 border-t border-stone-100 flex flex-wrap gap-1 min-h-[50px] content-start">
+                <span class="text-[9px] font-mono text-stone-600 bg-stone-50 border border-stone-200 px-1.5 py-0.5">PET Containers</span>
+                <span class="text-[9px] font-mono text-stone-600 bg-stone-50 border border-stone-200 px-1.5 py-0.5">Caps &amp; Closures</span>
+                <span class="text-[9px] font-mono text-stone-600 bg-stone-50 border border-stone-200 px-1.5 py-0.5">B2B Supplies</span>
+              </div>
             </div>
-            <div class="flex gap-4">
-              <a href="industrial-supply.html" class="btn-premium-gold text-center text-[10px] flex-1 py-3" data-i18n="biz_explore">Explore Division</a>
-              <a href="enquiry-industrial.html" class="relative inline-flex items-center justify-center py-3 text-center text-[10px] font-heading font-semibold uppercase tracking-widest text-gold border border-gold/40 rounded-full flex-1 transition-all duration-300 hover:bg-gold hover:text-dark hover:-translate-y-1 hover:shadow-lg hover:shadow-gold/20 active:translate-y-0" data-i18n="biz_quote_industrial">Get Quote</a>
+          </div>
+
+          <!-- Equal Box Action Buttons -->
+          <div class="p-4 sm:p-5 pt-0">
+            <div class="flex flex-col gap-2 pt-3 border-t border-stone-100">
+              <a href="industrial-supply.html" class="biz-btn-primary w-full py-2.5 text-[10px] flex items-center justify-center gap-1.5" data-i18n="biz_explore">
+                <span>Explore Division</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+              <a href="enquiry-industrial.html" class="biz-btn-secondary w-full py-2 text-[10px]" data-i18n="biz_quote_industrial">
+                Get Quote
+              </a>
             </div>
           </div>
         </div>
 
-        <!-- Hospitality / Hotel -->
-        <div id="hospitality" class="premium-card bg-white flex flex-col justify-between overflow-hidden group gsap-stagger-item shadow-sm">
-          <div class="zoom-img-container h-56 relative bg-gray-200">
-            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" alt="Hospitality Division" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent"></div>
-            <span class="absolute top-4 left-4 bg-gray-800 text-white text-[9px] uppercase tracking-widest font-heading font-semibold py-1 px-3.5 rounded-full">Hospitality</span>
-          </div>
-          <div class="p-8 flex-grow flex flex-col justify-between">
-            <div>
-              <h3 class="font-heading font-bold text-lg text-navy mb-3" data-i18n="biz_hs_title">Hospitality & Services</h3>
-              <p class="text-xs text-gray-500 leading-relaxed font-light mb-6" data-i18n="biz_hs_desc">
+        <!-- 05 Hospitality & Services -->
+        <div id="hospitality" class="biz-box group shadow-sm flex flex-col justify-between md:col-span-2 lg:col-span-1 md:max-w-[calc(50%-10px)] md:mx-auto lg:max-w-none w-full">
+          <div>
+            <!-- Box Meta Header -->
+            <div class="flex items-center justify-between px-4 py-3 border-b border-stone-100 bg-stone-50/70">
+              <div class="flex items-center gap-1.5">
+                <span class="font-mono text-xs font-bold text-navy">05</span>
+                <span class="text-stone-300 text-xs">/</span>
+                <span class="text-[9px] font-heading font-bold uppercase tracking-wider text-stone-500">DIVISION</span>
+              </div>
+              <span class="text-[9px] font-heading font-bold uppercase tracking-widest text-navy bg-white border border-stone-200 px-2 py-0.5">
+                Hospitality
+              </span>
+            </div>
+
+            <!-- Box Photographic View -->
+            <div class="relative h-48 sm:h-52 overflow-hidden bg-stone-900">
+              <img src="images/hotel_divya_palace.jpg" alt="Hospitality Division" class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105 brightness-[0.88] group-hover:brightness-100">
+              <div class="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute bottom-2.5 left-3.5 right-3.5 flex items-center justify-between text-white/90">
+                <span class="text-[9px] font-mono uppercase tracking-wider text-gold font-semibold">EST. 2004</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-[9px] text-white/60 group-hover:text-gold transition-colors"></i>
+              </div>
+            </div>
+
+            <!-- Box Content -->
+            <div class="p-4 sm:p-5">
+              <div class="min-h-[50px] flex flex-col justify-start">
+                <h3 class="font-heading font-bold text-base lg:text-lg text-navy leading-snug group-hover:text-gold transition-colors" data-i18n="biz_hs_title">
+                  Hospitality &amp; Services
+                </h3>
+                <p class="text-[10px] uppercase font-mono tracking-wider text-stone-400 font-semibold mt-0.5">
+                  Hotel Divya Palace &amp; Banquets
+                </p>
+              </div>
+
+              <div class="w-8 h-[2px] bg-gold my-2.5"></div>
+
+              <p class="text-xs text-stone-600 leading-relaxed font-light min-h-[64px]" data-i18n="biz_hs_desc">
                 Providing fine dining experiences, premium lodging operations, and business conference spaces across Maharashtra, India.
               </p>
+
+              <!-- Capability Tags -->
+              <div class="mt-3 pt-3 border-t border-stone-100 flex flex-wrap gap-1 min-h-[50px] content-start">
+                <span class="text-[9px] font-mono text-stone-600 bg-stone-50 border border-stone-200 px-1.5 py-0.5">Fine Dining</span>
+                <span class="text-[9px] font-mono text-stone-600 bg-stone-50 border border-stone-200 px-1.5 py-0.5">Executive Lodging</span>
+                <span class="text-[9px] font-mono text-stone-600 bg-stone-50 border border-stone-200 px-1.5 py-0.5">Banquets &amp; Events</span>
+              </div>
             </div>
-            <div class="flex gap-4">
-              <a href="hospitality.html" class="btn-premium-gold text-center text-[10px] flex-1 py-3" data-i18n="biz_explore">Explore Division</a>
-              <a href="enquiry-hotel.html" class="relative inline-flex items-center justify-center py-3 text-center text-[10px] font-heading font-semibold uppercase tracking-widest text-gold border border-gold/40 rounded-full flex-1 transition-all duration-300 hover:bg-gold hover:text-dark hover:-translate-y-1 hover:shadow-lg hover:shadow-gold/20 active:translate-y-0" data-i18n="biz_quote_hotel">Get Quote</a>
+          </div>
+
+          <!-- Equal Box Action Buttons -->
+          <div class="p-4 sm:p-5 pt-0">
+            <div class="flex flex-col gap-2 pt-3 border-t border-stone-100">
+              <a href="hospitality.html" class="biz-btn-primary w-full py-2.5 text-[10px] flex items-center justify-center gap-1.5" data-i18n="biz_explore">
+                <span>Explore Division</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+              <a href="enquiry-hotel.html" class="biz-btn-secondary w-full py-2 text-[10px]" data-i18n="biz_quote_hotel">
+                Get Quote
+              </a>
             </div>
           </div>
         </div>
@@ -348,10 +569,10 @@
             Diversified business group delivering consistent value, disciplined execution, and long-term relationships across multiple industries since 1947.
           </p>
           <div class="flex space-x-4">
-            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://wa.me/917304733333" target="_blank" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="w-8 h-8 rounded-none border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300 biz-sharp"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="w-8 h-8 rounded-none border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300 biz-sharp"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="w-8 h-8 rounded-none border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300 biz-sharp"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/917304733333" target="_blank" class="w-8 h-8 rounded-none border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300 biz-sharp" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
           </div>
         </div>
 
@@ -362,7 +583,6 @@
             <li><a href="index.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_home_page">Home Page</a></li>
             <li><a href="about.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_company_profile">Company Profile</a></li>
             <li><a href="business.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_business_sectors">Business Sectors</a></li>
-
             <li><a href="contact.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_contact_desk">Contact Desk</a></li>
           </ul>
         </div>
@@ -373,9 +593,9 @@
           <ul class="space-y-3 text-xs text-white/60 font-light">
             <li><a href="real-estate.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_real_estate">Real Estate Development</a></li>
             <li><a href="overseas-trade.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_overseas_trade">Overseas Trade Division</a></li>
-
-            <li><a href="business.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_garment_production">Garment Production</a></li>
-            <li><a href="business.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_hospitality_overseas">Hospitality & Overseas</a></li>
+            <li><a href="garments.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_garment_production">Garment Production</a></li>
+            <li><a href="industrial-supply.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_industrial">Industrial Supply</a></li>
+            <li><a href="hospitality.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_hospitality_overseas">Hospitality & Services</a></li>
           </ul>
         </div>
 
@@ -414,7 +634,7 @@
   </footer>
 
   <!-- FLOATING WHATSAPP -->
-  <a href="https://wa.me/917304733333" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/917304733333" target="_blank" rel="noopener noreferrer" class="whatsapp-float biz-sharp" aria-label="Chat on WhatsApp">
     <div class="pulse"></div>
     <i class="fa-brands fa-whatsapp text-3xl"></i>
   </a>
