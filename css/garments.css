@@ -290,6 +290,30 @@
   border-radius: 0 !important;
 }
 
+/* Garments Architectural List Rows — Strictly No Boxes */
+.garment-list-row {
+  border-radius: 0 !important;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.garment-list-row:hover {
+  background-color: #FAF9F6;
+}
+
+.garment-list-thumb {
+  border-radius: 0 !important;
+  aspect-ratio: 1 / 1 !important;
+}
+
+.garment-list-thumb img {
+  border-radius: 0 !important;
+}
+
+.garment-subgroup-entry {
+  border-radius: 0 !important;
+}
+
 /* Product Tile Accent Border */
 .product-tile {
   border: 1px solid var(--garment-border);

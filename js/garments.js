@@ -59,8 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 2. READY-MADE COLLECTION (Tabs: MEN | WOMEN | KIDS)
-  // Each Product Has Its Own Accurate Square Image & Strictly Sharp Edges
+  // 2. GARMENTS / READY-MADE COLLECTION (Tabs: MEN | WOMEN | KIDS)
+  // Clean Architectural List Layout: Large Editorial Anchor for Major Subgroups,
+  // Itemized List Rows with Accurate 1:1 Square Photos, Absolutely No Boxes.
   // =========================================================================
   const readyMadeContainer = document.getElementById('ready-made-container');
   const readyMadeTabs = document.querySelectorAll('.ready-made-tab');
@@ -70,54 +71,112 @@ document.addEventListener('DOMContentLoaded', () => {
     const groups = GARMENTS_DATA.readyMade[gender];
 
     readyMadeContainer.innerHTML = `
-      <div class="space-y-14 animate-fade-in">
-        ${groups.map(group => `
-          <div class="bg-white border border-stone-200 p-6 sm:p-8 lg:p-10 shadow-sm garment-sharp">
-            <!-- Group Header -->
-            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-6 mb-8 border-b border-stone-200">
+      <div class="space-y-16 sm:space-y-20 animate-fade-in">
+        ${groups.map((group, groupIdx) => `
+          <div class="garment-subgroup-entry pb-14 sm:pb-16 border-b border-stone-200 last:border-b-0 last:pb-0">
+            <!-- Subgroup Editorial Header (Clean Line, No Enclosing Box) -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 mb-8 sm:mb-10 border-b-2 border-navy">
               <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="w-1.5 h-1.5 bg-gold inline-block"></span>
-                  <span class="text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-gold">
-                    Ready-Made • ${gender.toUpperCase()}
+                <div class="flex items-center gap-2 mb-1.5">
+                  <span class="w-2 h-2 bg-gold inline-block"></span>
+                  <span class="text-[10px] font-heading font-bold uppercase tracking-[0.25em] text-gold">
+                    GARMENTS • ${gender.toUpperCase()} • 0${groupIdx + 1}
                   </span>
                 </div>
-                <h4 class="font-heading font-extrabold text-2xl sm:text-3xl text-navy">
+                <h4 class="font-heading font-extrabold text-2xl sm:text-3xl lg:text-4xl text-navy tracking-tight">
                   ${group.subgroup}
                 </h4>
+                <p class="font-sans text-xs sm:text-sm text-stone-500 max-w-xl leading-relaxed mt-2">
+                  ${group.description}
+                </p>
               </div>
-              <p class="font-sans text-xs sm:text-sm text-stone-500 max-w-lg leading-relaxed mt-2 sm:mt-0">
-                ${group.description}
-              </p>
+              <div class="flex-shrink-0 flex items-center gap-3 self-start md:self-end">
+                <span class="text-[10px] sm:text-[11px] font-heading font-bold uppercase tracking-wider text-navy bg-stone-100 border border-stone-200 px-3.5 py-1.5 garment-sharp">
+                  ${group.items.length} Product Types
+                </span>
+              </div>
             </div>
 
-            <!-- Clean Architectural Product Grid: Accurate Square Images for Every Title -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-              ${group.items.map(item => `
-                <div class="product-tile garment-sharp group cursor-pointer hover:border-gold transition-all duration-300 bg-white border border-stone-200 p-3 sm:p-4 flex flex-col justify-between" onclick="triggerDiscoverySearch('${item.name}')">
-                  <div>
-                    <!-- Accurate Square Image for Title -->
-                    <div class="garment-img-frame aspect-square w-full mb-3 border border-stone-150 relative overflow-hidden bg-stone-100">
-                      <img src="${item.image}" alt="${item.name}" loading="lazy" class="w-full h-full object-cover">
-                      <span class="absolute bottom-2 left-2 text-[8px] font-heading font-bold uppercase tracking-wider text-white bg-black/75 px-1.5 py-0.5 border border-white/20">
-                        ${gender.toUpperCase()}
+            <!-- Major Subgroups Architecture: Large Feature Photo + Clean List of Types (NO BOXES) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+              
+              <!-- Left Column: The Big Editorial Visual Anchor -->
+              <div class="lg:col-span-4 lg:sticky lg:top-28">
+                <div class="relative w-full aspect-[4/5] sm:aspect-[16/10] lg:aspect-[4/5] overflow-hidden bg-stone-900 border border-stone-200 garment-sharp group">
+                  <img src="${group.image}" alt="${group.subgroup}" loading="lazy" class="w-full h-full object-cover brightness-[0.88] group-hover:scale-105 transition-transform duration-700 ease-out">
+                  <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent pointer-events-none"></div>
+                  
+                  <!-- Anchor Info Overlay -->
+                  <div class="absolute bottom-0 inset-x-0 p-5 sm:p-6 text-white">
+                    <span class="text-[10px] font-mono text-gold uppercase tracking-widest font-semibold block mb-1">
+                      BORA COLLECTION
+                    </span>
+                    <h5 class="font-heading font-bold text-xl sm:text-2xl text-white leading-tight mb-2">
+                      ${group.subgroup}
+                    </h5>
+                    <p class="text-xs text-stone-300 font-light leading-relaxed mb-4 line-clamp-2">
+                      ${group.description}
+                    </p>
+                    <div class="flex items-center justify-between text-[10px] font-heading font-bold uppercase tracking-wider text-gold pt-3 border-t border-white/20">
+                      <span>${group.items.length} Distinct Silhouettes</span>
+                      <span>EST. 1978</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Column: Pure Itemized List of Garment Types (Strictly NO BOXES) -->
+              <div class="lg:col-span-8 divide-y divide-stone-200 border-t border-b border-stone-200 lg:border-t-0">
+                ${group.items.map((item, itemIdx) => `
+                  <div class="garment-list-row group flex items-center justify-between py-4 sm:py-5 px-3 sm:px-4 cursor-pointer hover:bg-stone-50 transition-colors duration-200" onclick="triggerDiscoverySearch('${item.name}')" role="button" tabindex="0" aria-label="Explore ${item.name}">
+                    
+                    <div class="flex items-center gap-4 sm:gap-6 min-w-0 flex-1">
+                      <!-- Index Number -->
+                      <span class="font-mono text-xs sm:text-sm font-bold text-stone-300 group-hover:text-gold transition-colors w-6 flex-shrink-0">
+                        ${String(itemIdx + 1).padStart(2, '0')}
+                      </span>
+
+                      <!-- Accurate Square Product Photo Thumbnail (Sharp, 1:1) -->
+                      <div class="garment-list-thumb w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 overflow-hidden bg-stone-100 border border-stone-200 group-hover:border-gold transition-colors relative garment-sharp">
+                        <img src="${item.image}" alt="${item.name}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                      </div>
+
+                      <!-- Garment Type Details -->
+                      <div class="min-w-0 flex-1 pr-2 sm:pr-4">
+                        <div class="flex items-center gap-2 mb-1">
+                          <span class="text-[9px] font-heading font-bold uppercase tracking-wider text-gold">
+                            ${gender.toUpperCase()}
+                          </span>
+                          <span class="text-stone-300 text-[9px]">•</span>
+                          <span class="text-[9px] font-mono text-stone-400 uppercase tracking-wider">
+                            TYPE #${String(itemIdx + 1).padStart(2, '0')}
+                          </span>
+                        </div>
+
+                        <h5 class="font-heading font-bold text-base sm:text-lg text-navy group-hover:text-gold transition-colors leading-snug">
+                          ${item.name}
+                        </h5>
+
+                        <p class="font-sans text-xs text-stone-500 mt-0.5 leading-relaxed truncate sm:whitespace-normal">
+                          ${item.note}
+                        </p>
+                      </div>
+                    </div>
+
+                    <!-- Direct Action Link -->
+                    <div class="flex-shrink-0 pl-2 sm:pl-4 flex items-center gap-2 text-stone-400 group-hover:text-gold transition-all duration-200">
+                      <span class="hidden sm:inline text-[11px] font-heading font-bold uppercase tracking-wider">
+                        Explore Fabric
+                      </span>
+                      <span class="text-sm sm:text-base font-bold transform group-hover:translate-x-1.5 transition-transform duration-200">
+                        →
                       </span>
                     </div>
 
-                    <h5 class="font-heading font-bold text-sm sm:text-base text-stone-900 group-hover:text-gold transition-colors leading-tight">
-                      ${item.name}
-                    </h5>
-                    <p class="font-sans text-[11px] text-stone-500 mt-1 line-clamp-2 leading-relaxed">
-                      ${item.note}
-                    </p>
                   </div>
+                `).join('')}
+              </div>
 
-                  <div class="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 group-hover:text-gold transition-colors">
-                    <span>View Fabric</span>
-                    <span>→</span>
-                  </div>
-                </div>
-              `).join('')}
             </div>
           </div>
         `).join('')}
