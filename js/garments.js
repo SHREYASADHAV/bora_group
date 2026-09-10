@@ -1,6 +1,6 @@
 /**
- * BORA GROUP — Garments & Textile Interactive Engine
- * Architectural Layout, Shop by Category Focus, Zero Rounded Corners, Zero Icons.
+ * BORA GROUP — Garments & Textile Engine
+ * Shop by Category Focus: 8 Main Categories Only, Sharp Architectural Edges.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 1. SHOP BY CATEGORY SECTION (8 Categories - Accurate Square Photos & Enquiries)
+  // SHOP BY CATEGORY SECTION (8 Main Categories Only)
   // =========================================================================
   const categoryGrid = document.getElementById('shop-category-grid');
   if (categoryGrid) {
@@ -31,17 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
             <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">
               ${cat.title}
             </h3>
-            <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2">
+            <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
               ${cat.description}
             </p>
-
-            ${cat.highlights ? `
-              <div class="mt-4 pt-3 border-t border-stone-150 flex flex-wrap gap-1">
-                ${cat.highlights.map(h => `
-                  <span class="text-[9px] font-mono text-stone-600 bg-stone-50 border border-stone-200 px-2 py-0.5">${h}</span>
-                `).join('')}
-              </div>
-            ` : ''}
           </div>
         </div>
 
@@ -54,20 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <span class="text-[10px] font-mono text-stone-400">#0${idx + 1}</span>
           </div>
         </div>
-      </div>
-    `).join('');
-  }
-
-  // =========================================================================
-  // 2. HORIZONTALLY SCROLLING BRAND MARQUEE (All 22 Mill Partners)
-  // =========================================================================
-  const marqueeTrack = document.getElementById('marquee-track');
-  if (marqueeTrack && GARMENTS_DATA.marqueeBrands) {
-    const brandsDoubled = [...GARMENTS_DATA.marqueeBrands, ...GARMENTS_DATA.marqueeBrands];
-    marqueeTrack.innerHTML = brandsDoubled.map(b => `
-      <div class="marquee-item" role="button" tabindex="0">
-        <span class="w-1.5 h-1.5 rounded-full bg-gold"></span>
-        <span>${b}</span>
       </div>
     `).join('');
   }

@@ -10,77 +10,66 @@ const GARMENTS_DATA = {
     {
       id: "mens-wear",
       title: "Men's Wear",
-      description: "Formal, casual and traditional styles tailored for every occasion and lifestyle.",
+      description: "Formal, casual and traditional styles tailored for every occasion.",
       anchor: "enquiry-garments.html?subject=Men%27s%20Wear",
-      filterTab: "men",
       image: "images/garment_mens_wear.jpg",
-      tag: "Ready-to-Wear",
-      highlights: ["Formal & Casual Shirts", "Trousers & Chinos", "Suits & Blazers", "Kurtas & Modi Jackets"]
+      tag: "Ready-to-Wear"
     },
     {
       id: "womens-wear",
       title: "Women's Wear",
-      description: "Elegant ethnic, casual and contemporary fashion blending comfort and refined craft.",
+      description: "Elegant ethnic, casual and contemporary fashion for everyday elegance.",
       anchor: "enquiry-garments.html?subject=Women%27s%20Wear",
-      filterTab: "women",
       image: "images/garment_womens_wear.jpg",
-      tag: "Couture & Casual",
-      highlights: ["Kurtis & Kurta Sets", "Salwar Suits & Gowns", "Tops, Shirts & Denims", "Party Wear & Co-ords"]
+      tag: "Couture & Casual"
     },
     {
       id: "kids-wear",
       title: "Kids' Wear",
-      description: "Comfortable and stylish clothing for every age, crafted from gentle hypoallergenic cotton.",
+      description: "Comfortable and stylish clothing for every age, crafted from gentle cotton.",
       anchor: "enquiry-garments.html?subject=Kids%27%20Wear",
-      filterTab: "kids",
       image: "images/garment_kids_wear.jpg",
-      tag: "Junior Collection",
-      highlights: ["T-Shirts & Jeans", "Frocks & Party Dresses", "Junior Ethnic Sets", "Infant Sleepwear"]
+      tag: "Junior Collection"
     },
     {
       id: "sarees",
       title: "Sarees",
-      description: "Traditional Indian craftsmanship with timeless weaves, rich borders, and ceremonial elegance.",
+      description: "Traditional Indian craftsmanship with timeless weaves and ceremonial grace.",
       anchor: "enquiry-garments.html?subject=Sarees",
       image: "images/garment_sarees.jpg",
-      tag: "Heritage Weaves",
-      highlights: ["Banarasi & Kanjivaram", "Paithani & Pure Silk", "Chanderi & Fine Cotton", "Bandhani & Organza"]
+      tag: "Heritage Weaves"
     },
     {
       id: "shirting",
       title: "Shirting",
-      description: "Premium fabrics for refined everyday, corporate, and luxury bespoke shirts.",
+      description: "Premium fabrics for refined everyday, corporate, and bespoke shirts.",
       anchor: "enquiry-garments.html?subject=Shirting%20Fabrics",
       image: "images/garment_shirting.jpg",
-      tag: "Luxury Weaves",
-      highlights: ["Giza Cotton 100s", "Pure European Linen", "Egyptian Cotton", "Poplin, Oxford & Checks"]
+      tag: "Luxury Weaves"
     },
     {
       id: "suiting",
       title: "Suiting",
-      description: "Fine fabrics for sharp, sophisticated tailoring, formal blazers, and executive wear.",
+      description: "Fine fabrics for sharp, sophisticated tailoring and executive blazers.",
       anchor: "enquiry-garments.html?subject=Suiting%20Fabrics",
       image: "images/garment_suiting.jpg",
-      tag: "Master Tailoring",
-      highlights: ["Poly-Viscose Blends", "Italian Wool Touch", "Super 120s Twill", "Velvet & Bandhgala"]
+      tag: "Master Tailoring"
     },
     {
       id: "uniforms",
       title: "Uniforms",
-      description: "Reliable institutional apparel solutions engineered for durability, comfort, and group identity.",
+      description: "Reliable institutional apparel solutions engineered for durability and comfort.",
       anchor: "enquiry-garments.html?subject=Uniforms",
       image: "images/garment_uniforms.jpg",
-      tag: "Institutional",
-      highlights: ["School Uniforms", "Corporate Uniforms", "Hospitality Attire", "Workwear & Overalls"]
+      tag: "Institutional"
     },
     {
       id: "accessories",
       title: "Accessories",
-      description: "Finishing touches for complete personal elegance, ceremonial attire, and gifting.",
+      description: "Finishing touches for complete personal elegance and ceremonial dressing.",
       anchor: "enquiry-garments.html?subject=Accessories",
       image: "images/garment_accessories.jpg",
-      tag: "Style Accents",
-      highlights: ["Silk Pocket Squares", "Cufflinks & Brooches", "Premium Neckties", "Ethnic Dupattas & Belts"]
+      tag: "Style Accents"
     }
   ],
 
