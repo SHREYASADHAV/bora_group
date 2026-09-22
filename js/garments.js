@@ -65,9 +65,12 @@ document.addEventListener('DOMContentLoaded', () => {
       { name: "Bombay Dyeing", logo: "images/brands/bombay_dyeing.png", alt: "Bombay Dyeing" },
       { name: "Linen Club", logo: "images/brands/linen_club.png", alt: "Linen Club" },
       { name: "Arvind", logo: "images/brands/arvind.png", alt: "Arvind" },
-      { name: "Grasim", logo: "images/brands/grasim.png", alt: "Aditya Birla Grasim" }
+      { name: "Grasim", logo: "images/brands/grasim.png", alt: "Aditya Birla Grasim" },
+      { name: "Giza House", logo: "images/brands/giza_house.png", alt: "Giza House Cotton" },
+      { name: "Birla Century", logo: "images/brands/birla_century.png", alt: "Birla Century" },
+      { name: "Ruby Mills", logo: "images/brands/ruby_mills.png", alt: "Ruby Mills" }
     ];
-    const logos = (typeof GARMENTS_DATA !== 'undefined' && GARMENTS_DATA.brandLogos && GARMENTS_DATA.brandLogos.length >= 10)
+    const logos = (typeof GARMENTS_DATA !== 'undefined' && GARMENTS_DATA.brandLogos && GARMENTS_DATA.brandLogos.length >= 13)
       ? GARMENTS_DATA.brandLogos
       : defaultLogos;
 
