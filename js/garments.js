@@ -83,5 +83,46 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `).join('');
   }
+
+  // =========================================================================
+  // SAREES SECTION (7 Brands in Same Box Shape)
+  // =========================================================================
+  const sareesGrid = document.getElementById('sarees-grid');
+  if (sareesGrid && typeof GARMENTS_DATA !== 'undefined' && GARMENTS_DATA.sareeProducts && (!sareesGrid.children || sareesGrid.children.length === 0)) {
+    sareesGrid.innerHTML = GARMENTS_DATA.sareeProducts.map((cat, idx) => `
+      <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+        <div>
+          <!-- Accurate Square Image Frame -->
+          <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+            <img src="${cat.image}" alt="${cat.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+            <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">
+              ${cat.tag}
+            </span>
+            <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">0${idx + 1}</span>
+          </div>
+
+          <div class="p-5 sm:p-6">
+            <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">
+              ${cat.title}
+            </h3>
+            <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+              ${cat.description}
+            </p>
+          </div>
+        </div>
+
+        <div class="p-5 sm:p-6 pt-0 mt-auto">
+          <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+            <a href="${cat.anchor}" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+              <span>Enquire Saree</span>
+              <span class="transform group-hover:translate-x-1 transition-transform duration-200">→</span>
+            </a>
+            <span class="text-[10px] font-mono text-stone-400">#0${idx + 1}</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
 });
 

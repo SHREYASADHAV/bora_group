@@ -35,7 +35,7 @@ const GARMENTS_DATA = {
       id: "sarees",
       title: "Sarees",
       description: "Traditional Indian craftsmanship with timeless weaves and ceremonial grace.",
-      anchor: "enquiry-garments.html?subject=Sarees",
+      anchor: "#sarees-section",
       image: "images/garment_sarees.jpg",
       tag: "Heritage Weaves"
     },
@@ -555,6 +555,66 @@ const GARMENTS_DATA = {
     { name: "Giza House", logo: "images/brands/giza_house.png", alt: "Giza House Cotton" },
     { name: "Birla Century", logo: "images/brands/birla_century.png", alt: "Birla Century" },
     { name: "Ruby Mills", logo: "images/brands/ruby_mills.png", alt: "Ruby Mills" }
+  ],
+
+  // Saree Products Collection (7 Brands in same box shape)
+  sareeProducts: [
+    {
+      id: "laxmipati",
+      title: "Laxmipati Saree",
+      description: "Signature chiffon, georgette, and designer festive sarees renowned for graceful everyday and celebratory wear.",
+      anchor: "enquiry-garments.html?subject=Laxmipati%20Saree",
+      image: "images/saree_banarasi.jpg",
+      tag: "Chiffon & Georgette"
+    },
+    {
+      id: "rajtext",
+      title: "Rajtext",
+      description: "Traditional jacquard and wedding silks crafted with intricate weaving patterns and royal finish.",
+      anchor: "enquiry-garments.html?subject=Rajtext",
+      image: "images/saree_kanjivaram.jpg",
+      tag: "Jacquard & Wedding"
+    },
+    {
+      id: "vipul-fashion",
+      title: "Vipul Fashion",
+      description: "Everyday georgettes, soft cottons, and printed drapes celebrating color, comfort, and timeless grace.",
+      anchor: "enquiry-garments.html?subject=Vipul%20Fashion",
+      image: "images/saree_cotton.jpg",
+      tag: "Everyday Georgettes"
+    },
+    {
+      id: "triveni-saree",
+      title: "Triveni Saree",
+      description: "Graceful bridal, festive, and embroidered sarees blending ceremonial heritage with contemporary allure.",
+      anchor: "enquiry-garments.html?subject=Triveni%20Saree",
+      image: "images/saree_paithani.jpg",
+      tag: "Bridal & Festive"
+    },
+    {
+      id: "ruchi-saree",
+      title: "Ruchi Saree",
+      description: "Contemporary digital prints and casual silks designed for lightweight comfort and modern drape appeal.",
+      anchor: "enquiry-garments.html?subject=Ruchi%20Saree",
+      image: "images/saree_satin.jpg",
+      tag: "Digital & Casual"
+    },
+    {
+      id: "vinay-fashion",
+      title: "Vinay Fashion",
+      description: "Boutique silk sarees, designer party-wear drapes, and festive couture featuring exquisite detailing.",
+      anchor: "enquiry-garments.html?subject=Vinay%20Fashion",
+      image: "images/saree_organza.jpg",
+      tag: "Designer Couture"
+    },
+    {
+      id: "padmavati-textile",
+      title: "Padmavati Textile",
+      description: "Fine silk embellishments, rich zari work, and traditional handloom drapes created by heritage master weavers.",
+      anchor: "enquiry-garments.html?subject=Padmavati%20Textile",
+      image: "images/saree_bandhani.jpg",
+      tag: "Handloom Heritage"
+    }
   ],
 
   // Section 11: Brand Strip Marquee (All 22 listed brands)
