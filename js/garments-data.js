@@ -79,9 +79,11 @@ const GARMENTS_DATA = {
       id: "accessories",
       title: "Accessories",
       description: "Finishing touches for complete personal elegance and ceremonial dressing.",
-      anchor: "enquiry-garments.html?subject=Accessories",
+      anchor: "accessories.html",
       image: "images/garment_accessories.jpg",
-      tag: "Style Accents"
+      tag: "Style Accents",
+      target: "_blank",
+      actionText: "Explore Accessories"
     }
   ],
 

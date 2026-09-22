@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessories Collection | Bora Group Garments &amp; Textiles</title>
+  <meta name="description" content="Explore Bora Group's premium accessories: Belts, Wallets, Ties, Bow Ties, Caps, Socks, Handkerchiefs, Cufflinks, and Pocket Squares for gentleman elegance.">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              DEFAULT: '#C5A880',
+              hover: '#D4AF37',
+            },
+            navy: '#053C8F',
+            dark: '#05050A',
+            light: '#F6F9FD',
+            textile: {
+              cream: '#FAF8F5',
+              sand: '#F3EFE9',
+              charcoal: '#18181B',
+              stone: '#71717A'
+            }
+          },
+          fontFamily: {
+            sans: ['Flexo Soft', 'Poppins', 'sans-serif'],
+            heading: ['Buckin', 'Montserrat', 'sans-serif'],
+            serif: ['Buckin', 'Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/garments.css?v=4.3">
+</head>
+<body class="bg-[#FAF8F5] text-stone-800 selection:bg-gold selection:text-white antialiased overflow-x-hidden">
+
+  <div id="scroll-indicator" class="fixed top-0 left-0 h-1 bg-gold z-[100] transition-all duration-75" style="width: 0%;"></div>
+
+  <!-- STICKY NAVBAR -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-transparent">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+      <a href="index.html" class="flex items-center group">
+        <img id="navbar-logo" src="images/logo_new.png" alt="BORA GROUP" class="transition-all duration-300 group-hover:scale-105">
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-8 font-heading text-xs font-semibold uppercase tracking-widest">
+        <a href="index.html" class="text-white/80 hover:text-white transition-colors duration-300">Home</a>
+        
+        <div class="relative group py-2">
+          <a href="about.html" class="text-white/80 hover:text-white transition-colors duration-300 flex items-center space-x-1.5">
+            <span>About</span>
+            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-xl p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+            <a href="about/leadership" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Our Leadership</a>
+            <a href="history.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Our History</a>
+            <a href="about.html#vision-mission" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Vision &amp; Mission</a>
+            <a href="about.html#overview" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Company Overview</a>
+            <a href="gallery.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Photo Gallery</a>
+          </div>
+        </div>
+
+        <div class="relative group py-2">
+          <a href="business.html" class="text-gold transition-colors duration-300 flex items-center space-x-1.5">
+            <span>Business</span>
+            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] lg:w-[560px] rounded-xl p-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex flex-col space-y-1.5">
+                <a href="garments.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title">Garments &amp; Fashion</span>
+                  <span class="dropdown-subtitle">Bora Collection, Bora Fashion</span>
+                </a>
+                <a href="real-estate.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title">Real Estate</span>
+                  <span class="dropdown-subtitle">Bora Realty</span>
+                </a>
+                <a href="overseas-trade.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title">Overseas Trade</span>
+                  <span class="dropdown-subtitle">Global Import &amp; Export</span>
+                </a>
+              </div>
+              <div class="flex flex-col space-y-1.5">
+                <a href="industrial-supply.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title">Industrial Supply</span>
+                  <span class="dropdown-subtitle">Industrial Solutions</span>
+                </a>
+                <a href="hospitality.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title">Hospitality</span>
+                  <span class="dropdown-subtitle">Hotels</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="contact.html" class="text-white/80 hover:text-white transition-colors duration-300">Contact</a>
+      </nav>
+
+      <div class="hidden lg:flex">
+        <a href="contact.html" class="btn-premium-gold text-[10px] px-6 py-2.5">Get In Touch</a>
+      </div>
+
+      <button id="mobile-menu-btn" class="md:hidden text-white hover:text-gold transition-colors focus:outline-none" aria-label="Toggle Mobile Menu">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 pt-28">
+    <div class="flex flex-col space-y-6 font-heading text-lg font-semibold uppercase tracking-widest">
+      <a href="index.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors">Home</a>
+      <a href="garments.html" class="text-gold border-b border-white/5 pb-3 transition-colors">Garments &amp; Fashion</a>
+      <a href="about.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors">About</a>
+      <a href="contact.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors">Contact</a>
+    </div>
+    <div class="flex flex-col space-y-6">
+      <a href="contact.html" class="btn-premium-gold text-center text-xs">Request Consulting</a>
+      <div class="text-center text-[10px] uppercase tracking-widest text-white/40">
+        &copy; 2026 BORA GROUP
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-[460px] lg:min-h-[500px] flex items-center justify-center bg-dark overflow-hidden pt-28 pb-16">
+    <div class="absolute inset-0 z-0">
+      <img src="images/garment_accessories.jpg" alt="Bora Group Accessories" class="w-full h-full object-cover brightness-[0.28]">
+      <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-dark/40 pointer-events-none"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center mt-4">
+      <nav class="flex items-center justify-center space-x-2 text-[11px] font-heading font-medium tracking-widest uppercase text-stone-400 mb-4">
+        <a href="index.html" class="hover:text-gold transition-colors">Home</a>
+        <span>/</span>
+        <a href="garments.html" class="hover:text-gold transition-colors">Garments &amp; Fashion</a>
+        <span>/</span>
+        <span class="text-gold">Accessories</span>
+      </nav>
+
+      <span class="text-xs font-heading font-semibold tracking-[0.25em] text-gold uppercase mb-3 inline-block">
+        BORA GROUP &bull; SARTORIAL ACCENTS &amp; ESSENTIALS
+      </span>
+      <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+        Accessories Collection
+      </h1>
+      <div class="w-16 h-0.5 bg-gold mx-auto mt-4"></div>
+      <p class="font-sans text-sm sm:text-base text-stone-300 max-w-2xl mx-auto leading-relaxed mt-4 font-light">
+        Curated finishing touches for complete personal elegance: fine leather craft, pure silk ties, bespoke bow ties, caps, comfort socks, and crisp cotton handkerchiefs.
+      </p>
+
+      <div class="mt-7 flex items-center justify-center gap-4">
+        <a href="garments.html" class="inline-flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-widest text-white/80 hover:text-gold border border-white/20 hover:border-gold px-5 py-2.5 transition-all duration-300">
+          <span>&larr; Back to Garments</span>
+        </a>
+        <a href="#accessories-grid" class="inline-flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-widest bg-gold hover:bg-gold-hover text-white px-5 py-2.5 transition-all duration-300">
+          <span>View Accessories</span>
+          <span>&darr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESSORIES GRID SECTION -->
+  <section id="accessories-grid" class="py-20 lg:py-24 bg-[#FAF8F5] relative border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <div class="max-w-2xl mb-12 sm:mb-16">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 bg-gold inline-block"></span>
+          <span class="text-xs font-heading font-bold uppercase tracking-[0.22em] text-navy">
+            Gentleman &amp; Lifestyle Accents
+          </span>
+        </div>
+        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">
+          Featured Accessories
+        </h2>
+        <p class="font-sans text-sm text-stone-600 font-normal leading-relaxed mt-3">
+          Each piece is crafted from premium raw materials to elevate everyday, business, and black-tie ceremonial wardrobes.
+        </p>
+      </div>
+
+      <!-- Accessories Product Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        
+        <!-- 1. Belts -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/acc_belt.jpg" alt="Leather Belts" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Leather Craft</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">01</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Belts</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Full-grain genuine leather dress and casual belts with hand-stitched borders and brushed metallic buckles.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Leather%20Belts" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#01</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Wallets -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/acc_wallet.jpg" alt="Leather Wallets" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Fine Leather</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">02</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Wallets</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Handcrafted genuine leather bi-fold and cardholder wallets engineered with RFID protection and slim profiles.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Leather%20Wallets" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#02</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Ties -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/acc_necktie.jpg" alt="Silk & Microfiber Ties" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Silk &amp; Microfiber</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">03</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Ties</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Jacquard woven pure silk and microfiber neckties in classic twills, pinstripes, florals, and micro-checks.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Ties" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#03</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Bow Ties -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/acc_bow_tie.jpg" alt="Formal Bow Ties" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Ceremonial</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">04</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Bow Ties</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Pre-tied and self-tie formal silk and satin bow ties designed for black-tie galas and wedding tuxedos.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Bow%20Ties" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#04</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Caps -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/acc_cap.jpg" alt="Caps & Headwear" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Headwear</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">05</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Caps</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Premium washed cotton twill baseball caps, structured snapbacks, and classic wool driving flat caps.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Caps" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#05</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Socks -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/acc_socks.jpg" alt="Combed Cotton Socks" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Combed Cotton</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">06</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Socks</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Mercerised combed cotton crew dress socks with seamless toe closure and stay-up ribbed cuffs.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Socks" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#06</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Handkerchiefs -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/acc_handkerchief.jpg" alt="Cotton Handkerchiefs" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Pure Cotton</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">07</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Handkerchiefs</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                100% fine high-count combed cotton handkerchiefs with satin borders, rolled hems, and absorbent softness.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Handkerchiefs" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#07</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Cufflinks -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/acc_cufflinks.jpg" alt="Formal Cufflinks" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Sartorial Brass</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">08</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Cufflinks</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Precision-crafted rhodium and gold-plated brass cufflinks with mother-of-pearl and onyx stone inlays.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Cufflinks" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#08</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bulk Accessories Order Banner -->
+      <div class="mt-16 bg-white border border-stone-200 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 garment-sharp shadow-sm">
+        <div class="max-w-xl">
+          <span class="text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-gold block mb-2">
+            CORPORATE GIFTING &amp; RETAIL STOCKS
+          </span>
+          <h3 class="font-heading text-2xl font-extrabold text-navy">
+            Custom Accessory Boxes &amp; Corporate Gifting
+          </h3>
+          <p class="font-sans text-xs sm:text-sm text-stone-600 font-normal leading-relaxed mt-2">
+            Order bespoke accessory gift sets (tie, cufflinks, pocket square, wallet &amp; belt bundles) for executive events and retail distribution.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto shrink-0">
+          <a href="enquiry-garments.html?subject=Bulk%20Accessories%20Enquiry" class="btn-premium-gold text-center text-xs px-8 py-3.5 tracking-widest font-heading font-bold uppercase">
+            Enquire Accessories
+          </a>
+          <a href="https://wa.me/917304733333?text=Hi%2C%20I%20am%20interested%20in%20Bora%20Group%20Accessories" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border border-stone-300 hover:border-navy text-navy text-xs px-6 py-3.5 tracking-widest font-heading font-bold uppercase transition-colors">
+            <i class="fa-brands fa-whatsapp text-green-600 text-sm"></i>
+            <span>WhatsApp Us</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DOCKING FOOTER -->
+  <footer class="footer-glassmorphism pt-20 pb-10 border-t border-gray-200 relative overflow-hidden bg-dark text-white">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(27,70,213,0.05)_0%,transparent_50%)]"></div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div>
+          <span class="font-heading font-extrabold text-xl tracking-widest text-white block mb-6">
+            BORA <span class="text-gold">GROUP</span>
+          </span>
+          <p class="text-xs text-white/50 leading-relaxed font-light mb-6">
+            Diversified business group delivering consistent value, disciplined execution, and long-term relationships across multiple industries since 1947.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Quick Links</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li><a href="index.html" class="hover:text-gold transition-colors duration-300">Home Page</a></li>
+            <li><a href="garments.html" class="hover:text-gold transition-colors duration-300">Garments &amp; Textiles</a></li>
+            <li><a href="accessories.html" class="text-gold transition-colors duration-300">Accessories</a></li>
+            <li><a href="mens-wear.html" class="hover:text-gold transition-colors duration-300">Men's Wear</a></li>
+            <li><a href="womens-wear.html" class="hover:text-gold transition-colors duration-300">Women's Wear</a></li>
+            <li><a href="sarees.html" class="hover:text-gold transition-colors duration-300">Sarees Collection</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Business Verticals</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li><a href="garments.html" class="hover:text-gold transition-colors duration-300">Garments &amp; Fashion</a></li>
+            <li><a href="real-estate.html" class="hover:text-gold transition-colors duration-300">Real Estate</a></li>
+            <li><a href="overseas-trade.html" class="hover:text-gold transition-colors duration-300">Overseas Trade</a></li>
+            <li><a href="industrial-supply.html" class="hover:text-gold transition-colors duration-300">Industrial Supply</a></li>
+            <li><a href="hospitality.html" class="hover:text-gold transition-colors duration-300">Hospitality</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Connect</h4>
+          <ul class="space-y-4 text-xs text-white/60 font-light">
+            <li class="flex items-start space-x-3">
+              <i class="fa-solid fa-location-dot text-gold mt-0.5"></i>
+              <span>Kopargaon, Maharashtra, India</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa-solid fa-phone text-gold"></i>
+              <a href="tel:+917304733333" class="hover:text-gold transition-colors">+91 73047 33333</a>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa-solid fa-envelope text-gold"></i>
+              <a href="mailto:sales@boragroup.co.in" class="hover:text-gold transition-colors">sales@boragroup.co.in</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-white/30">
+        <div>&copy; 2026 BORA GROUP. ALL RIGHTS RESERVED.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/917304733333" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <div class="pulse"></div>
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
