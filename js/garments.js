@@ -49,4 +49,22 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `).join('');
   }
+
+  // =========================================================================
+  // BRAND LOGOS HORIZONTAL BAR (Left to Right Continuous Loop)
+  // =========================================================================
+  const brandTrack = document.getElementById('brand-marquee-track');
+  if (brandTrack && GARMENTS_DATA.brandLogos) {
+    const logos = GARMENTS_DATA.brandLogos;
+    // Repeat set 4 times per half so each half is ~4400px wide, ensuring 100% continuous coverage on any display
+    const singleBatch = [...logos, ...logos, ...logos, ...logos];
+    const doubleBatch = [...singleBatch, ...singleBatch];
+
+    brandTrack.innerHTML = doubleBatch.map(b => `
+      <div class="brand-logo-item" title="${b.name}">
+        <img src="${b.logo}" alt="${b.alt}" class="brand-logo-img" loading="eager">
+      </div>
+    `).join('');
+  }
 });
+

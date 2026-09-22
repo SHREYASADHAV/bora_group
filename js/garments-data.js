@@ -540,6 +540,15 @@ const GARMENTS_DATA = {
     ]
   },
 
+  // Featured Mill & Brand Partner Logos for Horizontal Loop
+  brandLogos: [
+    { name: "DIGJAM", logo: "images/brands/digjam.png", alt: "DIGJAM Suiting" },
+    { name: "Siyaram's", logo: "images/brands/siyarams.png", alt: "Siyaram's" },
+    { name: "Raymond", logo: "images/brands/raymond.png", alt: "Raymond Fine Fabrics" },
+    { name: "OCM", logo: "images/brands/ocm.png", alt: "OCM Woollens" },
+    { name: "ONLY VIMAL", logo: "images/brands/vimal.png", alt: "Only Vimal" }
+  ],
+
   // Section 11: Brand Strip Marquee (All 22 listed brands)
   marqueeBrands: [
     "Raymond",
