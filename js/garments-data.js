@@ -35,9 +35,11 @@ const GARMENTS_DATA = {
       id: "sarees",
       title: "Sarees",
       description: "Traditional Indian craftsmanship with timeless weaves and ceremonial grace.",
-      anchor: "#sarees-section",
+      anchor: "sarees.html",
       image: "images/garment_sarees.jpg",
-      tag: "Heritage Weaves"
+      tag: "Heritage Weaves",
+      target: "_blank",
+      actionText: "Explore Sarees"
     },
     {
       id: "shirting",

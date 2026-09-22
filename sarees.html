@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarees Collection | Bora Group Garments &amp; Textiles</title>
+  <meta name="description" content="Explore Bora Group's exclusive Sarees collection featuring Laxmipati, Rajtext, Vipul Fashion, Triveni, Ruchi, Vinay Fashion, and Padmavati Textile. Authentic drapes and weaves.">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              DEFAULT: '#C5A880',
+              hover: '#D4AF37',
+            },
+            navy: '#053C8F',
+            dark: '#05050A',
+            light: '#F6F9FD',
+            textile: {
+              cream: '#FAF8F5',
+              sand: '#F3EFE9',
+              charcoal: '#18181B',
+              stone: '#71717A'
+            }
+          },
+          fontFamily: {
+            sans: ['Flexo Soft', 'Poppins', 'sans-serif'],
+            heading: ['Buckin', 'Montserrat', 'sans-serif'],
+            serif: ['Buckin', 'Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Styles & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/garments.css?v=4.1">
+</head>
+<body class="bg-[#FAF8F5] text-stone-800 selection:bg-gold selection:text-white antialiased overflow-x-hidden">
+
+  <!-- Scroll Progress -->
+  <div id="scroll-indicator" class="fixed top-0 left-0 h-1 bg-gold z-[100] transition-all duration-75" style="width: 0%;"></div>
+
+  <!-- STICKY NAVBAR -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-transparent">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center group">
+        <img id="navbar-logo" src="images/logo_new.png" alt="BORA GROUP" class="transition-all duration-300 group-hover:scale-105">
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center space-x-8 font-heading text-xs font-semibold uppercase tracking-widest">
+        <a href="index.html" class="text-white/80 hover:text-white transition-colors duration-300" data-i18n="nav_home">Home</a>
+        
+        <!-- About Dropdown -->
+        <div class="relative group py-2">
+          <a href="about.html" class="text-white/80 hover:text-white transition-colors duration-300 flex items-center space-x-1.5">
+            <span data-i18n="nav_about">About</span>
+            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-xl p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+            <a href="about/leadership" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_leadership">Our Leadership</a>
+            <a href="history.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_history">Our History</a>
+            <a href="about.html#vision-mission" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_vision">Vision &amp; Mission</a>
+            <a href="about.html#overview" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_overview">Company Overview</a>
+            <a href="about.html#reviews" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_testimonials">Testimonials</a>
+            <a href="gallery.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_gallery">Photo Gallery</a>
+          </div>
+        </div>
+
+        <!-- Business Dropdown -->
+        <div class="relative group py-2">
+          <a href="business.html" class="text-gold transition-colors duration-300 flex items-center space-x-1.5">
+            <span data-i18n="nav_business">Business</span>
+            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] lg:w-[560px] rounded-xl p-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex flex-col space-y-1.5">
+                <a href="overseas-trade.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title" data-i18n="nav_overseas">Overseas Trade</span>
+                  <span class="dropdown-subtitle">Global Import &amp; Export</span>
+                </a>
+                <a href="real-estate.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title" data-i18n="nav_realestate">Real Estate</span>
+                  <span class="dropdown-subtitle">Bora Realty</span>
+                </a>
+                <a href="garments.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title" data-i18n="nav_garments">Garments &amp; Fashion</span>
+                  <span class="dropdown-subtitle">Bora Collection, Bora Fashion</span>
+                </a>
+              </div>
+              <div class="flex flex-col space-y-1.5">
+                <a href="industrial-supply.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title" data-i18n="nav_industrial">Industrial Supply</span>
+                  <span class="dropdown-subtitle">Industrial Solutions</span>
+                </a>
+                <a href="hospitality.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title" data-i18n="nav_hospitality">Hospitality</span>
+                  <span class="dropdown-subtitle">Hotels</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="contact.html" class="text-white/80 hover:text-white transition-colors duration-300" data-i18n="nav_contact">Contact</a>
+      </nav>
+
+      <!-- Desktop Contact CTA -->
+      <div class="hidden lg:flex">
+        <a href="contact.html" class="btn-premium-gold text-[10px] px-6 py-2.5" data-i18n="nav_get_in_touch">Get In Touch</a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-white hover:text-gold transition-colors focus:outline-none" aria-label="Toggle Mobile Menu">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 pt-28">
+    <div class="flex flex-col space-y-6 font-heading text-lg font-semibold uppercase tracking-widest">
+      <a href="index.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors" data-i18n="nav_home">Home</a>
+      
+      <!-- Mobile About Accordion -->
+      <div class="border-b border-white/5 pb-3">
+        <button class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none">
+          <span data-i18n="nav_about">About</span>
+          <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+        </button>
+        <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 space-y-3 mt-0">
+          <a href="history.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider mt-3" data-i18n="nav_history">Our History</a>
+          <a href="about.html#vision-mission" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_vision">Vision &amp; Mission</a>
+          <a href="about.html#overview" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_overview">Company Overview</a>
+          <a href="about.html#reviews" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_testimonials">Testimonials</a>
+          <a href="gallery.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_gallery">Photo Gallery</a>
+        </div>
+      </div>
+
+      <!-- Mobile Business Accordion -->
+      <div class="border-b border-white/5 pb-3">
+        <button class="mobile-dropdown-btn w-full flex justify-between items-center text-gold transition-colors focus:outline-none">
+          <span data-i18n="nav_business">Business</span>
+          <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+        </button>
+        <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 flex flex-col space-y-3 mt-3 text-sm font-normal tracking-wider text-white/60">
+          <a href="overseas-trade.html" class="hover:text-gold transition-colors block py-1">
+            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_overseas">Overseas Trade</span>
+            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Global Import &amp; Export</span>
+          </a>
+          <a href="real-estate.html" class="hover:text-gold transition-colors block py-1">
+            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_realestate">Real Estate</span>
+            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Bora Realty</span>
+          </a>
+          <a href="garments.html" class="hover:text-gold transition-colors block py-1">
+            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_garments">Garments &amp; Fashion</span>
+            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Bora Collection, Bora Fashion</span>
+          </a>
+          <a href="industrial-supply.html" class="hover:text-gold transition-colors block py-1">
+            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_industrial">Industrial Supply</span>
+            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Industrial Solutions</span>
+          </a>
+          <a href="hospitality.html" class="hover:text-gold transition-colors block py-1">
+            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_hospitality">Hospitality</span>
+            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Hotels</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="contact.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors" data-i18n="nav_contact">Contact</a>
+    </div>
+    
+    <div class="flex flex-col space-y-6">
+      <a href="contact.html" class="btn-premium-gold text-center text-xs" data-i18n="nav_request_consulting">Request Consulting</a>
+      <div class="text-center text-[10px] uppercase tracking-widest text-white/40">
+        &copy; 2026 BORA GROUP
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-[460px] lg:min-h-[500px] flex items-center justify-center bg-dark overflow-hidden pt-28 pb-16">
+    <div class="absolute inset-0 z-0">
+      <img src="images/garment_sarees.jpg" alt="Bora Group Sarees Collection" class="w-full h-full object-cover brightness-[0.28]">
+      <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-dark/40 pointer-events-none"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center mt-4">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center justify-center space-x-2 text-[11px] font-heading font-medium tracking-widest uppercase text-stone-400 mb-4">
+        <a href="index.html" class="hover:text-gold transition-colors">Home</a>
+        <span>/</span>
+        <a href="garments.html" class="hover:text-gold transition-colors">Garments &amp; Fashion</a>
+        <span>/</span>
+        <span class="text-gold">Sarees Collection</span>
+      </nav>
+
+      <span class="text-xs font-heading font-semibold tracking-[0.25em] text-gold uppercase mb-3 inline-block">
+        BORA GROUP &bull; APPAREL &amp; TEXTILES
+      </span>
+      <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+        Sarees Collection
+      </h1>
+      <div class="w-16 h-0.5 bg-gold mx-auto mt-4"></div>
+      <p class="font-sans text-sm sm:text-base text-stone-300 max-w-2xl mx-auto leading-relaxed mt-4 font-light">
+        Discover heritage drapes, celebration weaves, and authentic designer creations curated from India's most celebrated saree houses.
+      </p>
+
+      <div class="mt-7 flex items-center justify-center gap-4">
+        <a href="garments.html" class="inline-flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-widest text-white/80 hover:text-gold border border-white/20 hover:border-gold px-5 py-2.5 transition-all duration-300">
+          <span>&larr; Back to Garments</span>
+        </a>
+        <a href="#sarees-grid" class="inline-flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-widest bg-gold hover:bg-gold-hover text-white px-5 py-2.5 transition-all duration-300">
+          <span>Explore Brands</span>
+          <span>&darr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SAREES BRAND GRID SECTION -->
+  <section id="sarees-grid" class="py-20 lg:py-24 bg-[#FAF8F5] relative border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="max-w-2xl mb-12 sm:mb-16">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 bg-gold inline-block"></span>
+          <span class="text-xs font-heading font-bold uppercase tracking-[0.22em] text-navy">
+            Curated Saree Houses
+          </span>
+        </div>
+        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">
+          Featured Brand Catalogues
+        </h2>
+        <p class="font-sans text-sm text-stone-600 font-normal leading-relaxed mt-3">
+          Each piece reflects master craftsmanship, authentic materials, and contemporary design elegance from renowned manufacturers.
+        </p>
+      </div>
+
+      <!-- 7 Saree Brand Cards in Same Box Shape -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        
+        <!-- CARD 1: Laxmipati Saree -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/saree_laxmipati.jpg" alt="Laxmipati Madhubala Chiffon Saree" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">
+                Laxmipati Saree
+              </span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">01</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">
+                Laxmipati Madhubala Chiffon Saree
+              </h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Elegantly designed pure georgette chiffon saree featuring delicate floral prints, refined zari lace border, and lightweight celebratory drape.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Laxmipati%20Madhubala%20Chiffon%20Saree" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Saree</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#01</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: Rajtext -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/saree_rajtext.jpg" alt="Rajtex Kashmiri Silk Handloom Saree" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">
+                Rajtext
+              </span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">02</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">
+                Rajtex Kashmiri Silk Handloom Saree
+              </h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Authentic Kashmiri weaving craftsmanship on pure lustrous silk with opulent pallu detailing, rich gold borders, and heritage ethnic appeal.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Rajtex%20Kashmiri%20Silk%20Handloom%20Saree" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Saree</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#02</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: Vipul Fashion -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/saree_vipul.jpg" alt="Vipul Rutvaa Digital Printed Silk Saree" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">
+                Vipul Fashion
+              </span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">03</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">
+                Vipul Rutvaa Digital Printed Silk Saree
+              </h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Artistic contemporary digital prints on premium soft silk fabric, tailored with refined finish, modern color palettes, and graceful fall.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Vipul%20Rutvaa%20Digital%20Printed%20Silk%20Saree" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Saree</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#03</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 4: Triveni Saree -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/saree_triveni.jpg" alt="Triveni Crimson Red Embroidered Saree" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">
+                Triveni Saree
+              </span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">04</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">
+                Triveni Crimson Red Embroidered Saree
+              </h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Opulent ceremonial red designer saree adorned with peacock zari motifs, heavy embroidered cutwork border, and bridal richness.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Triveni%20Crimson%20Red%20Embroidered%20Saree" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Saree</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#04</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5: Ruchi Saree -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/saree_ruchi.jpg" alt="Ruchi Vedanta Silk Printed Crepe Saree" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">
+                Ruchi Saree
+              </span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">05</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">
+                Ruchi Vedanta Silk Printed Crepe Saree
+              </h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Vibrant geometric and botanical designer prints on wrinkle-resistant heavy crepe silk, paired with sleek foil border highlights.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Ruchi%20Vedanta%20Silk%20Printed%20Crepe%20Saree" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Saree</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#05</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 6: Vinay Fashion -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/saree_vinay.jpg" alt="Vinay Sheesha Heritage Silk Saree" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">
+                Vinay Fashion
+              </span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">06</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">
+                Vinay Sheesha Heritage Silk Saree
+              </h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Royal Banarasi woven jacquard silk saree in jewel tones with intricate kadwa floral zari motifs, regal contrast border and designer blouse.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Vinay%20Sheesha%20Heritage%20Silk%20Saree" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Saree</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#06</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 7: Padmavati Textile -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/saree_padmavati.jpg" alt="Padmavati Silk Zari Weaving Saree" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">
+                Padmavati Textile
+              </span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">07</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">
+                Padmavati Silk Zari Weaving Saree
+              </h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Traditional South-Indian inspired rich zari border weave on pure blended silk, crafted for grand festivities, weddings, and traditional ceremonies.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Padmavati%20Silk%20Zari%20Weaving%20Saree" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Saree</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#07</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- WHOLESALE & CUSTOM ENQUIRY CALLOUT -->
+      <div class="mt-16 bg-white border border-stone-200 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 garment-sharp shadow-sm">
+        <div class="max-w-xl">
+          <span class="text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-gold block mb-2">
+            BULK &amp; BRIDAL ENQUIRIES
+          </span>
+          <h3 class="font-heading text-2xl font-extrabold text-navy">
+            Looking for Complete Brand Catalogues or Custom Volume Orders?
+          </h3>
+          <p class="font-sans text-xs sm:text-sm text-stone-600 font-normal leading-relaxed mt-2">
+            Connect directly with Bora Group's garment and textile division for comprehensive lookbooks, wholesale rate cards, and customized ceremonial procurement.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto shrink-0">
+          <a href="enquiry-garments.html?subject=Wholesale%20Sarees%20Enquiry" class="btn-premium-gold text-center text-xs px-8 py-3.5 tracking-widest font-heading font-bold uppercase">
+            Enquire All Sarees
+          </a>
+          <a href="https://wa.me/917304733333?text=Hi%2C%20I%20am%20interested%20in%20Bora%20Group%20Sarees%20Collection" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border border-stone-300 hover:border-navy text-navy text-xs px-6 py-3.5 tracking-widest font-heading font-bold uppercase transition-colors">
+            <i class="fa-brands fa-whatsapp text-green-600 text-sm"></i>
+            <span>WhatsApp Us</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DOCKING FOOTER -->
+  <footer class="footer-glassmorphism pt-20 pb-10 border-t border-gray-200 relative overflow-hidden bg-dark text-white">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(27,70,213,0.05)_0%,transparent_50%)]"></div>
+    
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        
+        <!-- About column -->
+        <div>
+          <span class="font-heading font-extrabold text-xl tracking-widest text-white block mb-6">
+            BORA <span class="text-gold">GROUP</span>
+          </span>
+          <p class="text-xs text-white/50 leading-relaxed font-light mb-6" data-i18n="footer_desc">
+            Diversified business group delivering consistent value, disciplined execution, and long-term relationships across multiple industries since 1947.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/917304733333" target="_blank" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3" data-i18n="footer_quick_links">Quick Links</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li><a href="index.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_home_page">Home Page</a></li>
+            <li><a href="about.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_company_profile">Company Profile</a></li>
+            <li><a href="business.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_business_sectors">Business Sectors</a></li>
+            <li><a href="garments.html" class="hover:text-gold transition-colors duration-300">Garments &amp; Textiles</a></li>
+            <li><a href="sarees.html" class="text-gold transition-colors duration-300">Sarees Collection</a></li>
+            <li><a href="contact.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_contact_hub">Contact Hub</a></li>
+          </ul>
+        </div>
+
+        <!-- Business Verticals -->
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3" data-i18n="footer_sectors_heading">Business Verticals</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li><a href="overseas-trade.html" class="hover:text-gold transition-colors duration-300" data-i18n="nav_overseas">Overseas Trade</a></li>
+            <li><a href="real-estate.html" class="hover:text-gold transition-colors duration-300" data-i18n="nav_realestate">Real Estate</a></li>
+            <li><a href="garments.html" class="hover:text-gold transition-colors duration-300" data-i18n="nav_garments">Garments &amp; Fashion</a></li>
+            <li><a href="industrial-supply.html" class="hover:text-gold transition-colors duration-300" data-i18n="nav_industrial">Industrial Supply</a></li>
+            <li><a href="hospitality.html" class="hover:text-gold transition-colors duration-300" data-i18n="nav_hospitality">Hospitality</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact info -->
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3" data-i18n="footer_connect">Connect</h4>
+          <ul class="space-y-4 text-xs text-white/60 font-light">
+            <li class="flex items-start space-x-3">
+              <i class="fa-solid fa-location-dot text-gold mt-0.5"></i>
+              <span data-i18n="footer_location">Kopargaon, Maharashtra, India</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa-solid fa-phone text-gold"></i>
+              <a href="tel:+917304733333" class="hover:text-gold transition-colors">+91 73047 33333</a>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa-solid fa-envelope text-gold"></i>
+              <a href="mailto:sales@boragroup.co.in" class="hover:text-gold transition-colors">sales@boragroup.co.in</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Copyright bar -->
+      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-white/30">
+        <div data-i18n="footer_copyright">
+          &copy; 2026 BORA GROUP. ALL RIGHTS RESERVED.
+        </div>
+        <div class="flex space-x-6">
+          <a href="#" class="hover:text-gold transition-colors" data-i18n="footer_privacy">PRIVACY POLICY</a>
+          <a href="#" class="hover:text-gold transition-colors" data-i18n="footer_terms">TERMS OF USE</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/917304733333" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <div class="pulse"></div>
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+  </a>
+
+  <!-- Project Scripts -->
+  <script src="js/main.js"></script>
+  <script>
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  </script>
+</body>
+</html>
