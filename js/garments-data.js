@@ -546,7 +546,12 @@ const GARMENTS_DATA = {
     { name: "Siyaram's", logo: "images/brands/siyarams.png", alt: "Siyaram's" },
     { name: "Raymond", logo: "images/brands/raymond.png", alt: "Raymond Fine Fabrics" },
     { name: "OCM", logo: "images/brands/ocm.png", alt: "OCM Woollens" },
-    { name: "ONLY VIMAL", logo: "images/brands/vimal.png", alt: "Only Vimal" }
+    { name: "ONLY VIMAL", logo: "images/brands/vimal.png", alt: "Only Vimal" },
+    { name: "Reid & Taylor", logo: "images/brands/reid_and_taylor.png", alt: "Reid & Taylor" },
+    { name: "Bombay Dyeing", logo: "images/brands/bombay_dyeing.png", alt: "Bombay Dyeing" },
+    { name: "Linen Club", logo: "images/brands/linen_club.png", alt: "Linen Club" },
+    { name: "Arvind", logo: "images/brands/arvind.png", alt: "Arvind" },
+    { name: "Grasim", logo: "images/brands/grasim.png", alt: "Aditya Birla Grasim" }
   ],
 
   // Section 11: Brand Strip Marquee (All 22 listed brands)

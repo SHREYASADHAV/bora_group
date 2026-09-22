@@ -56,8 +56,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const brandTrack = document.getElementById('brand-marquee-track');
   if (brandTrack && GARMENTS_DATA.brandLogos) {
     const logos = GARMENTS_DATA.brandLogos;
-    // Repeat set 4 times per half so each half is ~4400px wide, ensuring 100% continuous coverage on any display
-    const singleBatch = [...logos, ...logos, ...logos, ...logos];
+    // Repeat set twice per half (20 logos per half = ~4500px), ensuring seamless loop on all displays
+    const singleBatch = [...logos, ...logos];
     const doubleBatch = [...singleBatch, ...singleBatch];
 
     brandTrack.innerHTML = doubleBatch.map(b => `
