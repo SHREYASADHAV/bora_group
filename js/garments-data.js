@@ -11,25 +11,31 @@ const GARMENTS_DATA = {
       id: "mens-wear",
       title: "Men's Wear",
       description: "Formal, casual and traditional styles tailored for every occasion.",
-      anchor: "enquiry-garments.html?subject=Men%27s%20Wear",
+      anchor: "mens-wear.html",
       image: "images/garment_mens_wear.jpg",
-      tag: "Ready-to-Wear"
+      tag: "Ready-to-Wear",
+      target: "_blank",
+      actionText: "Explore Men's Wear"
     },
     {
       id: "womens-wear",
       title: "Women's Wear",
       description: "Elegant ethnic, casual and contemporary fashion for everyday elegance.",
-      anchor: "enquiry-garments.html?subject=Women%27s%20Wear",
+      anchor: "womens-wear.html",
       image: "images/garment_womens_wear.jpg",
-      tag: "Couture & Casual"
+      tag: "Couture & Casual",
+      target: "_blank",
+      actionText: "Explore Women's Wear"
     },
     {
       id: "kids-wear",
       title: "Kids' Wear",
       description: "Comfortable and stylish clothing for every age, crafted from gentle cotton.",
-      anchor: "enquiry-garments.html?subject=Kids%27%20Wear",
+      anchor: "kids-wear.html",
       image: "images/garment_kids_wear.jpg",
-      tag: "Junior Collection"
+      tag: "Junior Collection",
+      target: "_blank",
+      actionText: "Explore Kids' Wear"
     },
     {
       id: "sarees",
@@ -45,17 +51,21 @@ const GARMENTS_DATA = {
       id: "shirting",
       title: "Shirting",
       description: "Premium fabrics for refined everyday, corporate, and bespoke shirts.",
-      anchor: "enquiry-garments.html?subject=Shirting%20Fabrics",
+      anchor: "shirting.html",
       image: "images/garment_shirting.jpg",
-      tag: "Luxury Weaves"
+      tag: "Luxury Weaves",
+      target: "_blank",
+      actionText: "Explore Shirting"
     },
     {
       id: "suiting",
       title: "Suiting",
       description: "Fine fabrics for sharp, sophisticated tailoring and executive blazers.",
-      anchor: "enquiry-garments.html?subject=Suiting%20Fabrics",
+      anchor: "suiting.html",
       image: "images/garment_suiting.jpg",
-      tag: "Master Tailoring"
+      tag: "Master Tailoring",
+      target: "_blank",
+      actionText: "Explore Suiting"
     },
     {
       id: "uniforms",

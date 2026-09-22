@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Women's Wear Collection | Bora Group Garments &amp; Textiles</title>
+  <meta name="description" content="Explore Bora Group's Women's Wear collection: Kurtis, Kurta Sets, Salwar Suits, Dress Material, Leggings, Palazzo, Pants, Tops, Shirts, T-Shirts, Jeans, Dresses, Co-ord Sets, Gowns, Lehengas, Nightwear, and Innerwear.">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              DEFAULT: '#C5A880',
+              hover: '#D4AF37',
+            },
+            navy: '#053C8F',
+            dark: '#05050A',
+            light: '#F6F9FD',
+            textile: {
+              cream: '#FAF8F5',
+              sand: '#F3EFE9',
+              charcoal: '#18181B',
+              stone: '#71717A'
+            }
+          },
+          fontFamily: {
+            sans: ['Flexo Soft', 'Poppins', 'sans-serif'],
+            heading: ['Buckin', 'Montserrat', 'sans-serif'],
+            serif: ['Buckin', 'Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/garments.css?v=4.2">
+</head>
+<body class="bg-[#FAF8F5] text-stone-800 selection:bg-gold selection:text-white antialiased overflow-x-hidden">
+
+  <div id="scroll-indicator" class="fixed top-0 left-0 h-1 bg-gold z-[100] transition-all duration-75" style="width: 0%;"></div>
+
+  <!-- STICKY NAVBAR -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-transparent">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+      <a href="index.html" class="flex items-center group">
+        <img id="navbar-logo" src="images/logo_new.png" alt="BORA GROUP" class="transition-all duration-300 group-hover:scale-105">
+      </a>
+
+      <nav class="hidden md:flex items-center space-x-8 font-heading text-xs font-semibold uppercase tracking-widest">
+        <a href="index.html" class="text-white/80 hover:text-white transition-colors duration-300">Home</a>
+        
+        <div class="relative group py-2">
+          <a href="about.html" class="text-white/80 hover:text-white transition-colors duration-300 flex items-center space-x-1.5">
+            <span>About</span>
+            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-xl p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+            <a href="about/leadership" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Our Leadership</a>
+            <a href="history.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Our History</a>
+            <a href="about.html#vision-mission" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Vision &amp; Mission</a>
+            <a href="about.html#overview" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Company Overview</a>
+            <a href="gallery.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Photo Gallery</a>
+          </div>
+        </div>
+
+        <div class="relative group py-2">
+          <a href="business.html" class="text-gold transition-colors duration-300 flex items-center space-x-1.5">
+            <span>Business</span>
+            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] lg:w-[560px] rounded-xl p-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex flex-col space-y-1.5">
+                <a href="garments.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title">Garments &amp; Fashion</span>
+                  <span class="dropdown-subtitle">Bora Collection, Bora Fashion</span>
+                </a>
+                <a href="real-estate.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title">Real Estate</span>
+                  <span class="dropdown-subtitle">Bora Realty</span>
+                </a>
+                <a href="overseas-trade.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title">Overseas Trade</span>
+                  <span class="dropdown-subtitle">Global Import &amp; Export</span>
+                </a>
+              </div>
+              <div class="flex flex-col space-y-1.5">
+                <a href="industrial-supply.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title">Industrial Supply</span>
+                  <span class="dropdown-subtitle">Industrial Solutions</span>
+                </a>
+                <a href="hospitality.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title">Hospitality</span>
+                  <span class="dropdown-subtitle">Hotels</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="contact.html" class="text-white/80 hover:text-white transition-colors duration-300">Contact</a>
+      </nav>
+
+      <div class="hidden lg:flex">
+        <a href="contact.html" class="btn-premium-gold text-[10px] px-6 py-2.5">Get In Touch</a>
+      </div>
+
+      <button id="mobile-menu-btn" class="md:hidden text-white hover:text-gold transition-colors focus:outline-none" aria-label="Toggle Mobile Menu">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 pt-28">
+    <div class="flex flex-col space-y-6 font-heading text-lg font-semibold uppercase tracking-widest">
+      <a href="index.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors">Home</a>
+      <a href="garments.html" class="text-gold border-b border-white/5 pb-3 transition-colors">Garments &amp; Fashion</a>
+      <a href="about.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors">About</a>
+      <a href="contact.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors">Contact</a>
+    </div>
+    <div class="flex flex-col space-y-6">
+      <a href="contact.html" class="btn-premium-gold text-center text-xs">Request Consulting</a>
+      <div class="text-center text-[10px] uppercase tracking-widest text-white/40">
+        &copy; 2026 BORA GROUP
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-[460px] lg:min-h-[500px] flex items-center justify-center bg-dark overflow-hidden pt-28 pb-16">
+    <div class="absolute inset-0 z-0">
+      <img src="images/garment_womens_wear.jpg" alt="Bora Group Women's Wear" class="w-full h-full object-cover brightness-[0.28]">
+      <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-dark/40 pointer-events-none"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center mt-4">
+      <nav class="flex items-center justify-center space-x-2 text-[11px] font-heading font-medium tracking-widest uppercase text-stone-400 mb-4">
+        <a href="index.html" class="hover:text-gold transition-colors">Home</a>
+        <span>/</span>
+        <a href="garments.html" class="hover:text-gold transition-colors">Garments &amp; Fashion</a>
+        <span>/</span>
+        <span class="text-gold">Women's Wear</span>
+      </nav>
+
+      <span class="text-xs font-heading font-semibold tracking-[0.25em] text-gold uppercase mb-3 inline-block">
+        BORA GROUP &bull; COUTURE &amp; READY-TO-WEAR
+      </span>
+      <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+        Women's Wear Collection
+      </h1>
+      <div class="w-16 h-0.5 bg-gold mx-auto mt-4"></div>
+      <p class="font-sans text-sm sm:text-base text-stone-300 max-w-2xl mx-auto leading-relaxed mt-4 font-light">
+        A symphony of ethnic grace, contemporary silhouettes, and celebratory artistry spanning casual chic to bridal grandeur.
+      </p>
+
+      <div class="mt-7 flex items-center justify-center gap-4">
+        <a href="garments.html" class="inline-flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-widest text-white/80 hover:text-gold border border-white/20 hover:border-gold px-5 py-2.5 transition-all duration-300">
+          <span>&larr; Back to Garments</span>
+        </a>
+        <a href="#womens-grid" class="inline-flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-widest bg-gold hover:bg-gold-hover text-white px-5 py-2.5 transition-all duration-300">
+          <span>View Catalogue</span>
+          <span>&darr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WOMEN'S PRODUCTS GRID SECTION -->
+  <section id="womens-grid" class="py-20 lg:py-24 bg-[#FAF8F5] relative border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <div class="max-w-2xl mb-12 sm:mb-16">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 bg-gold inline-block"></span>
+          <span class="text-xs font-heading font-bold uppercase tracking-[0.22em] text-navy">
+            Curated Wardrobe Index
+          </span>
+        </div>
+        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">
+          Women's Fashion Categories
+        </h2>
+        <p class="font-sans text-sm text-stone-600 font-normal leading-relaxed mt-3">
+          From unstitched luxury dress materials and festive lehengas to everyday fusion kurtis, tailored pants, and loungewear.
+        </p>
+      </div>
+
+      <!-- 17 Women's Product Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        
+        <!-- 1. Kurtis -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/women_kurti.jpg" alt="Women's Kurtis" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Ethnic</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">01</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Kurtis</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Straight cuts, Anarkalis, and A-line silhouettes in breathable pure cottons, georgettes, and artisanal prints.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Women%27s%20Kurtis" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#01</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Kurta Sets -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/women_kurta_set.jpg" alt="Women's Kurta Sets" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Ensemble</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">02</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Kurta Sets</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Harmoniously coordinated three-piece ensembles complete with designer dupattas and tailored comfort bottoms.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Women%27s%20Kurta%20Sets" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#02</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Salwar Suits -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/women_salwar_suit.jpg" alt="Salwar Suits" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Traditional</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">03</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Salwar Suits</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Punjabi, Patiala, and straight-cut suits in silk, Chanderi, and organza embellished with intricate resham and gota patti.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Salwar%20Suits" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#03</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Dress Material -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/women_dress_material.jpg" alt="Unstitched Dress Material" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Unstitched</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">04</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Dress Material</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Premium unstitched 3-piece suit cuts in Jamdani, pure modal, silk, and cotton with designer embroidered dupattas.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Dress%20Material" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#04</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Leggings -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/women_leggings.jpg" alt="Women's Leggings" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Comfort Stretch</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">05</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Leggings</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Four-way stretch bio-polished combed cotton ankle and churidar leggings available in 60+ vibrant colors.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Women%27s%20Leggings" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#05</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Palazzo -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/women_palazzo.jpg" alt="Women's Palazzo" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Flared</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">06</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Palazzo</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Breezy wide-leg fluid palazzos in heavy rayon, cotton slub, and printed georgette with elasticated waistbands.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Women%27s%20Palazzo" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#06</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Pant -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/women_pants.jpg" alt="Women's Cigarette Pants" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Tailored</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">07</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Pant</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Smart cigarette pants, straight office trousers, and cropped ankle pants tailored for executive polish.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Women%27s%20Pants" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#07</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Tops -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/women_top.jpg" alt="Women's Tops" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Contemporary</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">08</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Tops</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Peplum, ruffled, and minimalist tunic tops crafted in soft crepes, georgettes, and breathable linens.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Women%27s%20Tops" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#08</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Shirts -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/women_shirt.jpg" alt="Women's Shirts" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Formals</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">09</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Shirts</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Tailored formal poplin button-downs and oversized satin shirts designed for boardroom sophistication.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Women%27s%20Shirts" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#09</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10. T-Shirts -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/women_tshirt.jpg" alt="Women's T-Shirts" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Casual Basic</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">10</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">T-Shirts</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Bio-washed combed cotton round-neck, scoop, and relaxed drop-shoulder tees with anti-pilling longevity.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Women%27s%20T-Shirts" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#10</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 11. Jeans -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/women_jeans.jpg" alt="Women's Jeans" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Denim</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">11</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Jeans</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                High-rise skinny, flare, wide-leg, and straight mom fit denims woven with shape-sculpting elastane.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Women%27s%20Jeans" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#11</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 12. Dresses -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/women_dress.jpg" alt="Women's Dresses" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Fusion</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">12</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Dresses</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Tiered maxis, fit-and-flare midi silhouettes, and Indo-western shirt dresses in floral georgette and cotton.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Women%27s%20Dresses" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#12</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 13. Co-ord Sets -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/women_coord_set.jpg" alt="Co-ord Sets" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Modern Chic</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">13</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Co-ord Sets</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Monochromatic and printed two-piece blazer, shirt, and trouser coordinates designed for effortless styling.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Co-ord%20Sets" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#13</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 14. Gown -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/women_gown.jpg" alt="Evening Gowns" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Couture</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">14</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Gown</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Floor-length reception and red-carpet gowns featuring structured corsetry, draped satin, and sequin craftsmanship.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Women%27s%20Gowns" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#14</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 15. Lehenga -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/women_lehenga.jpg" alt="Bridal & Festive Lehengas" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Bridal</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">15</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Lehenga</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Regal bridal and sangeet lehengas with authentic zardozi, mirror work, raw silk can-can flares, and designer cholis.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Lehengas" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#15</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 16. Nightwear -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/women_nightwear.jpg" alt="Women's Nightwear" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Sleepwear</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">16</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Nightwear</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Pure cotton nighties, kaftans, and satin sleep sets combining plush handfeel with breathable bedtime comfort.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Women%27s%20Nightwear" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#16</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 17. Innerwear -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/products/women_innerwear.jpg" alt="Women's Innerwear" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Essentials</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">17</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Innerwear</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Seamless wirefree bras, everyday cotton intimates, slips, and shapewear engineered for invisible under-outfit support.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Women%27s%20Innerwear" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Product</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#17</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bulk & Boutique Order Banner -->
+      <div class="mt-16 bg-white border border-stone-200 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 garment-sharp shadow-sm">
+        <div class="max-w-xl">
+          <span class="text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-gold block mb-2">
+            BOUTIQUE &amp; WHOLESALE SUPPLY
+          </span>
+          <h3 class="font-heading text-2xl font-extrabold text-navy">
+            Bridal Trousseau &amp; Boutique Orders
+          </h3>
+          <p class="font-sans text-xs sm:text-sm text-stone-600 font-normal leading-relaxed mt-2">
+            Curate bespoke designer collections, festive bulk ensembles, and premium ready-to-ship stock with Bora Group.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto shrink-0">
+          <a href="enquiry-garments.html?subject=Bulk%20Women%27s%20Wear%20Enquiry" class="btn-premium-gold text-center text-xs px-8 py-3.5 tracking-widest font-heading font-bold uppercase">
+            Enquire Women's Wear
+          </a>
+          <a href="https://wa.me/917304733333?text=Hi%2C%20I%20am%20interested%20in%20Bora%20Group%20Women's%20Wear" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border border-stone-300 hover:border-navy text-navy text-xs px-6 py-3.5 tracking-widest font-heading font-bold uppercase transition-colors">
+            <i class="fa-brands fa-whatsapp text-green-600 text-sm"></i>
+            <span>WhatsApp Us</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DOCKING FOOTER -->
+  <footer class="footer-glassmorphism pt-20 pb-10 border-t border-gray-200 relative overflow-hidden bg-dark text-white">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(27,70,213,0.05)_0%,transparent_50%)]"></div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div>
+          <span class="font-heading font-extrabold text-xl tracking-widest text-white block mb-6">
+            BORA <span class="text-gold">GROUP</span>
+          </span>
+          <p class="text-xs text-white/50 leading-relaxed font-light mb-6">
+            Diversified business group delivering consistent value, disciplined execution, and long-term relationships across multiple industries since 1947.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Quick Links</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li><a href="index.html" class="hover:text-gold transition-colors duration-300">Home Page</a></li>
+            <li><a href="garments.html" class="hover:text-gold transition-colors duration-300">Garments &amp; Textiles</a></li>
+            <li><a href="womens-wear.html" class="text-gold transition-colors duration-300">Women's Wear</a></li>
+            <li><a href="mens-wear.html" class="hover:text-gold transition-colors duration-300">Men's Wear</a></li>
+            <li><a href="kids-wear.html" class="hover:text-gold transition-colors duration-300">Kids' Wear</a></li>
+            <li><a href="sarees.html" class="hover:text-gold transition-colors duration-300">Sarees Collection</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Business Verticals</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li><a href="garments.html" class="hover:text-gold transition-colors duration-300">Garments &amp; Fashion</a></li>
+            <li><a href="real-estate.html" class="hover:text-gold transition-colors duration-300">Real Estate</a></li>
+            <li><a href="overseas-trade.html" class="hover:text-gold transition-colors duration-300">Overseas Trade</a></li>
+            <li><a href="industrial-supply.html" class="hover:text-gold transition-colors duration-300">Industrial Supply</a></li>
+            <li><a href="hospitality.html" class="hover:text-gold transition-colors duration-300">Hospitality</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Connect</h4>
+          <ul class="space-y-4 text-xs text-white/60 font-light">
+            <li class="flex items-start space-x-3">
+              <i class="fa-solid fa-location-dot text-gold mt-0.5"></i>
+              <span>Kopargaon, Maharashtra, India</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa-solid fa-phone text-gold"></i>
+              <a href="tel:+917304733333" class="hover:text-gold transition-colors">+91 73047 33333</a>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa-solid fa-envelope text-gold"></i>
+              <a href="mailto:sales@boragroup.co.in" class="hover:text-gold transition-colors">sales@boragroup.co.in</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-white/30">
+        <div>&copy; 2026 BORA GROUP. ALL RIGHTS RESERVED.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/917304733333" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <div class="pulse"></div>
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

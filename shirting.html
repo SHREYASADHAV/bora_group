@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shirting Fabrics &amp; Designs | Bora Group Garments &amp; Textiles</title>
+  <meta name="description" content="Explore Bora Group's premium shirting collection: pure cottons, Giza, Egyptian cotton, pure linen, poplin, oxford, lycra, plus checks, stripes, and designer weaves.">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              DEFAULT: '#C5A880',
+              hover: '#D4AF37',
+            },
+            navy: '#053C8F',
+            dark: '#05050A',
+            light: '#F6F9FD',
+            textile: {
+              cream: '#FAF8F5',
+              sand: '#F3EFE9',
+              charcoal: '#18181B',
+              stone: '#71717A'
+            }
+          },
+          fontFamily: {
+            sans: ['Flexo Soft', 'Poppins', 'sans-serif'],
+            heading: ['Buckin', 'Montserrat', 'sans-serif'],
+            serif: ['Buckin', 'Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Styles & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/garments.css?v=4.2">
+</head>
+<body class="bg-[#FAF8F5] text-stone-800 selection:bg-gold selection:text-white antialiased overflow-x-hidden">
+
+  <!-- Scroll Progress -->
+  <div id="scroll-indicator" class="fixed top-0 left-0 h-1 bg-gold z-[100] transition-all duration-75" style="width: 0%;"></div>
+
+  <!-- STICKY NAVBAR -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-transparent">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
+      <a href="index.html" class="flex items-center group">
+        <img id="navbar-logo" src="images/logo_new.png" alt="BORA GROUP" class="transition-all duration-300 group-hover:scale-105">
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center space-x-8 font-heading text-xs font-semibold uppercase tracking-widest">
+        <a href="index.html" class="text-white/80 hover:text-white transition-colors duration-300">Home</a>
+        
+        <div class="relative group py-2">
+          <a href="about.html" class="text-white/80 hover:text-white transition-colors duration-300 flex items-center space-x-1.5">
+            <span>About</span>
+            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-xl p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+            <a href="about/leadership" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Our Leadership</a>
+            <a href="history.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Our History</a>
+            <a href="about.html#vision-mission" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Vision &amp; Mission</a>
+            <a href="about.html#overview" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Company Overview</a>
+            <a href="gallery.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200">Photo Gallery</a>
+          </div>
+        </div>
+
+        <div class="relative group py-2">
+          <a href="business.html" class="text-gold transition-colors duration-300 flex items-center space-x-1.5">
+            <span>Business</span>
+            <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
+          </a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] lg:w-[560px] rounded-xl p-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex flex-col space-y-1.5">
+                <a href="garments.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title">Garments &amp; Fashion</span>
+                  <span class="dropdown-subtitle">Bora Collection, Bora Fashion</span>
+                </a>
+                <a href="real-estate.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title">Real Estate</span>
+                  <span class="dropdown-subtitle">Bora Realty</span>
+                </a>
+                <a href="overseas-trade.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title">Overseas Trade</span>
+                  <span class="dropdown-subtitle">Global Import &amp; Export</span>
+                </a>
+              </div>
+              <div class="flex flex-col space-y-1.5">
+                <a href="industrial-supply.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title">Industrial Supply</span>
+                  <span class="dropdown-subtitle">Industrial Solutions</span>
+                </a>
+                <a href="hospitality.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200">
+                  <span class="dropdown-title">Hospitality</span>
+                  <span class="dropdown-subtitle">Hotels</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="contact.html" class="text-white/80 hover:text-white transition-colors duration-300">Contact</a>
+      </nav>
+
+      <div class="hidden lg:flex">
+        <a href="contact.html" class="btn-premium-gold text-[10px] px-6 py-2.5">Get In Touch</a>
+      </div>
+
+      <button id="mobile-menu-btn" class="md:hidden text-white hover:text-gold transition-colors focus:outline-none" aria-label="Toggle Mobile Menu">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 pt-28">
+    <div class="flex flex-col space-y-6 font-heading text-lg font-semibold uppercase tracking-widest">
+      <a href="index.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors">Home</a>
+      <a href="garments.html" class="text-gold border-b border-white/5 pb-3 transition-colors">Garments &amp; Fashion</a>
+      <a href="about.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors">About</a>
+      <a href="contact.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors">Contact</a>
+    </div>
+    <div class="flex flex-col space-y-6">
+      <a href="contact.html" class="btn-premium-gold text-center text-xs">Request Consulting</a>
+      <div class="text-center text-[10px] uppercase tracking-widest text-white/40">
+        &copy; 2026 BORA GROUP
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-[460px] lg:min-h-[500px] flex items-center justify-center bg-dark overflow-hidden pt-28 pb-16">
+    <div class="absolute inset-0 z-0">
+      <img src="images/garment_shirting.jpg" alt="Bora Group Shirting Fabrics" class="w-full h-full object-cover brightness-[0.28]">
+      <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-dark/40 pointer-events-none"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 text-center mt-4">
+      <nav class="flex items-center justify-center space-x-2 text-[11px] font-heading font-medium tracking-widest uppercase text-stone-400 mb-4">
+        <a href="index.html" class="hover:text-gold transition-colors">Home</a>
+        <span>/</span>
+        <a href="garments.html" class="hover:text-gold transition-colors">Garments &amp; Fashion</a>
+        <span>/</span>
+        <span class="text-gold">Shirting</span>
+      </nav>
+
+      <span class="text-xs font-heading font-semibold tracking-[0.25em] text-gold uppercase mb-3 inline-block">
+        BORA GROUP &bull; APPAREL &amp; TEXTILES
+      </span>
+      <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight">
+        Shirting Fabrics &amp; Designs
+      </h1>
+      <div class="w-16 h-0.5 bg-gold mx-auto mt-4"></div>
+      <p class="font-sans text-sm sm:text-base text-stone-300 max-w-2xl mx-auto leading-relaxed mt-4 font-light">
+        A master collection of high-count pure cottons, breathable linens, flexible stretch fibers, and precision weaves for corporate, formal, and bespoke sartorial shirts.
+      </p>
+
+      <div class="mt-7 flex items-center justify-center gap-4">
+        <a href="garments.html" class="inline-flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-widest text-white/80 hover:text-gold border border-white/20 hover:border-gold px-5 py-2.5 transition-all duration-300">
+          <span>&larr; Back to Garments</span>
+        </a>
+        <a href="#shirting-fabrics" class="inline-flex items-center gap-2 text-xs font-heading font-bold uppercase tracking-widest bg-gold hover:bg-gold-hover text-white px-5 py-2.5 transition-all duration-300">
+          <span>Explore Fabrics</span>
+          <span>&darr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PART 1: SHIRTING FABRICS -->
+  <section id="shirting-fabrics" class="py-20 lg:py-24 bg-[#FAF8F5] relative border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <div class="max-w-2xl mb-12 sm:mb-16">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 bg-gold inline-block"></span>
+          <span class="text-xs font-heading font-bold uppercase tracking-[0.22em] text-navy">
+            Raw Fibers &amp; Material Base
+          </span>
+        </div>
+        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">
+          Shirting Fabric Qualities
+        </h2>
+        <p class="font-sans text-sm text-stone-600 font-normal leading-relaxed mt-3">
+          Woven from extra-long staple yarn, pure flax, and performance yarns ensuring exceptional skin comfort and color longevity.
+        </p>
+      </div>
+
+      <!-- 8 Fabric Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        
+        <!-- 1. Cotton -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/fabrics/fabric_cotton.jpg" alt="Cotton Shirting Fabric" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Fabric</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">01</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Cotton</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Pure natural combed cotton engineered for all-day breathability, softness, and everyday formal reliability.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Cotton%20Shirting%20Fabric" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Fabric</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#01</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Giza Cotton -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/fabrics/fabric_giza_cotton.jpg" alt="Giza Cotton Shirting Fabric" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Fabric</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">02</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Giza Cotton</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Extra-long staple Egyptian Giza seeds delivering natural silk-like sheen, superior tensile strength, and executive elegance.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Giza%20Cotton%20Shirting%20Fabric" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Fabric</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#02</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Paper Cotton -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/fabrics/fabric_paper_cotton.jpg" alt="Paper Cotton Shirting Fabric" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Fabric</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">03</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Paper Cotton</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Ultra-lightweight, crisp parchment-like texture offering exceptional summer cooling and sharp architectural lines.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Paper%20Cotton%20Shirting%20Fabric" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Fabric</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#03</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Egyptian Cotton -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/fabrics/fabric_egyptian_cotton.jpg" alt="Egyptian Cotton Shirting Fabric" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Fabric</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">04</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Egyptian Cotton</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                World-renowned high-count yarn with unmatched handfeel, cooling airflow, and black-tie boardroom distinction.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Egyptian%20Cotton%20Shirting%20Fabric" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Fabric</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#04</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Pure Linen -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/fabrics/fabric_pure_linen.jpg" alt="Pure Linen Shirting Fabric" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Fabric</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">05</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Pure Linen</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                100% European flax with organic slub texture, thermoregulating breathability, and dignified resort luxury.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Pure%20Linen%20Shirting%20Fabric" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Fabric</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#05</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Poplin -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/fabrics/fabric_poplin.jpg" alt="Poplin Shirting Fabric" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Fabric</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">06</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Poplin</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Tightly woven plain weave creating a smooth, flat surface with crisp collar definition and excellent color brilliance.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Poplin%20Shirting%20Fabric" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Fabric</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#06</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Oxford -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/fabrics/fabric_oxford.jpg" alt="Oxford Shirting Fabric" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Fabric</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">07</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Oxford</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Substantial basket weave texture with a tactile finish that softens gracefully with every laundering.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Oxford%20Shirting%20Fabric" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Fabric</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#07</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Lycra -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/fabrics/fabric_lycra.jpg" alt="Lycra Stretch Shirting Fabric" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Fabric</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">08</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Lycra</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Cotton blended with performance elastane fibers for flexible ergonomic stretch, crease recovery, and modern comfort.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Lycra%20Shirting%20Fabric" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Fabric</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#08</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PART 2: SHIRTING DESIGNS -->
+  <section id="shirting-designs" class="py-20 lg:py-24 bg-white relative border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <div class="max-w-2xl mb-12 sm:mb-16">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-2 h-2 bg-gold inline-block"></span>
+          <span class="text-xs font-heading font-bold uppercase tracking-[0.22em] text-navy">
+            Pattern &amp; Surface Architecture
+          </span>
+        </div>
+        <h2 class="font-heading text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">
+          Shirting Weave Designs
+        </h2>
+        <p class="font-sans text-sm text-stone-600 font-normal leading-relaxed mt-3">
+          From classic pinstripes and windowpane checks to subtle tonal dobby jacquards and bespoke digital prints.
+        </p>
+      </div>
+
+      <!-- 6 Design Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        
+        <!-- 1. Checks -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/fabrics/design_checks.jpg" alt="Checks Shirting Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Design</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">01</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Checks</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Precision yarn-dyed micro ginghams, windowpanes, and Prince of Wales checks for dynamic smart-casual and business styling.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Checks%20Shirting%20Design" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Pattern</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#01</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Stripes -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/fabrics/design_stripes.jpg" alt="Stripes Shirting Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Design</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">02</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Stripes</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Classic pinstripes, banker stripes, and Bengal repeat patterns woven with crisp yarn contrasts for power suiting shirts.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Stripes%20Shirting%20Design" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Pattern</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#02</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Plain -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/fabrics/design_plain.jpg" alt="Plain Shirting Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Design</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">03</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Plain</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Pure, unadorned monochromatic perfection with flat smooth finish, the definitive foundation for crisp formal attire.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Plain%20Shirting%20Design" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Pattern</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#03</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Prints -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/fabrics/design_prints.jpg" alt="Prints Shirting Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Design</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">04</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Prints</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                High-definition digital and screen prints including botanical, paisley, and contemporary micro-geometric motifs.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Prints%20Shirting%20Design" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Pattern</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#04</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Self Design -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/fabrics/design_self_design.jpg" alt="Self Design Shirting" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Design</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">05</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Self Design</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Tonal dobby, herringbone, and jacquard weaving techniques creating rich light refraction across the surface.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Self%20Design%20Shirting" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Pattern</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#05</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Solids -->
+        <div class="shop-cat-card garment-sharp group bg-white border border-stone-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden">
+          <div>
+            <div class="garment-img-frame aspect-square w-full border-b border-stone-200 relative">
+              <img src="images/fabrics/design_solids.jpg" alt="Solids Shirting Design" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent"></div>
+              <span class="absolute top-3 right-3 text-[10px] font-heading font-bold uppercase tracking-widest text-white bg-black/70 px-2.5 py-1 border border-white/20">Design</span>
+              <span class="absolute bottom-3 left-4 text-[10px] font-mono text-white/80 font-medium">06</span>
+            </div>
+            <div class="p-5 sm:p-6">
+              <h3 class="font-heading font-bold text-xl text-navy group-hover:text-gold transition-colors duration-300">Solids</h3>
+              <p class="font-sans text-xs text-stone-500 font-normal leading-relaxed mt-2.5">
+                Deep vat-dyed hues offering exceptional wash stability, rich chromatic depth, and tailored boardroom refinement.
+              </p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 pt-0 mt-auto">
+            <div class="pt-4 border-t border-stone-150 flex items-center justify-between">
+              <a href="enquiry-garments.html?subject=Solids%20Shirting%20Design" class="text-xs font-heading font-bold uppercase tracking-widest text-navy group-hover:text-gold transition-colors flex items-center gap-1.5">
+                <span>Enquire Pattern</span>
+                <span class="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+              </a>
+              <span class="text-[10px] font-mono text-stone-400">#06</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bulk Fabric Procurement Banner -->
+      <div class="mt-16 bg-[#FAF8F5] border border-stone-200 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 garment-sharp shadow-sm">
+        <div class="max-w-xl">
+          <span class="text-[10px] font-heading font-bold uppercase tracking-[0.2em] text-gold block mb-2">
+            WHOLESALE &amp; INSTITUTIONAL FABRIC SUPPLY
+          </span>
+          <h3 class="font-heading text-2xl font-extrabold text-navy">
+            Looking for Bulk Rolls, Swatch Kits or Mill Direct Bookings?
+          </h3>
+          <p class="font-sans text-xs sm:text-sm text-stone-600 font-normal leading-relaxed mt-2">
+            Access authorized mill allocations from Arvind, Linen Club, Giza House, Bombay Dyeing, and Birla Century through Bora Group.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto shrink-0">
+          <a href="enquiry-garments.html?subject=Bulk%20Shirting%20Fabrics%20Enquiry" class="btn-premium-gold text-center text-xs px-8 py-3.5 tracking-widest font-heading font-bold uppercase">
+            Enquire Shirting Rolls
+          </a>
+          <a href="https://wa.me/917304733333?text=Hi%2C%20I%20am%20interested%20in%20Bora%20Group%20Shirting%20Fabrics" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border border-stone-300 hover:border-navy text-navy text-xs px-6 py-3.5 tracking-widest font-heading font-bold uppercase transition-colors">
+            <i class="fa-brands fa-whatsapp text-green-600 text-sm"></i>
+            <span>WhatsApp Us</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DOCKING FOOTER -->
+  <footer class="footer-glassmorphism pt-20 pb-10 border-t border-gray-200 relative overflow-hidden bg-dark text-white">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(27,70,213,0.05)_0%,transparent_50%)]"></div>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div>
+          <span class="font-heading font-extrabold text-xl tracking-widest text-white block mb-6">
+            BORA <span class="text-gold">GROUP</span>
+          </span>
+          <p class="text-xs text-white/50 leading-relaxed font-light mb-6">
+            Diversified business group delivering consistent value, disciplined execution, and long-term relationships across multiple industries since 1947.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Quick Links</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li><a href="index.html" class="hover:text-gold transition-colors duration-300">Home Page</a></li>
+            <li><a href="garments.html" class="hover:text-gold transition-colors duration-300">Garments &amp; Textiles</a></li>
+            <li><a href="shirting.html" class="text-gold transition-colors duration-300">Shirting Fabrics</a></li>
+            <li><a href="suiting.html" class="hover:text-gold transition-colors duration-300">Suiting Fabrics</a></li>
+            <li><a href="sarees.html" class="hover:text-gold transition-colors duration-300">Sarees Collection</a></li>
+            <li><a href="contact.html" class="hover:text-gold transition-colors duration-300">Contact Hub</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Business Verticals</h4>
+          <ul class="space-y-3 text-xs text-white/60 font-light">
+            <li><a href="garments.html" class="hover:text-gold transition-colors duration-300">Garments &amp; Fashion</a></li>
+            <li><a href="real-estate.html" class="hover:text-gold transition-colors duration-300">Real Estate</a></li>
+            <li><a href="overseas-trade.html" class="hover:text-gold transition-colors duration-300">Overseas Trade</a></li>
+            <li><a href="industrial-supply.html" class="hover:text-gold transition-colors duration-300">Industrial Supply</a></li>
+            <li><a href="hospitality.html" class="hover:text-gold transition-colors duration-300">Hospitality</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Connect</h4>
+          <ul class="space-y-4 text-xs text-white/60 font-light">
+            <li class="flex items-start space-x-3">
+              <i class="fa-solid fa-location-dot text-gold mt-0.5"></i>
+              <span>Kopargaon, Maharashtra, India</span>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa-solid fa-phone text-gold"></i>
+              <a href="tel:+917304733333" class="hover:text-gold transition-colors">+91 73047 33333</a>
+            </li>
+            <li class="flex items-center space-x-3">
+              <i class="fa-solid fa-envelope text-gold"></i>
+              <a href="mailto:sales@boragroup.co.in" class="hover:text-gold transition-colors">sales@boragroup.co.in</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-white/30">
+        <div>&copy; 2026 BORA GROUP. ALL RIGHTS RESERVED.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/917304733333" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <div class="pulse"></div>
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
