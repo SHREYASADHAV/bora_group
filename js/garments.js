@@ -54,9 +54,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // BRAND LOGOS HORIZONTAL BAR (Left to Right Continuous Loop)
   // =========================================================================
   const brandTrack = document.getElementById('brand-marquee-track');
-  if (brandTrack && GARMENTS_DATA.brandLogos) {
-    const logos = GARMENTS_DATA.brandLogos;
-    // Repeat set twice per half (20 logos per half = ~4500px), ensuring seamless loop on all displays
+  if (brandTrack && (!brandTrack.children || brandTrack.children.length === 0)) {
+    const defaultLogos = [
+      { name: "DIGJAM", logo: "images/brands/digjam.png", alt: "DIGJAM Suiting" },
+      { name: "Siyaram's", logo: "images/brands/siyarams.png", alt: "Siyaram's" },
+      { name: "Raymond", logo: "images/brands/raymond.png", alt: "Raymond Fine Fabrics" },
+      { name: "OCM", logo: "images/brands/ocm.png", alt: "OCM Woollens" },
+      { name: "ONLY VIMAL", logo: "images/brands/vimal.png", alt: "Only Vimal" },
+      { name: "Reid & Taylor", logo: "images/brands/reid_and_taylor.png", alt: "Reid & Taylor" },
+      { name: "Bombay Dyeing", logo: "images/brands/bombay_dyeing.png", alt: "Bombay Dyeing" },
+      { name: "Linen Club", logo: "images/brands/linen_club.png", alt: "Linen Club" },
+      { name: "Arvind", logo: "images/brands/arvind.png", alt: "Arvind" },
+      { name: "Grasim", logo: "images/brands/grasim.png", alt: "Aditya Birla Grasim" }
+    ];
+    const logos = (typeof GARMENTS_DATA !== 'undefined' && GARMENTS_DATA.brandLogos && GARMENTS_DATA.brandLogos.length >= 10)
+      ? GARMENTS_DATA.brandLogos
+      : defaultLogos;
+
     const singleBatch = [...logos, ...logos];
     const doubleBatch = [...singleBatch, ...singleBatch];
 
