@@ -71,26 +71,26 @@
   <!-- Scroll Progress Indicator -->
   <div id="scroll-indicator" class="fixed top-0 left-0 h-1 bg-gold z-[100] transition-all duration-75" style="width: 0%;"></div>
 
-  <!-- STICKY NAVBAR -->
-  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-dark/90 backdrop-blur-md border-b border-white/10">
+  <!-- STICKY NAVBAR (MATCHING ALL OTHER PAGES WITH VISIBLE LOGO) -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-transparent">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
       <!-- Logo -->
       <a href="../../index.html" class="flex items-center group">
-        <img id="navbar-logo" src="../../images/logo_new.png" alt="BORA GROUP" class="h-10 transition-all duration-300 group-hover:scale-105">
+        <img id="navbar-logo" src="../../images/logo_new.png" onerror="this.src='images/logo_new.png'" alt="BORA GROUP" class="transition-all duration-300 group-hover:scale-105">
       </a>
 
       <!-- Desktop Menu -->
-      <nav class="hidden md:flex items-center space-x-8 font-heading text-xs font-semibold uppercase tracking-widest text-white/80">
-        <a href="../../index.html" class="hover:text-gold transition-colors duration-300" data-i18n="nav_home">Home</a>
+      <nav class="hidden md:flex items-center space-x-8 font-heading text-xs font-semibold uppercase tracking-widest">
+        <a href="../../index.html" class="text-gray-700 hover:text-gold transition-colors duration-300" data-i18n="nav_home">Home</a>
         
         <!-- About Dropdown -->
         <div class="relative group py-2">
-          <a href="../../about.html" class="text-gold font-bold flex items-center space-x-1.5 transition-colors duration-300">
+          <a href="../../about.html" class="text-gold transition-colors duration-300 flex items-center space-x-1.5">
             <span data-i18n="nav_about">About</span>
             <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
           </a>
-          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 rounded-xl p-2 bg-dark/95 backdrop-blur-xl border border-white/10 shadow-2xl opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 text-white">
-            <a href="../../about/leadership" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase text-gold font-semibold bg-white/5 transition-all duration-200" data-i18n="nav_leadership">Our Leadership</a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-xl p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 shadow-xl border border-gray-100">
+            <a href="../../about/leadership" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase text-gold font-semibold transition-all duration-200" data-i18n="nav_leadership">Our Leadership</a>
             <a href="../../history.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold" data-i18n="nav_history">Our History</a>
             <a href="../../about.html#vision-mission" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold" data-i18n="nav_vision">Vision & Mission</a>
             <a href="../../about.html#overview" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold" data-i18n="nav_overview">Company Overview</a>
@@ -101,33 +101,33 @@
 
         <!-- Business Dropdown -->
         <div class="relative group py-2">
-          <a href="../../business.html" class="hover:text-gold transition-colors duration-300 flex items-center space-x-1.5">
+          <a href="../../business.html" class="text-gray-700 hover:text-gold transition-colors duration-300 flex items-center space-x-1.5">
             <span data-i18n="nav_business">Business</span>
             <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
           </a>
-          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] lg:w-[560px] rounded-xl p-4 bg-dark/95 backdrop-blur-xl border border-white/10 shadow-2xl opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 text-white">
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] lg:w-[560px] rounded-xl p-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 shadow-xl border border-gray-100">
             <div class="grid grid-cols-2 gap-4">
               <div class="flex flex-col space-y-1.5">
-                <a href="../../overseas-trade.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/5">
-                  <span class="dropdown-title block text-xs font-bold text-gold" data-i18n="nav_overseas">Overseas Trade</span>
+                <a href="../../overseas-trade.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-50">
+                  <span class="dropdown-title block text-xs font-bold text-gray-900" data-i18n="nav_overseas">Overseas Trade</span>
                   <span class="dropdown-subtitle text-[10px] text-gray-400">Global Import & Export</span>
                 </a>
-                <a href="../../real-estate.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/5">
-                  <span class="dropdown-title block text-xs font-bold text-gold" data-i18n="nav_realestate">Real Estate</span>
+                <a href="../../real-estate.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-50">
+                  <span class="dropdown-title block text-xs font-bold text-gray-900" data-i18n="nav_realestate">Real Estate</span>
                   <span class="dropdown-subtitle text-[10px] text-gray-400">Bora Realty</span>
                 </a>
-                <a href="../../garments.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/5">
-                  <span class="dropdown-title block text-xs font-bold text-gold" data-i18n="nav_garments">Garments & Fashion</span>
+                <a href="../../garments.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-50">
+                  <span class="dropdown-title block text-xs font-bold text-gray-900" data-i18n="nav_garments">Garments & Fashion</span>
                   <span class="dropdown-subtitle text-[10px] text-gray-400">Bora Collection, Bora Fashion</span>
                 </a>
               </div>
               <div class="flex flex-col space-y-1.5">
-                <a href="../../industrial-supply.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/5">
-                  <span class="dropdown-title block text-xs font-bold text-gold" data-i18n="nav_industrial">Industrial Supply</span>
+                <a href="../../industrial-supply.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-50">
+                  <span class="dropdown-title block text-xs font-bold text-gray-900" data-i18n="nav_industrial">Industrial Supply</span>
                   <span class="dropdown-subtitle text-[10px] text-gray-400">Industrial Solutions</span>
                 </a>
-                <a href="../../hospitality.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-white/5">
-                  <span class="dropdown-title block text-xs font-bold text-gold" data-i18n="nav_hospitality">Hospitality</span>
+                <a href="../../hospitality.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-50">
+                  <span class="dropdown-title block text-xs font-bold text-gray-900" data-i18n="nav_hospitality">Hospitality</span>
                   <span class="dropdown-subtitle text-[10px] text-gray-400">Hotels & Services</span>
                 </a>
               </div>
@@ -135,7 +135,7 @@
           </div>
         </div>
 
-        <a href="../../contact.html" class="hover:text-gold transition-colors duration-300" data-i18n="nav_contact">Contact</a>
+        <a href="../../contact.html" class="text-gray-700 hover:text-gold transition-colors duration-300" data-i18n="nav_contact">Contact</a>
       </nav>
 
       <!-- Desktop Contact CTA -->
@@ -144,7 +144,7 @@
       </div>
 
       <!-- Mobile Hamburger Button -->
-      <button id="mobile-menu-btn" class="md:hidden text-white hover:text-gold transition-colors focus:outline-none" aria-label="Toggle Mobile Menu">
+      <button id="mobile-menu-btn" class="md:hidden text-gray-800 hover:text-gold transition-colors focus:outline-none" aria-label="Toggle Mobile Menu">
         <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
@@ -168,7 +168,7 @@
   </div>
 
   <!-- SECTION 1: FULL SCREEN 16:9 HERO IMAGE (UNCROPPED, FULL WIDTH, HIGH QUALITY) -->
-  <section class="pt-20 sm:pt-24 w-full bg-[#070B11] overflow-hidden">
+  <section class="pt-[70px] w-full bg-[#070B11] overflow-hidden">
     <div class="w-full">
       <img src="../../images/hero_sunil_bora.jpg?v=2" 
            alt="Sunil Bora — Chairman, Bora Group" 

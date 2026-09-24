@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Navbar logo alignment & static logo src
     if (navbar) {
       const logoImg = navbar.querySelector('#navbar-logo');
-      if (logoImg && logoImg.getAttribute('src') !== 'images/logo_new.png') {
+      if (logoImg && !logoImg.getAttribute('src')?.includes('logo_new.png')) {
         logoImg.src = 'images/logo_new.png';
       }
     }
