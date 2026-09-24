@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Leadership | BORA GROUP</title>
   <meta name="description" content="Meet the visionary leadership team driving Bora Group's long-term vision, growth, and legacy of trust across industries since 1947.">
-  <meta name="keywords" content="Bora Group Leadership, Sunil Bora, Mandar Bora, Abhijit Bora, Jay Bora, Executive Team, Corporate Governance, Bora Group Chairman">
+  <meta name="keywords" content="Bora Group Leadership, Sunil Bora, Shrenik Bora, Mayur Bora, Akshay Bora, Jay Bora, Executive Team, Corporate Governance, Bora Group Chairman">
   
   <!-- Google Fonts: Playfair Display & Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -50,25 +50,6 @@
   <link rel="stylesheet" href="css/styles.css">
   
   <style>
-    /* Custom Utilities for Leadership Page */
-    .hero-slide {
-      transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .hero-slide.active {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-      transform: scale(1);
-    }
-    
-    .hero-slide.inactive {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-      transform: scale(1.02);
-    }
-    
     .card-leader {
       transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease;
     }
@@ -76,19 +57,11 @@
     .card-leader:hover {
       transform: translateY(-6px);
       box-shadow: 0 20px 40px -15px rgba(5, 60, 143, 0.12);
-      border-color: rgba(197, 168, 128, 0.6);
+      border-color: #C5A880;
     }
     
     .card-leader:hover .leader-photo {
-      transform: scale(1.03);
-    }
-
-    .slide-dot {
-      transition: all 0.3s ease;
-    }
-    .slide-dot.active {
-      background-color: #C5A880;
-      width: 2.5rem;
+      transform: scale(1.02);
     }
   </style>
 </head>
@@ -193,234 +166,110 @@
     </div>
   </div>
 
-  <!-- SECTION 1: 16:9 HERO SLIDER FOR BIG IMAGE -->
-  <section class="relative pt-24 sm:pt-28 bg-[#070B11] overflow-hidden">
-    <div class="w-full relative aspect-[16/9] min-h-[480px] sm:min-h-[560px] lg:min-h-[640px] max-h-[850px] overflow-hidden" id="hero-slider-container">
-      
-      <!-- Slide 1: Chairman Sunil Bora (Primary Mockup Match) -->
-      <div class="hero-slide active absolute inset-0 w-full h-full" data-slide-index="0">
-        <!-- Background Image -->
-        <img src="images/hero_slide_chairman.jpg" 
+  <!-- SECTION 1: 16:9 HERO IMAGE (NO SLIDESHOW, NO TEXT OVERLAY) -->
+  <section class="pt-24 sm:pt-28 bg-[#070B11] pb-6 sm:pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="w-full aspect-[16/9] overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 shadow-2xl bg-black">
+        <img src="images/hero_sunil_bora.jpg" 
              alt="Sunil Bora — Chairman, Bora Group" 
-             class="w-full h-full object-cover object-right lg:object-center select-none" />
-        
-        <!-- Dark Gradient Overlay for text readability on all viewports -->
-        <div class="absolute inset-0 bg-gradient-to-r from-[#070B11]/95 via-[#070B11]/80 to-transparent sm:w-3/5 w-full h-full z-10 pointer-events-none"></div>
-
-        <!-- Slide 1 Content -->
-        <div class="relative z-20 h-full flex flex-col justify-center px-6 sm:px-12 lg:px-24 max-w-3xl pointer-events-auto">
-          <div class="flex items-center space-x-3 mb-4 sm:mb-6">
-            <span class="text-xs sm:text-sm font-heading font-semibold tracking-[0.25em] text-gold uppercase">
-              OUR LEADERSHIP
-            </span>
-            <span class="w-12 sm:w-16 h-[1.5px] bg-gold"></span>
-          </div>
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-serif text-white leading-[1.12] mb-4 sm:mb-6 tracking-tight">
-            Guided by<br>
-            Experience,<br>
-            <span class="italic font-light text-[#E5D7C5]">Driven by Values</span>
-          </h1>
-          <p class="text-xs sm:text-sm lg:text-base font-sans font-light text-white/75 leading-relaxed max-w-xl">
-            Our leadership team brings together decades of experience, a shared vision and a commitment to responsible growth across every business we pursue.
-          </p>
-        </div>
-      </div>
-
-      <!-- Slide 2: Executive Boardroom & Vision -->
-      <div class="hero-slide inactive absolute inset-0 w-full h-full" data-slide-index="1">
-        <!-- Background Image -->
-        <img src="images/hero_leadership_boardroom.jpg" 
-             alt="Executive Boardroom — Bora Group" 
              class="w-full h-full object-cover object-center select-none" />
-        
-        <!-- Dark Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-r from-[#070B11]/95 via-[#070B11]/75 to-transparent sm:w-3/5 w-full h-full z-10 pointer-events-none"></div>
-
-        <!-- Slide 2 Content -->
-        <div class="relative z-20 h-full flex flex-col justify-center px-6 sm:px-12 lg:px-24 max-w-3xl pointer-events-auto">
-          <div class="flex items-center space-x-3 mb-4 sm:mb-6">
-            <span class="text-xs sm:text-sm font-heading font-semibold tracking-[0.25em] text-gold uppercase">
-              EXECUTIVE GOVERNANCE
-            </span>
-            <span class="w-12 sm:w-16 h-[1.5px] bg-gold"></span>
-          </div>
-          <h2 class="text-3xl sm:text-5xl lg:text-6xl font-serif text-white leading-[1.12] mb-4 sm:mb-6 tracking-tight">
-            Strategic Vision,<br>
-            <span class="italic font-light text-[#E5D7C5]">Sustainable Impact</span>
-          </h2>
-          <p class="text-xs sm:text-sm lg:text-base font-sans font-light text-white/75 leading-relaxed max-w-xl">
-            Steering diverse industry verticals with disciplined financial management, transparent governance, and multi-generational trust.
-          </p>
-        </div>
       </div>
-
-      <!-- Slide 3: Founding Heritage & Multi-Generational Growth -->
-      <div class="hero-slide inactive absolute inset-0 w-full h-full" data-slide-index="2">
-        <!-- Background Image -->
-        <img src="images/hero_bg1.png" 
-             alt="Bora Group Heritage & Growth" 
-             class="w-full h-full object-cover object-center select-none" />
-        
-        <!-- Dark Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-r from-[#070B11]/95 via-[#070B11]/80 to-transparent sm:w-3/5 w-full h-full z-10 pointer-events-none"></div>
-
-        <!-- Slide 3 Content -->
-        <div class="relative z-20 h-full flex flex-col justify-center px-6 sm:px-12 lg:px-24 max-w-3xl pointer-events-auto">
-          <div class="flex items-center space-x-3 mb-4 sm:mb-6">
-            <span class="text-xs sm:text-sm font-heading font-semibold tracking-[0.25em] text-gold uppercase">
-              A 75+ YEAR LEGACY
-            </span>
-            <span class="w-12 sm:w-16 h-[1.5px] bg-gold"></span>
-          </div>
-          <h2 class="text-3xl sm:text-5xl lg:text-6xl font-serif text-white leading-[1.12] mb-4 sm:mb-6 tracking-tight">
-            Pioneering Trust<br>
-            <span class="italic font-light text-[#E5D7C5]">Since 1947</span>
-          </h2>
-          <p class="text-xs sm:text-sm lg:text-base font-sans font-light text-white/75 leading-relaxed max-w-xl">
-            Built upon solid values, progressive leadership, and relentless dedication to quality across textiles, real estate, and global trade.
-          </p>
-        </div>
-      </div>
-
-      <!-- Slider Controls (Left & Right Arrows) -->
-      <button id="hero-prev-btn" 
-              class="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/40 hover:bg-gold text-white hover:text-dark backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-2xl focus:outline-none"
-              aria-label="Previous Slide">
-        <i class="fa-solid fa-chevron-left text-sm sm:text-base"></i>
-      </button>
-      <button id="hero-next-btn" 
-              class="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-black/40 hover:bg-gold text-white hover:text-dark backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-300 hover:scale-105 shadow-2xl focus:outline-none"
-              aria-label="Next Slide">
-        <i class="fa-solid fa-chevron-right text-sm sm:text-base"></i>
-      </button>
-
-      <!-- Slider Pagination Indicators -->
-      <div class="absolute bottom-6 sm:bottom-8 right-6 sm:right-12 z-30 flex items-center space-x-2">
-        <button class="slide-dot active h-2 w-8 rounded-full bg-gold transition-all duration-300" data-dot-index="0" aria-label="Go to Slide 1"></button>
-        <button class="slide-dot h-2 w-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300" data-dot-index="1" aria-label="Go to Slide 2"></button>
-        <button class="slide-dot h-2 w-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300" data-dot-index="2" aria-label="Go to Slide 3"></button>
-      </div>
-
     </div>
   </section>
 
-  <!-- SECTION 2: 4 BOX LAYOUT (PAGE 2) -->
-  <main class="py-20 sm:py-28 bg-[#FFFFFF] relative">
+  <!-- SECTION 2: 4 STROKE BOXES FOR LEADERS (NATIVE UPLOADED RATIO, NO NUMBERING/LINE) -->
+  <main class="py-16 sm:py-24 bg-[#FFFFFF] relative">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       
-      <!-- Section Header Matching Mockup -->
-      <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-12 sm:mb-16 gap-6" id="team-header">
-        <div>
-          <div class="flex items-center space-x-3 mb-3">
-            <span class="text-xs font-heading font-semibold tracking-[0.25em] text-gold uppercase">
-              OUR LEADERSHIP
-            </span>
-            <span class="w-12 h-[1.5px] bg-gold"></span>
-          </div>
-          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-gray-950 tracking-tight">
-            Meet Our Leadership Team
-          </h2>
-        </div>
-        <p class="text-sm sm:text-base font-sans font-light text-gray-500 max-w-md leading-relaxed">
-          A strong leadership team driving our diversified businesses with vision, integrity and a commitment to long-term value.
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16" id="team-header">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-gray-950 tracking-tight mb-3">
+          Meet Our Leadership Team
+        </h2>
+        <p class="text-sm sm:text-base font-sans font-light text-gray-500 leading-relaxed">
+          A dedicated leadership team driving our diversified businesses with integrity, innovation, and long-term value.
         </p>
       </div>
 
-      <!-- 4 Equal Size Cards Grid -->
+      <!-- 4 Equal Size Stroke Boxes Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8" id="leaders-grid">
         
-        <!-- Box 01: Sunil Bora -->
-        <div class="card-leader bg-white border border-gray-200/90 rounded-none overflow-hidden flex flex-col group">
-          <!-- Photo on top -->
-          <div class="relative overflow-hidden aspect-[4/3] bg-gray-50 border-b border-gray-100">
-            <img src="images/card_sunil_bora.jpg" 
-                 alt="Sunil Bora" 
-                 class="leader-photo w-full h-full object-cover object-center transition-transform duration-500 ease-out" 
+        <!-- Box 01: Shrenik Bora – B.Tech Civil -->
+        <div class="card-leader bg-white border-2 border-gray-200 hover:border-gold rounded-xl overflow-hidden flex flex-col group shadow-sm">
+          <!-- Photo in native uploaded 3:4 ratio -->
+          <div class="relative overflow-hidden aspect-[3/4] bg-[#F7F8FA] border-b border-gray-100">
+            <img src="images/leader_shrenik_bora.jpg" 
+                 alt="Shrenik Bora" 
+                 class="leader-photo w-full h-full object-cover object-top transition-transform duration-500 ease-out" 
                  loading="lazy">
           </div>
-          <!-- Details below -->
-          <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white">
-            <div class="flex items-center space-x-3 mb-4">
-              <span class="text-xs font-mono font-medium text-gray-400">01</span>
-              <span class="w-10 h-[1.5px] bg-gray-200 group-hover:bg-gold group-hover:w-14 transition-all duration-300"></span>
-            </div>
+          <!-- Details below (Name & Study, No numbers, No lines) -->
+          <div class="p-6 flex flex-col items-center text-center bg-white flex-1 justify-center">
             <h3 class="text-xl sm:text-2xl font-serif font-bold text-gray-900 tracking-normal mb-1.5 group-hover:text-navy transition-colors">
-              Sunil Bora
+              Shrenik Bora
             </h3>
-            <p class="text-[11px] sm:text-xs font-heading font-semibold tracking-[0.2em] text-gray-500 uppercase mt-auto">
-              CHAIRMAN
+            <p class="text-xs sm:text-sm font-sans font-medium tracking-wide text-gray-500">
+              B.Tech Civil
             </p>
           </div>
         </div>
 
-        <!-- Box 02: Mandar Bora -->
-        <div class="card-leader bg-white border border-gray-200/90 rounded-none overflow-hidden flex flex-col group">
-          <!-- Photo on top -->
-          <div class="relative overflow-hidden aspect-[4/3] bg-gray-50 border-b border-gray-100">
-            <img src="images/card_mandar_bora.jpg" 
-                 alt="Mandar Bora" 
-                 class="leader-photo w-full h-full object-cover object-center transition-transform duration-500 ease-out" 
+        <!-- Box 02: Mayur Bora – B.Tech Computer -->
+        <div class="card-leader bg-white border-2 border-gray-200 hover:border-gold rounded-xl overflow-hidden flex flex-col group shadow-sm">
+          <!-- Photo in native uploaded 3:4 ratio -->
+          <div class="relative overflow-hidden aspect-[3/4] bg-[#F7F8FA] border-b border-gray-100">
+            <img src="images/leader_mayur_bora.jpg" 
+                 alt="Mayur Bora" 
+                 class="leader-photo w-full h-full object-cover object-top transition-transform duration-500 ease-out" 
                  loading="lazy">
           </div>
-          <!-- Details below -->
-          <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white">
-            <div class="flex items-center space-x-3 mb-4">
-              <span class="text-xs font-mono font-medium text-gray-400">02</span>
-              <span class="w-10 h-[1.5px] bg-gray-200 group-hover:bg-gold group-hover:w-14 transition-all duration-300"></span>
-            </div>
+          <!-- Details below (Name & Study, No numbers, No lines) -->
+          <div class="p-6 flex flex-col items-center text-center bg-white flex-1 justify-center">
             <h3 class="text-xl sm:text-2xl font-serif font-bold text-gray-900 tracking-normal mb-1.5 group-hover:text-navy transition-colors">
-              Mandar Bora
+              Mayur Bora
             </h3>
-            <p class="text-[11px] sm:text-xs font-heading font-semibold tracking-[0.2em] text-gray-500 uppercase mt-auto">
-              MANAGING DIRECTOR
+            <p class="text-xs sm:text-sm font-sans font-medium tracking-wide text-gray-500">
+              B.Tech Computer
             </p>
           </div>
         </div>
 
-        <!-- Box 03: Abhijit Bora -->
-        <div class="card-leader bg-white border border-gray-200/90 rounded-none overflow-hidden flex flex-col group">
-          <!-- Photo on top -->
-          <div class="relative overflow-hidden aspect-[4/3] bg-gray-50 border-b border-gray-100">
-            <img src="images/card_abhijit_bora.jpg" 
-                 alt="Abhijit Bora" 
-                 class="leader-photo w-full h-full object-cover object-center transition-transform duration-500 ease-out" 
+        <!-- Box 03: Akshay Bora – B.Com -->
+        <div class="card-leader bg-white border-2 border-gray-200 hover:border-gold rounded-xl overflow-hidden flex flex-col group shadow-sm">
+          <!-- Photo in native uploaded 3:4 ratio -->
+          <div class="relative overflow-hidden aspect-[3/4] bg-[#F7F8FA] border-b border-gray-100">
+            <img src="images/leader_akshay_bora.jpg" 
+                 alt="Akshay Bora" 
+                 class="leader-photo w-full h-full object-cover object-top transition-transform duration-500 ease-out" 
                  loading="lazy">
           </div>
-          <!-- Details below -->
-          <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white">
-            <div class="flex items-center space-x-3 mb-4">
-              <span class="text-xs font-mono font-medium text-gray-400">03</span>
-              <span class="w-10 h-[1.5px] bg-gray-200 group-hover:bg-gold group-hover:w-14 transition-all duration-300"></span>
-            </div>
+          <!-- Details below (Name & Study, No numbers, No lines) -->
+          <div class="p-6 flex flex-col items-center text-center bg-white flex-1 justify-center">
             <h3 class="text-xl sm:text-2xl font-serif font-bold text-gray-900 tracking-normal mb-1.5 group-hover:text-navy transition-colors">
-              Abhijit Bora
+              Akshay Bora
             </h3>
-            <p class="text-[11px] sm:text-xs font-heading font-semibold tracking-[0.2em] text-gray-500 uppercase mt-auto">
-              DIRECTOR
+            <p class="text-xs sm:text-sm font-sans font-medium tracking-wide text-gray-500">
+              B.Com
             </p>
           </div>
         </div>
 
-        <!-- Box 04: Jay Bora -->
-        <div class="card-leader bg-white border border-gray-200/90 rounded-none overflow-hidden flex flex-col group">
-          <!-- Photo on top -->
-          <div class="relative overflow-hidden aspect-[4/3] bg-gray-50 border-b border-gray-100">
-            <img src="images/card_jay_bora.jpg" 
+        <!-- Box 04: Jay Bora – B.Com LL.B -->
+        <div class="card-leader bg-white border-2 border-gray-200 hover:border-gold rounded-xl overflow-hidden flex flex-col group shadow-sm">
+          <!-- Photo in native uploaded 3:4 ratio -->
+          <div class="relative overflow-hidden aspect-[3/4] bg-[#F7F8FA] border-b border-gray-100">
+            <img src="images/leader_jay_bora.jpg" 
                  alt="Jay Bora" 
-                 class="leader-photo w-full h-full object-cover object-center transition-transform duration-500 ease-out" 
+                 class="leader-photo w-full h-full object-cover object-top transition-transform duration-500 ease-out" 
                  loading="lazy">
           </div>
-          <!-- Details below -->
-          <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white">
-            <div class="flex items-center space-x-3 mb-4">
-              <span class="text-xs font-mono font-medium text-gray-400">04</span>
-              <span class="w-10 h-[1.5px] bg-gray-200 group-hover:bg-gold group-hover:w-14 transition-all duration-300"></span>
-            </div>
+          <!-- Details below (Name & Study, No numbers, No lines) -->
+          <div class="p-6 flex flex-col items-center text-center bg-white flex-1 justify-center">
             <h3 class="text-xl sm:text-2xl font-serif font-bold text-gray-900 tracking-normal mb-1.5 group-hover:text-navy transition-colors">
               Jay Bora
             </h3>
-            <p class="text-[11px] sm:text-xs font-heading font-semibold tracking-[0.2em] text-gray-500 uppercase mt-auto">
-              DIRECTOR
+            <p class="text-xs sm:text-sm font-sans font-medium tracking-wide text-gray-500">
+              B.Com LL.B
             </p>
           </div>
         </div>
@@ -506,86 +355,10 @@
 
   <script src="js/main.js"></script>
 
-  <!-- Slider & Page Animation Scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       if (typeof lucide !== 'undefined') {
         lucide.createIcons();
-      }
-
-      // Hero Slider Implementation
-      const slides = document.querySelectorAll('.hero-slide');
-      const dots = document.querySelectorAll('.slide-dot');
-      const prevBtn = document.getElementById('hero-prev-btn');
-      const nextBtn = document.getElementById('hero-next-btn');
-      let currentSlide = 0;
-      let slideInterval = null;
-
-      function goToSlide(index) {
-        slides[currentSlide].classList.remove('active');
-        slides[currentSlide].classList.add('inactive');
-        dots[currentSlide].classList.remove('active', 'w-8', 'bg-gold');
-        dots[currentSlide].classList.add('w-3', 'bg-white/40');
-
-        currentSlide = (index + slides.length) % slides.length;
-
-        slides[currentSlide].classList.remove('inactive');
-        slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active', 'w-8', 'bg-gold');
-        dots[currentSlide].classList.remove('w-3', 'bg-white/40');
-      }
-
-      function nextSlide() {
-        goToSlide(currentSlide + 1);
-      }
-
-      function prevSlide() {
-        goToSlide(currentSlide - 1);
-      }
-
-      if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetAutoplay(); });
-      if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetAutoplay(); });
-
-      dots.forEach((dot, idx) => {
-        dot.addEventListener('click', () => {
-          goToSlide(idx);
-          resetAutoplay();
-        });
-      });
-
-      function startAutoplay() {
-        slideInterval = setInterval(nextSlide, 6000);
-      }
-
-      function resetAutoplay() {
-        clearInterval(slideInterval);
-        startAutoplay();
-      }
-
-      startAutoplay();
-
-      // Pause on hover
-      const sliderContainer = document.getElementById('hero-slider-container');
-      if (sliderContainer) {
-        sliderContainer.addEventListener('mouseenter', () => clearInterval(slideInterval));
-        sliderContainer.addEventListener('mouseleave', () => startAutoplay());
-        
-        // Touch swipe support
-        let startX = 0;
-        let endX = 0;
-        sliderContainer.addEventListener('touchstart', (e) => {
-          startX = e.touches[0].clientX;
-        }, { passive: true });
-        sliderContainer.addEventListener('touchend', (e) => {
-          endX = e.changedTouches[0].clientX;
-          if (startX - endX > 50) {
-            nextSlide();
-            resetAutoplay();
-          } else if (endX - startX > 50) {
-            prevSlide();
-            resetAutoplay();
-          }
-        }, { passive: true });
       }
 
       // GSAP Animations
@@ -599,8 +372,8 @@
             start: 'top 85%',
           },
           opacity: 0,
-          y: 30,
-          duration: 0.9,
+          y: 25,
+          duration: 0.8,
           ease: 'power3.out'
         });
 
@@ -611,8 +384,8 @@
             start: 'top 85%',
           },
           opacity: 0,
-          y: 40,
-          duration: 0.85,
+          y: 35,
+          duration: 0.8,
           stagger: 0.12,
           ease: 'power3.out'
         });
