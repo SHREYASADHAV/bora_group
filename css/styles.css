@@ -1938,5 +1938,465 @@ body.plot-modal-open {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* ========================================================
+   BORA GROUP — COMPREHENSIVE MOBILE UI/UX OPTIMIZATION
+   Strictly scoped to mobile breakpoints (max-width: 768px & 1023px)
+   DESKTOP STYLES REMAIN COMPLETELY UNTOUCHED & APPROVED
+   ======================================================== */
+
+/* --- 1. GLOBAL MOBILE LAYOUT & OVERFLOW PROTECTION --- */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+    width: 100% !important;
+    position: relative;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* Prevent media overflow */
+  img, video, canvas, svg {
+    max-width: 100% !important;
+  }
+
+  /* Universal touch target minimum (44x44px) */
+  button, 
+  a.btn, 
+  [class*="btn-"], 
+  .mobile-nav-link,
+  .plot-filter-tab,
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 44px;
+    box-sizing: border-box;
+  }
+
+  /* Mobile section vertical rhythm */
+  section {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  /* Mobile container gutters (16-20px) */
+  .max-w-7xl,
+  .max-w-\[1400px\],
+  .max-w-\[1536px\],
+  .max-w-6xl,
+  .max-w-5xl {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Responsive Typography Clamp */
+  h1 {
+    font-size: clamp(2rem, 7.5vw, 2.75rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  h2 {
+    font-size: clamp(1.65rem, 6vw, 2.25rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 5vw, 1.6rem) !important;
+    line-height: 1.25 !important;
+  }
+}
+
+/* --- 2. MOBILE NAVIGATION HEADER & SLIDE-IN DRAWER --- */
+@media (max-width: 768px) {
+  header#navbar {
+    padding-top: 0.85rem !important;
+    padding-bottom: 0.85rem !important;
+    background-color: rgba(5, 5, 10, 0.94) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+  }
+
+  #navbar-logo {
+    height: 32px !important;
+    width: auto !important;
+  }
+
+  #mobile-menu-btn {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: #FFFFFF !important;
+    padding: 0 !important;
+  }
+
+  #mobile-menu {
+    width: 85% !important;
+    max-width: 360px !important;
+    padding: 1.5rem !important;
+    padding-top: 5rem !important;
+    background: #0B1F3B !important;
+    box-shadow: -10px 0 35px rgba(0, 0, 0, 0.5) !important;
+    z-index: 99999 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .mobile-dropdown-btn {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+    min-height: 44px !important;
+  }
+
+  .mobile-dropdown-content a {
+    min-height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 0.4rem 0 !important;
+  }
+
+  /* Mobile Menu Get In Touch button */
+  .mobile-get-in-touch-btn {
+    min-height: 48px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.1em !important;
+    background: linear-gradient(135deg, #C5A880 0%, #D4AF37 100%) !important;
+    color: #05050A !important;
+    border-radius: 9999px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    box-shadow: 0 4px 15px rgba(197, 168, 128, 0.3) !important;
+  }
+}
+
+/* --- 3. HOME PAGE: CINEMATIC FIRST HERO (75–90vh) --- */
+@media (max-width: 768px) {
+  #hero-carousel-section {
+    min-height: 80vh !important;
+    height: 85vh !important;
+    max-height: 90vh !important;
+    padding: 5rem 1rem 1.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+
+  #hero-quote-outer {
+    position: absolute !important;
+    top: 36% !important;
+    left: 1.25rem !important;
+    right: 1.25rem !important;
+    max-width: calc(100vw - 2.5rem) !important;
+    transform: translateY(-50%) !important;
+  }
+
+  #hero-quote-container {
+    height: auto !important;
+    min-height: 90px !important;
+  }
+
+  .hero-quote-item {
+    font-size: clamp(1.85rem, 7.5vw, 2.75rem) !important;
+    line-height: 1.15 !important;
+    word-break: break-word !important;
+  }
+
+  #hero-controls-outer {
+    position: absolute !important;
+    bottom: 1.25rem !important;
+    left: 1.25rem !important;
+    right: 1.25rem !important;
+    width: calc(100% - 2.5rem) !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+  }
+
+  #hero-cards-container {
+    max-width: 100% !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .hero-card-item {
+    width: 84px !important;
+    height: 122px !important;
+    border-radius: 8px !important;
+  }
+
+  #hero-prev-btn, #hero-next-btn {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+  }
+}
+
+/* --- 4. SUBSEQUENT HOME SLIDES: 16:9 CINEMATIC FRAMES --- */
+@media (max-width: 768px) {
+  /* Chairman / Leadership Section */
+  #leadership-3d-section {
+    height: auto !important;
+    min-height: unset !important;
+  }
+
+  #chairman-card-3d {
+    min-height: unset !important;
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    width: 100% !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+  }
+
+  #chairman-card-3d img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+  }
+
+  #leadership-3d-section .lg\:col-span-7 {
+    padding: 2rem 1.25rem !important;
+  }
+
+  /* Join Us Expanding Cards -> 16:9 Stacked Panels */
+  #join-expanding-cards {
+    height: auto !important;
+    flex-direction: column !important;
+    gap: 1.25rem !important;
+  }
+
+  .join-card-item {
+    height: auto !important;
+    aspect-ratio: 16 / 9 !important;
+    min-height: 220px !important;
+    width: 100% !important;
+    border-radius: 14px !important;
+    flex: unset !important;
+  }
+
+  .join-card-text p {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  .join-card-text {
+    transform: translateY(0) !important;
+  }
+}
+
+/* --- 5. BUSINESS SECTION ON MOBILE: CLEAN 1-COL VERTICAL LAYOUT --- */
+@media (max-width: 1023px) {
+  .desktop-biz-layout {
+    display: none !important;
+  }
+
+  .mobile-biz-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+  }
+
+  .mobile-biz-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid rgba(11, 31, 59, 0.08);
+    box-shadow: 0 4px 20px -2px rgba(11, 31, 59, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-biz-img-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background-color: #05050A;
+  }
+
+  .mobile-biz-img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .mobile-biz-content {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mobile-biz-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #F97316;
+  }
+
+  .mobile-biz-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0B1F3B;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .mobile-biz-desc {
+    font-size: 0.8rem;
+    color: #64748B;
+    line-height: 1.55;
+    margin-bottom: 0.5rem;
+  }
+
+  .mobile-biz-btn {
+    min-height: 44px;
+    background-color: #0B1F3B;
+    color: #FFFFFF !important;
+    border-radius: 9999px;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: background-color 0.25s ease;
+  }
+
+  .mobile-biz-btn:active {
+    background-color: #F97316;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-biz-layout {
+    display: none !important;
+  }
+}
+
+/* --- 6. GLOBAL TRADE WORLD MAP ON MOBILE --- */
+@media (max-width: 768px) {
+  #overseas-world-map,
+  #bora-world-map {
+    height: 440px !important;
+  }
+
+  #overseas-map-infocard {
+    position: fixed !important;
+    bottom: 1rem !important;
+    left: 1rem !important;
+    right: 1rem !important;
+    max-width: calc(100vw - 2rem) !important;
+    width: auto !important;
+    border-radius: 16px !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25) !important;
+    z-index: 9999 !important;
+  }
+
+  #overseas-infocard-close {
+    width: 36px !important;
+    height: 36px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 1rem !important;
+  }
+}
+
+/* --- 7. PLOT LAYOUTS & MODALS ON MOBILE --- */
+@media (max-width: 768px) {
+  .plot-controls-container {
+    gap: 1.25rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .plot-search-box {
+    max-width: 100% !important;
+  }
+
+  .plot-filter-tabs {
+    gap: 0.4rem 1rem !important;
+  }
+
+  .plot-filter-tab {
+    font-size: 0.7rem !important;
+    padding: 0.5rem 0.2rem !important;
+  }
+
+  .plot-card-img-wrap {
+    aspect-ratio: 16 / 9 !important;
+  }
+
+  .plot-modal-container {
+    width: 100% !important;
+    max-height: 94vh !important;
+    border-radius: 20px 20px 0 0 !important;
+    margin-top: auto !important;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.3) !important;
+  }
+
+  .plot-modal-layout {
+    max-height: 94vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .plot-modal-close {
+    top: 0.75rem !important;
+    right: 0.75rem !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .plot-modal-media-col {
+    padding: 1.25rem !important;
+  }
+
+  .plot-modal-info-col {
+    padding: 1.25rem !important;
+  }
+
+  .plot-btn-inquire {
+    min-height: 48px !important;
+    font-size: 0.8rem !important;
+  }
+}
+
+/* --- 8. FOOTER MOBILE OPTIMIZATION --- */
+@media (max-width: 768px) {
+  footer {
+    padding-top: 3.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  footer .grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  footer a {
+    min-height: 36px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+}
+
+
 
 

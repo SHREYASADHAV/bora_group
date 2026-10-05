@@ -126,26 +126,74 @@
       </button>
     </div>
   </header>
-
-  <!-- MOBILE MENU -->
-  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 pt-28 biz-sharp">
-    <div class="flex flex-col space-y-6 font-heading text-lg font-semibold uppercase tracking-widest">
-      <a href="index.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors" data-i18n="nav_home">Home</a>
+  <!-- MOBILE FULLSCREEN OVERLAY MENU -->
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-6 sm:p-8 pt-24 sm:pt-28 overflow-y-auto">
+    <div class="flex flex-col space-y-5 font-heading text-base sm:text-lg font-semibold uppercase tracking-widest">
+      <a href="index.html" class="text-white hover:text-gold border-b border-white/5 pb-3 transition-colors flex items-center justify-between" data-i18n="nav_home">
+        <span>Home</span>
+      </a>
       
       <!-- Mobile About Accordion -->
       <div class="border-b border-white/5 pb-3">
-        <button class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none">
+        <button type="button" class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none py-1.5" aria-expanded="false">
           <span data-i18n="nav_about">About</span>
           <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
         </button>
-        <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 space-y-3 mt-0">
-          <a href="history.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider mt-3" data-i18n="nav_history">Our History</a>
-          <a href="about.html#vision-mission" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_vision">Vision & Mission</a>
-          <a href="about.html#overview" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_overview">Company Overview</a>
-          <a href="about.html#reviews" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_testimonials">Testimonials</a>
-        <a href="gallery.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_gallery">Photo Gallery</a>
-          </div>
+        <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-3 space-y-2 mt-0">
+          <a href="about.html" class="block text-xs text-white/70 hover:text-white uppercase tracking-wider py-1 mt-2">About Us</a>
+          <a href="about/leadership" class="block text-xs text-white/70 hover:text-white uppercase tracking-wider py-1" data-i18n="nav_leadership">Our Leadership</a>
+          <a href="values.html" class="block text-xs text-white/70 hover:text-white uppercase tracking-wider py-1" data-i18n="nav_values">Our Values</a>
+          <a href="history.html" class="block text-xs text-white/70 hover:text-white uppercase tracking-wider py-1" data-i18n="nav_history">Our History</a>
+          <a href="about.html#vision-mission" class="block text-xs text-white/70 hover:text-white uppercase tracking-wider py-1" data-i18n="nav_vision">Vision & Mission</a>
+          <a href="about.html#overview" class="block text-xs text-white/70 hover:text-white uppercase tracking-wider py-1" data-i18n="nav_overview">Company Overview</a>
+          <a href="about.html#reviews" class="block text-xs text-white/70 hover:text-white uppercase tracking-wider py-1" data-i18n="nav_testimonials">Testimonials</a>
+          <a href="gallery.html" class="block text-xs text-white/70 hover:text-white uppercase tracking-wider py-1" data-i18n="nav_gallery">Photo Gallery</a>
+        </div>
       </div>
+
+      <!-- Mobile Business Accordion -->
+      <div class="border-b border-white/5 pb-3">
+        <button type="button" class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none py-1.5" aria-expanded="false">
+          <span data-i18n="nav_business">Business</span>
+          <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
+        </button>
+        <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-3 flex flex-col space-y-2 mt-2 text-sm font-normal tracking-wider text-white/60">
+          <a href="real-estate.html" class="hover:text-gold transition-colors block py-1.5">
+            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_realestate">Real Estate</span>
+            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Bora Realty</span>
+          </a>
+          <a href="overseas-trade.html" class="hover:text-gold transition-colors block py-1.5">
+            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_overseas">Global Trade</span>
+            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Global Import & Export</span>
+          </a>
+          <a href="industrial-supply.html" class="hover:text-gold transition-colors block py-1.5">
+            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_industrial">Industrial Solutions</span>
+            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Industrial Supplies</span>
+          </a>
+          <a href="garments.html" class="hover:text-gold transition-colors block py-1.5">
+            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_garments">Garments & Fashion</span>
+            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Bora Collection, Bora Fashion</span>
+          </a>
+          <a href="hospitality.html" class="hover:text-gold transition-colors block py-1.5">
+            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_hospitality">Hospitality</span>
+            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Hotels</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="contact.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors py-1.5 block" data-i18n="nav_contact">Contact</a>
+    </div>
+    
+    <div class="flex flex-col space-y-4 pt-6">
+      <a href="contact.html" class="mobile-get-in-touch-btn w-full min-h-[44px] py-3 text-center text-xs font-heading font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg" data-i18n="nav_get_in_touch">
+        <span>GET IN TOUCH</span>
+        <i class="fa-solid fa-arrow-right text-xs"></i>
+      </a>
+      <div class="text-center text-[10px] uppercase tracking-widest text-white/40 font-mono">
+        © 2026 BORA GROUP
+      </div>
+    </div>
+  </div>
 
       <!-- Mobile Business Accordion -->
       <div class="border-b border-white/5 pb-3">

@@ -41,42 +41,75 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', handleScroll);
   handleScroll();
 
-  // 3. Mobile Menu Toggle
+  // 3. Mobile Menu Toggle & Backdrop Overlay
   const menuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   const menuIconOpen = document.getElementById('menu-icon-open');
   const menuIconClose = document.getElementById('menu-icon-close');
 
+  // Inject mobile backdrop if not present
+  let mobileBackdrop = document.getElementById('mobile-menu-backdrop');
+  if (!mobileBackdrop) {
+    mobileBackdrop = document.createElement('div');
+    mobileBackdrop.id = 'mobile-menu-backdrop';
+    mobileBackdrop.className = 'fixed inset-0 bg-black/70 backdrop-blur-sm z-[99990] opacity-0 pointer-events-none transition-opacity duration-300';
+    document.body.appendChild(mobileBackdrop);
+  }
+
+  const openMobileMenu = () => {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('translate-x-full');
+    mobileMenu.classList.add('translate-x-0');
+    if (mobileBackdrop) {
+      mobileBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+      mobileBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+    }
+    if (menuIconOpen) menuIconOpen.classList.add('hidden');
+    if (menuIconClose) menuIconClose.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeMobileMenu = () => {
+    if (!mobileMenu) return;
+    mobileMenu.classList.add('translate-x-full');
+    mobileMenu.classList.remove('translate-x-0');
+    if (mobileBackdrop) {
+      mobileBackdrop.classList.add('opacity-0', 'pointer-events-none');
+      mobileBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+    }
+    if (menuIconOpen) menuIconOpen.classList.remove('hidden');
+    if (menuIconClose) menuIconClose.classList.add('hidden');
+    document.body.style.overflow = '';
+  };
+
   if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isOpen = mobileMenu.classList.contains('translate-x-0');
       if (isOpen) {
-        mobileMenu.classList.remove('translate-x-0');
-        mobileMenu.classList.add('translate-x-full');
-        menuIconOpen.classList.remove('hidden');
-        menuIconClose.classList.add('hidden');
-        document.body.style.overflow = '';
+        closeMobileMenu();
       } else {
-        mobileMenu.classList.remove('translate-x-full');
-        mobileMenu.classList.add('translate-x-0');
-        menuIconOpen.classList.add('hidden');
-        menuIconClose.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
+        openMobileMenu();
       }
     });
   }
 
-  // Close mobile menu on clicking links
+  if (mobileBackdrop) {
+    mobileBackdrop.addEventListener('click', closeMobileMenu);
+  }
+
+  // Close on ESC
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('translate-x-0')) {
+      closeMobileMenu();
+    }
+  });
+
+  // Close mobile menu on clicking any navigation link (excluding accordion buttons)
   const mobileLinks = document.querySelectorAll('#mobile-menu a');
   mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
-      if (mobileMenu) {
-        mobileMenu.classList.add('translate-x-full');
-        mobileMenu.classList.remove('translate-x-0');
-        menuIconOpen.classList.remove('hidden');
-        menuIconClose.classList.add('hidden');
-        document.body.style.overflow = '';
-      }
+      closeMobileMenu();
     });
   });
 

@@ -619,7 +619,11 @@
 
         mGroup.on('mouseenter', () => this.highlightDestination(dest));
         mGroup.on('click', (event) => {
-          event.stopPropagation();
+          if (event) event.stopPropagation();
+          this.highlightDestination(dest, true);
+        });
+        mGroup.on('touchend', (event) => {
+          if (event) event.stopPropagation();
           this.highlightDestination(dest, true);
         });
       });
@@ -664,7 +668,11 @@
 
       hqGroup.on('mouseenter', () => this.highlightIndia());
       hqGroup.on('click', (event) => {
-        event.stopPropagation();
+        if (event) event.stopPropagation();
+        this.highlightIndia(true);
+      });
+      hqGroup.on('touchend', (event) => {
+        if (event) event.stopPropagation();
         this.highlightIndia(true);
       });
 
