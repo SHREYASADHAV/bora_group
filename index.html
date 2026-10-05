@@ -132,113 +132,64 @@
       </button>
     </div>
   </header>
+
   <!-- MOBILE FULLSCREEN OVERLAY MENU -->
-  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-6 sm:p-8 pt-24 sm:pt-28 overflow-y-auto">
-    <div class="flex flex-col space-y-5 font-heading text-base sm:text-lg font-semibold uppercase tracking-widest">
-      <a href="index.html" class="text-white hover:text-gold border-b border-white/5 pb-3 transition-colors flex items-center justify-between" data-i18n="nav_home">
-        <span>Home</span>
-      </a>
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 pt-28">
+    <div class="flex flex-col space-y-6 font-heading text-lg font-semibold uppercase tracking-widest">
+      <a href="index.html" class="text-gold border-b border-white/5 pb-3" data-i18n="nav_home">Home</a>
       
       <!-- Mobile About Accordion -->
       <div class="border-b border-white/5 pb-3">
-        <button type="button" class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none py-1.5" aria-expanded="false">
+        <button class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none">
           <span data-i18n="nav_about">About</span>
           <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
         </button>
-        <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-3 space-y-2 mt-0">
-          <a href="about.html" class="block text-xs text-white/70 hover:text-white uppercase tracking-wider py-1 mt-2">About Us</a>
-          <a href="about/leadership" class="block text-xs text-white/70 hover:text-white uppercase tracking-wider py-1" data-i18n="nav_leadership">Our Leadership</a>
-          <a href="values.html" class="block text-xs text-white/70 hover:text-white uppercase tracking-wider py-1" data-i18n="nav_values">Our Values</a>
-          <a href="history.html" class="block text-xs text-white/70 hover:text-white uppercase tracking-wider py-1" data-i18n="nav_history">Our History</a>
-          <a href="about.html#vision-mission" class="block text-xs text-white/70 hover:text-white uppercase tracking-wider py-1" data-i18n="nav_vision">Vision & Mission</a>
-          <a href="about.html#overview" class="block text-xs text-white/70 hover:text-white uppercase tracking-wider py-1" data-i18n="nav_overview">Company Overview</a>
-          <a href="about.html#reviews" class="block text-xs text-white/70 hover:text-white uppercase tracking-wider py-1" data-i18n="nav_testimonials">Testimonials</a>
-          <a href="gallery.html" class="block text-xs text-white/70 hover:text-white uppercase tracking-wider py-1" data-i18n="nav_gallery">Photo Gallery</a>
-        </div>
+        <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 space-y-3 mt-0">
+          <a href="history.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider mt-3" data-i18n="nav_history">Our History</a>
+          <a href="about.html#vision-mission" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_vision">Vision & Mission</a>
+          <a href="about.html#overview" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_overview">Company Overview</a>
+          <a href="about.html#reviews" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_testimonials">Testimonials</a>
+        <a href="gallery.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_gallery">Photo Gallery</a>
+          </div>
       </div>
 
       <!-- Mobile Business Accordion -->
       <div class="border-b border-white/5 pb-3">
-        <button type="button" class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none py-1.5" aria-expanded="false">
+        <button class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none">
           <span data-i18n="nav_business">Business</span>
           <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
         </button>
-        <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-3 flex flex-col space-y-2 mt-2 text-sm font-normal tracking-wider text-white/60">
-          <a href="real-estate.html" class="hover:text-gold transition-colors block py-1.5">
+                <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 flex flex-col space-y-3 mt-3 text-sm font-normal tracking-wider text-white/60">
+          <a href="overseas-trade.html" class="hover:text-gold transition-colors block py-1">
+            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_overseas">Overseas Trade</span>
+            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Global Import & Export</span>
+          </a>
+          <a href="real-estate.html" class="hover:text-gold transition-colors block py-1">
             <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_realestate">Real Estate</span>
             <span class="block text-[10px] text-white/50 font-normal mt-0.5">Bora Realty</span>
           </a>
-          <a href="overseas-trade.html" class="hover:text-gold transition-colors block py-1.5">
-            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_overseas">Global Trade</span>
-            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Global Import & Export</span>
-          </a>
-          <a href="industrial-supply.html" class="hover:text-gold transition-colors block py-1.5">
-            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_industrial">Industrial Solutions</span>
-            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Industrial Supplies</span>
-          </a>
-          <a href="garments.html" class="hover:text-gold transition-colors block py-1.5">
+          <a href="garments.html" class="hover:text-gold transition-colors block py-1">
             <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_garments">Garments & Fashion</span>
             <span class="block text-[10px] text-white/50 font-normal mt-0.5">Bora Collection, Bora Fashion</span>
           </a>
-          <a href="hospitality.html" class="hover:text-gold transition-colors block py-1.5">
+          <a href="industrial-supply.html" class="hover:text-gold transition-colors block py-1">
+            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_industrial">Industrial Supply</span>
+            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Industrial Solutions</span>
+          </a>
+          <a href="hospitality.html" class="hover:text-gold transition-colors block py-1">
             <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_hospitality">Hospitality</span>
             <span class="block text-[10px] text-white/50 font-normal mt-0.5">Hotels</span>
           </a>
         </div>
       </div>
 
-      <a href="contact.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors py-1.5 block" data-i18n="nav_contact">Contact</a>
+
+
+      <a href="contact.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors" data-i18n="nav_contact">Contact</a>
     </div>
     
-    <div class="flex flex-col space-y-4 pt-6">
-      <a href="contact.html" class="mobile-get-in-touch-btn w-full min-h-[44px] py-3 text-center text-xs font-heading font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg" data-i18n="nav_get_in_touch">
-        <span>GET IN TOUCH</span>
-        <i class="fa-solid fa-arrow-right text-xs"></i>
-      </a>
-      <div class="text-center text-[10px] uppercase tracking-widest text-white/40 font-mono">
-        © 2026 BORA GROUP
-      </div>
-    </div>
-  </div>
-
-      <!-- Mobile Business Accordion -->
-      <div class="border-b border-white/5 pb-3">
-        <button type="button" class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none py-2" aria-expanded="false">
-          <span data-i18n="nav_business">Business</span>
-          <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
-        </button>
-        <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 flex flex-col space-y-2 mt-2 text-sm font-normal tracking-wider text-white/60">
-          <a href="real-estate.html" class="hover:text-gold transition-colors block py-1.5">
-            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_realestate">Real Estate</span>
-            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Bora Realty</span>
-          </a>
-          <a href="overseas-trade.html" class="hover:text-gold transition-colors block py-1.5">
-            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_overseas">Global Trade</span>
-            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Global Import & Export</span>
-          </a>
-          <a href="industrial-supply.html" class="hover:text-gold transition-colors block py-1.5">
-            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_industrial">Industrial Solutions</span>
-            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Industrial Supplies</span>
-          </a>
-          <a href="garments.html" class="hover:text-gold transition-colors block py-1.5">
-            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_garments">Garments & Fashion</span>
-            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Bora Collection, Bora Fashion</span>
-          </a>
-          <a href="hospitality.html" class="hover:text-gold transition-colors block py-1.5">
-            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_hospitality">Hospitality</span>
-            <span class="block text-[10px] text-white/50 font-normal mt-0.5">Hotels</span>
-          </a>
-        </div>
-      </div>
-
-      <a href="contact.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors py-2 block" data-i18n="nav_contact">Contact</a>
-    </div>
-    
-    <div class="flex flex-col space-y-4 pt-6">
-      <a href="contact.html" class="mobile-get-in-touch-btn w-full min-h-[44px] py-3 text-center text-xs font-heading font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg" data-i18n="nav_get_in_touch">
-        <span>GET IN TOUCH</span>
-        <i class="fa-solid fa-arrow-right text-xs"></i>
-      </a>
+    <div class="flex flex-col space-y-6">
+      <a href="contact.html" class="btn-premium-gold text-center text-xs" data-i18n="nav_request_consulting">Request Consulting</a>
       <div class="text-center text-[10px] uppercase tracking-widest text-white/40">
         © 2026 BORA GROUP
       </div>
@@ -422,8 +373,8 @@
         <div>
           <h2 class="text-3xl font-heading font-extrabold text-navy uppercase tracking-wider">Our Businesses</h2>
         </div>
-        <!-- Progress Indicator (Desktop only) -->
-        <div class="hidden lg:flex items-center space-x-2 mt-4 md:mt-0">
+        <!-- Progress Indicator -->
+        <div class="flex items-center space-x-2 mt-4 md:mt-0">
           <div class="biz-segment w-12 h-[3px] bg-gray-900 rounded-full cursor-pointer transition-all duration-300" data-slide="0"></div>
           <div class="biz-segment w-12 h-[3px] bg-gray-200 rounded-full cursor-pointer transition-all duration-300" data-slide="1"></div>
           <div class="biz-segment w-12 h-[3px] bg-gray-200 rounded-full cursor-pointer transition-all duration-300" data-slide="2"></div>
@@ -432,8 +383,8 @@
         </div>
       </div>
 
-      <!-- Main Layout Grid (Desktop Approved Layout) -->
-      <div class="desktop-biz-layout hidden lg:grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      <!-- Main Layout Grid (2 Columns on Desktop) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         
         <!-- Left Column: Business Grid Cards (8 cols) -->
         <div class="lg:col-span-8 grid grid-cols-2 gap-4">
@@ -593,111 +544,6 @@
             </button>
           </div>
 
-        </div>
-
-      </div>
-
-      <!-- Mobile Clean Vertical Business Layout (1 Card per row, 16:9 images, Clear CTAs) -->
-      <div class="mobile-biz-layout lg:hidden flex flex-col gap-5">
-        
-        <!-- 01 Real Estate -->
-        <div class="mobile-biz-card bg-white rounded-2xl border border-gray-200/80 shadow-sm overflow-hidden flex flex-col">
-          <div class="relative w-full aspect-[16/9] overflow-hidden bg-black">
-            <img src="images/real_estate_launch.jpg" alt="Real Estate - Bora Realty" class="w-full h-full object-cover">
-          </div>
-          <div class="p-5 flex flex-col gap-2">
-            <span class="text-[10px] font-heading font-bold uppercase tracking-widest text-[#F97316]">REAL ESTATE</span>
-            <h3 class="font-heading font-bold text-xl text-[#0B1F3B] uppercase">Bora Realty</h3>
-            <p class="text-xs text-gray-500 font-light leading-relaxed">
-              Creating luxurious residential properties, incorporating state-of-the-art construction materials, strict timeliness, and structural integrity.
-            </p>
-            <div class="pt-2">
-              <a href="real-estate.html" class="inline-flex items-center justify-center gap-2 w-full py-3 px-6 rounded-full bg-[#0B1F3B] hover:bg-[#F97316] text-white text-xs font-heading font-bold uppercase tracking-wider transition-colors min-h-[44px]">
-                <span>Explore Real Estate</span>
-                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 02 Global Trade -->
-        <div class="mobile-biz-card bg-white rounded-2xl border border-gray-200/80 shadow-sm overflow-hidden flex flex-col">
-          <div class="relative w-full aspect-[16/9] overflow-hidden bg-black">
-            <img src="images/overseas_trade_ship.jpg" alt="Global Trade" class="w-full h-full object-cover">
-          </div>
-          <div class="p-5 flex flex-col gap-2">
-            <span class="text-[10px] font-heading font-bold uppercase tracking-widest text-[#F97316]">GLOBAL TRADE</span>
-            <h3 class="font-heading font-bold text-xl text-[#0B1F3B] uppercase">Import & Export</h3>
-            <p class="text-xs text-gray-500 font-light leading-relaxed">
-              Pioneering bulk exports and imports of high-quality grains, oil seeds, animal feed, spices, and fresh agro commodities globally since 1982.
-            </p>
-            <div class="pt-2">
-              <a href="overseas-trade.html" class="inline-flex items-center justify-center gap-2 w-full py-3 px-6 rounded-full bg-[#0B1F3B] hover:bg-[#F97316] text-white text-xs font-heading font-bold uppercase tracking-wider transition-colors min-h-[44px]">
-                <span>Explore Global Trade</span>
-                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 03 Industrial Supply -->
-        <div class="mobile-biz-card bg-white rounded-2xl border border-gray-200/80 shadow-sm overflow-hidden flex flex-col">
-          <div class="relative w-full aspect-[16/9] overflow-hidden bg-black">
-            <img src="images/industrial_supplies.jpg" alt="Industrial Supply" class="w-full h-full object-cover">
-          </div>
-          <div class="p-5 flex flex-col gap-2">
-            <span class="text-[10px] font-heading font-bold uppercase tracking-widest text-[#F97316]">INDUSTRIAL SOLUTIONS</span>
-            <h3 class="font-heading font-bold text-xl text-[#0B1F3B] uppercase">Industrial Supplies</h3>
-            <p class="text-xs text-gray-500 font-light leading-relaxed">
-              Delivering machine assemblies, engineering tools, and standard components to processing mills and manufacturing sectors since 1995.
-            </p>
-            <div class="pt-2">
-              <a href="industrial-supply.html" class="inline-flex items-center justify-center gap-2 w-full py-3 px-6 rounded-full bg-[#0B1F3B] hover:bg-[#F97316] text-white text-xs font-heading font-bold uppercase tracking-wider transition-colors min-h-[44px]">
-                <span>Explore Industrial Supply</span>
-                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 04 Garments & Textiles -->
-        <div class="mobile-biz-card bg-white rounded-2xl border border-gray-200/80 shadow-sm overflow-hidden flex flex-col">
-          <div class="relative w-full aspect-[16/9] overflow-hidden bg-black">
-            <img src="images/garments_textiles.png" alt="Garments & Textiles" class="w-full h-full object-cover">
-          </div>
-          <div class="p-5 flex flex-col gap-2">
-            <span class="text-[10px] font-heading font-bold uppercase tracking-widest text-[#F97316]">GARMENTS & FASHION</span>
-            <h3 class="font-heading font-bold text-xl text-[#0B1F3B] uppercase">Bora Collection</h3>
-            <p class="text-xs text-gray-500 font-light leading-relaxed">
-              Fulfilling custom tailoring and bulk garment export contracts. Our modern retail and wholesale outlets satisfy premium styling guidelines.
-            </p>
-            <div class="pt-2">
-              <a href="garments.html" class="inline-flex items-center justify-center gap-2 w-full py-3 px-6 rounded-full bg-[#0B1F3B] hover:bg-[#F97316] text-white text-xs font-heading font-bold uppercase tracking-wider transition-colors min-h-[44px]">
-                <span>Explore Garments & Fashion</span>
-                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 05 Hospitality & Services -->
-        <div class="mobile-biz-card bg-white rounded-2xl border border-gray-200/80 shadow-sm overflow-hidden flex flex-col">
-          <div class="relative w-full aspect-[16/9] overflow-hidden bg-black">
-            <img src="images/hotel_divya_palace.jpg" alt="Hospitality & Services" class="w-full h-full object-cover">
-          </div>
-          <div class="p-5 flex flex-col gap-2">
-            <span class="text-[10px] font-heading font-bold uppercase tracking-widest text-[#F97316]">HOSPITALITY</span>
-            <h3 class="font-heading font-bold text-xl text-[#0B1F3B] uppercase">Hotels & Banquets</h3>
-            <p class="text-xs text-gray-500 font-light leading-relaxed">
-              Providing fine dining experiences, premium lodging operations, and business conference spaces across Maharashtra, India.
-            </p>
-            <div class="pt-2">
-              <a href="hospitality.html" class="inline-flex items-center justify-center gap-2 w-full py-3 px-6 rounded-full bg-[#0B1F3B] hover:bg-[#F97316] text-white text-xs font-heading font-bold uppercase tracking-wider transition-colors min-h-[44px]">
-                <span>Explore Hospitality</span>
-                <i class="fa-solid fa-arrow-right text-[10px]"></i>
-              </a>
-            </div>
-          </div>
         </div>
 
       </div>

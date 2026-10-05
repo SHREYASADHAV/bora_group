@@ -204,9 +204,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       // 3. Card carousel — translate only the WRAPPER (not individual cards)
-      // Cards are w-[110px] on desktop (110), w-[84px] on mobile (84), gap-3 = 12px
-      const isMobile = window.innerWidth < 768;
-      const cardWidth = isMobile ? 84 : 110;
+      // Cards are w-[110px], gap-3 = 12px
+      const cardWidth = 110;
       const gap = 12;
       gsap.to(wrapper, { x: -idx * (cardWidth + gap), duration: 0.55, ease: 'power2.out' });
 
