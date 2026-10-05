@@ -622,13 +622,13 @@ textarea {
 .country-interactive:hover {
   fill: #FDE68A !important;
   stroke: #B45309 !important;
-  stroke-width: 0.9px !important;
+  stroke-width: 0.5px !important;
 }
 .country-default:hover {
-  fill: #CBD5E1 !important;
+  fill: #F1F5F9 !important;
 }
 .dest-marker-group:hover .dest-dot-core {
-  transform: scale(1.3);
+  transform: scale(1.2);
   fill: #D97706;
 }
 .dest-dot-core {
@@ -637,7 +637,7 @@ textarea {
   transform-origin: center;
 }
 .hq-marker-group:hover .hq-core-dot {
-  transform: scale(1.2);
+  transform: scale(1.15);
 }
 .hq-core-dot {
   transition: transform 0.2s ease;
@@ -645,12 +645,12 @@ textarea {
   transform-origin: center;
 }
 @keyframes hqPulseWave {
-  0% { transform: scale(0.6); opacity: 0.9; }
-  100% { transform: scale(2.4); opacity: 0; }
+  0% { transform: scale(0.8); opacity: 0.45; }
+  100% { transform: scale(1.6); opacity: 0; }
 }
 @keyframes destPulseWave {
-  0% { transform: scale(0.8); opacity: 0.8; }
-  100% { transform: scale(2.4); opacity: 0; }
+  0% { transform: scale(0.8); opacity: 0.4; }
+  100% { transform: scale(1.5); opacity: 0; }
 }
 .hq-pulse-outer {
   transform-origin: center;

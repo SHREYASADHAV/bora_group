@@ -455,21 +455,21 @@
         .attr('d', pathGenerator)
         .attr('fill', d => {
           const name = (d.properties?.name || '').toLowerCase();
-          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FFEDD5'; // Warm orange for India HQ
-          if (destNamesSet.has(name)) return '#FEF3C7'; // Soft gold for trade partners
-          return '#E2E8F0'; // Clear, visible corporate slate/gray for world continents
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FFF7ED'; // Subtle warm tint for India HQ
+          if (destNamesSet.has(name)) return '#FEFCE8'; // Subtle light tint for trade partners
+          return '#F8FAFC'; // Clean, soft light background for world continents
         })
         .attr('stroke', d => {
           const name = (d.properties?.name || '').toLowerCase();
-          if (name === INDIA_HQ.featureName.toLowerCase()) return '#F97316';
-          if (destNamesSet.has(name)) return '#D97706';
-          return '#CBD5E1';
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FB923C';
+          if (destNamesSet.has(name)) return '#FBBF24';
+          return '#E2E8F0';
         })
         .attr('stroke-width', d => {
           const name = (d.properties?.name || '').toLowerCase();
-          if (name === INDIA_HQ.featureName.toLowerCase()) return '0.8';
-          if (destNamesSet.has(name)) return '0.6';
-          return '0.4';
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '0.5';
+          if (destNamesSet.has(name)) return '0.35';
+          return '0.22';
         })
         .style('transition', 'fill 0.2s ease, stroke 0.2s ease, stroke-width 0.2s ease')
         .style('cursor', d => {
@@ -529,45 +529,35 @@
           .attr('class', `route-group route-${dest.id}`)
           .style('transition', 'opacity 0.3s ease');
 
-        // Base static route - delicate refined stroke
+        // Base static route - ultra-thin delicate hairline
         const basePath = rGroup.append('path')
           .attr('class', 'route-base')
           .attr('d', pathData)
           .attr('fill', 'none')
-          .attr('stroke', '#C4A02B')
-          .attr('stroke-width', '0.85')
+          .attr('stroke', '#D4AF37')
+          .attr('stroke-width', '0.45')
           .attr('stroke-linecap', 'round')
-          .attr('opacity', '0.45');
+          .attr('opacity', '0.3');
 
-        // Glowing pipeline flow segment (animated dashed line)
+        // Glowing pipeline flow segment (delicate dashed line)
         const flowPath = rGroup.append('path')
           .attr('class', 'route-flow-pipe')
           .attr('d', pathData)
           .attr('fill', 'none')
-          .attr('stroke', '#E2BD44')
-          .attr('stroke-width', '0.95')
+          .attr('stroke', '#D97706')
+          .attr('stroke-width', '0.55')
           .attr('stroke-linecap', 'round')
-          .attr('stroke-dasharray', '4, 8')
-          .attr('opacity', '0.85');
+          .attr('stroke-dasharray', '2, 6')
+          .attr('opacity', '0.6');
 
-        // Traveling glowing particle group
+        // Traveling glowing particle group - single clean delicate dot
         const particleG = rGroup.append('g')
           .attr('class', 'traveling-particle')
           .attr('opacity', '0');
 
         particleG.append('circle')
-          .attr('r', '4')
-          .attr('fill', '#FFD166')
-          .attr('opacity', '0.45')
-          .attr('filter', 'url(#goldGlow)');
-
-        particleG.append('circle')
-          .attr('r', '2.2')
+          .attr('r', '1.3')
           .attr('fill', '#D97706');
-
-        particleG.append('circle')
-          .attr('r', '1.2')
-          .attr('fill', '#FFFFFF');
 
         routeElements.push({
           dest,
@@ -592,23 +582,23 @@
 
         mGroup.append('circle')
           .attr('class', 'dest-hit-area')
-          .attr('r', '12')
+          .attr('r', '10')
           .attr('fill', 'transparent');
 
         mGroup.append('circle')
           .attr('class', 'dest-pulse-ring')
-          .attr('r', '4')
+          .attr('r', '3.5')
           .attr('fill', 'none')
-          .attr('stroke', '#C4A02B')
-          .attr('stroke-width', '0.75')
-          .attr('opacity', '0.7');
+          .attr('stroke', '#D4AF37')
+          .attr('stroke-width', '0.35')
+          .attr('opacity', '0.4');
 
         mGroup.append('circle')
           .attr('class', 'dest-dot-core')
-          .attr('r', '3.2')
+          .attr('r', '1.8')
           .attr('fill', '#C4A02B')
           .attr('stroke', '#FFFFFF')
-          .attr('stroke-width', '1');
+          .attr('stroke-width', '0.4');
 
         const lo = dest.labelOffset;
         mGroup.append('text')
@@ -616,11 +606,11 @@
           .attr('x', lo.x)
           .attr('y', lo.y)
           .attr('text-anchor', lo.anchor)
-          .attr('fill', '#334155')
-          .attr('font-size', '6.5px')
-          .attr('font-weight', '600')
-          .attr('font-family', 'Montserrat, sans-serif')
-          .attr('letter-spacing', '0.2px')
+          .attr('fill', '#64748B')
+          .attr('font-size', '5.5px')
+          .attr('font-weight', '400')
+          .attr('font-family', 'Inter, -apple-system, sans-serif')
+          .attr('letter-spacing', '0.15px')
           .text(dest.name);
 
         mGroup.on('mouseenter', () => this.highlightDestination(dest));
@@ -638,56 +628,48 @@
 
       hqGroup.append('circle')
         .attr('class', 'hq-hit-area')
-        .attr('r', '18')
+        .attr('r', '14')
         .attr('fill', 'transparent');
 
       hqGroup.append('circle')
         .attr('class', 'hq-pulse-outer')
-        .attr('r', '12')
-        .attr('fill', 'rgba(249, 115, 22, 0.12)')
+        .attr('r', '5')
+        .attr('fill', 'none')
         .attr('stroke', '#F97316')
-        .attr('stroke-width', '0.75')
-        .attr('opacity', '0.8');
-
-      hqGroup.append('circle')
-        .attr('class', 'hq-pulse-inner')
-        .attr('r', '6.5')
-        .attr('fill', 'rgba(249, 115, 22, 0.25)')
-        .attr('stroke', '#F97316')
-        .attr('stroke-width', '0.9');
+        .attr('stroke-width', '0.35')
+        .attr('opacity', '0.45');
 
       hqGroup.append('circle')
         .attr('class', 'hq-core-dot')
-        .attr('r', '3.8')
+        .attr('r', '2.2')
         .attr('fill', '#F97316')
         .attr('stroke', '#FFFFFF')
-        .attr('stroke-width', '1.2');
+        .attr('stroke-width', '0.5');
 
       const hqLabelG = hqGroup.append('g')
         .attr('class', 'hq-label-group')
-        .attr('transform', 'translate(0, -11)');
+        .attr('transform', 'translate(0, -9)');
 
       hqLabelG.append('rect')
-        .attr('x', '-46')
-        .attr('y', '-9')
-        .attr('width', '92')
-        .attr('height', '14')
-        .attr('rx', '3')
-        .attr('fill', 'rgba(255, 255, 255, 0.95)')
-        .attr('stroke', '#F97316')
-        .attr('stroke-width', '0.6')
-        .attr('filter', 'drop-shadow(0 2px 4px rgba(0,0,0,0.06))');
+        .attr('x', '-38')
+        .attr('y', '-6.5')
+        .attr('width', '76')
+        .attr('height', '11')
+        .attr('rx', '2')
+        .attr('fill', 'rgba(255, 255, 255, 0.88)')
+        .attr('stroke', '#CBD5E1')
+        .attr('stroke-width', '0.35');
 
       hqLabelG.append('text')
         .attr('x', '0')
         .attr('y', '0')
         .attr('text-anchor', 'middle')
         .attr('dominant-baseline', 'central')
-        .attr('fill', '#161616')
-        .attr('font-size', '6.5px')
-        .attr('font-weight', '700')
-        .attr('font-family', 'Montserrat, sans-serif')
-        .attr('letter-spacing', '0.3px')
+        .attr('fill', '#475569')
+        .attr('font-size', '5.2px')
+        .attr('font-weight', '500')
+        .attr('font-family', 'Inter, -apple-system, sans-serif')
+        .attr('letter-spacing', '0.25px')
         .text('EXPORT HQ • JNPA');
 
       hqGroup.on('mouseenter', () => this.highlightIndia());
@@ -801,30 +783,30 @@
         })
         .attr('stroke-width', d => {
           const name = (d.properties?.name || '').toLowerCase();
-          if (name === dest.featureName.toLowerCase()) return '0.9';
-          if (name === INDIA_HQ.featureName.toLowerCase()) return '0.8';
-          return '0.4';
+          if (name === dest.featureName.toLowerCase()) return '0.55';
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '0.5';
+          return '0.22';
         });
 
       // 2. Highlight corresponding export route; dim other routes
       scope.selectAll('.route-group')
         .transition().duration(250)
         .attr('opacity', function () {
-          return d3.select(this).classed(`route-${dest.id}`) ? '1' : '0.15';
+          return d3.select(this).classed(`route-${dest.id}`) ? '1' : '0.12';
         });
 
       scope.selectAll(`.route-${dest.id} .route-base`)
         .transition().duration(250)
-        .attr('stroke', '#C4A02B')
-        .attr('stroke-width', '1.3')
-        .attr('opacity', '0.9');
+        .attr('stroke', '#D4AF37')
+        .attr('stroke-width', '0.75')
+        .attr('opacity', '0.85');
 
       // 3. Highlight destination marker
       scope.selectAll('.dest-dot-core')
         .transition().duration(250)
         .attr('r', function () {
           const p = d3.select(this.parentNode);
-          return p.classed(`marker-${dest.id}`) ? '4.5' : '3.2';
+          return p.classed(`marker-${dest.id}`) ? '2.8' : '1.8';
         })
         .attr('fill', function () {
           const p = d3.select(this.parentNode);
@@ -884,8 +866,8 @@
         })
         .attr('stroke-width', d => {
           const name = (d.properties?.name || '').toLowerCase();
-          if (name === INDIA_HQ.featureName.toLowerCase()) return '1.0';
-          return '0.4';
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '0.65';
+          return '0.22';
         });
 
       // Highlight ALL 10 export routes simultaneously
@@ -895,9 +877,9 @@
 
       scope.selectAll('.route-base')
         .transition().duration(250)
-        .attr('stroke', '#C4A02B')
-        .attr('stroke-width', '1.1')
-        .attr('opacity', '0.85');
+        .attr('stroke', '#D4AF37')
+        .attr('stroke-width', '0.6')
+        .attr('opacity', '0.75');
 
       if (this.infoCard) {
         if (this.cardBadge) {
@@ -942,24 +924,24 @@
         .transition().duration(250)
         .attr('fill', d => {
           const name = (d.properties?.name || '').toLowerCase();
-          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FFEDD5';
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FFF7ED';
           const isDest = DESTINATIONS.some(dest => dest.featureName.toLowerCase() === name);
-          if (isDest) return '#FEF3C7';
-          return '#E2E8F0';
+          if (isDest) return '#FEFCE8';
+          return '#F8FAFC';
         })
         .attr('stroke', d => {
           const name = (d.properties?.name || '').toLowerCase();
-          if (name === INDIA_HQ.featureName.toLowerCase()) return '#F97316';
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FB923C';
           const isDest = DESTINATIONS.some(dest => dest.featureName.toLowerCase() === name);
-          if (isDest) return '#D97706';
-          return '#CBD5E1';
+          if (isDest) return '#FBBF24';
+          return '#E2E8F0';
         })
         .attr('stroke-width', d => {
           const name = (d.properties?.name || '').toLowerCase();
-          if (name === INDIA_HQ.featureName.toLowerCase()) return '0.8';
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '0.5';
           const isDest = DESTINATIONS.some(dest => dest.featureName.toLowerCase() === name);
-          if (isDest) return '0.6';
-          return '0.4';
+          if (isDest) return '0.35';
+          return '0.22';
         });
 
       scope.selectAll('.route-group')
@@ -968,13 +950,13 @@
 
       scope.selectAll('.route-base')
         .transition().duration(250)
-        .attr('stroke', '#C4A02B')
-        .attr('stroke-width', '0.85')
-        .attr('opacity', '0.45');
+        .attr('stroke', '#D4AF37')
+        .attr('stroke-width', '0.45')
+        .attr('opacity', '0.3');
 
       scope.selectAll('.dest-dot-core')
         .transition().duration(250)
-        .attr('r', '3.2')
+        .attr('r', '1.8')
         .attr('fill', '#C4A02B');
 
       if (this.infoCard) {
