@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Global Trade & Overseas Trade | BORA GROUP</title>
+  <title>Global Overseas Trade | BORA GROUP</title>
   <meta name="description"
-    content="Explore BORA GROUP's global trade and overseas trade operations. Sourcing and delivering certified vegetables, spices, grains, and garments worldwide.">
+    content="Bora Group's global overseas trade division. Certified sourcing and export of fresh vegetables, grains, cereals, authentic Indian spices, and high-performance garments worldwide.">
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -19,15 +20,8 @@
               hover: '#D4AF37',
             },
             navy: '#053C8F',
-            dark: '#05050A',
-            light: '#F6F9FD',
-            orange: {
-              50: '#FFF7ED',
-              100: '#FFEDD5',
-              500: '#F97316',
-              600: '#EA580C',
-              700: '#C2410C',
-            }
+            dark: '#111215',
+            light: '#FAF9F6'
           },
           fontFamily: {
             sans: ['Flexo Soft', 'Poppins', 'sans-serif'],
@@ -38,104 +32,95 @@
       }
     }
   </script>
+
   <!-- Styles & Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/industrial.css">
+  <link rel="stylesheet" href="css/overseas.css">
 </head>
 
-<body class="bg-white text-gray-800 selection:bg-orange-500 selection:text-white">
+<body class="bg-[#FAF9F6] text-stone-800 selection:bg-gold selection:text-white antialiased overflow-x-hidden">
 
   <!-- Scroll Progress -->
-  <div id="scroll-indicator" class="fixed top-0 left-0 h-1 bg-orange-500 z-[100] transition-all duration-75"
-    style="width: 0%;"></div>
+  <div id="scroll-indicator" class="fixed top-0 left-0 h-1 bg-gold z-[100] transition-all duration-75" style="width: 0%;"></div>
 
   <!-- STICKY NAVBAR -->
   <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-transparent">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
       <!-- Logo -->
       <a href="index.html" class="flex items-center group">
-        <img id="navbar-logo" src="images/logo_new.png" alt="BORA GROUP"
-          class="transition-all duration-300 group-hover:scale-105">
+        <img id="navbar-logo" src="images/logo_new.png" alt="BORA GROUP" class="transition-all duration-300 group-hover:scale-105">
       </a>
 
       <!-- Desktop Menu -->
       <nav class="hidden md:flex items-center space-x-8 font-heading text-xs font-semibold uppercase tracking-widest">
-        <a href="index.html" class="text-white/80 hover:text-white transition-colors duration-300"
-          data-i18n="nav_home">Home</a>
+        <a href="index.html" class="text-white/80 hover:text-white transition-colors duration-300" data-i18n="nav_home">Home</a>
 
         <!-- About Dropdown -->
         <div class="relative group py-2">
-          <a href="about.html"
-            class="text-white/80 hover:text-white transition-colors duration-300 flex items-center space-x-1.5">
+          <a href="about.html" class="text-white/80 hover:text-white transition-colors duration-300 flex items-center space-x-1.5">
             <span data-i18n="nav_about">About</span>
             <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
           </a>
-          <div
-            class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-xl p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
-            <a href="about/leadership"
-              class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200"
-              data-i18n="nav_leadership">Our Leadership</a>
-            <a href="history.html"
-              class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200"
-              data-i18n="nav_history">Our History</a>
-            <a href="about.html#vision-mission"
-              class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200"
-              data-i18n="nav_vision">Vision & Mission</a>
-            <a href="about.html#overview"
-              class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200"
-              data-i18n="nav_overview">Company Overview</a>
-            <a href="about.html#reviews"
-              class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200"
-              data-i18n="nav_testimonials">Testimonials</a>
-          <a href="gallery.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_gallery">Photo Gallery</a>
-            </div>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 trade-sharp">
+            <a href="about/leadership" class="nav-dropdown-link block px-4 py-2.5 text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_leadership">Our Leadership</a>
+            <a href="history.html" class="nav-dropdown-link block px-4 py-2.5 text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_history">Our History</a>
+            <a href="about.html#vision-mission" class="nav-dropdown-link block px-4 py-2.5 text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_vision">Vision & Mission</a>
+            <a href="about.html#overview" class="nav-dropdown-link block px-4 py-2.5 text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_overview">Company Overview</a>
+            <a href="about.html#reviews" class="nav-dropdown-link block px-4 py-2.5 text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_testimonials">Testimonials</a>
+            <a href="gallery.html" class="nav-dropdown-link block px-4 py-2.5 text-[9px] tracking-wider uppercase transition-all duration-200" data-i18n="nav_gallery">Photo Gallery</a>
+          </div>
         </div>
 
         <!-- Business Dropdown -->
         <div class="relative group py-2">
-          <a href="business.html" class="text-orange-500 transition-colors duration-300 flex items-center space-x-1.5">
+          <a href="business.html" class="text-gold transition-colors duration-300 flex items-center space-x-1.5">
             <span data-i18n="nav_business">Business</span>
             <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
           </a>
-          <div
-            class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 rounded-xl p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50">
-            <a href="overseas-trade.html"
-              class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200"
-              data-i18n="nav_overseas">Overseas Trade</a>
-            <a href="real-estate.html"
-              class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200"
-              data-i18n="nav_realestate">Real Estate</a>
-
-            <a href="garments.html"
-              class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200"
-              data-i18n="nav_garments">Garments & Textiles</a>
-            <a href="industrial-supply.html"
-              class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200"
-              data-i18n="nav_industrial">Industrial Supply</a>
-            <a href="hospitality.html"
-              class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200"
-              data-i18n="nav_hospitality">Hospitality & Services</a>
+          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] lg:w-[560px] p-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 trade-sharp">
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex flex-col space-y-1.5">
+                <a href="overseas-trade.html" class="nav-dropdown-link block px-4 py-3 transition-all duration-200 bg-white/5">
+                  <span class="dropdown-title text-gold" data-i18n="nav_overseas">Overseas Trade</span>
+                  <span class="dropdown-subtitle">Global Import & Export</span>
+                </a>
+                <a href="real-estate.html" class="nav-dropdown-link block px-4 py-3 transition-all duration-200">
+                  <span class="dropdown-title" data-i18n="nav_realestate">Real Estate</span>
+                  <span class="dropdown-subtitle">Bora Realty</span>
+                </a>
+                <a href="garments.html" class="nav-dropdown-link block px-4 py-3 transition-all duration-200">
+                  <span class="dropdown-title" data-i18n="nav_garments">Garments & Fashion</span>
+                  <span class="dropdown-subtitle">Bora Collection, Bora Fashion</span>
+                </a>
+              </div>
+              <div class="flex flex-col space-y-1.5">
+                <a href="industrial-supply.html" class="nav-dropdown-link block px-4 py-3 transition-all duration-200">
+                  <span class="dropdown-title" data-i18n="nav_industrial">Industrial Supply</span>
+                  <span class="dropdown-subtitle">Industrial Solutions</span>
+                </a>
+                <a href="hospitality.html" class="nav-dropdown-link block px-4 py-3 transition-all duration-200">
+                  <span class="dropdown-title" data-i18n="nav_hospitality">Hospitality</span>
+                  <span class="dropdown-subtitle">Hotels</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <a href="contact.html" class="text-white/80 hover:text-white transition-colors duration-300"
-          data-i18n="nav_contact">Contact</a>
+        <a href="contact.html" class="text-white/80 hover:text-white transition-colors duration-300" data-i18n="nav_contact">Contact</a>
       </nav>
-
-
 
       <!-- Desktop Contact CTA -->
       <div class="hidden lg:flex">
-        <a href="contact.html" class="btn-premium-orange text-[10px] px-6 py-2.5" data-i18n="nav_get_in_touch">Get In
-          Touch</a>
+        <a href="enquiry-export.html" class="btn-premium-gold text-[10px] px-6 py-2.5 trade-sharp" data-i18n="nav_request_quote">Request Quote</a>
       </div>
 
       <!-- Mobile Hamburger Button -->
-      <button id="mobile-menu-btn"
-        class="md:hidden text-white hover:text-orange-500 transition-colors focus:outline-none"
-        aria-label="Toggle Mobile Menu">
+      <button id="mobile-menu-btn" class="md:hidden text-white hover:text-gold transition-colors focus:outline-none" aria-label="Toggle Mobile Menu">
         <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
@@ -147,43 +132,35 @@
   </header>
 
   <!-- MOBILE MENU -->
-  <div id="mobile-menu"
-    class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 pt-28">
+  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 pt-28 trade-sharp">
     <div class="flex flex-col space-y-6 font-heading text-lg font-semibold uppercase tracking-widest">
-      <a href="index.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors"
-        data-i18n="nav_home">Home</a>
+      <a href="index.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors" data-i18n="nav_home">Home</a>
 
       <!-- Mobile About Accordion -->
       <div class="border-b border-white/5 pb-3">
-        <button
-          class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none">
+        <button class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none">
           <span data-i18n="nav_about">About</span>
           <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
         </button>
         <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 space-y-3 mt-0">
-          <a href="history.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider mt-3"
-            data-i18n="nav_history">Our History</a>
-          <a href="about.html#vision-mission"
-            class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_vision">Vision
-            & Mission</a>
-          <a href="about.html#overview" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider"
-            data-i18n="nav_overview">Company Overview</a>
-          <a href="about.html#reviews" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider"
-            data-i18n="nav_testimonials">Testimonials</a>
-        <a href="gallery.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_gallery">Photo Gallery</a>
-          </div>
+          <a href="about/leadership" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider mt-3" data-i18n="nav_leadership">Our Leadership</a>
+          <a href="history.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_history">Our History</a>
+          <a href="about.html#vision-mission" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_vision">Vision & Mission</a>
+          <a href="about.html#overview" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_overview">Company Overview</a>
+          <a href="about.html#reviews" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_testimonials">Testimonials</a>
+          <a href="gallery.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_gallery">Photo Gallery</a>
+        </div>
       </div>
 
       <!-- Mobile Business Accordion -->
       <div class="border-b border-white/5 pb-3">
-        <button
-          class="mobile-dropdown-btn w-full flex justify-between items-center text-orange-500 transition-colors focus:outline-none">
+        <button class="mobile-dropdown-btn w-full flex justify-between items-center text-gold transition-colors focus:outline-none">
           <span data-i18n="nav_business">Business</span>
           <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
         </button>
-                <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 flex flex-col space-y-3 mt-3 text-sm font-normal tracking-wider text-white/60">
-          <a href="overseas-trade.html" class="hover:text-gold transition-colors block py-1">
-            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_overseas">Overseas Trade</span>
+        <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 flex flex-col space-y-3 mt-3 text-sm font-normal tracking-wider text-white/60">
+          <a href="overseas-trade.html" class="hover:text-gold transition-colors block py-1 text-gold font-bold">
+            <span class="block font-bold text-xs uppercase tracking-wider text-gold" data-i18n="nav_overseas">Overseas Trade</span>
             <span class="block text-[10px] text-white/50 font-normal mt-0.5">Global Import & Export</span>
           </a>
           <a href="real-estate.html" class="hover:text-gold transition-colors block py-1">
@@ -205,287 +182,420 @@
         </div>
       </div>
 
-
-
-      <a href="contact.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors"
-        data-i18n="nav_contact">Contact</a>
+      <a href="contact.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors" data-i18n="nav_contact">Contact</a>
     </div>
 
     <div class="flex flex-col space-y-6">
-      <a href="contact.html" class="btn-premium-orange text-center text-xs" data-i18n="nav_request_consulting">Request
-        Consulting</a>
-      <div class="text-center text-[10px] uppercase tracking-widest text-white/40">
-        © 2026 BORA GROUP
+      <a href="enquiry-export.html" class="btn-premium-gold text-center text-xs trade-sharp" data-i18n="nav_request_quote">Request Export Quote</a>
+      <div class="text-center text-[10px] uppercase tracking-widest text-white/40 font-mono">
+        © 2026 BORA GROUP • OVERSEAS TRADE
       </div>
     </div>
   </div>
 
-  <!-- DEDICATED HERO SECTION -->
-  <section id="hero-trigger" class="relative h-screen flex items-center justify-start overflow-hidden bg-dark">
+  <!-- DEDICATED HERO SECTION (Sharp Architectural Precision Layout with Canvas Stream) -->
+  <section id="hero-trigger" class="relative min-h-[92vh] flex items-center justify-start overflow-hidden bg-dark text-white">
     <div class="absolute inset-0 z-0">
       <!-- Canvas for GSAP Image Sequence Scroll -->
       <canvas id="trade-canvas" class="w-full h-full object-cover"></canvas>
 
-      <!-- Left-to-right dark gradient to make left-aligned text pop over the canvas, and top/bottom transitions -->
-      <div class="absolute inset-0 bg-gradient-to-r from-dark/90 via-dark/50 to-transparent z-5 pointer-events-none">
+      <!-- High-Resolution Fallback Background Image in case canvas frames are buffering -->
+      <div class="absolute inset-0 z-[-1] overflow-hidden">
+        <img src="images/overseas_trade_ship.jpg" alt="Global Trade Cargo Ship" class="w-full h-full object-cover brightness-[0.35] contrast-[1.1]">
       </div>
-      <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-dark/40 z-5 pointer-events-none"></div>
-      <!-- SVG World Map Dotted Pattern Background for Global trade atmosphere -->
-      <div
-        class="absolute inset-0 opacity-[0.06] bg-[url('https://upload.wikimedia.org/wikipedia/commons/2/23/World_map_dots.svg')] bg-contain bg-center bg-no-repeat z-5 pointer-events-none">
-      </div>
+
+      <!-- High-End Dark Gradients -->
+      <div class="absolute inset-0 bg-gradient-to-r from-dark via-dark/75 to-transparent z-5 pointer-events-none"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-dark/50 z-5 pointer-events-none"></div>
+      
+      <!-- Technical Blueprint Dotted Grid -->
+      <div class="absolute inset-0 opacity-[0.06] bg-[url('https://upload.wikimedia.org/wikipedia/commons/2/23/World_map_dots.svg')] bg-contain bg-center bg-no-repeat z-5 pointer-events-none"></div>
     </div>
 
-    <!-- Content wrapper aligned to left -->
-    <div id="hero-content" class="relative z-10 max-w-2xl ml-8 md:ml-16 lg:ml-24 mr-6 text-left text-white mt-12">
-      <span
-        class="font-heading text-xs lg:text-sm font-semibold tracking-[0.25em] text-orange-500 uppercase mb-4 inline-block opacity-0 hero-subtitle"
-        data-i18n="trade_hero_tag">
-        BORA GLOBAL TRADE
-      </span>
-      <h1
-        class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6 opacity-0 hero-title text-white"
-        data-i18n="trade_hero_title">
-        Global Trade<br> <span
-          class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-400">Excellence</span>
+    <!-- Content Wrapper with Sharp Edges & Industrial Precision -->
+    <div id="hero-content" class="relative z-10 max-w-3xl ml-6 sm:ml-12 lg:ml-20 mr-6 text-left text-white mt-16 pt-16 pb-12">
+      
+      <!-- Eyebrow Badge (Sharp Clean Line) -->
+      <div class="inline-flex items-center gap-3 bg-white/5 backdrop-blur-md border-l-2 border-gold py-2 px-4 text-gold trade-sharp mb-6">
+        <span class="text-[11px] font-heading font-bold uppercase tracking-[0.25em]">BORA GROUP • GLOBAL OVERSEAS TRADE</span>
+      </div>
+
+      <!-- Main Heading -->
+      <h1 class="font-heading text-4xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] text-white mb-6">
+        Global Trade, <br>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#E2D1B8] to-gold">Engineered for Excellence.</span>
       </h1>
-      <p class="font-sans text-sm sm:text-base lg:text-lg font-light text-white/70 max-w-xl mb-8 leading-relaxed opacity-0 hero-text"
-        data-i18n="trade_hero_desc">
-        Supplying certified agro-products, vegetables, spices, grains, and premium textiles to international markets
-        with operational integrity and robust logistical coordination.
+
+      <!-- Subtitle -->
+      <p class="font-sans text-base sm:text-lg font-light text-stone-200 max-w-2xl leading-relaxed mb-8">
+        Direct sourcing and international delivery of APEDA-certified fresh vegetables, aged basmati grains, authentic Indian spices, and high-performance garments worldwide.
       </p>
 
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row items-stretch sm:items-start justify-start gap-4 opacity-0 hero-ctas">
-        <a href="#products-section" class="btn-premium-orange text-center w-full sm:w-auto"
-          data-i18n="trade_explore_prod">Explore Products</a>
-        <a href="enquiry-export.html" class="btn-premium-outline text-center hover:!border-orange-500 w-full sm:w-auto"
-          data-i18n="trade_req_quote">Request Quotation</a>
+      <!-- Primary & Secondary CTAs (Sharp Architectural Buttons) -->
+      <div class="flex flex-wrap gap-4 items-center justify-start pt-2">
+        <a href="#categories" class="btn-premium-gold text-xs px-8 py-4 trade-sharp flex items-center gap-2">
+          <span>Explore Export Sectors</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+        <a href="enquiry-export.html" class="btn-premium-outline text-xs px-8 py-4 border-white/25 text-white hover:bg-white hover:text-dark transition-all trade-sharp">
+          Request Quotation
+        </a>
+      </div>
+
+      <!-- Quick Anchor Badges (Sharp Technical Bar) -->
+      <div class="pt-8 mt-6 border-t border-white/10 flex flex-wrap gap-4 items-center justify-start text-[11px] font-heading font-semibold uppercase tracking-wider text-white/60">
+        <a href="#categories" class="hover:text-gold transition-colors">Sectors</a>
+        <span class="text-white/20">/</span>
+        <a href="#discovery" class="hover:text-gold transition-colors text-gold">Rapid Filter</a>
+        <span class="text-white/20">/</span>
+        <a href="#vegetables-sector" class="hover:text-gold transition-colors">Vegetables</a>
+        <span class="text-white/20">/</span>
+        <a href="#grains-sector" class="hover:text-gold transition-colors">Grains</a>
+        <span class="text-white/20">/</span>
+        <a href="#spices-sector" class="hover:text-gold transition-colors">Spices</a>
+        <span class="text-white/20">/</span>
+        <a href="#garments-sector" class="hover:text-gold transition-colors">Garments</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- QUICK STATISTICS WINDOW (Sharp Architectural Grid with Box Point Edges) -->
+  <section class="py-12 bg-white border-y border-stone-200 relative z-20">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        
+        <div class="p-6 bg-[#FAF9F6] border border-stone-200 box-point-edge trade-sharp">
+          <div class="text-3xl lg:text-4xl font-heading font-extrabold text-navy counter-val" data-target="28" data-suffix="+">0</div>
+          <div class="text-[10px] font-heading font-bold text-stone-500 uppercase tracking-widest mt-1.5">Destination Nations</div>
+          <div class="text-[9px] font-mono text-gold mt-0.5">DIRECT PORTS CONNECTED</div>
+        </div>
+
+        <div class="p-6 bg-[#FAF9F6] border border-stone-200 box-point-edge trade-sharp">
+          <div class="text-3xl lg:text-4xl font-heading font-extrabold text-navy counter-val" data-target="20" data-suffix="+">0</div>
+          <div class="text-[10px] font-heading font-bold text-stone-500 uppercase tracking-widest mt-1.5">Commodity Lines</div>
+          <div class="text-[9px] font-mono text-gold mt-0.5">APEDA & FSSAI CERTIFIED</div>
+        </div>
+
+        <div class="p-6 bg-[#FAF9F6] border border-stone-200 box-point-edge trade-sharp">
+          <div class="text-3xl lg:text-4xl font-heading font-extrabold text-navy counter-val" data-target="450" data-suffix="+">0</div>
+          <div class="text-[10px] font-heading font-bold text-stone-500 uppercase tracking-widest mt-1.5">Global Procurement Partners</div>
+          <div class="text-[9px] font-mono text-gold mt-0.5">EU, GCC, SE ASIA, USA</div>
+        </div>
+
+        <div class="p-6 bg-[#FAF9F6] border border-stone-200 box-point-edge trade-sharp">
+          <div class="text-3xl lg:text-4xl font-heading font-extrabold text-navy counter-val" data-target="79" data-suffix="+">0</div>
+          <div class="text-[10px] font-heading font-bold text-stone-500 uppercase tracking-widest mt-1.5">Years of Legacy</div>
+          <div class="text-[9px] font-mono text-gold mt-0.5">ESTABLISHED 1947</div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- QUICK STATISTICS WINDOW -->
-  <section class="py-12 bg-orange-50 border-y border-orange-100 relative z-20">
+  <!-- 01 — SHOP BY SECTOR (Sharp Photographic Category Cards with Box Point Edges) -->
+  <section id="categories" class="py-24 bg-[#FAF9F6] relative border-b border-stone-200">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-          <div class="text-3xl font-heading font-extrabold text-orange-600 counter-val" data-target="28"
-            data-suffix="+">0</div>
-          <div class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold mt-1">Countries Served</div>
-        </div>
-        <div>
-          <div class="text-3xl font-heading font-extrabold text-orange-600 counter-val" data-target="14" data-suffix="">
-            0</div>
-          <div class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold mt-1">Product Categories</div>
-        </div>
-        <div>
-          <div class="text-3xl font-heading font-extrabold text-orange-600 counter-val" data-target="450"
-            data-suffix="+">0</div>
-          <div class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold mt-1">Trusted Clients</div>
-        </div>
-        <div>
-          <div class="text-3xl font-heading font-extrabold text-orange-600 counter-val" data-target="79"
-            data-suffix="+">0</div>
-          <div class="text-[10px] text-gray-500 uppercase tracking-widest font-semibold mt-1">Years of Legacy</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DYNAMIC PRODUCT CATEGORIES SECTION -->
-  <section id="products-section" class="py-24 bg-white relative">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-
+      
       <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
-        <span class="text-xs font-heading font-semibold tracking-widest text-orange-500 uppercase mb-3 inline-block">OUR
-          EXPORTS</span>
-        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy">Certified Product Catalog</h2>
-        <div class="w-12 h-1 bg-orange-500 mx-auto mt-6"></div>
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block mb-2">B2B EXPORT CATALOGUE</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy">Shop by Export Sector</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4"></div>
+        <p class="font-sans text-sm text-stone-500 font-normal mt-4">
+          Explore certified agro commodities, grains, spices, and garment textiles sourced directly from agricultural belts and production centers.
+        </p>
       </div>
 
-      <!-- Interactive Category Buttons -->
-      <div class="flex flex-wrap justify-center gap-4 mb-16 max-w-3xl mx-auto gsap-reveal">
-        <button
-          class="cat-btn py-3 px-6 rounded-full font-heading text-xs font-bold uppercase tracking-widest bg-orange-500 text-white shadow-sm transition-all duration-300"
-          data-category="vegetables">Vegetables</button>
-        <button
-          class="cat-btn py-3 px-6 rounded-full font-heading text-xs font-bold uppercase tracking-widest bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all duration-300"
-          data-category="grains">Grains</button>
-        <button
-          class="cat-btn py-3 px-6 rounded-full font-heading text-xs font-bold uppercase tracking-widest bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all duration-300"
-          data-category="spices">Spices</button>
-        <button
-          class="cat-btn py-3 px-6 rounded-full font-heading text-xs font-bold uppercase tracking-widest bg-gray-100 text-gray-700 hover:bg-gray-200 transition-all duration-300"
-          data-category="garments">Garments</button>
+      <!-- 4 Sector Cards Grid (Sharp Edges, Full Photographic Banners, Zero Icons) -->
+      <div id="overseas-category-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <!-- Rendered dynamically by js/overseas.js from OVERSEAS_DATA.categories with high-res photography -->
       </div>
 
-      <!-- Categories Expanded Details -->
-      <div class="max-w-5xl mx-auto">
+    </div>
+  </section>
 
-        <!-- Vegetables -->
-        <div id="cat-vegetables" class="cat-content grid grid-cols-1 md:grid-cols-3 gap-8">
+  <!-- 02 — RAPID PROCUREMENT FILTER (Sharp Industrial Search & Real-time Live Discovery) -->
+  <section id="discovery" class="py-16 bg-[#111215] text-white relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-6 border-b border-stone-800">
+        <div>
+          <span class="text-[10px] font-heading font-bold uppercase tracking-[0.25em] text-gold block mb-1">
+            RAPID PROCUREMENT FILTER
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-heading font-bold text-white">
+            Find the Right Export Commodity
+          </h2>
+          <p class="font-sans text-xs sm:text-sm text-stone-400 mt-1">
+            Filter vegetables, grains, authentic Indian spices, and apparel by grade, HS Code, or keyword.
+          </p>
+        </div>
 
-          <div
-            class="premium-card bg-white border border-gray-100 flex flex-col justify-between overflow-hidden shadow-sm">
-            <div class="zoom-img-container h-44 bg-gray-100">
-              <img src="images/fresh_vegetables.png" alt="Fresh Onions" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6">
-              <h4 class="font-heading font-bold text-sm text-navy mb-2">Red Onions</h4>
-              <p class="text-[11px] text-gray-400 font-light leading-relaxed">Directly sourced premium red onions,
-                sort-graded and packed under absolute hygienic settings.</p>
+        <div class="flex items-center gap-3">
+          <span id="trade-results-count" class="text-xs font-mono font-medium text-gold bg-stone-900 border border-stone-800 px-3.5 py-1.5 trade-sharp">
+            Searching...
+          </span>
+          <button type="button" id="trade-mobile-filter-btn" class="lg:hidden btn-premium-gold text-xs px-4 py-2 trade-sharp flex items-center gap-1.5">
+            <i class="fa-solid fa-sliders text-[11px]"></i> Filters
+          </button>
+        </div>
+      </div>
+
+      <!-- Horizontal Filter Bar (Desktop, Sharp Inputs) -->
+      <div class="bg-stone-900 p-6 border border-stone-800 trade-sharp box-point-edge">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          
+          <!-- Search Field -->
+          <div class="sm:col-span-2">
+            <label class="block text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 mb-1.5">Search Commodity or Specification</label>
+            <div class="relative">
+              <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-500 text-xs"></i>
+              <input type="text" id="trade-search" placeholder="Search by name, grade, HS code (e.g. Onions, Basmati, Turmeric, Cotton)..." class="w-full bg-black text-white placeholder-stone-500 pl-9 pr-3 py-2.5 text-xs border border-stone-800 focus:outline-none focus:border-gold transition-colors font-sans trade-sharp">
             </div>
           </div>
 
-          <div
-            class="premium-card bg-white border border-gray-100 flex flex-col justify-between overflow-hidden shadow-sm">
-            <div class="zoom-img-container h-44 bg-gray-100">
-              <img src="images/fresh_vegetables.png" alt="Fresh Potatoes" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6">
-              <h4 class="font-heading font-bold text-sm text-navy mb-2">Potatoes</h4>
-              <p class="text-[11px] text-gray-400 font-light leading-relaxed">Grade-A sorting, washed, dried, and packed
-                in mesh ventilation cargo nets for global exports.</p>
-            </div>
-          </div>
-
-          <div
-            class="premium-card bg-white border border-gray-100 flex flex-col justify-between overflow-hidden shadow-sm">
-            <div class="zoom-img-container h-44 bg-gray-100">
-              <img src="images/fresh_vegetables.png" alt="Green Vegetables" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6">
-              <h4 class="font-heading font-bold text-sm text-navy mb-2">Seasonal Vegetables</h4>
-              <p class="text-[11px] text-gray-400 font-light leading-relaxed">Organic farm harvest consisting of fresh
-                seasonal greens loaded inside cold-chain logistics.</p>
-            </div>
+          <!-- Category Filter -->
+          <div>
+            <label class="block text-[10px] font-heading font-bold uppercase tracking-wider text-stone-400 mb-1.5">Sector Filter</label>
+            <select id="trade-category-filter" class="w-full bg-black text-stone-200 border border-stone-800 px-3 py-2.5 text-xs focus:outline-none focus:border-gold font-sans trade-sharp">
+              <option value="All">All Export Sectors</option>
+              <option value="Vegetables">Fresh Vegetables & Agro</option>
+              <option value="Grains">Grains, Cereals & Pulses</option>
+              <option value="Spices">Indian Spices & Condiments</option>
+              <option value="Garments">Garments & Woven Textiles</option>
+            </select>
           </div>
 
         </div>
 
-        <!-- Grains (Hidden by default) -->
-        <div id="cat-grains" class="cat-content hidden grid-cols-1 md:grid-cols-3 gap-8">
-
-          <div
-            class="premium-card bg-white border border-gray-100 flex flex-col justify-between overflow-hidden shadow-sm">
-            <div class="zoom-img-container h-44 bg-gray-100">
-              <img src="images/export_grains.png" alt="Basmati Rice" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6">
-              <h4 class="font-heading font-bold text-sm text-navy mb-2">Basmati Rice</h4>
-              <p class="text-[11px] text-gray-400 font-light leading-relaxed">Aromatic, long-grain basmati rice,
-                double-polished and systematically age-matured.</p>
-            </div>
+        <div class="mt-4 pt-4 border-t border-stone-800 flex justify-between items-center text-[11px] text-stone-400">
+          <div class="flex items-center gap-2">
+            <span class="text-gold font-mono font-bold">POPULAR SEARCHES:</span>
+            <button type="button" onclick="document.getElementById('trade-search').value='Onions'; document.getElementById('trade-search').dispatchEvent(new Event('input'))" class="hover:text-white underline">Nashik Onions</button>
+            <span>•</span>
+            <button type="button" onclick="document.getElementById('trade-search').value='Basmati'; document.getElementById('trade-search').dispatchEvent(new Event('input'))" class="hover:text-white underline">1121 Basmati</button>
+            <span>•</span>
+            <button type="button" onclick="document.getElementById('trade-search').value='Turmeric'; document.getElementById('trade-search').dispatchEvent(new Event('input'))" class="hover:text-white underline">Salem Turmeric</button>
+            <span>•</span>
+            <button type="button" onclick="document.getElementById('trade-search').value='Workwear'; document.getElementById('trade-search').dispatchEvent(new Event('input'))" class="hover:text-white underline">Industrial Workwear</button>
           </div>
+          <button type="button" id="trade-clear-btn" class="text-xs text-stone-400 hover:text-gold uppercase tracking-wider font-heading font-bold">
+            Clear Filters
+          </button>
+        </div>
+      </div>
 
-          <div
-            class="premium-card bg-white border border-gray-100 flex flex-col justify-between overflow-hidden shadow-sm">
-            <div class="zoom-img-container h-44 bg-gray-100">
-              <img src="images/export_grains.png" alt="Organic Wheat" class="w-full h-full object-cover">
+      <!-- Live Discovery Results Grid -->
+      <div id="trade-discovery-results" class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+        <!-- Rendered via js/overseas.js with sharp box point image cards -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Mobile Bottom Sheet Drawer for Discovery (Sharp Edges) -->
+  <div id="trade-filter-backdrop" class="trade-filter-backdrop lg:hidden"></div>
+  <div id="trade-filter-drawer" class="trade-filter-drawer lg:hidden trade-sharp">
+    <div class="flex items-center justify-between pb-4 border-b border-stone-200 mb-4">
+      <h3 class="font-heading font-bold text-base text-navy uppercase tracking-wider">
+        Filter Export Commodities
+      </h3>
+      <button type="button" id="trade-filter-close-btn" class="w-8 h-8 bg-stone-100 flex items-center justify-center text-stone-600 hover:text-navy trade-sharp">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+    </div>
+    
+    <p class="text-xs text-stone-500 mb-4">
+      Refine your procurement search by export commodity sector.
+    </p>
+
+    <div class="space-y-4">
+      <button type="button" id="trade-mobile-apply-btn" class="btn-premium-gold w-full text-xs py-3 trade-sharp">
+        Apply Filters
+      </button>
+      <button type="button" onclick="resetOverseasDiscovery()" class="w-full text-center text-xs font-heading font-bold text-stone-500 hover:text-navy py-2">
+        Clear All Filters
+      </button>
+    </div>
+  </div>
+
+  <!-- 03 — SECTOR 01: FRESH VEGETABLES (Accurate High-Res Photography & Box Point Cards) -->
+  <section id="vegetables-sector" class="py-24 bg-white relative border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block mb-2">SECTOR 01 • APEDA LICENSED COLD-CHAIN</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy">Fresh Vegetables & Agro</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4"></div>
+        <p class="font-sans text-sm text-stone-500 font-normal mt-4">
+          Direct farm-gate aggregation from Maharashtra's fertile agro belts. Packaged under strict hygiene and phytosanitary cargo standards.
+        </p>
+      </div>
+
+      <!-- Product Cards Grid: Nashik Red Onions, Grade-A Potatoes, Green Chillies, Garlic & Ginger, Tomatoes, Seasonal Greens -->
+      <div id="vegetables-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Rendered via js/overseas.js with accurate photography -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 04 — SECTOR 02: GRAINS, CEREALS & PULSES (Accurate High-Res Photography & Box Point Cards) -->
+  <section id="grains-sector" class="py-24 bg-[#FAF9F6] relative border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block mb-2">SECTOR 02 • BULK CARGO & CONTAINERIZED</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy">Grains, Cereals & Pulses</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4"></div>
+        <p class="font-sans text-sm text-stone-500 font-normal mt-4">
+          Extra-long aged Basmati rice, high-protein milling wheat, industrial yellow maize, and nutritious Indian dryland millets.
+        </p>
+      </div>
+
+      <!-- Product Cards Grid: Basmati Rice, Wheat Grains, Yellow Maize, Sorghum & Millets, Kabuli Chickpeas -->
+      <div id="grains-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Rendered via js/overseas.js with accurate photography -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 05 — SECTOR 03: INDIAN SPICES & CONDIMENTS (Accurate High-Res Photography & Box Point Cards) -->
+  <section id="spices-sector" class="py-24 bg-white relative border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block mb-2">SECTOR 03 • SPICES BOARD OF INDIA REGISTRATION</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy">Indian Spices & Condiments</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4"></div>
+        <p class="font-sans text-sm text-stone-500 font-normal mt-4">
+          Curcumin-dense Salem turmeric, fiery stemless Guntur red chillies, Malabar Tellicherry black peppercorns, and whole aromatic spice pods.
+        </p>
+      </div>
+
+      <!-- Product Cards Grid: Turmeric, Red Chillies, Black Pepper, Cardamom Medley, Cumin & Coriander -->
+      <div id="spices-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Rendered via js/overseas.js with accurate photography -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 06 — SECTOR 04: GARMENTS & WOVEN TEXTILES (Accurate High-Res Photography & Box Point Cards) -->
+  <section id="garments-sector" class="py-24 bg-[#FAF9F6] relative border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block mb-2">SECTOR 04 • OEKO-TEX & INSTITUTIONAL OEM</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy">Garments & Woven Textiles</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4"></div>
+        <p class="font-sans text-sm text-stone-500 font-normal mt-4">
+          100% combed organic cotton apparel, high-visibility heavy-duty industrial workwear, premium shirting & suiting rolls, and tailored uniform programs.
+        </p>
+      </div>
+
+      <!-- Product Cards Grid: 100% Organic Cotton, Industrial Workwear, Shirting Fabrics, Corporate Uniforms -->
+      <div id="garments-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Rendered via js/overseas.js with accurate photography -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 07 — 5-STAGE EXPORT WORKFLOW (Sharp Architectural Flow with Box Point Edges) -->
+  <section class="py-24 bg-white relative overflow-hidden border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-20 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block mb-2">SUPPLY CHAIN EXECUTION</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy">Our 5-Stage Export Process</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4"></div>
+        <p class="font-sans text-sm text-stone-500 font-normal mt-4">
+          Every overseas cargo follows rigorous traceability and inspection protocols from farm-gate to destination seaports.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+        
+        <!-- Step 1 -->
+        <div class="p-6 bg-[#FAF9F6] border border-stone-200 box-point-edge trade-sharp flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono font-bold text-gold">STAGE 01</span>
+              <i class="fa-solid fa-seedling text-stone-400"></i>
             </div>
-            <div class="p-6">
-              <h4 class="font-heading font-bold text-sm text-navy mb-2">Premium Wheat</h4>
-              <p class="text-[11px] text-gray-400 font-light leading-relaxed">High-gluten organic wheat grains processed
-                under strict moisture and moisture limits.</p>
-            </div>
+            <h4 class="font-heading font-bold text-base text-navy mb-2">Direct Sourcing</h4>
+            <p class="text-xs text-stone-600 leading-relaxed font-sans">
+              Contract agreements with verified farmer cooperatives, ginning mills, and manufacturing plants ensuring ethical origin.
+            </p>
           </div>
-
-          <div
-            class="premium-card bg-white border border-gray-100 flex flex-col justify-between overflow-hidden shadow-sm">
-            <div class="zoom-img-container h-44 bg-gray-100">
-              <img src="images/export_grains.png" alt="Maize Corn" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6">
-              <h4 class="font-heading font-bold text-sm text-navy mb-2">Maize & Millets</h4>
-              <p class="text-[11px] text-gray-400 font-light leading-relaxed">Nutritious yellow maize and super-food
-                millets sourced directly from local cooperatives.</p>
-            </div>
-          </div>
-
+          <div class="mt-6 pt-4 border-t border-stone-200 text-[10px] font-mono text-stone-400">TRACEABLE BATCHES</div>
         </div>
 
-        <!-- Spices (Hidden by default) -->
-        <div id="cat-spices" class="cat-content hidden grid-cols-1 md:grid-cols-3 gap-8">
-
-          <div
-            class="premium-card bg-white border border-gray-100 flex flex-col justify-between overflow-hidden shadow-sm">
-            <div class="zoom-img-container h-44 bg-gray-100">
-              <img src="images/export_spices.png" alt="Turmeric Powder" class="w-full h-full object-cover">
+        <!-- Step 2 -->
+        <div class="p-6 bg-[#FAF9F6] border border-stone-200 box-point-edge trade-sharp flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono font-bold text-gold">STAGE 02</span>
+              <i class="fa-solid fa-microscope text-stone-400"></i>
             </div>
-            <div class="p-6">
-              <h4 class="font-heading font-bold text-sm text-navy mb-2">Turmeric</h4>
-              <p class="text-[11px] text-gray-400 font-light leading-relaxed">Pure curcumin-rich polished turmeric
-                fingers and grounded powder packages.</p>
-            </div>
+            <h4 class="font-heading font-bold text-base text-navy mb-2">Quality & Lab Testing</h4>
+            <p class="text-xs text-stone-600 leading-relaxed font-sans">
+              Laboratory moisture profiling, laser sorting, aflatoxin analysis, pesticide screen, and weight calibration.
+            </p>
           </div>
-
-          <div
-            class="premium-card bg-white border border-gray-100 flex flex-col justify-between overflow-hidden shadow-sm">
-            <div class="zoom-img-container h-44 bg-gray-100">
-              <img src="images/export_spices.png" alt="Red Chilli" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6">
-              <h4 class="font-heading font-bold text-sm text-navy mb-2">Red Chillies</h4>
-              <p class="text-[11px] text-gray-400 font-light leading-relaxed">Stemless red chillies, sun-dried to lock
-                in pungent heat indexes and deep red hues.</p>
-            </div>
-          </div>
-
-          <div
-            class="premium-card bg-white border border-gray-100 flex flex-col justify-between overflow-hidden shadow-sm">
-            <div class="zoom-img-container h-44 bg-gray-100">
-              <img src="images/export_spices.png" alt="Black Pepper" class="w-full h-full object-cover">
-            </div>
-            <div class="p-6">
-              <h4 class="font-heading font-bold text-sm text-navy mb-2">Whole Spices</h4>
-              <p class="text-[11px] text-gray-400 font-light leading-relaxed">Spices including cardamom, black pepper,
-                and coriander seeds dried under zero moisture layouts.</p>
-            </div>
-          </div>
-
+          <div class="mt-6 pt-4 border-t border-stone-200 text-[10px] font-mono text-stone-400">APEDA & SGS TESTING</div>
         </div>
 
-        <!-- Garments (Hidden by default) -->
-        <div id="cat-garments" class="cat-content hidden grid-cols-1 md:grid-cols-3 gap-8">
-
-          <div
-            class="premium-card bg-white border border-gray-100 flex flex-col justify-between overflow-hidden shadow-sm">
-            <div class="zoom-img-container h-44 bg-gray-100">
-              <img src="images/garments_textiles.png" alt="Organic Cotton Tees" class="w-full h-full object-cover">
+        <!-- Step 3 -->
+        <div class="p-6 bg-[#FAF9F6] border border-stone-200 box-point-edge trade-sharp flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono font-bold text-gold">STAGE 03</span>
+              <i class="fa-solid fa-box-archive text-stone-400"></i>
             </div>
-            <div class="p-6">
-              <h4 class="font-heading font-bold text-sm text-navy mb-2">Organic Cotton Apparel</h4>
-              <p class="text-[11px] text-gray-400 font-light leading-relaxed">Combed organic cotton knitwear and
-                ready-to-wear shirts sewn under absolute clean standards.</p>
-            </div>
+            <h4 class="font-heading font-bold text-base text-navy mb-2">Climate Packaging</h4>
+            <p class="text-xs text-stone-600 leading-relaxed font-sans">
+              Custom breathable mesh nets for alliums, food-grade vacuum BOPP liners for grains, and heavy-duty 7-ply cartons.
+            </p>
           </div>
+          <div class="mt-6 pt-4 border-t border-stone-200 text-[10px] font-mono text-stone-400">MOISTURE BARRIERS</div>
+        </div>
 
-          <div
-            class="premium-card bg-white border border-gray-100 flex flex-col justify-between overflow-hidden shadow-sm">
-            <div class="zoom-img-container h-44 bg-gray-100">
-              <img src="images/garments_textiles.png" alt="Industrial Uniforms" class="w-full h-full object-cover">
+        <!-- Step 4 -->
+        <div class="p-6 bg-[#FAF9F6] border border-stone-200 box-point-edge trade-sharp flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono font-bold text-gold">STAGE 04</span>
+              <i class="fa-solid fa-ship text-stone-400"></i>
             </div>
-            <div class="p-6">
-              <h4 class="font-heading font-bold text-sm text-navy mb-2">Industrial Workwear</h4>
-              <p class="text-[11px] text-gray-400 font-light leading-relaxed">Durable protective workwear and customized
-                hospitality uniforms matching international safety criteria.</p>
-            </div>
+            <h4 class="font-heading font-bold text-base text-navy mb-2">Port Clearance</h4>
+            <p class="text-xs text-stone-600 leading-relaxed font-sans">
+              Customs processing, phytosanitary clearance certification, and container stuffing at JNPT Nhava Sheva / Mumbai ports.
+            </p>
           </div>
+          <div class="mt-6 pt-4 border-t border-stone-200 text-[10px] font-mono text-stone-400">DGFT & CUSTOMS BROKERS</div>
+        </div>
 
-          <div
-            class="premium-card bg-white border border-gray-100 flex flex-col justify-between overflow-hidden shadow-sm">
-            <div class="zoom-img-container h-44 bg-gray-100">
-              <img src="images/garments_textiles.png" alt="Woven Textiles" class="w-full h-full object-cover">
+        <!-- Step 5 -->
+        <div class="p-6 bg-[#FAF9F6] border border-stone-200 box-point-edge trade-sharp flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-mono font-bold text-gold">STAGE 05</span>
+              <i class="fa-solid fa-anchor text-stone-400"></i>
             </div>
-            <div class="p-6">
-              <h4 class="font-heading font-bold text-sm text-navy mb-2">Woven Textiles</h4>
-              <p class="text-[11px] text-gray-400 font-light leading-relaxed">Premium yarn-dyed loom fabric rolls
-                supplied directly to global garment manufacturers.</p>
-            </div>
+            <h4 class="font-heading font-bold text-base text-navy mb-2">Global Delivery</h4>
+            <p class="text-xs text-stone-600 leading-relaxed font-sans">
+              Vessel dispatch with complete shipping documents (BL, Phytosanitary, Certificate of Origin, Insurance) to destination ports.
+            </p>
           </div>
-
+          <div class="mt-6 pt-4 border-t border-stone-200 text-[10px] font-mono text-stone-400">DOOR / PORT DELIVERY</div>
         </div>
 
       </div>
@@ -493,237 +603,79 @@
     </div>
   </section>
 
-  <!-- DYNAMIC CONNECTED EXPORT PROCESS TIMELINE -->
-  <section class="py-24 bg-light relative overflow-hidden">
+  <!-- 08 — CERTIFIED COMPLIANCE & ACCREDITATIONS (Sharp Box Point Cards) -->
+  <section class="py-24 bg-[#FAF9F6] relative border-b border-stone-200">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-
-      <div class="text-center max-w-3xl mx-auto mb-20 gsap-reveal">
-        <span
-          class="text-xs font-heading font-semibold tracking-widest text-orange-500 uppercase mb-3 inline-block">EXECUTION
-          PLAN</span>
-        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy">Our Export Process</h2>
-        <div class="w-12 h-1 bg-orange-500 mx-auto mt-6"></div>
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block mb-2">GOVERNMENT OF INDIA ACCREDITED</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy">Quality & Licensing Credentials</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4"></div>
+        <p class="font-sans text-xs text-stone-500 font-normal mt-4">
+          Click any credential card to view verified export licenses and regulatory compliance profiles.
+        </p>
       </div>
 
-      <!-- Connected Flow Design -->
-      <div class="relative max-w-5xl mx-auto gsap-stagger-container">
-
-        <!-- Connecting arrows (desktop) -->
-        <div
-          class="absolute top-[28px] left-[20%] -translate-x-1/2 -translate-y-1/2 z-0 hidden md:block text-orange-400/80">
-          <i class="fa-solid fa-chevron-right text-xl animate-pulse"></i></div>
-        <div
-          class="absolute top-[28px] left-[40%] -translate-x-1/2 -translate-y-1/2 z-0 hidden md:block text-orange-400/80">
-          <i class="fa-solid fa-chevron-right text-xl animate-pulse"></i></div>
-        <div
-          class="absolute top-[28px] left-[60%] -translate-x-1/2 -translate-y-1/2 z-0 hidden md:block text-orange-400/80">
-          <i class="fa-solid fa-chevron-right text-xl animate-pulse"></i></div>
-        <div
-          class="absolute top-[28px] left-[80%] -translate-x-1/2 -translate-y-1/2 z-0 hidden md:block text-orange-400/80">
-          <i class="fa-solid fa-chevron-right text-xl animate-pulse"></i></div>
-
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-8 relative z-10">
-
-          <!-- Sourcing -->
-          <div class="flex flex-col items-center text-center gsap-stagger-item">
-            <div
-              class="w-14 h-14 rounded-full bg-white border-2 border-orange-500 text-orange-500 font-bold flex items-center justify-center mb-6 shadow-md transition-transform duration-300 hover:scale-110">
-              <i class="fa-solid fa-seedling text-lg"></i>
-            </div>
-            <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2">Sourcing</h4>
-            <p class="text-[10px] text-gray-500 font-light max-w-[150px]">Direct contract agreements with farming
-              cooperatives and manufacturers.</p>
-          </div>
-
-          <!-- Mobile Arrow -->
-          <div class="flex md:hidden items-center justify-center my-2 text-orange-400">
-            <i class="fa-solid fa-chevron-down text-lg animate-bounce"></i>
-          </div>
-
-          <!-- Quality Check -->
-          <div class="flex flex-col items-center text-center gsap-stagger-item">
-            <div
-              class="w-14 h-14 rounded-full bg-white border-2 border-orange-500 text-orange-500 font-bold flex items-center justify-center mb-6 shadow-md transition-transform duration-300 hover:scale-110">
-              <i class="fa-solid fa-clipboard-check text-lg"></i>
-            </div>
-            <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2">Quality Check</h4>
-            <p class="text-[10px] text-gray-500 font-light max-w-[150px]">Testing moisture limits, grading weight, and
-              checking micro-contaminants.</p>
-          </div>
-
-          <!-- Mobile Arrow -->
-          <div class="flex md:hidden items-center justify-center my-2 text-orange-400">
-            <i class="fa-solid fa-chevron-down text-lg animate-bounce"></i>
-          </div>
-
-          <!-- Packaging -->
-          <div class="flex flex-col items-center text-center gsap-stagger-item">
-            <div
-              class="w-14 h-14 rounded-full bg-white border-2 border-orange-500 text-orange-500 font-bold flex items-center justify-center mb-6 shadow-md transition-transform duration-300 hover:scale-110">
-              <i class="fa-solid fa-box-open text-lg"></i>
-            </div>
-            <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2">Packaging</h4>
-            <p class="text-[10px] text-gray-500 font-light max-w-[150px]">Hygienic bulk customized bags protecting
-              products against moisture ingress.</p>
-          </div>
-
-          <!-- Mobile Arrow -->
-          <div class="flex md:hidden items-center justify-center my-2 text-orange-400">
-            <i class="fa-solid fa-chevron-down text-lg animate-bounce"></i>
-          </div>
-
-          <!-- Logistics -->
-          <div class="flex flex-col items-center text-center gsap-stagger-item">
-            <div
-              class="w-14 h-14 rounded-full bg-white border-2 border-orange-500 text-orange-500 font-bold flex items-center justify-center mb-6 shadow-md transition-transform duration-300 hover:scale-110">
-              <i class="fa-solid fa-truck-ramp-box text-lg"></i>
-            </div>
-            <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2">Logistics</h4>
-            <p class="text-[10px] text-gray-500 font-light max-w-[150px]">Customs clearing, custom phytosanitary
-              checking, and cargo container dispatch.</p>
-          </div>
-
-          <!-- Mobile Arrow -->
-          <div class="flex md:hidden items-center justify-center my-2 text-orange-400">
-            <i class="fa-solid fa-chevron-down text-lg animate-bounce"></i>
-          </div>
-
-          <!-- Delivery -->
-          <div class="flex flex-col items-center text-center gsap-stagger-item">
-            <div
-              class="w-14 h-14 rounded-full bg-white border-2 border-orange-500 text-orange-500 font-bold flex items-center justify-center mb-6 shadow-md transition-transform duration-300 hover:scale-110">
-              <i class="fa-solid fa-anchor text-lg"></i>
-            </div>
-            <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2">Delivery</h4>
-            <p class="text-[10px] text-gray-500 font-light max-w-[150px]">Final port dispatch, customs inspection, and
-              secure container delivery to customer warehouses.</p>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- WHY CHOOSE BORA GROUP -->
-  <section class="py-24 bg-white relative">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-
-      <div class="text-center max-w-3xl mx-auto mb-20 gsap-reveal">
-        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy">Why Partners Choose Us</h2>
-        <div class="w-12 h-1 bg-orange-500 mx-auto mt-6"></div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto gsap-stagger-container">
-
-        <div
-          class="premium-card bg-orange-50/20 p-6 border border-orange-100 flex flex-col items-center text-center gsap-stagger-item">
-          <div class="w-10 h-10 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center mb-4"><i
-              class="fa-solid fa-globe text-sm"></i></div>
-          <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2">Global Network</h4>
-          <p class="text-[10px] text-gray-500 font-light">Established supplier footprints across continents.</p>
-        </div>
-
-        <div
-          class="premium-card bg-orange-50/20 p-6 border border-orange-100 flex flex-col items-center text-center gsap-stagger-item">
-          <div class="w-10 h-10 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center mb-4"><i
-              class="fa-solid fa-shield-halved text-sm"></i></div>
-          <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2">Quality Check</h4>
-          <p class="text-[10px] text-gray-500 font-light">Strict verification compliance standards.</p>
-        </div>
-
-        <div
-          class="premium-card bg-orange-50/20 p-6 border border-orange-100 flex flex-col items-center text-center gsap-stagger-item">
-          <div class="w-10 h-10 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center mb-4"><i
-              class="fa-solid fa-tags text-sm"></i></div>
-          <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2">Best Pricing</h4>
-          <p class="text-[10px] text-gray-500 font-light">Optimized sourcing rates directly from farm zones.</p>
-        </div>
-
-        <div
-          class="premium-card bg-orange-50/20 p-6 border border-orange-100 flex flex-col items-center text-center gsap-stagger-item">
-          <div class="w-10 h-10 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center mb-4"><i
-              class="fa-solid fa-clock text-sm"></i></div>
-          <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2">Timely Delivery</h4>
-          <p class="text-[10px] text-gray-500 font-light">Fast clearances via certified clearing brokers.</p>
-        </div>
-
-        <div
-          class="premium-card bg-orange-50/20 p-6 border border-orange-100 flex flex-col items-center text-center gsap-stagger-item">
-          <div class="w-10 h-10 rounded-full bg-orange-500/10 text-orange-500 flex items-center justify-center mb-4"><i
-              class="fa-solid fa-headset text-sm"></i></div>
-          <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2">24/7 Support</h4>
-          <p class="text-[10px] text-gray-500 font-light">Real-time container tracking reporting desks.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CERTIFICATIONS SECTION -->
-  <section class="py-24 bg-light relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-
-      <div class="text-center max-w-3xl mx-auto mb-20 gsap-reveal">
-        <span
-          class="text-xs font-heading font-semibold tracking-widest text-orange-500 uppercase mb-3 inline-block">CERTIFIED
-          COMPLIANCE</span>
-        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy">Quality & Licensing Credentials</h2>
-        <p class="text-xs text-gray-500 mt-2">Click cards to preview compliance certificates</p>
-      </div>
-
-      <!-- Grid list -->
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-5xl mx-auto gsap-stagger-container">
-
-        <!-- ISO -->
-        <div
-          class="cert-card premium-card bg-white p-6 border border-gray-100 flex flex-col items-center text-center cursor-pointer gsap-stagger-item"
-          data-cert="ISO 9001:2015">
-          <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center text-orange-500 mb-4"><i
-              class="fa-solid fa-award text-lg"></i></div>
-          <h4 class="font-heading font-bold text-xs text-navy uppercase mb-1">ISO</h4>
-          <p class="text-[9px] text-gray-400 font-light">Quality Management System</p>
-        </div>
-
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-6 max-w-5xl mx-auto">
+        
         <!-- APEDA -->
-        <div
-          class="cert-card premium-card bg-white p-6 border border-gray-100 flex flex-col items-center text-center cursor-pointer gsap-stagger-item"
-          data-cert="APEDA Registration">
-          <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center text-orange-500 mb-4"><i
-              class="fa-solid fa-wheat-awn text-lg"></i></div>
-          <h4 class="font-heading font-bold text-xs text-navy uppercase mb-1">APEDA</h4>
-          <p class="text-[9px] text-gray-400 font-light">Agricultural Products Authority</p>
+        <div class="cert-card trade-card box-point-edge p-6 bg-white border border-stone-200 text-center cursor-pointer trade-sharp flex flex-col items-center justify-between" data-cert="APEDA">
+          <div class="w-12 h-12 bg-stone-100 flex items-center justify-center text-navy mb-4 trade-sharp">
+            <i class="fa-solid fa-wheat-awn text-lg text-gold"></i>
+          </div>
+          <div>
+            <h4 class="font-heading font-bold text-sm text-navy uppercase mb-1">APEDA</h4>
+            <p class="text-[10px] text-stone-500 font-sans">Agricultural Authority</p>
+          </div>
+          <span class="text-[9px] font-mono text-gold mt-4 block">VIEW LICENSE</span>
         </div>
 
         <!-- FSSAI -->
-        <div
-          class="cert-card premium-card bg-white p-6 border border-gray-100 flex flex-col items-center text-center cursor-pointer gsap-stagger-item"
-          data-cert="FSSAI Central License">
-          <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center text-orange-500 mb-4"><i
-              class="fa-solid fa-bowl-food text-lg"></i></div>
-          <h4 class="font-heading font-bold text-xs text-navy uppercase mb-1">FSSAI</h4>
-          <p class="text-[9px] text-gray-400 font-light">Food Safety Standards Authority</p>
+        <div class="cert-card trade-card box-point-edge p-6 bg-white border border-stone-200 text-center cursor-pointer trade-sharp flex flex-col items-center justify-between" data-cert="FSSAI">
+          <div class="w-12 h-12 bg-stone-100 flex items-center justify-center text-navy mb-4 trade-sharp">
+            <i class="fa-solid fa-shield-halved text-lg text-gold"></i>
+          </div>
+          <div>
+            <h4 class="font-heading font-bold text-sm text-navy uppercase mb-1">FSSAI</h4>
+            <p class="text-[10px] text-stone-500 font-sans">Central Export License</p>
+          </div>
+          <span class="text-[9px] font-mono text-gold mt-4 block">VIEW LICENSE</span>
+        </div>
+
+        <!-- ISO 9001:2015 -->
+        <div class="cert-card trade-card box-point-edge p-6 bg-white border border-stone-200 text-center cursor-pointer trade-sharp flex flex-col items-center justify-between" data-cert="ISO">
+          <div class="w-12 h-12 bg-stone-100 flex items-center justify-center text-navy mb-4 trade-sharp">
+            <i class="fa-solid fa-award text-lg text-gold"></i>
+          </div>
+          <div>
+            <h4 class="font-heading font-bold text-sm text-navy uppercase mb-1">ISO 9001:2015</h4>
+            <p class="text-[10px] text-stone-500 font-sans">Quality Management</p>
+          </div>
+          <span class="text-[9px] font-mono text-gold mt-4 block">VIEW LICENSE</span>
         </div>
 
         <!-- IEC -->
-        <div
-          class="cert-card premium-card bg-white p-6 border border-gray-100 flex flex-col items-center text-center cursor-pointer gsap-stagger-item"
-          data-cert="Import Export Code (IEC)">
-          <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center text-orange-500 mb-4"><i
-              class="fa-solid fa-passport text-lg"></i></div>
-          <h4 class="font-heading font-bold text-xs text-navy uppercase mb-1">IEC</h4>
-          <p class="text-[9px] text-gray-400 font-light">Government Import Export Code</p>
+        <div class="cert-card trade-card box-point-edge p-6 bg-white border border-stone-200 text-center cursor-pointer trade-sharp flex flex-col items-center justify-between" data-cert="IEC">
+          <div class="w-12 h-12 bg-stone-100 flex items-center justify-center text-navy mb-4 trade-sharp">
+            <i class="fa-solid fa-passport text-lg text-gold"></i>
+          </div>
+          <div>
+            <h4 class="font-heading font-bold text-sm text-navy uppercase mb-1">IEC Code</h4>
+            <p class="text-[10px] text-stone-500 font-sans">Ministry of Commerce</p>
+          </div>
+          <span class="text-[9px] font-mono text-gold mt-4 block">VIEW LICENSE</span>
         </div>
 
-        <!-- DGFT -->
-        <div
-          class="cert-card premium-card bg-white p-6 border border-gray-100 flex flex-col items-center text-center cursor-pointer gsap-stagger-item"
-          data-cert="DGFT Registration">
-          <div class="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center text-orange-500 mb-4"><i
-              class="fa-solid fa-building-shield text-lg"></i></div>
-          <h4 class="font-heading font-bold text-xs text-navy uppercase mb-1">DGFT</h4>
-          <p class="text-[9px] text-gray-400 font-light">Directorate General of Foreign Trade</p>
+        <!-- Spices Board -->
+        <div class="cert-card trade-card box-point-edge p-6 bg-white border border-stone-200 text-center cursor-pointer trade-sharp flex flex-col items-center justify-between" data-cert="Spices Board">
+          <div class="w-12 h-12 bg-stone-100 flex items-center justify-center text-navy mb-4 trade-sharp">
+            <i class="fa-solid fa-pepper-hot text-lg text-gold"></i>
+          </div>
+          <div>
+            <h4 class="font-heading font-bold text-sm text-navy uppercase mb-1">Spices Board</h4>
+            <p class="text-[10px] text-stone-500 font-sans">Statutory Board</p>
+          </div>
+          <span class="text-[9px] font-mono text-gold mt-4 block">VIEW LICENSE</span>
         </div>
 
       </div>
@@ -731,175 +683,210 @@
     </div>
   </section>
 
-  <!-- GLOBAL TRADE CLIENT REVIEWS SLIDER -->
-  <section class="py-24 bg-orange-50/50 relative overflow-hidden border-t border-orange-100/30">
+  <!-- 09 — WHY CHOOSE BORA OVERSEAS (Sharp Architectural Cards) -->
+  <section class="py-24 bg-white relative border-b border-stone-200">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-20 gsap-reveal">
-        <span
-          class="text-xs font-heading font-semibold tracking-widest text-orange-500 uppercase mb-3 inline-block">TESTIMONIALS</span>
-        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-navy">Global Client Reviews</h2>
-        <div class="w-12 h-1 bg-orange-500 mx-auto mt-6"></div>
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block mb-2">TRADE COMPETITIVE ADVANTAGE</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy">Why Global Importers Partner With Us</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4"></div>
       </div>
 
-      <!-- Testimonial Slider -->
-      <div class="max-w-3xl mx-auto relative px-10 gsap-reveal">
-
-        <!-- Slide 1 -->
-        <div
-          class="testimonial-slide glass-panel-light p-10 rounded-2xl border border-white text-center shadow-sm transition-all duration-500">
-          <div
-            class="w-12 h-12 rounded-full bg-orange-500/5 flex items-center justify-center text-orange-500 mx-auto mb-6">
-            <i class="fa-solid fa-quote-left text-lg"></i>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+        
+        <div class="p-6 bg-[#FAF9F6] border border-stone-200 box-point-edge trade-sharp text-center">
+          <div class="w-10 h-10 bg-stone-200/60 text-navy flex items-center justify-center mx-auto mb-4 trade-sharp">
+            <i class="fa-solid fa-globe text-gold"></i>
           </div>
-          <p class="font-serif italic text-gray-600 leading-relaxed text-sm sm:text-base mb-6">
-            "BORA GROUP has been our primary supplier of red onions and fresh ginger for over five years. Their strict
-            APEDA and FSSAI quality gradings ensure that every shipment matches European food safety compliance. The
-            logistics coordination is exceptional."
+          <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2">Direct Farm Origin</h4>
+          <p class="text-[11px] text-stone-500 font-sans leading-relaxed">Aggregated directly at source across Maharashtra agro corridors, removing speculative intermediary costs.</p>
+        </div>
+
+        <div class="p-6 bg-[#FAF9F6] border border-stone-200 box-point-edge trade-sharp text-center">
+          <div class="w-10 h-10 bg-stone-200/60 text-navy flex items-center justify-center mx-auto mb-4 trade-sharp">
+            <i class="fa-solid fa-certificate text-gold"></i>
+          </div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2">Stringent Lab Grading</h4>
+          <p class="text-[11px] text-stone-500 font-sans leading-relaxed">Batch-specific phytosanitary, pesticide residues, and moisture limits tested before port stuffing.</p>
+        </div>
+
+        <div class="p-6 bg-[#FAF9F6] border border-stone-200 box-point-edge trade-sharp text-center">
+          <div class="w-10 h-10 bg-stone-200/60 text-navy flex items-center justify-center mx-auto mb-4 trade-sharp">
+            <i class="fa-solid fa-boxes-packing text-gold"></i>
+          </div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2">Customized Packaging</h4>
+          <p class="text-[11px] text-stone-500 font-sans leading-relaxed">OEM private labeling, buyer brand printing, and temperature-controlled barrier liners for zero cargo loss.</p>
+        </div>
+
+        <div class="p-6 bg-[#FAF9F6] border border-stone-200 box-point-edge trade-sharp text-center">
+          <div class="w-10 h-10 bg-stone-200/60 text-navy flex items-center justify-center mx-auto mb-4 trade-sharp">
+            <i class="fa-solid fa-clock text-gold"></i>
+          </div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2">Prompt Port Turnaround</h4>
+          <p class="text-[11px] text-stone-500 font-sans leading-relaxed">Swift export documentation and vessel scheduling through established clearing agents at JNPT Mumbai.</p>
+        </div>
+
+        <div class="p-6 bg-[#FAF9F6] border border-stone-200 box-point-edge trade-sharp text-center">
+          <div class="w-10 h-10 bg-stone-200/60 text-navy flex items-center justify-center mx-auto mb-4 trade-sharp">
+            <i class="fa-solid fa-handshake text-gold"></i>
+          </div>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2">79-Year Legacy</h4>
+          <p class="text-[11px] text-stone-500 font-sans leading-relaxed">Backed by the stability, multi-vertical capital reserves, and ethical governance of Bora Group since 1947.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 10 — GLOBAL CLIENT REVIEWS (Sharp Editorial Testimonials) -->
+  <section class="py-24 bg-[#FAF9F6] relative border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 gsap-reveal">
+        <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase block mb-2">GLOBAL IMPORTER ENDORSEMENTS</span>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-navy">Client Verification & Reviews</h2>
+        <div class="w-12 h-0.5 bg-gold mx-auto mt-4"></div>
+      </div>
+
+      <div class="max-w-3xl mx-auto relative px-12">
+        
+        <!-- Slide 1 -->
+        <div class="testimonial-slide bg-white p-10 sm:p-12 border border-stone-200 box-point-edge trade-sharp text-center shadow-sm">
+          <div class="text-4xl font-serif text-gold leading-none select-none mb-4">“</div>
+          <p class="font-sans text-stone-700 leading-relaxed text-sm sm:text-base mb-6 font-light">
+            "BORA GROUP has been our verified supplier of Nashik red onions and fresh ginger for European distribution. Their strict APEDA compliance, grading uniformity, and cold-chain integrity ensure every container arrives in peak condition at Rotterdam port."
           </p>
           <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-navy">Mr. Hans Müller</h4>
-          <span class="text-[9px] text-gray-400 font-semibold block mt-1">Procurement Director, EuroFoods GmbH
-            (Germany)</span>
+          <span class="text-[10px] text-stone-500 font-mono block mt-1">Procurement Director, EuroFoods GmbH (Germany)</span>
         </div>
 
         <!-- Slide 2 -->
-        <div
-          class="testimonial-slide glass-panel-light p-10 rounded-2xl border border-white text-center shadow-sm transition-all duration-500 hidden opacity-0">
-          <div
-            class="w-12 h-12 rounded-full bg-orange-500/5 flex items-center justify-center text-orange-500 mx-auto mb-6">
-            <i class="fa-solid fa-quote-left text-lg"></i>
-          </div>
-          <p class="font-serif italic text-gray-600 leading-relaxed text-sm sm:text-base mb-6">
-            "Sourcing premium organic spices and basmati grains in bulk requires absolute reliability. BORA GROUP's
-            central trade desk provides seamless documentation, transparent pricing, and fast shipment turnarounds.
-            Highly recommended."
+        <div class="testimonial-slide bg-white p-10 sm:p-12 border border-stone-200 box-point-edge trade-sharp text-center shadow-sm hidden opacity-0">
+          <div class="text-4xl font-serif text-gold leading-none select-none mb-4">“</div>
+          <p class="font-sans text-stone-700 leading-relaxed text-sm sm:text-base mb-6 font-light">
+            "Sourcing steam Basmati rice and Salem turmeric in bulk requires absolute batch purity. Bora Overseas provides transparent lab tests, accurate phytosanitary paperwork, and swift vessel loading at JNPT port."
           </p>
-          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-navy">Al-Mansoori Imports</h4>
-          <span class="text-[9px] text-gray-400 font-semibold block mt-1">Supply Chain Lead, Dubai Food Distributors
-            (UAE)</span>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-navy">Al-Mansoori Trading</h4>
+          <span class="text-[10px] text-stone-500 font-mono block mt-1">Supply Chain Lead, Dubai Food Distributors (UAE)</span>
         </div>
 
         <!-- Slide 3 -->
-        <div
-          class="testimonial-slide glass-panel-light p-10 rounded-2xl border border-white text-center shadow-sm transition-all duration-500 hidden opacity-0">
-          <div
-            class="w-12 h-12 rounded-full bg-orange-500/5 flex items-center justify-center text-orange-500 mx-auto mb-6">
-            <i class="fa-solid fa-quote-left text-lg"></i>
-          </div>
-          <p class="font-serif italic text-gray-600 leading-relaxed text-sm sm:text-base mb-6">
-            "Their garment division delivers outstanding textile quality and tailoring precision. Bulk custom orders are
-            executed in complete alignment with our specification criteria, and delivery timelines are strictly met."
+        <div class="testimonial-slide bg-white p-10 sm:p-12 border border-stone-200 box-point-edge trade-sharp text-center shadow-sm hidden opacity-0">
+          <div class="text-4xl font-serif text-gold leading-none select-none mb-4">“</div>
+          <p class="font-sans text-stone-700 leading-relaxed text-sm sm:text-base mb-6 font-light">
+            "Their garment export desk delivered exceptional precision on our industrial workwear contract. Heavy-duty stitching, safety compliance, and custom poly-packaging were executed in exact alignment with US standards."
           </p>
           <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-navy">Sarah Jenkins</h4>
-          <span class="text-[9px] text-gray-400 font-semibold block mt-1">Sourcing Manager, Vibe Apparel Group
-            (USA)</span>
+          <span class="text-[10px] text-stone-500 font-mono block mt-1">Sourcing Manager, Industrial Gear Co. (USA)</span>
         </div>
 
-        <!-- Navigation Buttons -->
-        <button id="prev-testimonial"
-          class="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-gray-200 bg-white text-gray-600 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center text-xs transition-colors duration-300"><i
-            class="fa-solid fa-chevron-left"></i></button>
-        <button id="next-testimonial"
-          class="absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-gray-200 bg-white text-gray-600 hover:border-orange-500 hover:text-orange-500 flex items-center justify-center text-xs transition-colors duration-300"><i
-            class="fa-solid fa-chevron-right"></i></button>
+        <!-- Navigation Buttons (Sharp) -->
+        <button id="prev-testimonial" class="absolute left-0 top-1/2 -translate-y-1/2 w-9 h-9 border border-stone-300 bg-white text-stone-700 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors trade-sharp" aria-label="Previous Review">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button id="next-testimonial" class="absolute right-0 top-1/2 -translate-y-1/2 w-9 h-9 border border-stone-300 bg-white text-stone-700 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors trade-sharp" aria-label="Next Review">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
 
       </div>
 
     </div>
   </section>
 
-  <!-- DYNAMIC CERTIFICATION MODAL CONTAINER -->
-  <div id="cert-modal"
-    class="fixed inset-0 bg-dark/95 z-[1000] hidden items-center justify-center p-6 transition-all duration-300">
-    <div class="glass-panel-dark max-w-lg w-full p-8 rounded-2xl border border-orange-500/20 relative flex flex-col">
-      <!-- Close Button -->
-      <button id="modal-close" class="absolute top-4 right-4 text-white/50 hover:text-white transition-colors"><i
-          class="fa-solid fa-xmark text-xl"></i></button>
+  <!-- 11 — DIRECT PROCUREMENT BANNER (Sharp Architectural Call to Action) -->
+  <section class="py-20 bg-[#111215] text-white relative">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="p-8 sm:p-12 lg:p-16 border border-stone-800 bg-black/60 box-point-edge trade-sharp flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div class="max-w-2xl text-center lg:text-left">
+          <span class="text-[10px] font-heading font-bold uppercase tracking-[0.25em] text-gold block mb-2">B2B EXPORT DESK</span>
+          <h3 class="font-heading font-extrabold text-3xl sm:text-4xl text-white tracking-tight">
+            Ready to initiate an overseas procurement or container order?
+          </h3>
+          <p class="font-sans text-xs sm:text-sm text-stone-400 mt-3 leading-relaxed">
+            Connect directly with our international trade desk for CIF/FOB pricing, batch certificates, and customized packaging arrangements.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-4 items-center justify-center">
+          <a href="enquiry-export.html" class="btn-premium-gold text-xs px-8 py-4 trade-sharp flex items-center gap-2">
+            <span>Submit Quotation Request</span>
+            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+          <a href="tel:+917304733333" class="btn-premium-outline text-xs px-8 py-4 border-stone-700 text-white hover:bg-white hover:text-dark transition-all trade-sharp">
+            +91 73047 33333
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- DYNAMIC CERTIFICATION MODAL (Sharp Architectural Modal with Box Point Edges) -->
+  <div id="cert-modal" class="fixed inset-0 bg-dark/95 z-[1000] hidden items-center justify-center p-6 transition-all duration-300">
+    <div class="max-w-lg w-full p-8 bg-[#16171B] border border-stone-800 box-point-edge trade-sharp relative flex flex-col text-white">
+      <button id="modal-close" class="absolute top-4 right-4 text-stone-400 hover:text-white transition-colors" aria-label="Close modal">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+
+      <span class="text-[10px] font-mono text-gold uppercase tracking-widest block mb-1">CERTIFIED COMPLIANCE VERIFICATION</span>
       <h3 id="modal-title" class="font-heading font-bold text-xl text-white mb-2">Certificate Detail</h3>
-      <p id="modal-desc" class="text-xs text-white/60 font-light leading-relaxed mb-6">Certificate Description</p>
+      <p id="modal-desc" class="text-xs text-stone-400 font-sans leading-relaxed mb-6">Certificate Description</p>
 
-      <!-- Certificate Frame Rendered dynamically in JS -->
       <div id="modal-img" class="w-full"></div>
     </div>
   </div>
 
-  <!-- DOCKING FOOTER -->
-  <footer class="footer-glassmorphism pt-20 pb-10 border-t border-gray-200 relative overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(197,168,128,0.05)_0%,transparent_50%)]">
-    </div>
-
+  <!-- DOCKING FOOTER (Sharp Architectural) -->
+  <footer class="footer-glassmorphism pt-20 pb-10 border-t border-stone-200 relative overflow-hidden bg-dark text-white trade-sharp">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        
         <!-- About column -->
         <div>
           <span class="font-heading font-extrabold text-xl tracking-widest text-white block mb-6">
             BORA <span class="text-gold">GROUP</span>
           </span>
-          <p class="text-xs text-white/50 leading-relaxed font-light mb-6" data-i18n="footer_desc">
-            Diversified business group delivering consistent value, disciplined execution, and long-term relationships
-            across multiple industries since 1947.
+          <p class="text-xs text-stone-400 leading-relaxed font-light mb-6" data-i18n="footer_desc">
+            Diversified business group delivering consistent value, disciplined execution, and long-term relationships across multiple industries since 1947.
           </p>
-          <div class="flex space-x-4">
-            <a href="#"
-              class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i
-                class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"
-              class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i
-                class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"
-              class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i
-                class="fa-brands fa-instagram"></i></a>
-            <a href="https://wa.me/917304733333" target="_blank"
-              class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"
-              aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <div class="flex space-x-3">
+            <a href="#" class="w-8 h-8 border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors trade-sharp"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="w-8 h-8 border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors trade-sharp"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="w-8 h-8 border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors trade-sharp"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/917304733333" target="_blank" class="w-8 h-8 border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors trade-sharp" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
           </div>
         </div>
 
         <!-- Quick Links -->
         <div>
-          <h4
-            class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3"
-            data-i18n="footer_quick_links">Quick Links</h4>
-          <ul class="space-y-3 text-xs text-white/60 font-light">
-            <li><a href="index.html" class="hover:text-gold transition-colors duration-300"
-                data-i18n="footer_home_page">Home Page</a></li>
-            <li><a href="about.html" class="hover:text-gold transition-colors duration-300"
-                data-i18n="footer_company_profile">Company Profile</a></li>
-            <li><a href="business.html" class="hover:text-gold transition-colors duration-300"
-                data-i18n="footer_business_sectors">Business Sectors</a></li>
-            <li><a href="contact.html" class="hover:text-gold transition-colors duration-300"
-                data-i18n="footer_contact_desk">Contact Desk</a></li>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3" data-i18n="footer_quick_links">Quick Links</h4>
+          <ul class="space-y-3 text-xs text-stone-400 font-light">
+            <li><a href="index.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_home_page">Home Page</a></li>
+            <li><a href="about.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_company_profile">Company Profile</a></li>
+            <li><a href="business.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_business_sectors">Business Sectors</a></li>
+            <li><a href="contact.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_contact_desk">Contact Desk</a></li>
           </ul>
         </div>
 
         <!-- Business Verticals -->
         <div>
-          <h4
-            class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3"
-            data-i18n="footer_operations">Our Operations</h4>
-          <ul class="space-y-3 text-xs text-white/60 font-light">
-            <li><a href="real-estate.html" class="hover:text-gold transition-colors duration-300"
-                data-i18n="footer_real_estate">Real Estate Development</a></li>
-            <li><a href="overseas-trade.html" class="hover:text-gold transition-colors duration-300"
-                data-i18n="footer_overseas_trade">Overseas Trade Division</a></li>
-            <li><a href="business.html" class="hover:text-gold transition-colors duration-300"
-                data-i18n="footer_garment_production">Garment Production</a></li>
-            <li><a href="business.html" class="hover:text-gold transition-colors duration-300"
-                data-i18n="footer_hospitality_overseas">Hospitality & Overseas</a></li>
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3" data-i18n="footer_operations">Our Operations</h4>
+          <ul class="space-y-3 text-xs text-stone-400 font-light">
+            <li><a href="overseas-trade.html" class="hover:text-gold transition-colors duration-300 text-gold" data-i18n="footer_overseas_trade">Overseas Trade Division</a></li>
+            <li><a href="industrial-supply.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_industrial">Industrial Supply Solutions</a></li>
+            <li><a href="real-estate.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_real_estate">Real Estate Development</a></li>
+            <li><a href="garments.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_garment_production">Garment Production & Fashion</a></li>
+            <li><a href="hospitality.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_hospitality_overseas">Hospitality & Hotels</a></li>
           </ul>
         </div>
 
         <!-- Contact Desk -->
         <div>
-          <h4
-            class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3"
-            data-i18n="footer_inquiries">Inquiries</h4>
-          <ul class="space-y-3 text-xs text-white/60 font-light">
+          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3" data-i18n="footer_inquiries">Overseas Desk</h4>
+          <ul class="space-y-3 text-xs text-stone-400 font-light">
             <li class="flex items-start space-x-3">
               <i class="fa-solid fa-location-dot text-gold mt-0.5"></i>
-              <span data-i18n="footer_location">Kopargaon, Maharashtra, India</span>
+              <span data-i18n="footer_location">Kopargaon & Mumbai, Maharashtra, India</span>
             </li>
             <li class="flex items-center space-x-3">
               <i class="fa-solid fa-phone text-gold"></i>
@@ -907,16 +894,15 @@
             </li>
             <li class="flex items-center space-x-3">
               <i class="fa-solid fa-envelope text-gold"></i>
-              <a href="mailto:sales@boragroup.co.in" class="hover:text-gold transition-colors">sales@boragroup.co.in</a>
+              <a href="mailto:export@boragroup.co.in" class="hover:text-gold transition-colors">export@boragroup.co.in</a>
             </li>
           </ul>
-        </div>div>
+        </div>
 
       </div>
 
       <!-- Copyright bar -->
-      <div
-        class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-white/30">
+      <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-stone-500 font-mono">
         <div data-i18n="footer_copyright">
           © 2026 BORA GROUP. ALL RIGHTS RESERVED.
         </div>
@@ -929,8 +915,7 @@
   </footer>
 
   <!-- FLOATING WHATSAPP -->
-  <a href="https://wa.me/917304733333" target="_blank" rel="noopener noreferrer" class="whatsapp-float"
-    aria-label="Chat on WhatsApp">
+  <a href="https://wa.me/917304733333" target="_blank" rel="noopener noreferrer" class="whatsapp-float trade-sharp" aria-label="Chat on WhatsApp">
     <div class="pulse"></div>
     <i class="fa-brands fa-whatsapp text-3xl"></i>
   </a>
@@ -939,9 +924,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
+  <!-- Core Scripts -->
   <script src="js/main.js"></script>
   <script src="js/animations.js"></script>
   <script src="js/trade-scroll.js?v=2.2"></script>
+  <script src="js/overseas-data.js?v=1.0"></script>
+  <script src="js/overseas.js?v=1.0"></script>
   <script>
     lucide.createIcons();
   </script>
