@@ -1182,4 +1182,761 @@ footer ul.text-white\/60 {
   box-shadow: 0 0 0 2px rgba(197, 168, 128, 0.1);
 }
 
+/* ========================================
+   BORA REALTY — PLOT LAYOUTS & DEVELOPMENTS
+   ======================================== */
+
+.plot-layouts-section {
+  background-color: #F6F9FD;
+  position: relative;
+}
+
+/* Section Header Styles */
+.plot-section-header {
+  position: relative;
+}
+
+.plot-header-line {
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(90deg, #F97316, #C5A880);
+  margin: 1.25rem auto 0;
+  border-radius: 9999px;
+}
+
+/* Filter Bar & Search */
+.plot-controls-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .plot-controls-container {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+.plot-filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 1.75rem;
+}
+
+.plot-filter-tab {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.5rem 0.25rem;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase !important;
+  color: #64748B;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.plot-filter-tab:hover {
+  color: #0B1F3B;
+}
+
+.plot-filter-tab.active {
+  color: #F97316;
+  border-bottom-color: #F97316;
+}
+
+/* Search Field */
+.plot-search-box {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+}
+
+.plot-search-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94A3B8;
+  font-size: 0.85rem;
+  pointer-events: none;
+}
+
+.plot-search-input {
+  width: 100%;
+  padding: 0.65rem 2.25rem 0.65rem 2.5rem;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(11, 31, 59, 0.12);
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  color: #0B1F3B;
+  transition: all 0.25s ease;
+}
+
+.plot-search-input:focus {
+  outline: none;
+  border-color: #F97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+
+.plot-search-clear {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #94A3B8;
+  cursor: pointer;
+  padding: 0.25rem;
+  font-size: 0.8rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.plot-search-clear:hover {
+  color: #0B1F3B;
+}
+
+/* Plot Card Grid */
+.plot-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .plot-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .plot-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.25rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .plot-grid {
+    gap: 2.75rem;
+  }
+}
+
+/* Card Styling - Strictly NO numbers */
+.plot-card {
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid rgba(11, 31, 59, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(11, 31, 59, 0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+}
+
+.plot-card:hover,
+.plot-card:focus-visible {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px -8px rgba(11, 31, 59, 0.12);
+  border-color: rgba(11, 31, 59, 0.22);
+}
+
+.plot-card:focus-visible {
+  outline: 2px solid #F97316;
+  outline-offset: 2px;
+}
+
+/* Card Image (approx 55-65% card height, 3:2 ratio) */
+.plot-card-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background-color: #E2E8F0;
+}
+
+.plot-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.plot-card:hover .plot-card-img {
+  transform: scale(1.04);
+}
+
+.plot-card-badge-wrap {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  z-index: 2;
+}
+
+.plot-type-chip {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #0B1F3B;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase !important;
+  padding: 0.3rem 0.65rem;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Card Body */
+.plot-card-body {
+  padding: 1.5rem 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.plot-card-title {
+  font-family: var(--font-heading) !important;
+  font-size: 1.15rem !important;
+  font-weight: 600 !important;
+  color: #0B1F3B !important;
+  line-height: 1.35;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase !important;
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease;
+}
+
+.plot-card:hover .plot-card-title {
+  color: #F97316 !important;
+}
+
+.plot-card-location {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+}
+
+.plot-card-type {
+  font-size: 0.75rem;
+  color: #94A3B8;
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+}
+
+.plot-card-action {
+  border-top: 1px solid rgba(11, 31, 59, 0.06);
+  padding-top: 1rem;
+}
+
+.plot-view-details {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase !important;
+  color: #0B1F3B;
+  transition: color 0.3s ease;
+}
+
+.plot-arrow {
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.plot-card:hover .plot-view-details {
+  color: #F97316;
+}
+
+.plot-card:hover .plot-arrow {
+  transform: translateX(4px);
+}
+
+/* Modal Overlay & Responsive Layout */
+body.plot-modal-open {
+  overflow: hidden;
+}
+
+.plot-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99990;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.plot-modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.plot-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(11, 31, 59, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.plot-modal-container {
+  position: relative;
+  z-index: 1;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  box-shadow: 0 25px 60px -15px rgba(11, 31, 59, 0.35);
+  width: 90%;
+  max-width: 1040px;
+  max-height: 90vh;
+  overflow: hidden;
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.plot-modal-overlay.active .plot-modal-container {
+  transform: translateY(0) scale(1);
+}
+
+.plot-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(11, 31, 59, 0.1);
+  color: #0B1F3B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.plot-modal-close:hover {
+  background-color: #0B1F3B;
+  color: #FFFFFF;
+}
+
+.plot-modal-layout {
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .plot-modal-layout {
+    flex-direction: row;
+    overflow-y: hidden;
+  }
+}
+
+/* Left Image Column */
+.plot-modal-media-col {
+  background-color: #08162B;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 768px) {
+  .plot-modal-media-col {
+    width: 50%;
+    padding: 2.25rem;
+    border-bottom: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+.plot-modal-img-container {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: zoom-in;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plot-modal-img {
+  width: 100%;
+  height: auto;
+  max-height: 52vh;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.plot-modal-img-container:hover .plot-modal-img {
+  transform: scale(1.02);
+}
+
+.plot-zoom-hint {
+  position: absolute;
+  bottom: 0.85rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(11, 31, 59, 0.85);
+  backdrop-filter: blur(8px);
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  pointer-events: none;
+  white-space: nowrap;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.plot-image-note {
+  margin-top: 0.75rem;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+/* Right Information Column */
+.plot-modal-info-col {
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+@media (min-width: 768px) {
+  .plot-modal-info-col {
+    width: 50%;
+    padding: 2.5rem 2.25rem;
+  }
+}
+
+.plot-modal-tag {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase !important;
+  color: #F97316;
+  margin-bottom: 0.35rem;
+  display: inline-block;
+}
+
+.plot-modal-title {
+  font-family: var(--font-heading) !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: #0B1F3B !important;
+  line-height: 1.25;
+  text-transform: uppercase !important;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.25rem;
+}
+
+@media (min-width: 768px) {
+  .plot-modal-title {
+    font-size: 1.85rem !important;
+  }
+}
+
+.plot-modal-location {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.plot-highlight-pill {
+  display: inline-block;
+  background-color: rgba(197, 168, 128, 0.12);
+  color: #0B1F3B;
+  border: 1px solid rgba(197, 168, 128, 0.3);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+}
+
+.plot-modal-divider {
+  height: 1px;
+  background-color: rgba(11, 31, 59, 0.08);
+  margin: 1.25rem 0;
+}
+
+.plot-section-heading {
+  font-family: var(--font-heading) !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  color: #64748B !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.85rem;
+}
+
+.plot-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.plot-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+}
+
+.plot-detail-row dt {
+  color: #64748B;
+  font-weight: 400;
+}
+
+.plot-detail-row dd {
+  color: #0B1F3B;
+  font-weight: 600;
+  text-align: right;
+}
+
+.plot-amenities-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.plot-amenity-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  padding: 0.35rem 0.7rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
+  color: #334155;
+  font-weight: 500;
+}
+
+.plot-amenity-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background-color: #F97316;
+}
+
+.plot-modal-actions {
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(11, 31, 59, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.plot-btn-inquire {
+  flex: 1;
+  background-color: #0B1F3B;
+  color: #FFFFFF !important;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase !important;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.plot-btn-inquire:hover {
+  background-color: #F97316;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.25);
+}
+
+.plot-btn-close-text {
+  background: none;
+  border: none;
+  color: #64748B;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.plot-btn-close-text:hover {
+  color: #0B1F3B;
+}
+
+/* Lightbox Full-Screen Pan & Zoom Viewer */
+.plot-lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background-color: rgba(5, 5, 10, 0.96);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.plot-lightbox-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.plot-lightbox-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 10;
+}
+
+.plot-lightbox-tag {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #C5A880;
+  text-transform: uppercase !important;
+  display: block;
+}
+
+.plot-lightbox-title {
+  color: #FFFFFF !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  margin: 0;
+  text-transform: uppercase !important;
+  letter-spacing: 0.02em;
+}
+
+.plot-lightbox-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.plot-lb-btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.plot-lb-btn:hover {
+  background-color: #FFFFFF;
+  color: #0B1F3B;
+}
+
+.plot-lb-close {
+  background-color: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #F87171;
+}
+
+.plot-lb-close:hover {
+  background-color: #EF4444;
+  color: #FFFFFF;
+}
+
+.plot-lightbox-viewport {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+}
+
+.plot-lightbox-viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.plot-lightbox-img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+  transition: transform 0.08s ease-out;
+  transform-origin: center center;
+  pointer-events: none;
+}
+
+.plot-lightbox-footer {
+  padding: 0.75rem 1rem;
+  text-align: center;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
 
