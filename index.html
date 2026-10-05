@@ -197,7 +197,7 @@
     </div>
   </div>
   <!-- HERO CAROUSEL SECTION -->
-  <section id="hero-carousel-section" class="relative min-h-[65vh] lg:min-h-screen flex items-center py-28 overflow-hidden">
+  <section id="hero-carousel-section" class="relative aspect-[16/9] lg:aspect-auto lg:min-h-screen flex items-center lg:py-28 overflow-hidden">
     
     <!-- Full-bleed background slideshow -->
     <div id="hero-bg-slideshow" class="absolute inset-0 z-0 bg-black overflow-hidden">
@@ -225,43 +225,43 @@
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(0,0,0,0.15),rgba(0,0,0,0.65))] z-20 pointer-events-none"></div>
     <!-- ABSOLUTE MIDDLE-LEFT: Short Quotes (scrolls naturally with hero) -->
     <div id="hero-quote-outer" class="absolute top-[42%] -translate-y-1/2 left-8 sm:left-16 lg:left-24 z-40 pointer-events-none max-w-xl sm:max-w-2xl lg:max-w-4xl opacity-0">
-      <div id="hero-quote-container" class="relative h-[80px] sm:h-[120px] lg:h-[160px] w-full">
-        <div class="hero-quote-item absolute inset-0 text-white font-heading text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold capitalize tracking-normal opacity-0 pointer-events-none leading-none sm:leading-tight" data-slide="0">Elevating Modern Skyline.</div>
-        <div class="hero-quote-item absolute inset-0 text-white font-heading text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold capitalize tracking-normal opacity-0 pointer-events-none leading-none sm:leading-tight" data-slide="1">Connecting World Trade.</div>
-        <div class="hero-quote-item absolute inset-0 text-white font-heading text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold capitalize tracking-normal opacity-0 pointer-events-none leading-none sm:leading-tight" data-slide="2">Powering Heavy Industry.</div>
-        <div class="hero-quote-item absolute inset-0 text-white font-heading text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold capitalize tracking-normal opacity-0 pointer-events-none leading-none sm:leading-tight" data-slide="3">Crafting Premium Apparel.</div>
-        <div class="hero-quote-item absolute inset-0 text-white font-heading text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-semibold capitalize tracking-normal opacity-0 pointer-events-none leading-none sm:leading-tight" data-slide="4">Comfort Awaits Guests.</div>
+      <div id="hero-quote-container" class="relative h-[50px] sm:h-[80px] lg:h-[160px] w-full">
+        <div class="hero-quote-item absolute inset-0 text-white font-heading text-xl sm:text-4xl lg:text-6xl xl:text-7xl font-semibold capitalize tracking-normal opacity-0 pointer-events-none leading-none sm:leading-tight" data-slide="0">Elevating Modern Skyline.</div>
+        <div class="hero-quote-item absolute inset-0 text-white font-heading text-xl sm:text-4xl lg:text-6xl xl:text-7xl font-semibold capitalize tracking-normal opacity-0 pointer-events-none leading-none sm:leading-tight" data-slide="1">Connecting World Trade.</div>
+        <div class="hero-quote-item absolute inset-0 text-white font-heading text-xl sm:text-4xl lg:text-6xl xl:text-7xl font-semibold capitalize tracking-normal opacity-0 pointer-events-none leading-none sm:leading-tight" data-slide="2">Powering Heavy Industry.</div>
+        <div class="hero-quote-item absolute inset-0 text-white font-heading text-xl sm:text-4xl lg:text-6xl xl:text-7xl font-semibold capitalize tracking-normal opacity-0 pointer-events-none leading-none sm:leading-tight" data-slide="3">Crafting Premium Apparel.</div>
+        <div class="hero-quote-item absolute inset-0 text-white font-heading text-xl sm:text-4xl lg:text-6xl xl:text-7xl font-semibold capitalize tracking-normal opacity-0 pointer-events-none leading-none sm:leading-tight" data-slide="4">Comfort Awaits Guests.</div>
       </div>
     </div>
 
     <!-- ABSOLUTE BOTTOM-RIGHT: Cards + Timer + Arrows (scrolls naturally with hero) -->
-    <div id="hero-controls-outer" class="absolute bottom-6 right-6 z-40 flex flex-col items-end gap-3">
+    <div id="hero-controls-outer" class="absolute bottom-4 lg:bottom-6 right-4 lg:right-6 z-40 flex flex-col items-end gap-3">
       <!-- Horizontal card carousel (clipped viewport — shows ~4 cards at once) -->
       <div id="hero-cards-container" class="relative overflow-hidden opacity-0 translate-y-4 pointer-events-none transition-all duration-500 ease-out" style="max-width:476px">
-        <div id="hero-cards-wrapper" class="flex gap-3" style="will-change:transform">
+        <div id="hero-cards-wrapper" class="flex gap-2 lg:gap-3" style="will-change:transform">
 
           <!-- Card 1: Real Estate -->
-          <div class="hero-card-item flex-shrink-0 w-[110px] h-[160px] bg-black relative overflow-hidden shadow-2xl group cursor-pointer border-2 border-transparent transition-all duration-300" data-slide="0">
+          <div class="hero-card-item flex-shrink-0 w-[60px] h-[85px] lg:w-[110px] lg:h-[160px] bg-black relative overflow-hidden shadow-2xl group cursor-pointer border-2 border-transparent transition-all duration-300" data-slide="0">
             <img src="images/hero_real_estate.png" alt="Real Estate" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80">
           </div>
 
           <!-- Card 2: Global Trade -->
-          <div class="hero-card-item flex-shrink-0 w-[110px] h-[160px] bg-black relative overflow-hidden shadow-2xl group cursor-pointer border-2 border-transparent transition-all duration-300" data-slide="1">
+          <div class="hero-card-item flex-shrink-0 w-[60px] h-[85px] lg:w-[110px] lg:h-[160px] bg-black relative overflow-hidden shadow-2xl group cursor-pointer border-2 border-transparent transition-all duration-300" data-slide="1">
             <img src="images/hero_global_trade.jpg" alt="Global Trade" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80">
           </div>
 
           <!-- Card 3: Industrial Supply -->
-          <div class="hero-card-item flex-shrink-0 w-[110px] h-[160px] bg-black relative overflow-hidden shadow-2xl group cursor-pointer border-2 border-transparent transition-all duration-300" data-slide="2">
+          <div class="hero-card-item flex-shrink-0 w-[60px] h-[85px] lg:w-[110px] lg:h-[160px] bg-black relative overflow-hidden shadow-2xl group cursor-pointer border-2 border-transparent transition-all duration-300" data-slide="2">
             <img src="images/hero_industrial.jpg" alt="Industrial Supply" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80">
           </div>
 
           <!-- Card 4: Garments & Textiles -->
-          <div class="hero-card-item flex-shrink-0 w-[110px] h-[160px] bg-black relative overflow-hidden shadow-2xl group cursor-pointer border-2 border-transparent transition-all duration-300" data-slide="3">
+          <div class="hero-card-item flex-shrink-0 w-[60px] h-[85px] lg:w-[110px] lg:h-[160px] bg-black relative overflow-hidden shadow-2xl group cursor-pointer border-2 border-transparent transition-all duration-300" data-slide="3">
             <img src="images/hero_garments.png" alt="Garments &amp; Textiles" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80">
           </div>
 
           <!-- Card 5: Hospitality & Services -->
-          <div class="hero-card-item flex-shrink-0 w-[110px] h-[160px] bg-black relative overflow-hidden shadow-2xl group cursor-pointer border-2 border-transparent transition-all duration-300" data-slide="4">
+          <div class="hero-card-item flex-shrink-0 w-[60px] h-[85px] lg:w-[110px] lg:h-[160px] bg-black relative overflow-hidden shadow-2xl group cursor-pointer border-2 border-transparent transition-all duration-300" data-slide="4">
             <img src="images/hero_hospitality.jpg" alt="Hospitality &amp; Services" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-80">
           </div>
 
