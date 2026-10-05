@@ -1,316 +1,1041 @@
+/**
+ * BORA GROUP — Global Trade World Map
+ * 
+ * Geographic vector map powered by D3.js and GeoJSON country boundary data.
+ * Features:
+ * - Real geographic country boundary polygons (Natural Earth / GeoJSON)
+ * - Authentic geographic projection (d3.geoNaturalEarth1)
+ * - India HQ strictly placed at JNPA / Nhava Sheva / Navi Mumbai [72.95, 18.95]
+ * - 10 export destination countries with mathematically verified interior coordinates
+ * - All 10 curved logistics routes animated SIMULTANEOUSLY in an infinite continuous loop
+ * - Active export pipeline effect with traveling glowing particles and dashed flow
+ * - Interactive hover & click inspection with luxury corporate info cards
+ * - Automated mathematical validation system logging verification to console
+ * - Responsive recalculation on browser resize & fluid zoom/pan controls
+ */
+
 (function () {
   'use strict';
 
-  const LOCATIONS = [
+  // 1. Export Origin: India HQ (JNPA / Navi Mumbai)
+  const INDIA_HQ = {
+    id: 'india',
+    name: 'India',
+    fullName: 'Republic of India',
+    featureName: 'India',
+    coords: [72.95, 18.95], // JNPA / Nhava Sheva / Navi Mumbai
+    port: 'JNPA, Navi Mumbai',
+    role: 'Central Export Headquarters',
+    description: 'Global corporate headquarters and primary agricultural export gateway coordinating direct trade pipelines across international markets.'
+  };
+
+  // 2. The 10 Exact Export Destination Countries with Verified Interior Coordinates & Prompt Data
+  const DESTINATIONS = [
     {
-      id: 'india',
-      label: '🇮🇳 India (HQ)',
-      subtitle: 'Headquarters / Origin',
-      description: 'Global headquarters. Central procurement, logistics core, and major production center for grains, textiles, and real estate.',
-      lat: 20.5937,
-      lng: 78.9629,
-      isHQ: true
+      id: 'uae',
+      name: 'UAE',
+      fullName: 'United Arab Emirates',
+      featureName: 'United Arab Emirates',
+      coords: [54.5, 24.3],
+      indianPort: 'JNPA',
+      destPort: 'Jebel Ali Port',
+      products: 'Onion, Grapes, Rice, Pomegranate & Packed Food',
+      exportMode: 'Sea Route',
+      arcFactor: 0.16,
+      duration: 3.2,
+      labelOffset: { x: 16, y: 4, anchor: 'start' }
     },
     {
-      id: 'sea',
-      label: '🌏 Southeast Asia',
-      subtitle: 'Singapore Hub',
-      description: 'Direct imports of organic jasmine rice, spices, and export distribution of garments & textiles.',
-      lat: 1.3521,
-      lng: 103.8198
+      id: 'oman',
+      name: 'Oman',
+      fullName: 'Sultanate of Oman',
+      featureName: 'Oman',
+      coords: [57.5, 22.0],
+      indianPort: 'JNPA',
+      destPort: 'Sohar & Salalah Port',
+      products: 'Onion, Grapes, Rice, Pomegranate & Packed Food',
+      exportMode: 'Sea Route',
+      arcFactor: 0.08,
+      duration: 2.8,
+      labelOffset: { x: 16, y: 12, anchor: 'start' }
     },
     {
-      id: 'me',
-      label: '🌍 Middle East',
-      subtitle: 'UAE Distribution Hub',
-      description: 'Heavy export trade of fresh seasonal vegetables, high-volume spices, and basmati grain varieties.',
-      lat: 24.4539,
-      lng: 54.3773
+      id: 'qatar',
+      name: 'Qatar',
+      fullName: 'State of Qatar',
+      featureName: 'Qatar',
+      coords: [51.25, 25.3],
+      indianPort: 'JNPA',
+      destPort: 'Hamad Port',
+      products: 'Onion, Grapes, Rice, Pomegranate & Packed Food',
+      exportMode: 'Sea Route',
+      arcFactor: 0.22,
+      duration: 3.5,
+      labelOffset: { x: 0, y: 14, anchor: 'middle' }
     },
     {
-      id: 'africa',
-      label: '🌍 Central Africa',
-      subtitle: 'Kenya Resource & Cargo',
-      description: 'Distributing wholesale industrial supplies and importing raw agricultural seeds.',
-      lat: -1.2921,
-      lng: 36.8219
+      id: 'saudi-arabia',
+      name: 'Saudi Arabia',
+      fullName: 'Kingdom of Saudi Arabia',
+      featureName: 'Saudi Arabia',
+      coords: [45.0, 24.0],
+      indianPort: 'JNPA',
+      destPort: 'Dammam & Jeddah Port',
+      products: 'Onion, Grapes, Rice, Pomegranate & Packed Food',
+      exportMode: 'Sea Route',
+      arcFactor: 0.26,
+      duration: 4.0,
+      labelOffset: { x: -16, y: 14, anchor: 'end' }
     },
     {
-      id: 'na',
-      label: '🌎 North America',
-      subtitle: 'New York Export',
-      description: 'Exporting agricultural grains, select spices, and custom textiles to key retail markets.',
-      lat: 40.7128,
-      lng: -74.0060
+      id: 'kuwait',
+      name: 'Kuwait',
+      fullName: 'State of Kuwait',
+      featureName: 'Kuwait',
+      coords: [47.7, 29.3],
+      indianPort: 'JNPA',
+      destPort: 'Shuwaikh',
+      products: 'Onion',
+      exportMode: 'Sea Route',
+      arcFactor: 0.24,
+      duration: 3.8,
+      labelOffset: { x: -12, y: -8, anchor: 'end' }
     },
     {
-      id: 'brazil',
-      label: '🇧🇷 Brazil',
-      subtitle: 'São Paulo Sourcing',
-      description: 'Bulk imports of high-grade sugarcane products and raw arabica coffee beans for regional channels.',
-      lat: -23.5505,
-      lng: -46.6333
+      id: 'bahrain',
+      name: 'Bahrain',
+      fullName: 'Kingdom of Bahrain',
+      featureName: 'Bahrain',
+      coords: [50.55, 26.15],
+      indianPort: 'JNPA',
+      destPort: 'Khalifa Bin Salman Port',
+      products: 'Onion, Grapes, Rice, Pomegranate & Packed Food',
+      exportMode: 'Sea Route',
+      arcFactor: 0.19,
+      duration: 3.4,
+      labelOffset: { x: 0, y: -9, anchor: 'middle' }
     },
     {
-      id: 'greenland',
-      label: '🇬🇱 Greenland & Iceland',
-      subtitle: 'Reykjavík Logistics',
-      description: 'Sourcing high-latitude niche supplies and coordinating climate-controlled cargo logistics.',
-      lat: 64.1466,
-      lng: -21.9426
+      id: 'sri-lanka',
+      name: 'Sri Lanka',
+      fullName: 'Democratic Socialist Republic of Sri Lanka',
+      featureName: 'Sri Lanka',
+      coords: [80.5, 7.5],
+      indianPort: 'Kochi',
+      destPort: 'Colombo Port',
+      products: 'Onion',
+      exportMode: 'Sea Route',
+      arcFactor: -0.18,
+      duration: 2.6,
+      labelOffset: { x: 0, y: 14, anchor: 'middle' }
     },
     {
-      id: 'eurasia',
-      label: '🌏 Northern Eurasia',
-      subtitle: 'Novosibirsk Trade Routes',
-      description: 'Trade routes for raw commodities, industrial hardware, and agricultural grain shipments.',
-      lat: 55.0084,
-      lng: 82.9357
+      id: 'bangladesh',
+      name: 'Bangladesh',
+      fullName: 'People\'s Republic of Bangladesh',
+      featureName: 'Bangladesh',
+      coords: [90.0, 23.8],
+      indianPort: 'Inland Rail & Border Crossings',
+      destPort: 'Benapole / Petrapole Terminals',
+      exportMode: 'By Road & Rail',
+      products: 'Onion',
+      arcFactor: -0.15,
+      duration: 3.0,
+      labelOffset: { x: 0, y: 14, anchor: 'middle' }
     },
     {
-      id: 'australia',
-      label: '🇦🇺 Australia',
-      subtitle: 'Sydney Logistics',
-      description: 'Exporting high-quality garments, wholesale spice blends, and custom trade shipments.',
-      lat: -33.8688,
-      lng: 151.2093
+      id: 'nepal',
+      name: 'Nepal',
+      fullName: 'Federal Democratic Republic of Nepal',
+      featureName: 'Nepal',
+      coords: [84.0, 28.2],
+      indianPort: 'Inland Integrated Check Posts',
+      destPort: 'Birgunj Border Checkpost',
+      exportMode: 'By Road Export',
+      products: 'Onion',
+      arcFactor: 0.12,
+      duration: 2.7,
+      labelOffset: { x: 0, y: -8, anchor: 'middle' }
+    },
+    {
+      id: 'iraq',
+      name: 'Iraq',
+      fullName: 'Republic of Iraq',
+      featureName: 'Iraq',
+      coords: [44.0, 32.5],
+      indianPort: 'JNPA',
+      destPort: 'Umm Qasr',
+      products: 'Rice',
+      exportMode: 'Sea Route',
+      arcFactor: 0.28,
+      duration: 4.2,
+      labelOffset: { x: -14, y: -8, anchor: 'end' }
     }
   ];
 
-  // Standard Equirectangular projection matching the world_map_detailed.png image (2:1 aspect ratio)
-  const projection = d3.geoEquirectangular()
-    .scale(1200 / (2 * Math.PI))
-    .translate([600, 300]);
-
-  function init() {
-    const container = document.getElementById('stage');
-    if (!container) return;
-
-    // Clear previous SVG overlays but preserve the backdrop image and color overlay
-    container.querySelectorAll('svg').forEach(el => el.remove());
-    container.style.position = 'relative';
-
-    // 1. Create Tooltip DOM Element (frosted glass style)
-    const tooltipEl = document.createElement('div');
-    tooltipEl.style.position = 'absolute';
-    tooltipEl.style.pointerEvents = 'none';
-    tooltipEl.style.opacity = '0';
-    tooltipEl.style.background = 'rgba(255, 255, 255, 0.95)';
-    tooltipEl.style.backdropFilter = 'blur(12px)';
-    tooltipEl.style.webkitBackdropFilter = 'blur(12px)';
-    tooltipEl.style.border = '1px solid rgba(212, 175, 55, 0.4)';
-    tooltipEl.style.borderRadius = '12px';
-    tooltipEl.style.padding = '12px 14px';
-    tooltipEl.style.color = '#333333';
-    tooltipEl.style.fontSize = '12px';
-    tooltipEl.style.fontFamily = "'Montserrat', sans-serif";
-    tooltipEl.style.boxShadow = '0 10px 25px -5px rgba(212, 175, 55, 0.15)';
-    tooltipEl.style.zIndex = '1000';
-    tooltipEl.style.width = '240px';
-    tooltipEl.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
-    tooltipEl.style.transform = 'translateY(8px)';
-    container.appendChild(tooltipEl);
-
-    // 2. Setup D3 SVG Canvas with 'overlay' class to absolute-position it over the image
-    const svg = d3.select(container)
-      .append('svg')
-      .attr('class', 'overlay')
-      .attr('width', 1200)
-      .attr('height', 600)
-      .attr('viewBox', '0 0 1200 600')
-      .style('width', '100%')
-      .style('height', 'auto')
-      .style('display', 'block')
-      .style('background', 'transparent');
-
-    const defs = svg.append('defs');
-
-    // Route Gradient (Gold fade out)
-    const routeGrad = defs.append('linearGradient')
-      .attr('id', 'routeGrad')
-      .attr('x1', '0%')
-      .attr('y1', '0%')
-      .attr('x2', '100%')
-      .attr('y2', '100%');
-    routeGrad.append('stop').attr('offset', '0%').attr('stop-color', '#ffd166').attr('stop-opacity', '0.85');
-    routeGrad.append('stop').attr('offset', '100%').attr('stop-color', '#ff9f1c').attr('stop-opacity', '0.3');
-
-    // Dot Gradient matching radial-gradient(circle at 35% 30%, #fff6d8, #ffd166 55%, #b3801a 100%)
-    const dotGrad = defs.append('radialGradient')
-      .attr('id', 'dotGrad')
-      .attr('cx', '35%')
-      .attr('cy', '30%')
-      .attr('r', '75%');
-    dotGrad.append('stop').attr('offset', '0%').attr('stop-color', '#fff6d8');
-    dotGrad.append('stop').attr('offset', '55%').attr('stop-color', '#ffd166');
-    dotGrad.append('stop').attr('offset', '100%').attr('stop-color', '#b3801a');
-
-    // Backdrop image is loaded statically in HTML and overlayed by svg.overlay
-
-    const hq = LOCATIONS.find(l => l.isHQ);
-    const hqPoint = projection([hq.lng, hq.lat]);
-
-    // Layers groups
-    const routesG = svg.append('g').attr('id', 'routes-layer');
-    const particlesG = svg.append('g').attr('id', 'particles-layer');
-    const markersG = svg.append('g').attr('id', 'markers-layer');
-
-    // Register MotionPathPlugin with GSAP
-    if (typeof gsap !== 'undefined' && typeof MotionPathPlugin !== 'undefined') {
-      gsap.registerPlugin(MotionPathPlugin);
+  // Helper: Point in polygon ray-casting algorithm
+  function isPointInPolygon(pt, ring) {
+    const [x, y] = pt;
+    let inside = false;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const xi = ring[i][0], yi = ring[i][1];
+      const xj = ring[j][0], yj = ring[j][1];
+      const intersect = ((yi > y) !== (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+      if (intersect) inside = !inside;
     }
-
-    // Master GSAP Timeline for synchronized 4s loops
-    const masterTimeline = gsap.timeline({ repeat: -1 });
-
-    LOCATIONS.forEach((loc, index) => {
-      const p = projection([loc.lng, loc.lat]);
-      if (!p) return;
-
-      const markerGroup = markersG.append('g')
-        .attr('class', 'map-marker')
-        .attr('style', 'cursor: pointer;')
-        .on('mouseover', function (e) {
-          tooltipEl.innerHTML = `
-            <div style="font-weight: 700; color: #C89B3C; margin-bottom: 4px; font-size: 13px;">${loc.label}</div>
-            <div style="color: #666666; margin-bottom: 6px; font-weight: 600; font-size: 11px;">${loc.subtitle}</div>
-            <div style="color: #444444; font-weight: 400; line-height: 1.5; font-size: 11px;">${loc.description}</div>
-          `;
-          tooltipEl.style.opacity = '1';
-          tooltipEl.style.transform = 'translateY(0)';
-        })
-        .on('mousemove', function (e) {
-          const rect = container.getBoundingClientRect();
-          const tooltipWidth = tooltipEl.offsetWidth || 240;
-          const tooltipHeight = tooltipEl.offsetHeight || 100;
-          let left = e.clientX - rect.left - tooltipWidth / 2;
-          let top = e.clientY - rect.top - tooltipHeight - 15;
-
-          // Boundary checks
-          if (left < 10) left = 10;
-          if (left + tooltipWidth > rect.width - 10) left = rect.width - tooltipWidth - 10;
-          if (top < 10) top = e.clientY - rect.top + 20;
-
-          tooltipEl.style.left = left + 'px';
-          tooltipEl.style.top = top + 'px';
-        })
-        .on('mouseout', function () {
-          tooltipEl.style.opacity = '0';
-          tooltipEl.style.transform = 'translateY(8px)';
-        });
-
-      if (loc.isHQ) {
-        // Pulse animation for HQ
-        const hqPulse = markerGroup.append('circle')
-          .attr('cx', p[0])
-          .attr('cy', p[1])
-          .attr('r', '5')
-          .attr('fill', 'none')
-          .attr('stroke', '#ffd166')
-          .attr('stroke-width', '1.5');
-
-        markerGroup.append('circle')
-          .attr('cx', p[0])
-          .attr('cy', p[1])
-          .attr('r', '6')
-          .attr('fill', 'url(#dotGrad)')
-          .attr('stroke', '#ffffff')
-          .attr('stroke-width', '1.5');
-
-        gsap.fromTo(hqPulse.node(),
-          { attr: { r: 5 }, opacity: 0.9 },
-          { attr: { r: 24 }, opacity: 0, duration: 2, repeat: -1, ease: 'power2.out' }
-        );
-      } else {
-        // Destination Dot: solid gold circle with solid white stroke
-        const destDot = markerGroup.append('circle')
-          .attr('id', `marker-${loc.id}`)
-          .attr('cx', p[0])
-          .attr('cy', p[1])
-          .attr('r', '4.5')
-          .attr('fill', 'url(#dotGrad)')
-          .attr('stroke', '#ffffff')
-          .attr('stroke-width', '1.5');
-
-        // Draw Route Line
-        const routePathId = `route-line-${index}`;
-        const dx = p[0] - hqPoint[0];
-        const dy = p[1] - hqPoint[1];
-        const dr = Math.sqrt(dx * dx + dy * dy);
-        
-        // Curved path
-        const curve = 1.8;
-        const pathD = `M${hqPoint[0]},${hqPoint[1]} A${dr * curve},${dr * curve} 0 0,1 ${p[0]},${p[1]}`;
-
-        const routeLine = routesG.append('path')
-          .attr('id', routePathId)
-          .attr('d', pathD)
-          .attr('fill', 'none')
-          .attr('stroke', 'url(#routeGrad)')
-          .attr('stroke-width', '2.0')
-          .attr('stroke-linecap', 'round')
-          .attr('opacity', '0');
-
-        const pathEl = routeLine.node();
-        const length = pathEl.getTotalLength();
-        routeLine.attr('stroke-dasharray', length).attr('stroke-dashoffset', length);
-
-        // Comet particle
-        const comet = particlesG.append('circle')
-          .attr('r', '3.5')
-          .attr('fill', '#ffd166')
-          .attr('opacity', '0');
-
-        // GSAP Synchronized Loop (duration 3.2s draw + 0.8s pause = 4s loop)
-        masterTimeline.fromTo(routeLine.node(),
-          { strokeDashoffset: length, opacity: 0 },
-          { strokeDashoffset: 0, opacity: 0.8, duration: 3.2, ease: 'power1.inOut' },
-          0
-        );
-
-        masterTimeline.to(comet.node(), {
-          duration: 3.2,
-          ease: 'power1.inOut',
-          motionPath: {
-            path: `#${routePathId}`,
-            autoRotate: false
-          }
-        }, 0);
-
-        masterTimeline.fromTo(comet.node(),
-          { opacity: 0 },
-          { opacity: 1, duration: 0.2 },
-          0
-        );
-        masterTimeline.to(comet.node(), { opacity: 0, duration: 0.2 }, 3.0);
-
-        masterTimeline.fromTo(destDot.node(),
-          { scale: 0, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.6, ease: 'back.out(1.7)' },
-          2.6
-        );
-      }
-
-      // Add label text in clean solid white (#ffffff)
-      const cleanLabel = loc.label.replace(/[^\w\s\(\)&]/g, '').trim();
-      markerGroup.append('text')
-        .attr('x', p[0])
-        .attr('y', loc.isHQ ? p[1] - 12 : p[1] + 15)
-        .text(cleanLabel)
-        .attr('text-anchor', 'middle')
-        .attr('fill', '#ffffff')
-        .attr('font-size', '9px')
-        .attr('font-family', "'Montserrat', sans-serif")
-        .attr('font-weight', '600')
-        .attr('letter-spacing', '0.04em')
-        .style('pointer-events', 'none');
-    });
+    return inside;
   }
 
+  function isPointInGeometry(pt, geom) {
+    if (!geom || !geom.coordinates) return false;
+    if (geom.type === 'Polygon') {
+      if (isPointInPolygon(pt, geom.coordinates[0])) {
+        for (let i = 1; i < geom.coordinates.length; i++) {
+          if (isPointInPolygon(pt, geom.coordinates[i])) return false;
+        }
+        return true;
+      }
+      return false;
+    } else if (geom.type === 'MultiPolygon') {
+      for (const poly of geom.coordinates) {
+        if (isPointInPolygon(pt, poly[0])) {
+          let inHole = false;
+          for (let i = 1; i < poly.length; i++) {
+            if (isPointInPolygon(pt, poly[i])) { inHole = true; break; }
+          }
+          if (!inHole) return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  // Requirement 13: Mathematical Route Endpoint & Destination Validation
+  function validateDestinations(features, destinations, projection) {
+    const errors = [];
+    const hqFeature = features.find(f => {
+      const p = f.properties || {};
+      return (p.name || p.ADMIN || '').toLowerCase() === INDIA_HQ.featureName.toLowerCase();
+    });
+
+    if (!hqFeature) {
+      console.error('Invalid geographic origin: India feature not found in GeoJSON');
+      errors.push('India');
+    } else if (!isPointInGeometry(INDIA_HQ.coords, hqFeature.geometry)) {
+      console.error(`Invalid geographic origin: India HQ coordinate [${INDIA_HQ.coords}] is outside India boundary!`);
+      errors.push('India');
+    }
+
+    destinations.forEach(dest => {
+      if (!dest.coords || !Array.isArray(dest.coords) || dest.coords.length !== 2) {
+        console.error(`Invalid geographic destination: ${dest.name} - Missing or invalid coordinates`);
+        errors.push(dest.name);
+        return;
+      }
+
+      const [lon, lat] = dest.coords;
+      if (typeof lon !== 'number' || typeof lat !== 'number' || isNaN(lon) || isNaN(lat)) {
+        console.error(`Invalid geographic destination: ${dest.name} - Non-numeric coordinates`);
+        errors.push(dest.name);
+        return;
+      }
+
+      const feature = features.find(f => {
+        const p = f.properties || {};
+        return (p.name || p.ADMIN || '').toLowerCase() === dest.featureName.toLowerCase();
+      });
+
+      if (!feature) {
+        console.error(`Invalid geographic destination: ${dest.name} - Country polygon not found for "${dest.featureName}"`);
+        errors.push(dest.name);
+        return;
+      }
+
+      const isInside = isPointInGeometry([lon, lat], feature.geometry);
+      if (!isInside) {
+        console.error(`Invalid geographic destination: ${dest.name} - Coordinate [${lon}, ${lat}] is OUTSIDE country polygon!`);
+        errors.push(dest.name);
+        return;
+      }
+
+      const proj = projection([lon, lat]);
+      if (!proj || !isFinite(proj[0]) || !isFinite(proj[1])) {
+        console.error(`Invalid geographic destination: ${dest.name} - Projected coordinates are not finite`);
+        errors.push(dest.name);
+        return;
+      }
+
+      dest._validatedFeature = feature;
+    });
+
+    if (errors.length === 0) {
+      console.log('%c✓ BORA GROUP Geographic Map Validation: All 10 destination coordinates & India HQ strictly verified inside authentic national boundaries.', 'color: #10B981; font-weight: bold; font-size: 11px;');
+    } else {
+      console.error(`Geographic Destination Validation FAILED for: ${errors.join(', ')}`);
+    }
+
+    return errors.length === 0;
+  }
+
+  // Main Map Controller
+  class BoraTradeMap {
+    constructor(containerId) {
+      this.container = document.getElementById(containerId);
+      if (!this.container) return;
+
+      this.geoData = null;
+      this.svg = null;
+      this.zoomBehavior = null;
+      this.activeSelection = null;
+      this.activeAnimations = [];
+      this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      this.infoCard = document.getElementById('bora-map-infocard');
+      this.cardTitle = document.getElementById('infocard-title');
+      this.cardBadge = document.getElementById('infocard-badge');
+      this.cardBody = document.getElementById('infocard-body');
+      this.cardClose = document.getElementById('infocard-close');
+
+      this.init();
+    }
+
+    async init() {
+      try {
+        if (window.BORA_WORLD_GEOJSON) {
+          this.geoData = window.BORA_WORLD_GEOJSON;
+        } else {
+          const resp = await fetch('js/world-countries.json');
+          this.geoData = await resp.json();
+        }
+      } catch (err) {
+        console.error('Failed to load geographic dataset:', err);
+        return;
+      }
+
+      this.setupCardEvents();
+      this.render();
+      this.setupResizeObserver();
+      this.setupZoomControls();
+    }
+
+    setupCardEvents() {
+      if (this.cardClose) {
+        this.cardClose.addEventListener('click', (e) => {
+          e.stopPropagation();
+          this.resetHighlights();
+        });
+      }
+
+      // Clicking outside the active marker/country resets the card
+      this.container.addEventListener('click', (e) => {
+        if (!e.target.closest('.dest-hit-area') && 
+            !e.target.closest('.hq-hit-area') && 
+            !e.target.closest('.country-interactive') &&
+            !e.target.closest('#bora-map-infocard')) {
+          this.resetHighlights();
+        }
+      });
+    }
+
+    setupZoomControls() {
+      const btnIn = document.getElementById('map-zoom-in');
+      const btnOut = document.getElementById('map-zoom-out');
+      const btnReset = document.getElementById('map-zoom-reset');
+
+      if (btnIn) {
+        btnIn.addEventListener('click', () => {
+          if (this.svg && this.zoomBehavior) {
+            this.svg.transition().duration(300).call(this.zoomBehavior.scaleBy, 1.35);
+          }
+        });
+      }
+      if (btnOut) {
+        btnOut.addEventListener('click', () => {
+          if (this.svg && this.zoomBehavior) {
+            this.svg.transition().duration(300).call(this.zoomBehavior.scaleBy, 0.75);
+          }
+        });
+      }
+      if (btnReset) {
+        btnReset.addEventListener('click', () => {
+          if (this.svg && this.zoomBehavior) {
+            this.svg.transition().duration(400).call(this.zoomBehavior.transform, d3.zoomIdentity);
+          }
+        });
+      }
+    }
+
+    setupResizeObserver() {
+      let resizeTimeout;
+      const ro = new ResizeObserver(() => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          this.render();
+        }, 150);
+      });
+      ro.observe(this.container);
+    }
+
+    render() {
+      // Clear previous SVG and animations
+      this.killAnimations();
+      this.container.innerHTML = '';
+
+      const width = this.container.clientWidth || 1100;
+      const height = this.container.clientHeight || 640;
+
+      // Real geographic projection: d3.geoNaturalEarth1
+      // Rotated to place longitudes 60°-70°E (India & Arabian Sea) right in the center
+      const isMobile = width < 768;
+      const baseScale = isMobile ? (width * 0.42) : (width * 0.36);
+
+      const projection = d3.geoNaturalEarth1()
+        .rotate([-62, -18]) // Rotates longitude to 62°E and latitude to 18°N
+        .scale(baseScale)
+        .translate([width / 2, height / 2]);
+
+      // Validate destinations mathematically
+      validateDestinations(this.geoData.features, DESTINATIONS, projection);
+
+      const pathGenerator = d3.geoPath().projection(projection);
+
+      // Create SVG canvas
+      this.svg = d3.select(this.container)
+        .append('svg')
+        .attr('class', 'w-full h-full select-none')
+        .attr('viewBox', `0 0 ${width} ${height}`)
+        .style('display', 'block');
+
+      // SVG Definitions for filters, glows, and gradients
+      const defs = this.svg.append('defs');
+
+      // Subtle warm gold glow for routes & particles
+      const filterGlow = defs.append('filter')
+        .attr('id', 'goldGlow')
+        .attr('x', '-50%')
+        .attr('y', '-50%')
+        .attr('width', '200%')
+        .attr('height', '200%');
+      filterGlow.append('feGaussianBlur')
+        .attr('stdDeviation', '2.5')
+        .attr('result', 'blur');
+      filterGlow.append('feMerge')
+        .selectAll('feMergeNode')
+        .data(['blur', 'SourceGraphic'])
+        .enter()
+        .append('feMergeNode')
+        .attr('in', d => d);
+
+      // Gold gradient for routes
+      const goldGrad = defs.append('linearGradient')
+        .attr('id', 'routeGoldGrad')
+        .attr('gradientUnits', 'userSpaceOnUse');
+      goldGrad.append('stop')
+        .attr('offset', '0%')
+        .attr('stop-color', '#F97316') // India HQ warm orange
+        .attr('stop-opacity', '0.9');
+      goldGrad.append('stop')
+        .attr('offset', '100%')
+        .attr('stop-color', '#C4A02B') // Destination warm gold
+        .attr('stop-opacity', '0.85');
+
+      // Main zoomable content group
+      const gMap = this.svg.append('g').attr('class', 'map-content');
+
+      // Attach D3 zoom
+      this.zoomBehavior = d3.zoom()
+        .scaleExtent([0.8, 6])
+        .on('zoom', (event) => {
+          gMap.attr('transform', event.transform);
+        });
+      this.svg.call(this.zoomBehavior);
+
+      // 1. Ocean Sphere / Backdrop (Pure soft white)
+      gMap.append('rect')
+        .attr('class', 'ocean-backdrop')
+        .attr('x', -width * 2)
+        .attr('y', -height * 2)
+        .attr('width', width * 5)
+        .attr('height', height * 5)
+        .attr('fill', '#FFFFFF');
+
+      // 2. Render Real Geographic Country Boundaries
+      const destNamesSet = new Set(DESTINATIONS.map(d => d.featureName.toLowerCase()));
+
+      const countriesG = gMap.append('g').attr('class', 'countries-layer');
+
+      countriesG.selectAll('path.country-boundary')
+        .data(this.geoData.features)
+        .enter()
+        .append('path')
+        .attr('class', d => {
+          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          const isIndia = name === INDIA_HQ.featureName.toLowerCase();
+          const isDest = destNamesSet.has(name);
+          return `country-boundary ${isIndia ? 'country-india country-interactive' : ''} ${isDest ? 'country-destination country-interactive' : 'country-default'}`;
+        })
+        .attr('id', d => {
+          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase().replace(/\s+/g, '-');
+          return `country-${name}`;
+        })
+        .attr('d', pathGenerator)
+        .attr('fill', d => {
+          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FDF5EB'; // Soft luxury peach/orange for India
+          if (destNamesSet.has(name)) return '#F6F5F0'; // Soft warm tint for trade partners
+          return '#F1F3F5'; // Light clean grey for other nations
+        })
+        .attr('stroke', d => {
+          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '#F97316';
+          if (destNamesSet.has(name)) return '#D3CEBE';
+          return '#D5D9DE';
+        })
+        .attr('stroke-width', d => {
+          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '1.2';
+          if (destNamesSet.has(name)) return '0.9';
+          return '0.65';
+        })
+        .style('transition', 'fill 0.25s ease, stroke 0.25s ease, stroke-width 0.25s ease')
+        .style('cursor', d => {
+          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          return (name === INDIA_HQ.featureName.toLowerCase() || destNamesSet.has(name)) ? 'pointer' : 'default';
+        })
+        .on('mouseenter', (event, d) => {
+          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          if (name === INDIA_HQ.featureName.toLowerCase()) {
+            this.highlightIndia();
+          } else if (destNamesSet.has(name)) {
+            const dest = DESTINATIONS.find(item => item.featureName.toLowerCase() === name);
+            if (dest) this.highlightDestination(dest);
+          }
+        })
+        .on('click', (event, d) => {
+          event.stopPropagation();
+          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          if (name === INDIA_HQ.featureName.toLowerCase()) {
+            this.highlightIndia(true);
+          } else if (destNamesSet.has(name)) {
+            const dest = DESTINATIONS.find(item => item.featureName.toLowerCase() === name);
+            if (dest) this.highlightDestination(dest, true);
+          }
+        });
+
+      // 3. Layer for Export Routes (Curved Logistics Paths)
+      const routesG = gMap.append('g').attr('class', 'routes-layer');
+
+      // Projected India HQ coordinates
+      const hqPoint = projection(INDIA_HQ.coords);
+      const [hqX, hqY] = hqPoint;
+
+      // Build route paths
+      const routeElements = [];
+
+      DESTINATIONS.forEach(dest => {
+        const destPoint = projection(dest.coords);
+        const [dx, dy] = destPoint;
+
+        // Calculate smooth curved path (quadratic Bezier with unique altitude)
+        const chordX = dx - hqX;
+        const chordY = dy - hqY;
+        const dist = Math.hypot(chordX, chordY);
+        const angle = Math.atan2(chordY, chordX);
+
+        // Perpendicular offset based on individual arc factor
+        const offset = dist * dest.arcFactor;
+        const midX = (hqX + dx) / 2;
+        const midY = (hqY + dy) / 2;
+        const ctrlX = midX - Math.sin(angle) * offset;
+        const ctrlY = midY + Math.cos(angle) * offset;
+
+        const pathData = `M ${hqX} ${hqY} Q ${ctrlX} ${ctrlY} ${dx} ${dy}`;
+
+        // Route Group
+        const rGroup = routesG.append('g')
+          .attr('class', `route-group route-${dest.id}`)
+          .style('transition', 'opacity 0.3s ease');
+
+        // Base static route
+        const basePath = rGroup.append('path')
+          .attr('class', 'route-base')
+          .attr('d', pathData)
+          .attr('fill', 'none')
+          .attr('stroke', '#C4A02B')
+          .attr('stroke-width', '1.6')
+          .attr('stroke-linecap', 'round')
+          .attr('opacity', '0.45');
+
+        // Glowing pipeline flow segment (animated dashed line)
+        const flowPath = rGroup.append('path')
+          .attr('class', 'route-flow-pipe')
+          .attr('d', pathData)
+          .attr('fill', 'none')
+          .attr('stroke', '#E2BD44')
+          .attr('stroke-width', '1.8')
+          .attr('stroke-linecap', 'round')
+          .attr('stroke-dasharray', '8, 14')
+          .attr('opacity', '0.75');
+
+        // Traveling glowing particle group
+        const particleG = rGroup.append('g')
+          .attr('class', 'traveling-particle')
+          .attr('opacity', '0');
+
+        // Soft outer glow aura
+        particleG.append('circle')
+          .attr('r', '6')
+          .attr('fill', '#FFD166')
+          .attr('opacity', '0.45')
+          .attr('filter', 'url(#goldGlow)');
+
+        // Golden traveling particle core
+        particleG.append('circle')
+          .attr('r', '3.5')
+          .attr('fill', '#D97706');
+
+        // Center white pinpoint
+        particleG.append('circle')
+          .attr('r', '1.8')
+          .attr('fill', '#FFFFFF');
+
+        routeElements.push({
+          dest,
+          basePath,
+          flowPath,
+          particleG,
+          pathElement: basePath.node(),
+          duration: dest.duration
+        });
+      });
+
+      // 4. Layer for Markers & Labels
+      const markersG = gMap.append('g').attr('class', 'markers-layer');
+
+      // 4A. Destination Markers
+      DESTINATIONS.forEach(dest => {
+        const [x, y] = projection(dest.coords);
+        const mGroup = markersG.append('g')
+          .attr('class', `dest-marker-group marker-${dest.id}`)
+          .attr('transform', `translate(${x}, ${y})`)
+          .style('cursor', 'pointer');
+
+        // Invisible large hit circle for easy clicking/hovering even on small islands
+        mGroup.append('circle')
+          .attr('class', 'dest-hit-area')
+          .attr('r', '14')
+          .attr('fill', 'transparent');
+
+        // Subtle pulsing ring
+        mGroup.append('circle')
+          .attr('class', 'dest-pulse-ring')
+          .attr('r', '5')
+          .attr('fill', 'none')
+          .attr('stroke', '#C4A02B')
+          .attr('stroke-width', '1.2')
+          .attr('opacity', '0.7');
+
+        // Solid gold destination dot
+        mGroup.append('circle')
+          .attr('class', 'dest-dot-core')
+          .attr('r', '4')
+          .attr('fill', '#C4A02B')
+          .attr('stroke', '#FFFFFF')
+          .attr('stroke-width', '1.5');
+
+        // Clean subtle label
+        const lo = dest.labelOffset;
+        mGroup.append('text')
+          .attr('class', 'dest-map-label')
+          .attr('x', lo.x)
+          .attr('y', lo.y)
+          .attr('text-anchor', lo.anchor)
+          .attr('fill', '#2D3748')
+          .attr('font-size', '8.5px')
+          .attr('font-weight', '600')
+          .attr('font-family', 'Montserrat, sans-serif')
+          .attr('letter-spacing', '0.4px')
+          .text(dest.name);
+
+        // Marker Events
+        mGroup.on('mouseenter', () => this.highlightDestination(dest));
+        mGroup.on('click', (event) => {
+          event.stopPropagation();
+          this.highlightDestination(dest, true);
+        });
+      });
+
+      // 4B. India HQ Central Marker (JNPA / Navi Mumbai)
+      const hqGroup = markersG.append('g')
+        .attr('class', 'hq-marker-group')
+        .attr('transform', `translate(${hqX}, ${hqY})`)
+        .style('cursor', 'pointer');
+
+      // Hit area
+      hqGroup.append('circle')
+        .attr('class', 'hq-hit-area')
+        .attr('r', '20')
+        .attr('fill', 'transparent');
+
+      // Outer animated pulsing rings
+      hqGroup.append('circle')
+        .attr('class', 'hq-pulse-outer')
+        .attr('r', '14')
+        .attr('fill', 'rgba(249, 115, 22, 0.12)')
+        .attr('stroke', '#F97316')
+        .attr('stroke-width', '1.2')
+        .attr('opacity', '0.8');
+
+      hqGroup.append('circle')
+        .attr('class', 'hq-pulse-inner')
+        .attr('r', '8')
+        .attr('fill', 'rgba(249, 115, 22, 0.25)')
+        .attr('stroke', '#F97316')
+        .attr('stroke-width', '1.5');
+
+      // Center solid orange marker dot
+      hqGroup.append('circle')
+        .attr('class', 'hq-core-dot')
+        .attr('r', '5.5')
+        .attr('fill', '#F97316')
+        .attr('stroke', '#FFFFFF')
+        .attr('stroke-width', '2');
+
+      // HQ Badge & Label
+      const hqLabelG = hqGroup.append('g')
+        .attr('class', 'hq-label-group')
+        .attr('transform', 'translate(0, -14)');
+
+      hqLabelG.append('rect')
+        .attr('x', '-58')
+        .attr('y', '-12')
+        .attr('width', '116')
+        .attr('height', '18')
+        .attr('rx', '4')
+        .attr('fill', 'rgba(255, 255, 255, 0.95)')
+        .attr('stroke', '#F97316')
+        .attr('stroke-width', '1')
+        .attr('filter', 'drop-shadow(0 2px 4px rgba(0,0,0,0.06))');
+
+      hqLabelG.append('text')
+        .attr('x', '0')
+        .attr('y', '0')
+        .attr('text-anchor', 'middle')
+        .attr('dominant-baseline', 'central')
+        .attr('fill', '#161616')
+        .attr('font-size', '8px')
+        .attr('font-weight', '700')
+        .attr('font-family', 'Montserrat, sans-serif')
+        .attr('letter-spacing', '0.5px')
+        .text('EXPORT HQ • JNPA');
+
+      hqGroup.on('mouseenter', () => this.highlightIndia());
+      hqGroup.on('click', (event) => {
+        event.stopPropagation();
+        this.highlightIndia(true);
+      });
+
+      // 5. Requirements 7 & 8: Simultaneous Infinite Looping Animation for ALL 10 Routes
+      this.startSimultaneousAnimations(routeElements);
+    }
+
+    startSimultaneousAnimations(routeElements) {
+      this.killAnimations();
+
+      if (this.prefersReducedMotion) {
+        // Show static routes without continuous motion
+        routeElements.forEach(r => {
+          r.particleG.attr('opacity', '0.8');
+        });
+        return;
+      }
+
+      // Continuous dash-flow animation on pipes
+      const styleId = 'bora-map-anim-styles';
+      if (!document.getElementById(styleId)) {
+        const styleEl = document.createElement('style');
+        styleEl.id = styleId;
+        styleEl.textContent = `
+          @keyframes pipeFlowAnim {
+            from { stroke-dashoffset: 44; }
+            to { stroke-dashoffset: 0; }
+          }
+          @keyframes hqPulseWave {
+            0% { transform: scale(0.6); opacity: 0.9; }
+            50% { opacity: 0.5; }
+            100% { transform: scale(2.2); opacity: 0; }
+          }
+          @keyframes destPulseWave {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(2.2); opacity: 0; }
+          }
+          .route-flow-pipe {
+            animation: pipeFlowAnim 2.2s linear infinite;
+          }
+          .hq-pulse-outer {
+            transform-origin: center;
+            animation: hqPulseWave 2.8s ease-out infinite;
+          }
+          .dest-pulse-ring {
+            transform-origin: center;
+            animation: destPulseWave 2.2s ease-out infinite;
+          }
+        `;
+        document.head.appendChild(styleEl);
+      }
+
+      // GSAP Simultaneous Particle Movement:
+      // ALL 10 export routes start simultaneously at time = 0, looping infinitely
+      routeElements.forEach(r => {
+        const pathNode = r.pathElement;
+        const totalLen = pathNode.getTotalLength();
+        const pGroup = r.particleG.node();
+
+        const animObj = { progress: 0 };
+
+        // GSAP tween started immediately with zero delay
+        const tween = gsap.to(animObj, {
+          progress: 1,
+          duration: r.duration,
+          repeat: -1,
+          ease: 'power1.inOut',
+          onUpdate: () => {
+            const p = pathNode.getPointAtLength(animObj.progress * totalLen);
+            pGroup.setAttribute('transform', `translate(${p.x}, ${p.y})`);
+
+            // Seamless fade in at origin and fade out at destination
+            let op = 1;
+            if (animObj.progress < 0.12) {
+              op = animObj.progress / 0.12;
+            } else if (animObj.progress > 0.88) {
+              op = (1 - animObj.progress) / 0.12;
+            }
+            pGroup.setAttribute('opacity', op.toFixed(2));
+          }
+        });
+
+        this.activeAnimations.push(tween);
+      });
+    }
+
+    killAnimations() {
+      if (this.activeAnimations && this.activeAnimations.length > 0) {
+        this.activeAnimations.forEach(t => t.kill());
+        this.activeAnimations = [];
+      }
+    }
+
+    highlightDestination(dest, isPermanent = false) {
+      this.activeSelection = dest.id;
+
+      // 1. Highlight destination country polygon
+      d3.selectAll('.country-boundary')
+        .transition().duration(250)
+        .attr('fill', d => {
+          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          if (name === dest.featureName.toLowerCase()) return '#FBEEC8'; // Warm highlight
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FDF5EB';
+          return '#F1F3F5';
+        })
+        .attr('stroke', d => {
+          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          if (name === dest.featureName.toLowerCase()) return '#C4A02B';
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '#F97316';
+          return '#D5D9DE';
+        })
+        .attr('stroke-width', d => {
+          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          if (name === dest.featureName.toLowerCase()) return '1.8';
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '1.2';
+          return '0.65';
+        });
+
+      // 2. Highlight corresponding export route; dim other routes
+      d3.selectAll('.route-group')
+        .transition().duration(250)
+        .attr('opacity', function () {
+          return d3.select(this).classed(`route-${dest.id}`) ? '1' : '0.15';
+        });
+
+      d3.selectAll(`.route-${dest.id} .route-base`)
+        .transition().duration(250)
+        .attr('stroke', '#C4A02B')
+        .attr('stroke-width', '2.8')
+        .attr('opacity', '0.9');
+
+      // 3. Highlight destination marker
+      d3.selectAll('.dest-dot-core')
+        .transition().duration(250)
+        .attr('r', function () {
+          const p = d3.select(this.parentNode);
+          return p.classed(`marker-${dest.id}`) ? '6' : '4';
+        })
+        .attr('fill', function () {
+          const p = d3.select(this.parentNode);
+          return p.classed(`marker-${dest.id}`) ? '#D97706' : '#C4A02B';
+        });
+
+      // 4. Update and show Information Card
+      if (this.infoCard) {
+        if (this.cardBadge) {
+          this.cardBadge.textContent = 'EXPORT CORRIDOR';
+          this.cardBadge.className = 'text-[9px] font-heading font-bold uppercase tracking-wider text-amber-700 bg-amber-50 border border-amber-200/60 px-2.5 py-0.5 rounded-full inline-block mb-1.5';
+        }
+        if (this.cardTitle) {
+          this.cardTitle.textContent = dest.fullName || dest.name;
+        }
+        if (this.cardBody) {
+          this.cardBody.innerHTML = `
+            <div class="grid grid-cols-2 gap-2 text-xs">
+              <div class="bg-gray-50/90 border border-gray-100 p-2.5 rounded-lg">
+                <span class="text-[9px] uppercase font-bold text-gray-400 block tracking-wider mb-0.5">Origin Port</span>
+                <span class="font-semibold text-gray-900 block">${dest.indianPort}</span>
+                <span class="text-[10px] text-gray-500">${dest.exportMode}</span>
+              </div>
+              <div class="bg-gray-50/90 border border-gray-100 p-2.5 rounded-lg">
+                <span class="text-[9px] uppercase font-bold text-gray-400 block tracking-wider mb-0.5">Destination Port</span>
+                <span class="font-semibold text-gray-900 block">${dest.destPort}</span>
+                <span class="text-[10px] text-emerald-600 font-medium">Active Clearance</span>
+              </div>
+            </div>
+            <div class="bg-amber-50/60 border border-amber-100/80 p-2.5 rounded-lg text-xs mt-2">
+              <span class="text-[9px] uppercase font-bold text-amber-800/80 block tracking-wider mb-0.5">Key Export Commodities</span>
+              <span class="font-medium text-gray-800 leading-relaxed block">${dest.products}</span>
+            </div>
+          `;
+        }
+
+        this.infoCard.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+        this.infoCard.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      }
+    }
+
+    highlightIndia(isPermanent = false) {
+      this.activeSelection = 'india';
+
+      // 1. Highlight India country polygon
+      d3.selectAll('.country-boundary')
+        .transition().duration(250)
+        .attr('fill', d => {
+          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FDE8C4';
+          return '#F1F3F5';
+        })
+        .attr('stroke', d => {
+          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '#F97316';
+          return '#D5D9DE';
+        })
+        .attr('stroke-width', d => {
+          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '2';
+          return '0.65';
+        });
+
+      // 2. Requirement 10: Highlight ALL 10 export routes simultaneously
+      d3.selectAll('.route-group')
+        .transition().duration(250)
+        .attr('opacity', '1');
+
+      d3.selectAll('.route-base')
+        .transition().duration(250)
+        .attr('stroke', '#C4A02B')
+        .attr('stroke-width', '2.2')
+        .attr('opacity', '0.85');
+
+      // 3. Show India HQ Info Card
+      if (this.infoCard) {
+        if (this.cardBadge) {
+          this.cardBadge.textContent = 'EXPORT HEADQUARTERS';
+          this.cardBadge.className = 'text-[9px] font-heading font-bold uppercase tracking-wider text-orange-700 bg-orange-50 border border-orange-200/60 px-2.5 py-0.5 rounded-full inline-block mb-1.5';
+        }
+        if (this.cardTitle) {
+          this.cardTitle.textContent = 'BORA GROUP';
+        }
+        if (this.cardBody) {
+          this.cardBody.innerHTML = `
+            <div class="bg-orange-50/50 border border-orange-100 p-2.5 rounded-lg text-xs space-y-1">
+              <div>
+                <span class="text-[9px] uppercase font-bold text-gray-400 block tracking-wider">Role</span>
+                <span class="font-semibold text-gray-900">${INDIA_HQ.role}</span>
+              </div>
+              <div>
+                <span class="text-[9px] uppercase font-bold text-gray-400 block tracking-wider">Location</span>
+                <span class="font-semibold text-gray-900">${INDIA_HQ.name}</span>
+              </div>
+              <div>
+                <span class="text-[9px] uppercase font-bold text-orange-700 block tracking-wider">Primary Export Gateway</span>
+                <span class="font-semibold text-gray-900">${INDIA_HQ.port}</span>
+              </div>
+            </div>
+            <p class="text-xs text-gray-600 leading-relaxed pt-1">
+              Central procurement gateway and logistics control center powering continuous export trade corridors across 10 international markets in the Middle East and South Asia.
+            </p>
+          `;
+        }
+
+        this.infoCard.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+        this.infoCard.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      }
+    }
+
+    resetHighlights() {
+      this.activeSelection = null;
+
+      // Restore country fills & strokes
+      d3.selectAll('.country-boundary')
+        .transition().duration(250)
+        .attr('fill', d => {
+          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FDF5EB';
+          const isDest = DESTINATIONS.some(dest => dest.featureName.toLowerCase() === name);
+          if (isDest) return '#F6F5F0';
+          return '#F1F3F5';
+        })
+        .attr('stroke', d => {
+          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '#F97316';
+          const isDest = DESTINATIONS.some(dest => dest.featureName.toLowerCase() === name);
+          if (isDest) return '#D3CEBE';
+          return '#D5D9DE';
+        })
+        .attr('stroke-width', d => {
+          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '1.2';
+          const isDest = DESTINATIONS.some(dest => dest.featureName.toLowerCase() === name);
+          if (isDest) return '0.9';
+          return '0.65';
+        });
+
+      // Restore all 10 routes to normal balanced simultaneous flow
+      d3.selectAll('.route-group')
+        .transition().duration(250)
+        .attr('opacity', '1');
+
+      d3.selectAll('.route-base')
+        .transition().duration(250)
+        .attr('stroke', '#C4A02B')
+        .attr('stroke-width', '1.6')
+        .attr('opacity', '0.45');
+
+      d3.selectAll('.dest-dot-core')
+        .transition().duration(250)
+        .attr('r', '4')
+        .attr('fill', '#C4A02B');
+
+      // Hide card
+      if (this.infoCard) {
+        this.infoCard.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+        this.infoCard.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+      }
+    }
+  }
+
+  // Initialize once DOM is ready
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', () => new BoraTradeMap('bora-world-map'));
   } else {
-    init();
+    new BoraTradeMap('bora-world-map');
   }
 
 })();
