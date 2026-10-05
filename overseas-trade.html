@@ -36,11 +36,83 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/overseas.css">
+  <link rel="stylesheet" href="css/styles.css?v=3.0">
+  <link rel="stylesheet" href="css/overseas.css?v=3.0">
+
+  <style>
+    /* Inline Guarantee: Pure Minimal Apple-Style Cards with Zero Corner Marks */
+    .minimal-card {
+      background: #FFFFFF;
+      border: 1px solid #E8E8E8;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      border-radius: 0;
+    }
+    .minimal-card:hover {
+      transform: translateY(-2px);
+      border-color: #C5A880;
+      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
+    }
+    .minimal-img-frame {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background-color: #F5F5F7;
+      position: relative;
+    }
+    .minimal-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .minimal-card:hover .minimal-img-frame img {
+      transform: scale(1.04);
+    }
+    .sector-tab {
+      font-family: var(--font-heading), -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.65rem 1.4rem;
+      color: #6E6E73;
+      background: transparent;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .sector-tab:hover {
+      color: #111215;
+    }
+    .sector-tab.active {
+      color: #FFFFFF;
+      background: #111215;
+      border-color: #111215;
+    }
+    .minimal-link {
+      font-family: var(--font-heading), -apple-system, sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #111215;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: color 0.2s ease;
+    }
+    .minimal-card:hover .minimal-link {
+      color: #C5A880;
+    }
+  </style>
 </head>
 
-<body class="bg-[#FAF9F6] text-stone-800 selection:bg-stone-900 selection:text-white antialiased">
+<body class="bg-[#FAF9F6] text-stone-800 selection:bg-stone-900 selection:text-white antialiased overflow-x-hidden">
+
+  <!-- Scroll Progress -->
+  <div id="scroll-indicator" class="fixed top-0 left-0 h-1 bg-gold z-[100] transition-all duration-75" style="width: 0%;"></div>
 
   <!-- STICKY NAVBAR -->
   <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-6 bg-transparent">
@@ -144,8 +216,8 @@
     </div>
   </div>
 
-  <!-- HERO SECTION (Apple Minimal Aesthetics) -->
-  <section class="relative min-h-[82vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white pt-32 pb-20">
+  <!-- HERO SECTION (Clean Minimalist Apple Design) -->
+  <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-stone-950 text-white pt-32 pb-20">
     <div class="absolute inset-0 z-0">
       <img src="images/overseas_trade_ship.jpg" alt="Overseas Trade Vessel" class="w-full h-full object-cover brightness-[0.38] contrast-[1.05]">
       <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/40 to-stone-950/60 pointer-events-none"></div>
@@ -181,7 +253,7 @@
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       
       <!-- Minimal Header -->
-      <div class="text-center max-w-2xl mx-auto mb-12">
+      <div class="text-center max-w-2xl mx-auto mb-10">
         <h2 class="text-3xl sm:text-4xl font-heading font-bold text-stone-900 tracking-tight">
           Shop by Export Sector
         </h2>
@@ -191,15 +263,423 @@
       </div>
 
       <!-- Minimal Sector Switcher Pills -->
-      <div class="flex items-center justify-center flex-wrap gap-2 mb-14">
-        <div id="sector-pills" class="inline-flex flex-wrap items-center justify-center gap-1.5 p-1 bg-stone-200/60 border border-stone-300/50">
-          <!-- Rendered dynamically by js/overseas.js -->
+      <div class="flex items-center justify-center flex-wrap gap-2 mb-12">
+        <div class="inline-flex flex-wrap items-center justify-center gap-1 p-1 bg-stone-200/60 border border-stone-300/50">
+          <button type="button" class="sector-tab active" data-filter="all">All Sectors</button>
+          <button type="button" class="sector-tab" data-filter="vegetables">Vegetables</button>
+          <button type="button" class="sector-tab" data-filter="grains">Grains</button>
+          <button type="button" class="sector-tab" data-filter="spices">Spices</button>
+          <button type="button" class="sector-tab" data-filter="clothes">Clothes</button>
         </div>
       </div>
 
-      <!-- Minimal Product Showcase Grid -->
-      <div id="sector-product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        <!-- Rendered dynamically by js/overseas.js with clean minimal cards -->
+      <!-- Pre-rendered Minimal Product Showcase Grid -->
+      <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+        <!-- =================== VEGETABLES =================== -->
+        <div class="minimal-card product-item" data-category="vegetables">
+          <div class="minimal-img-frame">
+            <img src="images/trade/onions.jpg" alt="Nashik Red Onions" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Vegetables</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Nashik Red Onions</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">Grade A • 45mm–60mm+ • Nashik</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Export-grade red onions with crisp outer skin and long sea-transit shelf life.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Nashik%20Red%20Onions%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="minimal-card product-item" data-category="vegetables">
+          <div class="minimal-img-frame">
+            <img src="images/trade/potatoes.jpg" alt="Table Potatoes" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Vegetables</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Table Potatoes</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">Grade A • Soil-Washed • Maharashtra</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Uniformly calibrated table potatoes with firm skin and low sugar content.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Table%20Potatoes%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="minimal-card product-item" data-category="vegetables">
+          <div class="minimal-img-frame">
+            <img src="images/trade/green_chillies.jpg" alt="Fresh Green Chillies" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Vegetables</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Fresh Green Chillies</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">G4 & Bullet Varieties • Cold-Chain</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Crisp green chillies with intact stems, transported under temperature control.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Fresh%20Green%20Chillies%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="minimal-card product-item" data-category="vegetables">
+          <div class="minimal-img-frame">
+            <img src="images/trade/garlic_ginger.jpg" alt="Fresh Garlic & Ginger" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Vegetables</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Fresh Garlic & Ginger</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">Clean Rhizomes • Mature Cloves</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Air-dried ginger roots and white multi-clove garlic bulbs, sorted for export.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Fresh%20Garlic%20and%20Ginger%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="minimal-card product-item" data-category="vegetables">
+          <div class="minimal-img-frame">
+            <img src="images/trade/fresh_tomatoes.jpg" alt="Vine-Ripened Tomatoes" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Vegetables</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Vine-Ripened Tomatoes</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">Breaker Stage • Reefer Transit</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Firm, uniform tomatoes harvested at breaker stage for optimal port arrival.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Vine-Ripened%20Tomatoes%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="minimal-card product-item" data-category="vegetables">
+          <div class="minimal-img-frame">
+            <img src="images/trade/vegetables_mix.jpg" alt="Seasonal Farm Greens" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Vegetables</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Seasonal Farm Greens</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">Tender Okra & Gourds • Hydro-Cooled</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Fresh seasonal farm harvest handled under strict phytosanitary guidelines.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Seasonal%20Greens%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- =================== GRAINS =================== -->
+        <div class="minimal-card product-item" data-category="grains">
+          <div class="minimal-img-frame">
+            <img src="images/trade/basmati_rice.jpg" alt="1121 Steam Basmati Rice" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Grains</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">1121 Steam Basmati Rice</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">Extra Long Grain • Aged Steam Rice</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Aromatic basmati rice with slender grains and non-sticky cooking texture.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=1121%20Basmati%20Rice%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="minimal-card product-item" data-category="grains">
+          <div class="minimal-img-frame">
+            <img src="images/trade/wheat_grains.jpg" alt="Sharbati & Durum Wheat" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Grains</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Sharbati & Durum Wheat</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">High Protein • Machine Cleaned</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Heavy golden milling wheat grains sorted for commercial flour and semolina production.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Wheat%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="minimal-card product-item" data-category="grains">
+          <div class="minimal-img-frame">
+            <img src="images/trade/yellow_maize.jpg" alt="Yellow Commercial Maize" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Grains</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Yellow Commercial Maize</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">High Starch • Low Moisture</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Evenly graded yellow corn kernels suited for commercial feed and starch processing.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Yellow%20Maize%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="minimal-card product-item" data-category="grains">
+          <div class="minimal-img-frame">
+            <img src="images/trade/pulses_millets.jpg" alt="Sorghum & Millets" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Grains</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Sorghum & Millets</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">Jowar & Bajra • Sortex Cleaned</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Nutrient-rich ancient grains directly sourced from local agricultural cooperatives.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Millets%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="minimal-card product-item" data-category="grains">
+          <div class="minimal-img-frame">
+            <img src="images/trade/chickpeas.jpg" alt="Kabuli Chickpeas" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Grains</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Kabuli Chickpeas</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">Large Calibration • Laser Sorted</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Creamy white chickpeas with uniform caliber and high natural protein content.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Chickpeas%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- =================== SPICES =================== -->
+        <div class="minimal-card product-item" data-category="spices">
+          <div class="minimal-img-frame">
+            <img src="images/trade/turmeric.jpg" alt="Salem Turmeric" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Spices</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Salem Turmeric</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">High Curcumin • Polished Fingers & Powder</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Vibrant golden turmeric fingers and finely ground powder with certified natural curcumin.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Salem%20Turmeric%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="minimal-card product-item" data-category="spices">
+          <div class="minimal-img-frame">
+            <img src="images/trade/red_chillies.jpg" alt="Guntur Dry Red Chillies" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Spices</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Guntur Dry Red Chillies</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">Sun-Dried • Stemless Grade A</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Deep red dry chillies known for distinctive heat indexes and rich natural color.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Guntur%20Chillies%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="minimal-card product-item" data-category="spices">
+          <div class="minimal-img-frame">
+            <img src="images/trade/black_pepper.jpg" alt="Malabar Black Pepper" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Spices</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Malabar Black Pepper</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">Tellicherry Bold • High Piperine</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Whole black peppercorns naturally sun-cured with bold puncture and sharp aroma.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Black%20Pepper%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="minimal-card product-item" data-category="spices">
+          <div class="minimal-img-frame">
+            <img src="images/trade/cardamom_cloves.jpg" alt="Green Cardamom & Cloves" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Spices</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Green Cardamom & Cloves</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">Extra Bold 7–8mm • Vacuum Sealed</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Selected whole green pods and cloves preserving essential volatile aromatic oils.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Cardamom%20and%20Cloves%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="minimal-card product-item" data-category="spices">
+          <div class="minimal-img-frame">
+            <img src="images/trade/whole_spices.jpg" alt="Cumin & Coriander Seeds" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Spices</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Cumin & Coriander Seeds</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">99.5% Purity • Machine Cleaned</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Aromatic whole seeds sun-dried and sortex-cleaned for retail and seasoning exports.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Cumin%20and%20Coriander%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- =================== CLOTHES =================== -->
+        <div class="minimal-card product-item" data-category="clothes">
+          <div class="minimal-img-frame">
+            <img src="images/trade/cotton_apparel.jpg" alt="Organic Cotton Apparel" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Clothes</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Organic Cotton Apparel</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">100% Combed Cotton • Custom OEM</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Single jersey t-shirts, polos, and casualwear crafted to client specifications.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Organic%20Cotton%20Apparel%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="minimal-card product-item" data-category="clothes">
+          <div class="minimal-img-frame">
+            <img src="images/trade/industrial_workwear.jpg" alt="Industrial Workwear" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Clothes</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Industrial Workwear</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">Heavy Duty • High-Visibility Options</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Durable boilersuits, safety jackets, and protective cargo trousers for industry.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Industrial%20Workwear%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="minimal-card product-item" data-category="clothes">
+          <div class="minimal-img-frame">
+            <img src="images/trade/shirting_fabric.jpg" alt="Woven Shirting & Suiting" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Clothes</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Woven Shirting & Suiting</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">Yarn-Dyed Loom Rolls • Fine Count</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">High-density cotton and poly-viscose fabrics woven on airjet looms.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Woven%20Shirting%20Fabric%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="minimal-card product-item" data-category="clothes">
+          <div class="minimal-img-frame">
+            <img src="images/garment_uniforms.jpg" alt="Corporate & Institutional Uniforms" loading="lazy">
+          </div>
+          <div class="p-6 flex flex-col justify-between flex-1">
+            <div>
+              <div class="text-[11px] font-heading uppercase tracking-wider text-stone-400 font-semibold mb-1">Clothes</div>
+              <h3 class="font-heading font-bold text-lg text-stone-900 mb-1.5">Corporate & Institutional Uniforms</h3>
+              <p class="text-xs text-stone-500 font-sans mb-3 font-medium">Easy-Care Fabric • Custom Embroidery</p>
+              <p class="text-xs text-stone-600 font-sans leading-relaxed">Tailored executive, hospital, and hospitality staff uniforms with durable stitching.</p>
+            </div>
+            <div class="pt-5 mt-6 border-t border-stone-100 flex items-center justify-between">
+              <a href="enquiry-export.html?subject=Corporate%20Uniforms%20Export%20Enquiry" class="minimal-link">
+                <span>Enquire</span>
+                <i class="fa-solid fa-arrow-right text-[9px]"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -247,10 +727,34 @@
     </div>
   </footer>
 
+  <!-- Bulletproof Inline Sector Filter Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const tabs = document.querySelectorAll('.sector-tab');
+      const items = document.querySelectorAll('.product-item');
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          const filter = this.getAttribute('data-filter');
+
+          tabs.forEach(function (t) { t.classList.remove('active'); });
+          this.classList.add('active');
+
+          items.forEach(function (item) {
+            const cat = item.getAttribute('data-category');
+            if (filter === 'all' || cat === filter) {
+              item.style.display = 'flex';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+
   <!-- Core Scripts -->
   <script src="js/main.js"></script>
-  <script src="js/overseas-data.js?v=2.0"></script>
-  <script src="js/overseas.js?v=2.0"></script>
   <script>
     lucide.createIcons();
   </script>
