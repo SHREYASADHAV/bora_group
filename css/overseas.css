@@ -1,228 +1,94 @@
 /* ==========================================================================
    BORA GROUP — OVERSEAS TRADE STYLING
-   Aesthetics: Architectural, Precision Box Point Edges (No Rounded Corners),
-   Clean Editorial B2B Layout Matching Industrial Supply Design System
+   Aesthetics: Clean, Minimal, Apple-inspired B2B Product Design.
+   Zero visual noise: No corner boxes, no dots, no decorative lines, no animations.
    ========================================================================== */
 
 :root {
-  --trade-cream: #FAF9F6;
-  --trade-slate: #F2F3F5;
-  --trade-charcoal: #111215;
-  --trade-dark: #0D0E11;
-  --trade-navy: #053C8F;
+  --trade-bg: #FAF9F6;
+  --trade-surface: #FFFFFF;
+  --trade-dark: #111215;
+  --trade-navy: #0A192F;
   --trade-gold: #C5A880;
-  --trade-gold-hover: #D4AF37;
-  --trade-border: #E5E7EB;
-  --trade-border-dark: #262626;
-  --trade-border-hover: #C5A880;
+  --trade-border: #E8E8E8;
+  --trade-text-primary: #1D1D1F;
+  --trade-text-secondary: #6E6E73;
 }
 
-/* Sharp Architectural Edge Policy — Strictly No Rounded Corners */
-.trade-sharp,
-.trade-card,
-.trade-img-frame,
-.trade-badge,
-.trade-btn,
-.trade-input,
-.trade-select,
-.trade-filter-drawer,
-.trade-modal,
-.box-point-edge {
-  border-radius: 0 !important;
-}
-
-/* Box Point Edges: Technical CAD / Blueprint Corner Point Markers */
-.box-point-edge {
-  position: relative;
-}
-
-.box-point-edge::after {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  pointer-events: none;
-  background: 
-    linear-gradient(to right, var(--trade-gold) 6px, transparent 6px) top left,
-    linear-gradient(to bottom, var(--trade-gold) 6px, transparent 6px) top left,
-    linear-gradient(to left, var(--trade-gold) 6px, transparent 6px) top right,
-    linear-gradient(to bottom, var(--trade-gold) 6px, transparent 6px) top right,
-    linear-gradient(to right, var(--trade-gold) 6px, transparent 6px) bottom left,
-    linear-gradient(to top, var(--trade-gold) 6px, transparent 6px) bottom left,
-    linear-gradient(to left, var(--trade-gold) 6px, transparent 6px) bottom right,
-    linear-gradient(to top, var(--trade-gold) 6px, transparent 6px) bottom right;
-  background-repeat: no-repeat;
-  background-size: 6px 6px;
-  opacity: 0.45;
-  transition: opacity 0.3s ease, background-size 0.3s ease;
-  z-index: 20;
-}
-
-.box-point-edge:hover::after {
-  opacity: 1;
-  background-size: 8px 8px;
-}
-
-/* Corner Point Crosshair Marker for High-Precision Boxes */
-.box-point-crosshair {
-  position: relative;
-}
-
-.box-point-crosshair::before {
-  content: '+';
-  position: absolute;
-  top: 4px;
-  right: 6px;
-  font-family: monospace;
-  font-size: 10px;
-  color: var(--trade-gold);
-  line-height: 1;
-  opacity: 0.6;
-  pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.box-point-crosshair:hover::before {
-  opacity: 1;
-  transform: scale(1.2);
-}
-
-/* Overseas B2B Card Structure */
-.trade-card {
+/* Minimal Card Structure */
+.minimal-card {
   background: #FFFFFF;
   border: 1px solid var(--trade-border);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   display: flex;
   flex-direction: column;
-  position: relative;
-}
-
-.trade-card:hover {
-  border-color: var(--trade-border-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px -12px rgba(5, 60, 143, 0.08), 0 6px 16px -6px rgba(0, 0, 0, 0.04);
-}
-
-/* Top Accent Line on Hover */
-.trade-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background-color: var(--trade-gold);
-  transition: width 0.35s ease;
-  z-index: 15;
-}
-
-.trade-card:hover::before {
-  width: 100%;
-}
-
-/* Crisp Image Framing */
-.trade-img-frame {
-  width: 100%;
   overflow: hidden;
-  position: relative;
-  background-color: #F3F4F6;
 }
 
-.trade-img-frame img {
+.minimal-card:hover {
+  transform: translateY(-2px);
+  border-color: #D1D1D6;
+  box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.06);
+}
+
+/* Crisp Image Frame */
+.minimal-img-frame {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #F5F5F7;
+  position: relative;
+}
+
+.minimal-img-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s ease;
 }
 
-.trade-card:hover .trade-img-frame img {
-  transform: scale(1.05);
+.minimal-card:hover .minimal-img-frame img {
+  transform: scale(1.03);
 }
 
-/* Sharp B2B Action Link */
-.trade-action-link {
-  font-family: var(--font-heading) !important;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+/* Apple-style Minimal Category Pills */
+.sector-pill {
+  font-family: var(--font-heading), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 0.625rem 1.25rem;
+  color: var(--trade-text-secondary);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.sector-pill:hover {
+  color: var(--trade-text-primary);
+}
+
+.sector-pill.active {
+  color: #FFFFFF;
+  background: var(--trade-dark);
+  border-color: var(--trade-dark);
+}
+
+/* Minimal Action Link */
+.minimal-link {
+  font-family: var(--font-heading), -apple-system, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--trade-navy);
+  color: var(--trade-dark);
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  transition: color 0.25s ease;
+  gap: 0.35rem;
+  transition: color 0.2s ease;
 }
 
-.trade-card:hover .trade-action-link,
-.trade-action-link:hover {
+.minimal-card:hover .minimal-link {
   color: var(--trade-gold);
-}
-
-/* Filter Backdrop and Drawer */
-.trade-filter-backdrop {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(17, 18, 21, 0.75);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 90;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.trade-filter-backdrop.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.trade-filter-drawer {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  max-height: 85vh;
-  background-color: #FFFFFF;
-  border-top: 2px solid var(--trade-gold);
-  z-index: 100;
-  transform: translateY(100%);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow-y: auto;
-  box-shadow: 0 -12px 48px rgba(0, 0, 0, 0.3);
-  padding: 2rem;
-  border-radius: 0 !important;
-}
-
-.trade-filter-drawer.active {
-  transform: translateY(0);
-}
-
-/* Process Timeline Connector */
-.trade-step-line {
-  position: relative;
-}
-
-@media (min-width: 768px) {
-  .trade-step-line::after {
-    content: '';
-    position: absolute;
-    top: 28px;
-    left: 60%;
-    width: 80%;
-    height: 1px;
-    background: repeating-linear-gradient(to right, var(--trade-gold) 0, var(--trade-gold) 6px, transparent 6px, transparent 12px);
-    z-index: 0;
-  }
-  .trade-step-item:last-child .trade-step-line::after {
-    display: none;
-  }
-}
-
-/* Reduced Motion Override */
-@media (prefers-reduced-motion: reduce) {
-  .trade-card,
-  .trade-img-frame img,
-  .trade-filter-drawer {
-    transition: none !important;
-    transform: none !important;
-  }
 }
