@@ -259,8 +259,9 @@ document.addEventListener('DOMContentLoaded', () => {
       };
 
       const hideCards = () => {
-        cardsContainer.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
-        cardsContainer.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+        // Disabled: Cards are now permanently visible
+        // cardsContainer.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        // cardsContainer.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
       };
 
       // Hover on controls outer (arrows/timer bar area) to reveal cards
