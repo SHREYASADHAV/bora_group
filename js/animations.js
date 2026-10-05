@@ -666,57 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
-  // 9. Sticky Scroll Animation for Leadership (Chairman Vision Section)
-  const leadershipSection = document.getElementById('leadership-3d-section');
-  if (leadershipSection && window.innerWidth >= 1024) {
-    const chairmanImg = leadershipSection.querySelector('#chairman-card-3d img');
-    const quoteBox = leadershipSection.querySelector('blockquote');
-    const quoteSpan = quoteBox.querySelector('span');
-    const customLine = leadershipSection.querySelector('.chairman-divider');
-    const authorDetails = leadershipSection.querySelector('.author-details');
-    const authorName = authorDetails ? authorDetails.querySelector('h3') : null;
 
-    const leadershipTL = gsap.timeline({
-      scrollTrigger: {
-        trigger: leadershipSection,
-        start: 'top top',
-        end: '+=60%',
-        pin: true,
-        scrub: 1.2,
-        invalidateOnRefresh: true,
-      }
-    });
-
-    // Set initial states for clean color transition and quick line reveal
-    gsap.set(quoteBox, { color: '#9ca3af' });
-    if (quoteSpan) {
-      gsap.set(quoteSpan, { color: '#9ca3af' });
-    }
-    if (customLine) {
-      gsap.set(customLine, { scaleX: 0, backgroundColor: '#9ca3af', transformOrigin: "left center" });
-    }
-    if (authorName) {
-      gsap.set(authorName, { color: '#9ca3af' });
-    }
-    if (authorDetails) {
-      gsap.set(authorDetails, { opacity: 0, y: 15 });
-    }
-    
-    leadershipTL
-      // Quote color transitions (extremely fast, starting immediately)
-      .to(quoteBox, { color: '#1f2937', duration: 0.15, ease: 'power1.out' }, 0.01)
-      .to(quoteSpan, { color: '#053C8F', duration: 0.15, ease: 'power1.out' }, 0.01);
-
-    if (customLine) {
-      leadershipTL.to(customLine, { scaleX: 1, backgroundColor: '#1f2937', duration: 0.2, ease: 'power2.out' }, 0.01);
-    }
-
-    if (authorName && authorDetails) {
-      leadershipTL
-        .to(authorName, { color: '#111827', duration: 0.15, ease: 'power1.out' }, 0.05)
-        .to(authorDetails, { opacity: 1, y: 0, duration: 0.2, ease: 'power2.out' }, 0.05);
-    }
-  }
 
   // 10. Unified Tab Switcher for Our Businesses Section (No page pinning/scrolling transitions)
   const bizSection = document.getElementById('businesses-sticky-section');

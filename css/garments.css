@@ -6,7 +6,7 @@
 
 /* Root Variables & Textile Tone Palette */
 :root {
-  --garment-cream: #FAF8F5;
+  --garment-cream: #FFFFFF;
   --garment-sand: #F3EFE9;
   --garment-card-bg: #FFFFFF;
   --garment-border: #E5E7EB;
@@ -349,7 +349,7 @@
 /* Section 11: Brand Marquee & Horizontal Bar */
 .brand-bar-section {
   position: relative;
-  background: #FAF8F5;
+  background: #FFFFFF;
   border-top: 1px solid #E7E5E4;
   border-bottom: 1px solid #E7E5E4;
 }
