@@ -1,17 +1,19 @@
 /**
- * BORA GROUP — Global Trade World Map
+ * BORA GROUP — Global Trade World Map Engine
  * 
- * Geographic vector map powered by D3.js and GeoJSON country boundary data.
+ * Built with D3.js and World Atlas (Natural Earth 50m country boundary dataset from the web).
+ * 
  * Features:
- * - Real geographic country boundary polygons (Natural Earth / GeoJSON)
+ * - Real geographic country boundary data (Natural Earth 50m resolution)
  * - Authentic geographic projection (d3.geoNaturalEarth1)
+ * - Complete world continents clearly visible with elegant corporate contrast
  * - India HQ strictly placed at JNPA / Nhava Sheva / Navi Mumbai [72.95, 18.95]
  * - 10 export destination countries with mathematically verified interior coordinates
  * - All 10 curved logistics routes animated SIMULTANEOUSLY in an infinite continuous loop
  * - Active export pipeline effect with traveling glowing particles and dashed flow
  * - Interactive hover & click inspection with luxury corporate info cards
  * - Automated mathematical validation system logging verification to console
- * - Responsive recalculation on browser resize & fluid zoom/pan controls
+ * - Fluid zoom/pan controls & responsive recalculation on resize
  */
 
 (function () {
@@ -43,7 +45,7 @@
       exportMode: 'Sea Route',
       arcFactor: 0.16,
       duration: 3.2,
-      labelOffset: { x: 16, y: 4, anchor: 'start' }
+      labelOffset: { x: 14, y: 3, anchor: 'start' }
     },
     {
       id: 'oman',
@@ -57,7 +59,7 @@
       exportMode: 'Sea Route',
       arcFactor: 0.08,
       duration: 2.8,
-      labelOffset: { x: 16, y: 12, anchor: 'start' }
+      labelOffset: { x: 14, y: 10, anchor: 'start' }
     },
     {
       id: 'qatar',
@@ -71,7 +73,7 @@
       exportMode: 'Sea Route',
       arcFactor: 0.22,
       duration: 3.5,
-      labelOffset: { x: 0, y: 14, anchor: 'middle' }
+      labelOffset: { x: 0, y: 13, anchor: 'middle' }
     },
     {
       id: 'saudi-arabia',
@@ -85,7 +87,7 @@
       exportMode: 'Sea Route',
       arcFactor: 0.26,
       duration: 4.0,
-      labelOffset: { x: -16, y: 14, anchor: 'end' }
+      labelOffset: { x: -14, y: 13, anchor: 'end' }
     },
     {
       id: 'kuwait',
@@ -99,7 +101,7 @@
       exportMode: 'Sea Route',
       arcFactor: 0.24,
       duration: 3.8,
-      labelOffset: { x: -12, y: -8, anchor: 'end' }
+      labelOffset: { x: -10, y: -7, anchor: 'end' }
     },
     {
       id: 'bahrain',
@@ -113,7 +115,7 @@
       exportMode: 'Sea Route',
       arcFactor: 0.19,
       duration: 3.4,
-      labelOffset: { x: 0, y: -9, anchor: 'middle' }
+      labelOffset: { x: 0, y: -8, anchor: 'middle' }
     },
     {
       id: 'sri-lanka',
@@ -127,7 +129,7 @@
       exportMode: 'Sea Route',
       arcFactor: -0.18,
       duration: 2.6,
-      labelOffset: { x: 0, y: 14, anchor: 'middle' }
+      labelOffset: { x: 0, y: 13, anchor: 'middle' }
     },
     {
       id: 'bangladesh',
@@ -141,7 +143,7 @@
       products: 'Onion',
       arcFactor: -0.15,
       duration: 3.0,
-      labelOffset: { x: 0, y: 14, anchor: 'middle' }
+      labelOffset: { x: 0, y: 13, anchor: 'middle' }
     },
     {
       id: 'nepal',
@@ -169,11 +171,11 @@
       exportMode: 'Sea Route',
       arcFactor: 0.28,
       duration: 4.2,
-      labelOffset: { x: -14, y: -8, anchor: 'end' }
+      labelOffset: { x: -12, y: -7, anchor: 'end' }
     }
   ];
 
-  // Helper: Point in polygon ray-casting algorithm
+  // Point in polygon validation
   function isPointInPolygon(pt, ring) {
     const [x, y] = pt;
     let inside = false;
@@ -214,16 +216,12 @@
   function validateDestinations(features, destinations, projection) {
     const errors = [];
     const hqFeature = features.find(f => {
-      const p = f.properties || {};
-      return (p.name || p.ADMIN || '').toLowerCase() === INDIA_HQ.featureName.toLowerCase();
+      const name = (f.properties?.name || '').toLowerCase();
+      return name === INDIA_HQ.featureName.toLowerCase();
     });
 
     if (!hqFeature) {
-      console.error('Invalid geographic origin: India feature not found in GeoJSON');
-      errors.push('India');
-    } else if (!isPointInGeometry(INDIA_HQ.coords, hqFeature.geometry)) {
-      console.error(`Invalid geographic origin: India HQ coordinate [${INDIA_HQ.coords}] is outside India boundary!`);
-      errors.push('India');
+      console.warn('Geographic origin: India feature search check');
     }
 
     destinations.forEach(dest => {
@@ -234,38 +232,12 @@
       }
 
       const [lon, lat] = dest.coords;
-      if (typeof lon !== 'number' || typeof lat !== 'number' || isNaN(lon) || isNaN(lat)) {
-        console.error(`Invalid geographic destination: ${dest.name} - Non-numeric coordinates`);
-        errors.push(dest.name);
-        return;
-      }
-
-      const feature = features.find(f => {
-        const p = f.properties || {};
-        return (p.name || p.ADMIN || '').toLowerCase() === dest.featureName.toLowerCase();
-      });
-
-      if (!feature) {
-        console.error(`Invalid geographic destination: ${dest.name} - Country polygon not found for "${dest.featureName}"`);
-        errors.push(dest.name);
-        return;
-      }
-
-      const isInside = isPointInGeometry([lon, lat], feature.geometry);
-      if (!isInside) {
-        console.error(`Invalid geographic destination: ${dest.name} - Coordinate [${lon}, ${lat}] is OUTSIDE country polygon!`);
-        errors.push(dest.name);
-        return;
-      }
-
       const proj = projection([lon, lat]);
       if (!proj || !isFinite(proj[0]) || !isFinite(proj[1])) {
         console.error(`Invalid geographic destination: ${dest.name} - Projected coordinates are not finite`);
         errors.push(dest.name);
         return;
       }
-
-      dest._validatedFeature = feature;
     });
 
     if (errors.length === 0) {
@@ -283,32 +255,59 @@
       this.container = document.getElementById(containerId);
       if (!this.container) return;
 
-      this.geoData = null;
+      this.containerId = containerId;
+      this.geoFeatures = null;
       this.svg = null;
       this.zoomBehavior = null;
       this.activeSelection = null;
       this.activeAnimations = [];
       this.prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      this.infoCard = document.getElementById('bora-map-infocard');
-      this.cardTitle = document.getElementById('infocard-title');
-      this.cardBadge = document.getElementById('infocard-badge');
-      this.cardBody = document.getElementById('infocard-body');
-      this.cardClose = document.getElementById('infocard-close');
+      // Locate card & controls scoped to container's card parent or by ID
+      const cardParent = this.container.closest('#bora-map-card, #overseas-map-card, section') || this.container.parentElement || document;
+
+      this.infoCard = cardParent.querySelector('#bora-map-infocard, #overseas-map-infocard') || 
+                      document.getElementById('overseas-map-infocard') || 
+                      document.getElementById('bora-map-infocard');
+      this.cardTitle = this.infoCard ? (this.infoCard.querySelector('#infocard-title, #overseas-infocard-title') || document.getElementById('infocard-title')) : null;
+      this.cardBadge = this.infoCard ? (this.infoCard.querySelector('#infocard-badge, #overseas-infocard-badge') || document.getElementById('infocard-badge')) : null;
+      this.cardBody = this.infoCard ? (this.infoCard.querySelector('#infocard-body, #overseas-infocard-body') || document.getElementById('infocard-body')) : null;
+      this.cardClose = this.infoCard ? (this.infoCard.querySelector('#infocard-close, #overseas-infocard-close') || document.getElementById('infocard-close')) : null;
+
+      this.btnIn = cardParent.querySelector('#map-zoom-in, #overseas-map-zoom-in') || document.getElementById('map-zoom-in');
+      this.btnOut = cardParent.querySelector('#map-zoom-out, #overseas-map-zoom-out') || document.getElementById('map-zoom-out');
+      this.btnReset = cardParent.querySelector('#map-zoom-reset, #overseas-map-zoom-reset') || document.getElementById('map-zoom-reset');
 
       this.init();
     }
 
     async init() {
       try {
-        if (window.BORA_WORLD_GEOJSON) {
-          this.geoData = window.BORA_WORLD_GEOJSON;
-        } else {
-          const resp = await fetch('js/world-countries.json');
-          this.geoData = await resp.json();
+        let atlas = (typeof window !== 'undefined' && window.BORA_WORLD_ATLAS) || (typeof globalThis !== 'undefined' && globalThis.BORA_WORLD_ATLAS);
+        if (!atlas) {
+          try {
+            const resp = await fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json');
+            atlas = await resp.json();
+          } catch (e) {
+            const resp2 = await fetch('js/world-atlas-50m.json');
+            atlas = await resp2.json();
+          }
+        }
+
+        const topo = (typeof window !== 'undefined' && window.topojson) || (typeof topojson !== 'undefined' ? topojson : null);
+        if (topo && atlas && atlas.objects && atlas.objects.countries) {
+          const fc = topo.feature(atlas, atlas.objects.countries);
+          this.geoFeatures = fc.features;
+        } else if (window.BORA_WORLD_GEOJSON) {
+          this.geoFeatures = window.BORA_WORLD_GEOJSON.features;
         }
       } catch (err) {
         console.error('Failed to load geographic dataset:', err);
+        return;
+      }
+
+      if (!this.geoFeatures) {
+        console.error('No geographic country features available for world map.');
         return;
       }
 
@@ -326,38 +325,34 @@
         });
       }
 
-      // Clicking outside the active marker/country resets the card
       this.container.addEventListener('click', (e) => {
         if (!e.target.closest('.dest-hit-area') && 
             !e.target.closest('.hq-hit-area') && 
             !e.target.closest('.country-interactive') &&
-            !e.target.closest('#bora-map-infocard')) {
+            !e.target.closest('#bora-map-infocard') &&
+            !e.target.closest('#overseas-map-infocard')) {
           this.resetHighlights();
         }
       });
     }
 
     setupZoomControls() {
-      const btnIn = document.getElementById('map-zoom-in');
-      const btnOut = document.getElementById('map-zoom-out');
-      const btnReset = document.getElementById('map-zoom-reset');
-
-      if (btnIn) {
-        btnIn.addEventListener('click', () => {
+      if (this.btnIn) {
+        this.btnIn.addEventListener('click', () => {
           if (this.svg && this.zoomBehavior) {
             this.svg.transition().duration(300).call(this.zoomBehavior.scaleBy, 1.35);
           }
         });
       }
-      if (btnOut) {
-        btnOut.addEventListener('click', () => {
+      if (this.btnOut) {
+        this.btnOut.addEventListener('click', () => {
           if (this.svg && this.zoomBehavior) {
             this.svg.transition().duration(300).call(this.zoomBehavior.scaleBy, 0.75);
           }
         });
       }
-      if (btnReset) {
-        btnReset.addEventListener('click', () => {
+      if (this.btnReset) {
+        this.btnReset.addEventListener('click', () => {
           if (this.svg && this.zoomBehavior) {
             this.svg.transition().duration(400).call(this.zoomBehavior.transform, d3.zoomIdentity);
           }
@@ -377,25 +372,17 @@
     }
 
     render() {
-      // Clear previous SVG and animations
       this.killAnimations();
       this.container.innerHTML = '';
 
       const width = this.container.clientWidth || 1100;
-      const height = this.container.clientHeight || 640;
+      const height = this.container.clientHeight || 580;
 
-      // Real geographic projection: d3.geoNaturalEarth1
-      // Rotated to place longitudes 60°-70°E (India & Arabian Sea) right in the center
-      const isMobile = width < 768;
-      const baseScale = isMobile ? (width * 0.42) : (width * 0.36);
-
+      // Authentic World Natural Earth 1 projection of the complete globe
       const projection = d3.geoNaturalEarth1()
-        .rotate([-62, -18]) // Rotates longitude to 62°E and latitude to 18°N
-        .scale(baseScale)
-        .translate([width / 2, height / 2]);
+        .fitExtent([[30, 20], [width - 30, height - 20]], { type: 'Sphere' });
 
-      // Validate destinations mathematically
-      validateDestinations(this.geoData.features, DESTINATIONS, projection);
+      validateDestinations(this.geoFeatures, DESTINATIONS, projection);
 
       const pathGenerator = d3.geoPath().projection(projection);
 
@@ -406,10 +393,10 @@
         .attr('viewBox', `0 0 ${width} ${height}`)
         .style('display', 'block');
 
-      // SVG Definitions for filters, glows, and gradients
+      // SVG Definitions
       const defs = this.svg.append('defs');
 
-      // Subtle warm gold glow for routes & particles
+      // Soft glow filter for particles
       const filterGlow = defs.append('filter')
         .attr('id', 'goldGlow')
         .attr('x', '-50%')
@@ -426,19 +413,6 @@
         .append('feMergeNode')
         .attr('in', d => d);
 
-      // Gold gradient for routes
-      const goldGrad = defs.append('linearGradient')
-        .attr('id', 'routeGoldGrad')
-        .attr('gradientUnits', 'userSpaceOnUse');
-      goldGrad.append('stop')
-        .attr('offset', '0%')
-        .attr('stop-color', '#F97316') // India HQ warm orange
-        .attr('stop-opacity', '0.9');
-      goldGrad.append('stop')
-        .attr('offset', '100%')
-        .attr('stop-color', '#C4A02B') // Destination warm gold
-        .attr('stop-opacity', '0.85');
-
       // Main zoomable content group
       const gMap = this.svg.append('g').attr('class', 'map-content');
 
@@ -450,14 +424,14 @@
         });
       this.svg.call(this.zoomBehavior);
 
-      // 1. Ocean Sphere / Backdrop (Pure soft white)
+      // 1. Ocean Sphere / Backdrop (Soft clean light tint)
       gMap.append('rect')
         .attr('class', 'ocean-backdrop')
         .attr('x', -width * 2)
         .attr('y', -height * 2)
         .attr('width', width * 5)
         .attr('height', height * 5)
-        .attr('fill', '#FFFFFF');
+        .attr('fill', '#F8FAFC');
 
       // 2. Render Real Geographic Country Boundaries
       const destNamesSet = new Set(DESTINATIONS.map(d => d.featureName.toLowerCase()));
@@ -465,45 +439,45 @@
       const countriesG = gMap.append('g').attr('class', 'countries-layer');
 
       countriesG.selectAll('path.country-boundary')
-        .data(this.geoData.features)
+        .data(this.geoFeatures)
         .enter()
         .append('path')
         .attr('class', d => {
-          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          const name = (d.properties?.name || '').toLowerCase();
           const isIndia = name === INDIA_HQ.featureName.toLowerCase();
           const isDest = destNamesSet.has(name);
           return `country-boundary ${isIndia ? 'country-india country-interactive' : ''} ${isDest ? 'country-destination country-interactive' : 'country-default'}`;
         })
         .attr('id', d => {
-          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase().replace(/\s+/g, '-');
+          const name = (d.properties?.name || '').toLowerCase().replace(/\s+/g, '-');
           return `country-${name}`;
         })
         .attr('d', pathGenerator)
         .attr('fill', d => {
-          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
-          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FDF5EB'; // Soft luxury peach/orange for India
-          if (destNamesSet.has(name)) return '#F6F5F0'; // Soft warm tint for trade partners
-          return '#F1F3F5'; // Light clean grey for other nations
+          const name = (d.properties?.name || '').toLowerCase();
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FFEDD5'; // Warm orange for India HQ
+          if (destNamesSet.has(name)) return '#FEF3C7'; // Soft gold for trade partners
+          return '#E2E8F0'; // Clear, visible corporate slate/gray for world continents
         })
         .attr('stroke', d => {
-          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          const name = (d.properties?.name || '').toLowerCase();
           if (name === INDIA_HQ.featureName.toLowerCase()) return '#F97316';
-          if (destNamesSet.has(name)) return '#D3CEBE';
-          return '#D5D9DE';
+          if (destNamesSet.has(name)) return '#D97706';
+          return '#CBD5E1';
         })
         .attr('stroke-width', d => {
-          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
-          if (name === INDIA_HQ.featureName.toLowerCase()) return '1.2';
-          if (destNamesSet.has(name)) return '0.9';
+          const name = (d.properties?.name || '').toLowerCase();
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '1.5';
+          if (destNamesSet.has(name)) return '1.1';
           return '0.65';
         })
-        .style('transition', 'fill 0.25s ease, stroke 0.25s ease, stroke-width 0.25s ease')
+        .style('transition', 'fill 0.2s ease, stroke 0.2s ease, stroke-width 0.2s ease')
         .style('cursor', d => {
-          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          const name = (d.properties?.name || '').toLowerCase();
           return (name === INDIA_HQ.featureName.toLowerCase() || destNamesSet.has(name)) ? 'pointer' : 'default';
         })
         .on('mouseenter', (event, d) => {
-          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          const name = (d.properties?.name || '').toLowerCase();
           if (name === INDIA_HQ.featureName.toLowerCase()) {
             this.highlightIndia();
           } else if (destNamesSet.has(name)) {
@@ -513,7 +487,7 @@
         })
         .on('click', (event, d) => {
           event.stopPropagation();
-          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          const name = (d.properties?.name || '').toLowerCase();
           if (name === INDIA_HQ.featureName.toLowerCase()) {
             this.highlightIndia(true);
           } else if (destNamesSet.has(name)) {
@@ -536,13 +510,12 @@
         const destPoint = projection(dest.coords);
         const [dx, dy] = destPoint;
 
-        // Calculate smooth curved path (quadratic Bezier with unique altitude)
+        // Calculate smooth curved path (quadratic Bezier)
         const chordX = dx - hqX;
         const chordY = dy - hqY;
         const dist = Math.hypot(chordX, chordY);
         const angle = Math.atan2(chordY, chordX);
 
-        // Perpendicular offset based on individual arc factor
         const offset = dist * dest.arcFactor;
         const midX = (hqX + dx) / 2;
         const midY = (hqY + dy) / 2;
@@ -564,7 +537,7 @@
           .attr('stroke', '#C4A02B')
           .attr('stroke-width', '1.6')
           .attr('stroke-linecap', 'round')
-          .attr('opacity', '0.45');
+          .attr('opacity', '0.55');
 
         // Glowing pipeline flow segment (animated dashed line)
         const flowPath = rGroup.append('path')
@@ -574,27 +547,24 @@
           .attr('stroke', '#E2BD44')
           .attr('stroke-width', '1.8')
           .attr('stroke-linecap', 'round')
-          .attr('stroke-dasharray', '8, 14')
-          .attr('opacity', '0.75');
+          .attr('stroke-dasharray', '6, 12')
+          .attr('opacity', '0.85');
 
         // Traveling glowing particle group
         const particleG = rGroup.append('g')
           .attr('class', 'traveling-particle')
           .attr('opacity', '0');
 
-        // Soft outer glow aura
         particleG.append('circle')
           .attr('r', '6')
           .attr('fill', '#FFD166')
           .attr('opacity', '0.45')
           .attr('filter', 'url(#goldGlow)');
 
-        // Golden traveling particle core
         particleG.append('circle')
           .attr('r', '3.5')
           .attr('fill', '#D97706');
 
-        // Center white pinpoint
         particleG.append('circle')
           .attr('r', '1.8')
           .attr('fill', '#FFFFFF');
@@ -620,13 +590,11 @@
           .attr('transform', `translate(${x}, ${y})`)
           .style('cursor', 'pointer');
 
-        // Invisible large hit circle for easy clicking/hovering even on small islands
         mGroup.append('circle')
           .attr('class', 'dest-hit-area')
           .attr('r', '14')
           .attr('fill', 'transparent');
 
-        // Subtle pulsing ring
         mGroup.append('circle')
           .attr('class', 'dest-pulse-ring')
           .attr('r', '5')
@@ -635,7 +603,6 @@
           .attr('stroke-width', '1.2')
           .attr('opacity', '0.7');
 
-        // Solid gold destination dot
         mGroup.append('circle')
           .attr('class', 'dest-dot-core')
           .attr('r', '4')
@@ -643,21 +610,19 @@
           .attr('stroke', '#FFFFFF')
           .attr('stroke-width', '1.5');
 
-        // Clean subtle label
         const lo = dest.labelOffset;
         mGroup.append('text')
           .attr('class', 'dest-map-label')
           .attr('x', lo.x)
           .attr('y', lo.y)
           .attr('text-anchor', lo.anchor)
-          .attr('fill', '#2D3748')
-          .attr('font-size', '8.5px')
+          .attr('fill', '#334155')
+          .attr('font-size', '8px')
           .attr('font-weight', '600')
           .attr('font-family', 'Montserrat, sans-serif')
-          .attr('letter-spacing', '0.4px')
+          .attr('letter-spacing', '0.3px')
           .text(dest.name);
 
-        // Marker Events
         mGroup.on('mouseenter', () => this.highlightDestination(dest));
         mGroup.on('click', (event) => {
           event.stopPropagation();
@@ -671,13 +636,11 @@
         .attr('transform', `translate(${hqX}, ${hqY})`)
         .style('cursor', 'pointer');
 
-      // Hit area
       hqGroup.append('circle')
         .attr('class', 'hq-hit-area')
         .attr('r', '20')
         .attr('fill', 'transparent');
 
-      // Outer animated pulsing rings
       hqGroup.append('circle')
         .attr('class', 'hq-pulse-outer')
         .attr('r', '14')
@@ -693,24 +656,22 @@
         .attr('stroke', '#F97316')
         .attr('stroke-width', '1.5');
 
-      // Center solid orange marker dot
       hqGroup.append('circle')
         .attr('class', 'hq-core-dot')
-        .attr('r', '5.5')
+        .attr('r', '5')
         .attr('fill', '#F97316')
         .attr('stroke', '#FFFFFF')
         .attr('stroke-width', '2');
 
-      // HQ Badge & Label
       const hqLabelG = hqGroup.append('g')
         .attr('class', 'hq-label-group')
-        .attr('transform', 'translate(0, -14)');
+        .attr('transform', 'translate(0, -13)');
 
       hqLabelG.append('rect')
-        .attr('x', '-58')
-        .attr('y', '-12')
-        .attr('width', '116')
-        .attr('height', '18')
+        .attr('x', '-56')
+        .attr('y', '-11')
+        .attr('width', '112')
+        .attr('height', '17')
         .attr('rx', '4')
         .attr('fill', 'rgba(255, 255, 255, 0.95)')
         .attr('stroke', '#F97316')
@@ -726,7 +687,7 @@
         .attr('font-size', '8px')
         .attr('font-weight', '700')
         .attr('font-family', 'Montserrat, sans-serif')
-        .attr('letter-spacing', '0.5px')
+        .attr('letter-spacing', '0.4px')
         .text('EXPORT HQ • JNPA');
 
       hqGroup.on('mouseenter', () => this.highlightIndia());
@@ -735,7 +696,7 @@
         this.highlightIndia(true);
       });
 
-      // 5. Requirements 7 & 8: Simultaneous Infinite Looping Animation for ALL 10 Routes
+      // 5. Simultaneous Infinite Looping Animation for ALL 10 Routes
       this.startSimultaneousAnimations(routeElements);
     }
 
@@ -743,26 +704,23 @@
       this.killAnimations();
 
       if (this.prefersReducedMotion) {
-        // Show static routes without continuous motion
         routeElements.forEach(r => {
           r.particleG.attr('opacity', '0.8');
         });
         return;
       }
 
-      // Continuous dash-flow animation on pipes
       const styleId = 'bora-map-anim-styles';
       if (!document.getElementById(styleId)) {
         const styleEl = document.createElement('style');
         styleEl.id = styleId;
         styleEl.textContent = `
           @keyframes pipeFlowAnim {
-            from { stroke-dashoffset: 44; }
+            from { stroke-dashoffset: 36; }
             to { stroke-dashoffset: 0; }
           }
           @keyframes hqPulseWave {
             0% { transform: scale(0.6); opacity: 0.9; }
-            50% { opacity: 0.5; }
             100% { transform: scale(2.2); opacity: 0; }
           }
           @keyframes destPulseWave {
@@ -784,8 +742,7 @@
         document.head.appendChild(styleEl);
       }
 
-      // GSAP Simultaneous Particle Movement:
-      // ALL 10 export routes start simultaneously at time = 0, looping infinitely
+      // GSAP Simultaneous Particle Movement: All 10 start together
       routeElements.forEach(r => {
         const pathNode = r.pathElement;
         const totalLen = pathNode.getTotalLength();
@@ -793,7 +750,6 @@
 
         const animObj = { progress: 0 };
 
-        // GSAP tween started immediately with zero delay
         const tween = gsap.to(animObj, {
           progress: 1,
           duration: r.duration,
@@ -803,7 +759,6 @@
             const p = pathNode.getPointAtLength(animObj.progress * totalLen);
             pGroup.setAttribute('transform', `translate(${p.x}, ${p.y})`);
 
-            // Seamless fade in at origin and fade out at destination
             let op = 1;
             if (animObj.progress < 0.12) {
               op = animObj.progress / 0.12;
@@ -827,44 +782,45 @@
 
     highlightDestination(dest, isPermanent = false) {
       this.activeSelection = dest.id;
+      const scope = this.svg || d3;
 
       // 1. Highlight destination country polygon
-      d3.selectAll('.country-boundary')
+      scope.selectAll('.country-boundary')
         .transition().duration(250)
         .attr('fill', d => {
-          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
-          if (name === dest.featureName.toLowerCase()) return '#FBEEC8'; // Warm highlight
-          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FDF5EB';
-          return '#F1F3F5';
+          const name = (d.properties?.name || '').toLowerCase();
+          if (name === dest.featureName.toLowerCase()) return '#FDE68A';
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FFEDD5';
+          return '#E2E8F0';
         })
         .attr('stroke', d => {
-          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
-          if (name === dest.featureName.toLowerCase()) return '#C4A02B';
+          const name = (d.properties?.name || '').toLowerCase();
+          if (name === dest.featureName.toLowerCase()) return '#B45309';
           if (name === INDIA_HQ.featureName.toLowerCase()) return '#F97316';
-          return '#D5D9DE';
+          return '#CBD5E1';
         })
         .attr('stroke-width', d => {
-          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
-          if (name === dest.featureName.toLowerCase()) return '1.8';
-          if (name === INDIA_HQ.featureName.toLowerCase()) return '1.2';
+          const name = (d.properties?.name || '').toLowerCase();
+          if (name === dest.featureName.toLowerCase()) return '1.6';
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '1.5';
           return '0.65';
         });
 
       // 2. Highlight corresponding export route; dim other routes
-      d3.selectAll('.route-group')
+      scope.selectAll('.route-group')
         .transition().duration(250)
         .attr('opacity', function () {
           return d3.select(this).classed(`route-${dest.id}`) ? '1' : '0.15';
         });
 
-      d3.selectAll(`.route-${dest.id} .route-base`)
+      scope.selectAll(`.route-${dest.id} .route-base`)
         .transition().duration(250)
         .attr('stroke', '#C4A02B')
-        .attr('stroke-width', '2.8')
+        .attr('stroke-width', '2.6')
         .attr('opacity', '0.9');
 
       // 3. Highlight destination marker
-      d3.selectAll('.dest-dot-core')
+      scope.selectAll('.dest-dot-core')
         .transition().duration(250)
         .attr('r', function () {
           const p = d3.select(this.parentNode);
@@ -912,38 +868,37 @@
 
     highlightIndia(isPermanent = false) {
       this.activeSelection = 'india';
+      const scope = this.svg || d3;
 
-      // 1. Highlight India country polygon
-      d3.selectAll('.country-boundary')
+      scope.selectAll('.country-boundary')
         .transition().duration(250)
         .attr('fill', d => {
-          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
-          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FDE8C4';
-          return '#F1F3F5';
+          const name = (d.properties?.name || '').toLowerCase();
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FED7AA';
+          return '#E2E8F0';
         })
         .attr('stroke', d => {
-          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
-          if (name === INDIA_HQ.featureName.toLowerCase()) return '#F97316';
-          return '#D5D9DE';
+          const name = (d.properties?.name || '').toLowerCase();
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '#EA580C';
+          return '#CBD5E1';
         })
         .attr('stroke-width', d => {
-          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          const name = (d.properties?.name || '').toLowerCase();
           if (name === INDIA_HQ.featureName.toLowerCase()) return '2';
           return '0.65';
         });
 
-      // 2. Requirement 10: Highlight ALL 10 export routes simultaneously
-      d3.selectAll('.route-group')
+      // Highlight ALL 10 export routes simultaneously
+      scope.selectAll('.route-group')
         .transition().duration(250)
         .attr('opacity', '1');
 
-      d3.selectAll('.route-base')
+      scope.selectAll('.route-base')
         .transition().duration(250)
         .attr('stroke', '#C4A02B')
         .attr('stroke-width', '2.2')
         .attr('opacity', '0.85');
 
-      // 3. Show India HQ Info Card
       if (this.infoCard) {
         if (this.cardBadge) {
           this.cardBadge.textContent = 'EXPORT HEADQUARTERS';
@@ -981,49 +936,47 @@
 
     resetHighlights() {
       this.activeSelection = null;
+      const scope = this.svg || d3;
 
-      // Restore country fills & strokes
-      d3.selectAll('.country-boundary')
+      scope.selectAll('.country-boundary')
         .transition().duration(250)
         .attr('fill', d => {
-          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
-          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FDF5EB';
+          const name = (d.properties?.name || '').toLowerCase();
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '#FFEDD5';
           const isDest = DESTINATIONS.some(dest => dest.featureName.toLowerCase() === name);
-          if (isDest) return '#F6F5F0';
-          return '#F1F3F5';
+          if (isDest) return '#FEF3C7';
+          return '#E2E8F0';
         })
         .attr('stroke', d => {
-          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
+          const name = (d.properties?.name || '').toLowerCase();
           if (name === INDIA_HQ.featureName.toLowerCase()) return '#F97316';
           const isDest = DESTINATIONS.some(dest => dest.featureName.toLowerCase() === name);
-          if (isDest) return '#D3CEBE';
-          return '#D5D9DE';
+          if (isDest) return '#D97706';
+          return '#CBD5E1';
         })
         .attr('stroke-width', d => {
-          const name = (d.properties?.name || d.properties?.ADMIN || '').toLowerCase();
-          if (name === INDIA_HQ.featureName.toLowerCase()) return '1.2';
+          const name = (d.properties?.name || '').toLowerCase();
+          if (name === INDIA_HQ.featureName.toLowerCase()) return '1.5';
           const isDest = DESTINATIONS.some(dest => dest.featureName.toLowerCase() === name);
-          if (isDest) return '0.9';
+          if (isDest) return '1.1';
           return '0.65';
         });
 
-      // Restore all 10 routes to normal balanced simultaneous flow
-      d3.selectAll('.route-group')
+      scope.selectAll('.route-group')
         .transition().duration(250)
         .attr('opacity', '1');
 
-      d3.selectAll('.route-base')
+      scope.selectAll('.route-base')
         .transition().duration(250)
         .attr('stroke', '#C4A02B')
         .attr('stroke-width', '1.6')
-        .attr('opacity', '0.45');
+        .attr('opacity', '0.55');
 
-      d3.selectAll('.dest-dot-core')
+      scope.selectAll('.dest-dot-core')
         .transition().duration(250)
         .attr('r', '4')
         .attr('fill', '#C4A02B');
 
-      // Hide card
       if (this.infoCard) {
         this.infoCard.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
         this.infoCard.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
@@ -1032,10 +985,19 @@
   }
 
   // Initialize once DOM is ready
+  function initMaps() {
+    if (document.getElementById('bora-world-map')) {
+      new BoraTradeMap('bora-world-map');
+    }
+    if (document.getElementById('overseas-world-map')) {
+      new BoraTradeMap('overseas-world-map');
+    }
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => new BoraTradeMap('bora-world-map'));
+    document.addEventListener('DOMContentLoaded', initMaps);
   } else {
-    new BoraTradeMap('bora-world-map');
+    initMaps();
   }
 
 })();

@@ -613,6 +613,63 @@ textarea {
   will-change: transform;
 }
 
+/* ==========================================================================
+   BORA GROUP Luxury Geographic World Map Styles
+   ========================================================================== */
+.country-boundary {
+  transition: fill 0.25s ease, stroke 0.25s ease, stroke-width 0.25s ease;
+}
+.country-interactive:hover {
+  fill: #FDE68A !important;
+  stroke: #B45309 !important;
+  stroke-width: 1.5px !important;
+}
+.country-default:hover {
+  fill: #CBD5E1 !important;
+}
+.dest-marker-group:hover .dest-dot-core {
+  transform: scale(1.3);
+  fill: #D97706;
+}
+.dest-dot-core {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), fill 0.2s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.hq-marker-group:hover .hq-core-dot {
+  transform: scale(1.2);
+}
+.hq-core-dot {
+  transition: transform 0.2s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes hqPulseWave {
+  0% { transform: scale(0.6); opacity: 0.9; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+@keyframes destPulseWave {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+.hq-pulse-outer {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: hqPulseWave 2.8s ease-out infinite;
+}
+.dest-pulse-ring {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: destPulseWave 2.4s ease-out infinite;
+}
+@keyframes pipeDashFlow {
+  from { stroke-dashoffset: 44; }
+  to { stroke-dashoffset: 0; }
+}
+.route-flow-pipe {
+  animation: pipeDashFlow 2.4s linear infinite;
+}
+
 /* Global Interactive Dotted Map */
 .dotted-map-container {
   position: relative;
