@@ -347,14 +347,15 @@
       if (this.btnOut) {
         this.btnOut.addEventListener('click', () => {
           if (this.svg && this.zoomBehavior) {
-            this.svg.transition().duration(300).call(this.zoomBehavior.scaleBy, 0.75);
+            this.svg.transition().duration(300).call(this.zoomBehavior.scaleBy, 0.7);
           }
         });
       }
       if (this.btnReset) {
         this.btnReset.addEventListener('click', () => {
           if (this.svg && this.zoomBehavior) {
-            this.svg.transition().duration(400).call(this.zoomBehavior.transform, d3.zoomIdentity);
+            const target = this.initialTransform || d3.zoomIdentity;
+            this.svg.transition().duration(450).call(this.zoomBehavior.transform, target);
           }
         });
       }
@@ -416,9 +417,9 @@
       // Main zoomable content group
       const gMap = this.svg.append('g').attr('class', 'map-content');
 
-      // Attach D3 zoom
+      // Attach D3 zoom with wide range allowing full zoom out
       this.zoomBehavior = d3.zoom()
-        .scaleExtent([0.8, 6])
+        .scaleExtent([0.5, 8])
         .on('zoom', (event) => {
           gMap.attr('transform', event.transform);
         });
@@ -602,15 +603,18 @@
 
         const lo = dest.labelOffset;
         mGroup.append('text')
-          .attr('class', 'dest-map-label')
+          .attr('class', `dest-map-label dest-label-${dest.id}`)
           .attr('x', lo.x)
           .attr('y', lo.y)
           .attr('text-anchor', lo.anchor)
-          .attr('fill', '#64748B')
-          .attr('font-size', '5.5px')
-          .attr('font-weight', '400')
+          .attr('fill', '#1E293B')
+          .attr('font-size', '3.5px')
+          .attr('font-weight', '500')
           .attr('font-family', 'Inter, -apple-system, sans-serif')
           .attr('letter-spacing', '0.15px')
+          .attr('opacity', '0')
+          .style('pointer-events', 'none')
+          .style('transition', 'opacity 0.2s ease')
           .text(dest.name);
 
         mGroup.on('mouseenter', () => this.highlightDestination(dest));
@@ -646,31 +650,17 @@
         .attr('stroke', '#FFFFFF')
         .attr('stroke-width', '0.5');
 
-      const hqLabelG = hqGroup.append('g')
-        .attr('class', 'hq-label-group')
-        .attr('transform', 'translate(0, -9)');
-
-      hqLabelG.append('rect')
-        .attr('x', '-38')
-        .attr('y', '-6.5')
-        .attr('width', '76')
-        .attr('height', '11')
-        .attr('rx', '2')
-        .attr('fill', 'rgba(255, 255, 255, 0.88)')
-        .attr('stroke', '#CBD5E1')
-        .attr('stroke-width', '0.35');
-
-      hqLabelG.append('text')
+      hqGroup.append('text')
+        .attr('class', 'hq-map-label')
         .attr('x', '0')
-        .attr('y', '0')
+        .attr('y', '-4.5')
         .attr('text-anchor', 'middle')
-        .attr('dominant-baseline', 'central')
-        .attr('fill', '#475569')
-        .attr('font-size', '5.2px')
-        .attr('font-weight', '500')
+        .attr('fill', '#EA580C')
+        .attr('font-size', '3.2px')
+        .attr('font-weight', '600')
         .attr('font-family', 'Inter, -apple-system, sans-serif')
-        .attr('letter-spacing', '0.25px')
-        .text('EXPORT HQ • JNPA');
+        .attr('letter-spacing', '0.2px')
+        .text('JNPA');
 
       hqGroup.on('mouseenter', () => this.highlightIndia());
       hqGroup.on('click', (event) => {
@@ -680,6 +670,31 @@
 
       // 5. Simultaneous Infinite Looping Animation for ALL 10 Routes
       this.startSimultaneousAnimations(routeElements);
+
+      // 6. Auto-Zoom focused on active trade corridors (the given maps)
+      const allFocusCoords = [INDIA_HQ.coords, ...DESTINATIONS.map(d => d.coords)];
+      const focusPoints = allFocusCoords.map(c => projection(c));
+      const fXs = focusPoints.map(p => p[0]);
+      const fYs = focusPoints.map(p => p[1]);
+      const fMinX = Math.min(...fXs), fMaxX = Math.max(...fXs);
+      const fMinY = Math.min(...fYs), fMaxY = Math.max(...fYs);
+      const fDx = fMaxX - fMinX;
+      const fDy = fMaxY - fMinY;
+      const fCx = (fMinX + fMaxX) / 2;
+      const fCy = (fMinY + fMaxY) / 2;
+
+      // Fit the corridor into ~52% of viewport with balanced margins
+      const fitScale = Math.min((width * 0.52) / fDx, (height * 0.52) / fDy);
+      const targetScale = Math.max(2.2, Math.min(fitScale, 3.0));
+      const targetTx = width / 2 - targetScale * fCx;
+      const targetTy = height / 2 - targetScale * fCy;
+
+      this.initialTransform = d3.zoomIdentity
+        .translate(targetTx, targetTy)
+        .scale(targetScale);
+
+      // Apply initial auto-zoom immediately
+      this.svg.call(this.zoomBehavior.transform, this.initialTransform);
     }
 
     startSimultaneousAnimations(routeElements) {
@@ -812,6 +827,10 @@
           const p = d3.select(this.parentNode);
           return p.classed(`marker-${dest.id}`) ? '#D97706' : '#C4A02B';
         });
+
+      // 3B. Reveal active destination label
+      scope.selectAll('.dest-map-label').style('opacity', '0');
+      scope.selectAll(`.dest-label-${dest.id}`).style('opacity', '1');
 
       // 4. Update and show Information Card
       if (this.infoCard) {
@@ -958,6 +977,9 @@
         .transition().duration(250)
         .attr('r', '1.8')
         .attr('fill', '#C4A02B');
+
+      // Hide destination labels on reset
+      scope.selectAll('.dest-map-label').style('opacity', '0');
 
       if (this.infoCard) {
         this.infoCard.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
