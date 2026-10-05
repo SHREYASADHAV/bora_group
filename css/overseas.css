@@ -92,3 +92,16 @@
 .minimal-card:hover .minimal-link {
   color: var(--trade-gold);
 }
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 767px) {
+  .minimal-card {
+    width: 100% !important;
+  }
+
+  .sector-pill {
+    padding: 0.5rem 0.85rem !important;
+    font-size: 0.75rem !important;
+  }
+}
+

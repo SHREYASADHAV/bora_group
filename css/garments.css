@@ -610,3 +610,21 @@
     transform: none !important;
   }
 }
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 767px) {
+  .garment-card {
+    width: 100% !important;
+  }
+  
+  .filter-chip, .category-tab-btn {
+    padding: 0.5rem 0.85rem !important;
+    font-size: 0.7rem !important;
+  }
+  
+  .marquee-wrapper {
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+  }
+}
+
