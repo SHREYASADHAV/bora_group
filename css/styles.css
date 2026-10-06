@@ -1098,7 +1098,8 @@ footer ul.text-white\/60 {
 }
 
 /* Premium Expanding Cards Transitions & Rotation */
-#home-expanding-cards {
+#home-expanding-cards,
+#about-expanding-cards {
   transition: grid-template-columns 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
               grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
@@ -2133,6 +2134,30 @@ body.plot-modal-open {
   #leadership-3d-section blockquote {
     font-size: 1.1rem !important;
     padding-right: 0 !important;
+    color: #1f2937 !important;
+  }
+
+  #leadership-3d-section blockquote strong {
+    color: #111827 !important;
+    font-weight: 700 !important;
+  }
+
+  #leadership-3d-section blockquote span {
+    color: #053C8F !important;
+    font-weight: 600 !important;
+  }
+
+  #leadership-3d-section .chairman-divider {
+    background-color: #1f2937 !important;
+    transform: scaleX(1) !important;
+    width: 5rem !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  #leadership-3d-section .author-details {
+    opacity: 1 !important;
+    transform: none !important;
   }
 
   /* --- Business Section Mobile Layout matching Desktop --- */
@@ -2189,7 +2214,8 @@ body.plot-modal-open {
   }
 
   /* --- Core Values Expanding Cards --- */
-  #home-expanding-cards {
+  #home-expanding-cards,
+  #about-expanding-cards {
     height: 500px !important;
     grid-template-columns: 1fr !important;
   }

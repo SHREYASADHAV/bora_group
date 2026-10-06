@@ -355,70 +355,174 @@
 
       </div>
 
-      <!-- Core values grids -->
-      <div class="max-w-5xl mx-auto">
-        <h3 class="font-heading font-bold text-center text-xs uppercase tracking-widest text-navy/60 mb-10" data-i18n="about_values_title">Our Core Values</h3>
-        
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-12 gsap-stagger-container">
-          
-          <!-- Value 1 -->
-          <div class="bg-white flex flex-col items-start text-left gsap-stagger-item">
-            <div class="text-[10px] font-heading font-bold text-navy/40 mb-2">01 /</div>
-            <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2" data-i18n="about_val_1_title">Integrity</h4>
-            <p class="text-[10px] text-gray-500 font-light" data-i18n="about_val_1_desc">Acting honestly and with strong moral principles.</p>
-          </div>
+      <!-- Core Values Expanding Cards Section -->
+      <div class="w-full mt-16 pt-16 border-t border-navy/10">
+        <div class="text-center max-w-3xl mx-auto mb-12 gsap-reveal">
+          <span class="text-xs font-heading font-semibold tracking-widest text-gold uppercase mb-2 inline-block">OUR PRINCIPLES</span>
+          <h3 class="font-heading font-extrabold text-2xl sm:text-3xl text-navy uppercase tracking-wider" data-i18n="about_values_title">Core Values & Principles</h3>
+          <div class="w-12 h-1 bg-gold mx-auto mt-4"></div>
+        </div>
 
-          <!-- Value 2 -->
-          <div class="bg-white flex flex-col items-start text-left gsap-stagger-item">
-            <div class="text-[10px] font-heading font-bold text-navy/40 mb-2">02 /</div>
-            <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2" data-i18n="about_val_2_title">Trust</h4>
-            <p class="text-[10px] text-gray-500 font-light" data-i18n="about_val_2_desc">Building credible, reliable connections.</p>
-          </div>
+        <!-- Expanding Cards Container -->
+        <div class="flex justify-center w-full">
+          <ul id="about-expanding-cards" class="w-full max-w-6xl gap-2 grid h-[520px] md:h-[480px] transition-all duration-500 ease-out" style="grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; grid-template-rows: 1fr;">
+            
+            <!-- 1. Integrity -->
+            <li class="expanding-card-item group relative cursor-pointer overflow-hidden rounded-none shadow-sm" data-index="0" data-active="true">
+              <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80" alt="Integrity" class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-data-[active=true]:scale-100 scale-105" />
+              <!-- Left strip (inactive state) -->
+              <div class="expanding-card-left-strip absolute left-0 top-0 bottom-0 w-11 bg-black/60 flex items-center justify-center z-10 transition-all duration-500 ease-out opacity-100 group-data-[active=true]:opacity-0">
+                <span class="text-white text-[11px] font-bold uppercase tracking-[0.22em] whitespace-nowrap select-none" style="writing-mode:vertical-rl;transform:rotate(180deg)">Integrity</span>
+              </div>
+              <!-- Active: bottom gradient + content -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-data-[active=true]:opacity-100 transition-all duration-500 ease-out"></div>
+              <article class="absolute inset-0 flex flex-col justify-end items-center text-center gap-2 p-6 pb-8">
+                <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white opacity-0 transition-all duration-500 delay-100 ease-out group-data-[active=true]:opacity-100">Integrity</h3>
+                <p class="w-full max-w-md text-sm text-white/80 opacity-0 transition-all duration-500 delay-200 ease-out group-data-[active=true]:opacity-100 leading-relaxed">Acting honestly and with strong moral principles across all operations and partnerships.</p>
+              </article>
+            </li>
 
-          <!-- Value 3 -->
-          <div class="bg-white flex flex-col items-start text-left gsap-stagger-item">
-            <div class="text-[10px] font-heading font-bold text-navy/40 mb-2">03 /</div>
-            <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2" data-i18n="about_val_3_title">Transparency</h4>
-            <p class="text-[10px] text-gray-500 font-light" data-i18n="about_val_3_desc">Maintaining openness and accountability.</p>
-          </div>
+            <!-- 2. Trust -->
+            <li class="expanding-card-item group relative cursor-pointer overflow-hidden rounded-none shadow-sm" data-index="1" data-active="false">
+              <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="Trust" class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-data-[active=true]:scale-100 scale-105" />
+              <div class="expanding-card-left-strip absolute left-0 top-0 bottom-0 w-11 bg-black/60 flex items-center justify-center z-10 transition-all duration-500 ease-out opacity-100 group-data-[active=true]:opacity-0">
+                <span class="text-white text-[11px] font-bold uppercase tracking-[0.22em] whitespace-nowrap select-none" style="writing-mode:vertical-rl;transform:rotate(180deg)">Trust</span>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-data-[active=true]:opacity-100 transition-all duration-500 ease-out"></div>
+              <article class="absolute inset-0 flex flex-col justify-end items-center text-center gap-2 p-6 pb-8">
+                <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white opacity-0 transition-all duration-500 delay-100 ease-out group-data-[active=true]:opacity-100">Trust</h3>
+                <p class="w-full max-w-md text-sm text-white/80 opacity-0 transition-all duration-500 delay-200 ease-out group-data-[active=true]:opacity-100 leading-relaxed">Building credible, reliable connections with clients, partners, and communities.</p>
+              </article>
+            </li>
 
-          <!-- Value 4 -->
-          <div class="bg-white flex flex-col items-start text-left gsap-stagger-item">
-            <div class="text-[10px] font-heading font-bold text-navy/40 mb-2">04 /</div>
-            <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2" data-i18n="about_val_4_title">Excellence</h4>
-            <p class="text-[10px] text-gray-500 font-light" data-i18n="about_val_4_desc">Focusing on high execution and quality standards.</p>
-          </div>
+            <!-- 3. Transparency -->
+            <li class="expanding-card-item group relative cursor-pointer overflow-hidden rounded-none shadow-sm" data-index="2" data-active="false">
+              <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80" alt="Transparency" class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-data-[active=true]:scale-100 scale-105" />
+              <div class="expanding-card-left-strip absolute left-0 top-0 bottom-0 w-11 bg-black/60 flex items-center justify-center z-10 transition-all duration-500 ease-out opacity-100 group-data-[active=true]:opacity-0">
+                <span class="text-white text-[11px] font-bold uppercase tracking-[0.22em] whitespace-nowrap select-none" style="writing-mode:vertical-rl;transform:rotate(180deg)">Transparency</span>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-data-[active=true]:opacity-100 transition-all duration-500 ease-out"></div>
+              <article class="absolute inset-0 flex flex-col justify-end items-center text-center gap-2 p-6 pb-8">
+                <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white opacity-0 transition-all duration-500 delay-100 ease-out group-data-[active=true]:opacity-100">Transparency</h3>
+                <p class="w-full max-w-md text-sm text-white/80 opacity-0 transition-all duration-500 delay-200 ease-out group-data-[active=true]:opacity-100 leading-relaxed">Maintaining openness, accountability, and clear communication in every transaction.</p>
+              </article>
+            </li>
 
-          <!-- Value 5 -->
-          <div class="bg-white flex flex-col items-start text-left gsap-stagger-item">
-            <div class="text-[10px] font-heading font-bold text-navy/40 mb-2">05 /</div>
-            <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2" data-i18n="about_val_5_title">Commitment</h4>
-            <p class="text-[10px] text-gray-500 font-light" data-i18n="about_val_5_desc">Upholding responsibilities to all stakeholders.</p>
-          </div>
+            <!-- 4. Excellence -->
+            <li class="expanding-card-item group relative cursor-pointer overflow-hidden rounded-none shadow-sm" data-index="3" data-active="false">
+              <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&w=800&q=80" alt="Excellence" class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-data-[active=true]:scale-100 scale-105" />
+              <div class="expanding-card-left-strip absolute left-0 top-0 bottom-0 w-11 bg-black/60 flex items-center justify-center z-10 transition-all duration-500 ease-out opacity-100 group-data-[active=true]:opacity-0">
+                <span class="text-white text-[11px] font-bold uppercase tracking-[0.22em] whitespace-nowrap select-none" style="writing-mode:vertical-rl;transform:rotate(180deg)">Excellence</span>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-data-[active=true]:opacity-100 transition-all duration-500 ease-out"></div>
+              <article class="absolute inset-0 flex flex-col justify-end items-center text-center gap-2 p-6 pb-8">
+                <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white opacity-0 transition-all duration-500 delay-100 ease-out group-data-[active=true]:opacity-100">Excellence</h3>
+                <p class="w-full max-w-md text-sm text-white/80 opacity-0 transition-all duration-500 delay-200 ease-out group-data-[active=true]:opacity-100 leading-relaxed">Focusing on high execution standards, architectural perfection, and uncompromising quality.</p>
+              </article>
+            </li>
 
-          <!-- Value 6 -->
-          <div class="bg-white flex flex-col items-start text-left gsap-stagger-item">
-            <div class="text-[10px] font-heading font-bold text-navy/40 mb-2">06 /</div>
-            <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2" data-i18n="about_val_6_title">Innovation</h4>
-            <p class="text-[10px] text-gray-500 font-light" data-i18n="about_val_6_desc">Pioneering sustainable and robust workflows.</p>
-          </div>
+            <!-- 5. Commitment -->
+            <li class="expanding-card-item group relative cursor-pointer overflow-hidden rounded-none shadow-sm" data-index="4" data-active="false">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Commitment" class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-data-[active=true]:scale-100 scale-105" />
+              <div class="expanding-card-left-strip absolute left-0 top-0 bottom-0 w-11 bg-black/60 flex items-center justify-center z-10 transition-all duration-500 ease-out opacity-100 group-data-[active=true]:opacity-0">
+                <span class="text-white text-[11px] font-bold uppercase tracking-[0.22em] whitespace-nowrap select-none" style="writing-mode:vertical-rl;transform:rotate(180deg)">Commitment</span>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-data-[active=true]:opacity-100 transition-all duration-500 ease-out"></div>
+              <article class="absolute inset-0 flex flex-col justify-end items-center text-center gap-2 p-6 pb-8">
+                <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white opacity-0 transition-all duration-500 delay-100 ease-out group-data-[active=true]:opacity-100">Commitment</h3>
+                <p class="w-full max-w-md text-sm text-white/80 opacity-0 transition-all duration-500 delay-200 ease-out group-data-[active=true]:opacity-100 leading-relaxed">Upholding long-term responsibilities to clients, partners, and stakeholders.</p>
+              </article>
+            </li>
 
-          <!-- Value 7 -->
-          <div class="bg-white flex flex-col items-start text-left gsap-stagger-item">
-            <div class="text-[10px] font-heading font-bold text-navy/40 mb-2">07 /</div>
-            <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2" data-i18n="about_val_7_title">Relationships</h4>
-            <p class="text-[10px] text-gray-500 font-light" data-i18n="about_val_7_desc">Cultivating enduring, long-term bonds.</p>
-          </div>
+            <!-- 6. Innovation -->
+            <li class="expanding-card-item group relative cursor-pointer overflow-hidden rounded-none shadow-sm" data-index="5" data-active="false">
+              <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80" alt="Innovation" class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-data-[active=true]:scale-100 scale-105" />
+              <div class="expanding-card-left-strip absolute left-0 top-0 bottom-0 w-11 bg-black/60 flex items-center justify-center z-10 transition-all duration-500 ease-out opacity-100 group-data-[active=true]:opacity-0">
+                <span class="text-white text-[11px] font-bold uppercase tracking-[0.22em] whitespace-nowrap select-none" style="writing-mode:vertical-rl;transform:rotate(180deg)">Innovation</span>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-data-[active=true]:opacity-100 transition-all duration-500 ease-out"></div>
+              <article class="absolute inset-0 flex flex-col justify-end items-center text-center gap-2 p-6 pb-8">
+                <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white opacity-0 transition-all duration-500 delay-100 ease-out group-data-[active=true]:opacity-100">Innovation</h3>
+                <p class="w-full max-w-md text-sm text-white/80 opacity-0 transition-all duration-500 delay-200 ease-out group-data-[active=true]:opacity-100 leading-relaxed">Pioneering sustainable, efficient workflows and embracing modern technologies.</p>
+              </article>
+            </li>
 
-          <!-- Value 8 -->
-          <div class="bg-white flex flex-col items-start text-left gsap-stagger-item">
-            <div class="text-[10px] font-heading font-bold text-navy/40 mb-2">08 /</div>
-            <h4 class="font-heading font-bold text-xs uppercase tracking-wider text-navy mb-2" data-i18n="about_val_8_title">Stability</h4>
-            <p class="text-[10px] text-gray-500 font-light" data-i18n="about_val_8_desc">Fostering steady growth across market cycles.</p>
-          </div>
+            <!-- 7. Collaboration -->
+            <li class="expanding-card-item group relative cursor-pointer overflow-hidden rounded-none shadow-sm" data-index="6" data-active="false">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Collaboration" class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-data-[active=true]:scale-100 scale-105" />
+              <div class="expanding-card-left-strip absolute left-0 top-0 bottom-0 w-11 bg-black/60 flex items-center justify-center z-10 transition-all duration-500 ease-out opacity-100 group-data-[active=true]:opacity-0">
+                <span class="text-white text-[11px] font-bold uppercase tracking-[0.22em] whitespace-nowrap select-none" style="writing-mode:vertical-rl;transform:rotate(180deg)">Collaboration</span>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-data-[active=true]:opacity-100 transition-all duration-500 ease-out"></div>
+              <article class="absolute inset-0 flex flex-col justify-end items-center text-center gap-2 p-6 pb-8">
+                <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white opacity-0 transition-all duration-500 delay-100 ease-out group-data-[active=true]:opacity-100">Collaboration</h3>
+                <p class="w-full max-w-md text-sm text-white/80 opacity-0 transition-all duration-500 delay-200 ease-out group-data-[active=true]:opacity-100 leading-relaxed">Cultivating enduring partnerships and teamwork for mutual growth and shared success.</p>
+              </article>
+            </li>
 
+            <!-- 8. Sustainability -->
+            <li class="expanding-card-item group relative cursor-pointer overflow-hidden rounded-none shadow-sm" data-index="7" data-active="false">
+              <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=800&q=80" alt="Sustainability" class="absolute inset-0 h-full w-full object-cover transition-all duration-500 ease-out group-data-[active=true]:scale-100 scale-105" />
+              <div class="expanding-card-left-strip absolute left-0 top-0 bottom-0 w-11 bg-black/60 flex items-center justify-center z-10 transition-all duration-500 ease-out opacity-100 group-data-[active=true]:opacity-0">
+                <span class="text-white text-[11px] font-bold uppercase tracking-[0.22em] whitespace-nowrap select-none" style="writing-mode:vertical-rl;transform:rotate(180deg)">Sustainability</span>
+              </div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-0 group-data-[active=true]:opacity-100 transition-all duration-500 ease-out"></div>
+              <article class="absolute inset-0 flex flex-col justify-end items-center text-center gap-2 p-6 pb-8">
+                <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white opacity-0 transition-all duration-500 delay-100 ease-out group-data-[active=true]:opacity-100">Sustainability</h3>
+                <p class="w-full max-w-md text-sm text-white/80 opacity-0 transition-all duration-500 delay-200 ease-out group-data-[active=true]:opacity-100 leading-relaxed">Fostering steady, responsible growth and environmental consciousness across market cycles.</p>
+              </article>
+            </li>
+
+          </ul>
         </div>
       </div>
+
+      <!-- Expanding Cards JS Controller for About Page -->
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const cardsContainer = document.getElementById('about-expanding-cards');
+          if (!cardsContainer) return;
+          
+          const cards = cardsContainer.querySelectorAll('.expanding-card-item');
+          const itemsCount = cards.length;
+          let isDesktop = window.innerWidth >= 768;
+          let activeIndex = 0;
+          
+          window.addEventListener('resize', () => {
+            isDesktop = window.innerWidth >= 768;
+            updateGrid();
+          });
+          
+          function updateGrid() {
+            cards.forEach((card, index) => {
+              card.setAttribute('data-active', index === activeIndex ? 'true' : 'false');
+            });
+            
+            if (isDesktop) {
+              const columns = Array.from({ length: itemsCount })
+                .map((_, i) => (i === activeIndex ? '4fr' : '1fr'))
+                .join(' ');
+              cardsContainer.style.gridTemplateColumns = columns;
+              cardsContainer.style.gridTemplateRows = '1fr';
+            } else {
+              const rows = Array.from({ length: itemsCount })
+                .map((_, i) => (i === activeIndex ? '4fr' : '1fr'))
+                .join(' ');
+              cardsContainer.style.gridTemplateRows = rows;
+              cardsContainer.style.gridTemplateColumns = '1fr';
+            }
+          }
+          
+          cards.forEach((card, index) => {
+            const activate = () => { activeIndex = index; updateGrid(); };
+            card.addEventListener('mouseenter', activate);
+            card.addEventListener('click', activate);
+            card.addEventListener('focus', activate);
+          });
+          
+          updateGrid();
+        });
+      </script>
 
     </div>
   </section>
