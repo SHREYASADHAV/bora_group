@@ -204,10 +204,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       // 3. Card carousel — translate only the WRAPPER (not individual cards)
-      // Cards are w-[110px] on desktop, w-[60px] on mobile via CSS
-      const isMobile = window.innerWidth < 1024;
-      const cardWidth = isMobile ? 60 : 110;
-      const gap = isMobile ? 8 : 12;
+      const width = window.innerWidth;
+      const cardWidth = width < 768 ? 52 : (width < 1024 ? 95 : 110);
+      const gap = width < 768 ? 8 : 12;
       gsap.to(wrapper, { x: -idx * (cardWidth + gap), duration: 0.55, ease: 'power2.out' });
 
       // 4. Active card highlight (scale + border only — no text/underline)
