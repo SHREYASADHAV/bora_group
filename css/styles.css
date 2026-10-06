@@ -2011,7 +2011,8 @@ body.plot-modal-open {
   }
 
   /* --- Hero Section: Horizontal 16:9 Widescreen on Mobile --- */
-  #hero-carousel-section {
+  #hero-carousel-section,
+  #history-hero-section {
     margin-top: 70px !important;
     min-height: unset !important;
     height: auto !important;
