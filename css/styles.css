@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap');
+
 /* ========================================
    CUSTOM FONT DECLARATIONS
    Place your font files in the /fonts/ folder:
@@ -47,7 +49,6 @@
        url('../fonts/FlexoSoft-Light.ttf') format('truetype'),
        url('../fonts/FlexoSoft-Light.otf') format('opentype');
   font-weight: 300;
-  font-style: normal;
   font-display: swap;
 }
 
@@ -579,16 +580,36 @@ textarea {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.desktop-dashed-line {
+  border-left: 2px dashed rgba(255, 255, 255, 0.55) !important;
+  will-change: transform, opacity;
 }
 
 .desktop-banner-box {
   background-color: #C5A880 !important;
   border-radius: 0px !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  max-width: 90vw !important;
+  box-sizing: border-box;
+}
+
+.desktop-banner-title {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+  font-style: italic !important;
+  word-break: normal;
+  overflow-wrap: break-word;
+  line-height: 1.25 !important;
 }
 
 .desktop-milestone-card {
   border-radius: 0px !important;
-  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.45) !important;
+  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.5) !important;
 }
 
 .desktop-card-image-wrap {
@@ -596,12 +617,21 @@ textarea {
 }
 
 .desktop-card-image-wrap img {
-  filter: grayscale(100%) contrast(110%);
+  filter: none !important; /* Full colorful image */
+  object-fit: cover;
   transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .desktop-milestone-card:hover .desktop-card-image-wrap img {
   transform: scale(1.03);
+}
+
+.desktop-card-year {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+}
+
+.desktop-card-quote {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
 }
 
 .desktop-rail-item {

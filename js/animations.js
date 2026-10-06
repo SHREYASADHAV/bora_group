@@ -581,12 +581,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Animate each vertical slide individually with ScrollTrigger
     desktopSlides.forEach((slide, idx) => {
+      const dashedLine = slide.querySelector('.desktop-dashed-line');
       const tag = slide.querySelector('.desktop-slide-tag');
       const banner = slide.querySelector('.desktop-banner-box');
       const card = slide.querySelector('.desktop-milestone-card');
       const img = slide.querySelector('.desktop-card-image-wrap img');
       const year = slide.querySelector('.desktop-card-year');
       const desc = slide.querySelector('.desktop-card-desc');
+      const quote = slide.querySelector('.desktop-card-quote');
 
       // Entrance animation for content elements
       const slideTL = gsap.timeline({
@@ -597,10 +599,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
+      if (dashedLine) {
+        slideTL.fromTo(dashedLine,
+          { scaleY: 0, opacity: 0 },
+          { scaleY: 1, opacity: 0.85, transformOrigin: "top center", duration: 0.45, ease: "power2.out" }
+        );
+      }
+
       if (tag) {
         slideTL.fromTo(tag, 
           { opacity: 0, y: -20 },
-          { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }
+          { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+          "-=0.2"
         );
       }
 
@@ -641,6 +651,14 @@ document.addEventListener('DOMContentLoaded', () => {
           { opacity: 0, y: 15 },
           { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
           "-=0.4"
+        );
+      }
+
+      if (quote) {
+        slideTL.fromTo(quote,
+          { opacity: 0, x: -10 },
+          { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" },
+          "-=0.3"
         );
       }
 
