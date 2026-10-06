@@ -250,231 +250,240 @@
     </div>
   </section>
 
-  <!-- MOBILE RIL-STYLE VERTICAL SCROLL TIMELINE (MOBILE ONLY - SEPARATE SLIDES, POINTY EDGES) -->
-  <section id="mobile-journey-timeline" class="block md:hidden relative w-full bg-[#05050A] text-white overflow-hidden rounded-none">
+    <!-- RIL-STYLE HERITAGE JOURNEY TIMELINE SECTION (WHITE BACKGROUND, UNIFIED MOBILE & DESKTOP) -->
+  <section id="journey-timeline-section" class="relative w-full bg-white text-gray-900 overflow-hidden py-16 md:py-24 border-t border-gray-100">
 
     <!-- Slide 1: 1947 -->
-    <div class="mobile-journey-slide relative w-full min-h-[92vh] flex flex-col justify-center items-center px-4 py-16 text-center rounded-none overflow-hidden" data-index="0" data-year="1947">
-      <!-- Ambient Vignette Background -->
-      <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none rounded-none">
-        <img src="images/bora_brothers_founders.jpg" alt="1947 Background" class="w-full h-full object-cover filter grayscale contrast-125 brightness-[0.22] scale-105 rounded-none">
-        <div class="absolute inset-0 bg-[#05050A]/85 z-10 rounded-none"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.1),rgba(0,0,0,0.92))] z-10 rounded-none"></div>
-      </div>
+    <div class="ril-timeline-slide relative w-full min-h-[90vh] md:min-h-screen flex flex-col justify-center items-center py-16 px-4 sm:px-6 md:px-12 lg:px-20" data-index="0" data-year="1947">
+      <div class="w-full max-w-5xl lg:max-w-6xl mx-auto flex flex-col items-center">
+        <!-- Subtitle Tag -->
+        <span class="ril-slide-tag text-xs sm:text-sm font-heading font-semibold uppercase tracking-[0.28em] text-[#053C8F] mb-3 text-center block">
+          MODEST BEGINNINGS
+        </span>
 
-      <!-- Slide Content -->
-      <div class="relative z-20 w-full max-w-[340px] mx-auto flex flex-col items-center text-center rounded-none">
-        <div class="mobile-dashed-line w-[2px] h-8 border-l-2 border-dashed border-white/40 mb-3 opacity-75 rounded-none"></div>
-        <div class="mobile-slide-year font-serif text-gold text-5xl font-normal tracking-wide leading-none mb-1.5" style="color: #C5A880;">1947</div>
-        <div class="mobile-slide-tag text-[9px] uppercase tracking-[0.25em] text-white/75 font-heading font-semibold mb-2">ORIGIN FOUNDATIONS</div>
-        <h3 class="mobile-slide-title text-2xl font-serif italic text-gold font-normal mb-5 leading-tight" style="color: #C5A880;">Bora Brothers Founded</h3>
-        
-        <div class="mobile-milestone-card w-full relative shadow-2xl rounded-none border border-white/10">
-          <div class="relative w-full aspect-[16/10] bg-black rounded-none overflow-hidden border-b border-white/10">
-            <img src="images/bora_brothers_founders.jpg" alt="Bora Brothers 1947" class="w-full h-full object-cover rounded-none">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none rounded-none"></div>
+        <!-- Gold / Tan Banner Title -->
+        <div class="ril-banner-box mb-8 md:mb-12 text-center">
+          <div class="inline-block bg-[#C5A880] text-white px-8 py-3.5 sm:px-14 sm:py-4 md:px-20 md:py-5 shadow-md rounded-none">
+            <h2 class="font-serif italic text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-white font-normal tracking-wide">
+              Mammoth Aspirations
+            </h2>
           </div>
-          <div class="bg-white text-gray-900 rounded-none p-5 text-left border-x border-b border-gray-100 shadow-2xl relative z-10">
-            <div class="mobile-card-year text-navy font-serif font-bold text-xl mb-1.5 tracking-tight rounded-none" style="color: #053C8F;">1947</div>
-            <p class="mobile-card-desc text-xs text-gray-700 font-light leading-relaxed">
+        </div>
+
+        <!-- Centerpiece Split Card -->
+        <div class="ril-milestone-card w-full bg-white shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-gray-100 grid grid-cols-1 md:grid-cols-2 rounded-none overflow-hidden">
+          <div class="relative w-full aspect-[16/10] md:aspect-auto md:min-h-[440px] lg:min-h-[480px] bg-gray-50 overflow-hidden border-b md:border-b-0 md:border-r border-gray-100">
+            <img src="images/bora_brothers_founders.jpg" alt="Bora Brothers Founders 1947" class="w-full h-full object-cover filter grayscale contrast-110 block">
+          </div>
+          <div class="p-8 sm:p-12 md:p-14 lg:p-16 flex flex-col justify-center text-left bg-white">
+            <div class="ril-card-year font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-[#C5A880] mb-4 tracking-tight">
+              1947
+            </div>
+            <p class="ril-card-desc text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed font-light">
               Our legacy begins with the founding of "Bora Brothers" in Kopargaon, Maharashtra. Our founders established a foundational presence rooted in transparent trade and commercial execution integrity, dealing with wholesale commodities and agricultural trade.
             </p>
           </div>
         </div>
-
-        <div class="mobile-connector-line w-[2px] h-10 border-l-2 border-dashed border-gold/40 mt-6 opacity-60 rounded-none"></div>
       </div>
     </div>
 
     <!-- Slide 2: 1975 -->
-    <div class="mobile-journey-slide relative w-full min-h-[92vh] flex flex-col justify-center items-center px-4 py-16 text-center rounded-none overflow-hidden" data-index="1" data-year="1975">
-      <!-- Ambient Vignette Background -->
-      <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none rounded-none">
-        <img src="images/real_estate_launch.jpg" alt="1975 Background" class="w-full h-full object-cover filter grayscale contrast-125 brightness-[0.22] scale-105 rounded-none">
-        <div class="absolute inset-0 bg-[#05050A]/85 z-10 rounded-none"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.1),rgba(0,0,0,0.92))] z-10 rounded-none"></div>
-      </div>
+    <div class="ril-timeline-slide relative w-full min-h-[90vh] md:min-h-screen flex flex-col justify-center items-center py-16 px-4 sm:px-6 md:px-12 lg:px-20" data-index="1" data-year="1975">
+      <div class="w-full max-w-5xl lg:max-w-6xl mx-auto flex flex-col items-center">
+        <!-- Subtitle Tag -->
+        <span class="ril-slide-tag text-xs sm:text-sm font-heading font-semibold uppercase tracking-[0.28em] text-[#053C8F] mb-3 text-center block">
+          ARCHITECTURAL VISION
+        </span>
 
-      <!-- Slide Content -->
-      <div class="relative z-20 w-full max-w-[340px] mx-auto flex flex-col items-center text-center rounded-none">
-        <div class="mobile-dashed-line w-[2px] h-8 border-l-2 border-dashed border-white/40 mb-3 opacity-75 rounded-none"></div>
-        <div class="mobile-slide-year font-serif text-gold text-5xl font-normal tracking-wide leading-none mb-1.5" style="color: #C5A880;">1975</div>
-        <div class="mobile-slide-tag text-[9px] uppercase tracking-[0.25em] text-white/75 font-heading font-semibold mb-2">LUXURY DEVELOPMENTS</div>
-        <h3 class="mobile-slide-title text-2xl font-serif italic text-gold font-normal mb-5 leading-tight" style="color: #C5A880;">Real Estate Division Launch</h3>
-        
-        <div class="mobile-milestone-card w-full relative shadow-2xl rounded-none border border-white/10">
-          <div class="relative w-full aspect-[16/10] bg-black rounded-none overflow-hidden border-b border-white/10">
-            <img src="images/real_estate_launch.jpg" alt="Real Estate Launch 1975" class="w-full h-full object-cover rounded-none">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none rounded-none"></div>
+        <!-- Gold / Tan Banner Title -->
+        <div class="ril-banner-box mb-8 md:mb-12 text-center">
+          <div class="inline-block bg-[#C5A880] text-white px-8 py-3.5 sm:px-14 sm:py-4 md:px-20 md:py-5 shadow-md rounded-none">
+            <h2 class="font-serif italic text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-white font-normal tracking-wide">
+              Building New Skylines
+            </h2>
           </div>
-          <div class="bg-white text-gray-900 rounded-none p-5 text-left border-x border-b border-gray-100 shadow-2xl relative z-10">
-            <div class="mobile-card-year text-navy font-serif font-bold text-xl mb-1.5 tracking-tight rounded-none" style="color: #053C8F;">1975</div>
-            <p class="mobile-card-desc text-xs text-gray-700 font-light leading-relaxed">
+        </div>
+
+        <!-- Centerpiece Split Card -->
+        <div class="ril-milestone-card w-full bg-white shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-gray-100 grid grid-cols-1 md:grid-cols-2 rounded-none overflow-hidden">
+          <div class="relative w-full aspect-[16/10] md:aspect-auto md:min-h-[440px] lg:min-h-[480px] bg-gray-50 overflow-hidden border-b md:border-b-0 md:border-r border-gray-100">
+            <img src="images/real_estate_launch.jpg" alt="Real Estate Division Launch 1975" class="w-full h-full object-cover filter grayscale contrast-110 block">
+          </div>
+          <div class="p-8 sm:p-12 md:p-14 lg:p-16 flex flex-col justify-center text-left bg-white">
+            <div class="ril-card-year font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-[#C5A880] mb-4 tracking-tight">
+              1975
+            </div>
+            <p class="ril-card-desc text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed font-light">
               We diversified operations into luxury construction and residential developments. Focusing on architectural values and structural stability, the Real Estate Division established BORA GROUP as a premier developer in the region.
             </p>
           </div>
         </div>
-
-        <div class="mobile-connector-line w-[2px] h-10 border-l-2 border-dashed border-gold/40 mt-6 opacity-60 rounded-none"></div>
       </div>
     </div>
 
     <!-- Slide 3: 1989 -->
-    <div class="mobile-journey-slide relative w-full min-h-[92vh] flex flex-col justify-center items-center px-4 py-16 text-center rounded-none overflow-hidden" data-index="2" data-year="1989">
-      <!-- Ambient Vignette Background -->
-      <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none rounded-none">
-        <img src="images/industrial_supplies.jpg" alt="1989 Background" class="w-full h-full object-cover filter grayscale contrast-125 brightness-[0.22] scale-105 rounded-none">
-        <div class="absolute inset-0 bg-[#05050A]/85 z-10 rounded-none"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.1),rgba(0,0,0,0.92))] z-10 rounded-none"></div>
-      </div>
+    <div class="ril-timeline-slide relative w-full min-h-[90vh] md:min-h-screen flex flex-col justify-center items-center py-16 px-4 sm:px-6 md:px-12 lg:px-20" data-index="2" data-year="1989">
+      <div class="w-full max-w-5xl lg:max-w-6xl mx-auto flex flex-col items-center">
+        <!-- Subtitle Tag -->
+        <span class="ril-slide-tag text-xs sm:text-sm font-heading font-semibold uppercase tracking-[0.28em] text-[#053C8F] mb-3 text-center block">
+          INDUSTRIAL MOMENTUM
+        </span>
 
-      <!-- Slide Content -->
-      <div class="relative z-20 w-full max-w-[340px] mx-auto flex flex-col items-center text-center rounded-none">
-        <div class="mobile-dashed-line w-[2px] h-8 border-l-2 border-dashed border-white/40 mb-3 opacity-75 rounded-none"></div>
-        <div class="mobile-slide-year font-serif text-gold text-5xl font-normal tracking-wide leading-none mb-1.5" style="color: #C5A880;">1989</div>
-        <div class="mobile-slide-tag text-[9px] uppercase tracking-[0.25em] text-white/75 font-heading font-semibold mb-2">LOGISTICS & SUPPLIES</div>
-        <h3 class="mobile-slide-title text-2xl font-serif italic text-gold font-normal mb-5 leading-tight" style="color: #C5A880;">Industrial Supplies Expansion</h3>
-        
-        <div class="mobile-milestone-card w-full relative shadow-2xl rounded-none border border-white/10">
-          <div class="relative w-full aspect-[16/10] bg-black rounded-none overflow-hidden border-b border-white/10">
-            <img src="images/industrial_supplies.jpg" alt="Industrial Supplies 1989" class="w-full h-full object-cover rounded-none">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none rounded-none"></div>
+        <!-- Gold / Tan Banner Title -->
+        <div class="ril-banner-box mb-8 md:mb-12 text-center">
+          <div class="inline-block bg-[#C5A880] text-white px-8 py-3.5 sm:px-14 sm:py-4 md:px-20 md:py-5 shadow-md rounded-none">
+            <h2 class="font-serif italic text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-white font-normal tracking-wide">
+              Engineering The Future
+            </h2>
           </div>
-          <div class="bg-white text-gray-900 rounded-none p-5 text-left border-x border-b border-gray-100 shadow-2xl relative z-10">
-            <div class="mobile-card-year text-navy font-serif font-bold text-xl mb-1.5 tracking-tight rounded-none" style="color: #053C8F;">1989</div>
-            <p class="mobile-card-desc text-xs text-gray-700 font-light leading-relaxed">
+        </div>
+
+        <!-- Centerpiece Split Card -->
+        <div class="ril-milestone-card w-full bg-white shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-gray-100 grid grid-cols-1 md:grid-cols-2 rounded-none overflow-hidden">
+          <div class="relative w-full aspect-[16/10] md:aspect-auto md:min-h-[440px] lg:min-h-[480px] bg-gray-50 overflow-hidden border-b md:border-b-0 md:border-r border-gray-100">
+            <img src="images/industrial_supplies.jpg" alt="Industrial Supplies Expansion 1989" class="w-full h-full object-cover filter grayscale contrast-110 block">
+          </div>
+          <div class="p-8 sm:p-12 md:p-14 lg:p-16 flex flex-col justify-center text-left bg-white">
+            <div class="ril-card-year font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-[#C5A880] mb-4 tracking-tight">
+              1989
+            </div>
+            <p class="ril-card-desc text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed font-light">
               We launched our Industrial Supplies division, distributing high-volume mechanical components, materials, and machinery supplies, constructing regional warehousing infrastructure and enterprise logistics networks.
             </p>
           </div>
         </div>
-
-        <div class="mobile-connector-line w-[2px] h-10 border-l-2 border-dashed border-gold/40 mt-6 opacity-60 rounded-none"></div>
       </div>
     </div>
 
     <!-- Slide 4: 2000 -->
-    <div class="mobile-journey-slide relative w-full min-h-[92vh] flex flex-col justify-center items-center px-4 py-16 text-center rounded-none overflow-hidden" data-index="3" data-year="2000">
-      <!-- Ambient Vignette Background -->
-      <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none rounded-none">
-        <img src="images/bora_collection_store.jpg" alt="2000 Background" class="w-full h-full object-cover filter grayscale contrast-125 brightness-[0.22] scale-105 rounded-none">
-        <div class="absolute inset-0 bg-[#05050A]/85 z-10 rounded-none"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.1),rgba(0,0,0,0.92))] z-10 rounded-none"></div>
-      </div>
+    <div class="ril-timeline-slide relative w-full min-h-[90vh] md:min-h-screen flex flex-col justify-center items-center py-16 px-4 sm:px-6 md:px-12 lg:px-20" data-index="3" data-year="2000">
+      <div class="w-full max-w-5xl lg:max-w-6xl mx-auto flex flex-col items-center">
+        <!-- Subtitle Tag -->
+        <span class="ril-slide-tag text-xs sm:text-sm font-heading font-semibold uppercase tracking-[0.28em] text-[#053C8F] mb-3 text-center block">
+          RETAIL REDEFINED
+        </span>
 
-      <!-- Slide Content -->
-      <div class="relative z-20 w-full max-w-[340px] mx-auto flex flex-col items-center text-center rounded-none">
-        <div class="mobile-dashed-line w-[2px] h-8 border-l-2 border-dashed border-white/40 mb-3 opacity-75 rounded-none"></div>
-        <div class="mobile-slide-year font-serif text-gold text-5xl font-normal tracking-wide leading-none mb-1.5" style="color: #C5A880;">2000</div>
-        <div class="mobile-slide-tag text-[9px] uppercase tracking-[0.25em] text-white/75 font-heading font-semibold mb-2">RETAIL FASHION</div>
-        <h3 class="mobile-slide-title text-2xl font-serif italic text-gold font-normal mb-5 leading-tight" style="color: #C5A880;">Bora Collection Store Launch</h3>
-        
-        <div class="mobile-milestone-card w-full relative shadow-2xl rounded-none border border-white/10">
-          <div class="relative w-full aspect-[16/10] bg-black rounded-none overflow-hidden border-b border-white/10">
-            <img src="images/bora_collection_store.jpg" alt="Bora Collection 2000" class="w-full h-full object-cover rounded-none">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none rounded-none"></div>
+        <!-- Gold / Tan Banner Title -->
+        <div class="ril-banner-box mb-8 md:mb-12 text-center">
+          <div class="inline-block bg-[#C5A880] text-white px-8 py-3.5 sm:px-14 sm:py-4 md:px-20 md:py-5 shadow-md rounded-none">
+            <h2 class="font-serif italic text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-white font-normal tracking-wide">
+              Elegance & Craftsmanship
+            </h2>
           </div>
-          <div class="bg-white text-gray-900 rounded-none p-5 text-left border-x border-b border-gray-100 shadow-2xl relative z-10">
-            <div class="mobile-card-year text-navy font-serif font-bold text-xl mb-1.5 tracking-tight rounded-none" style="color: #053C8F;">2000</div>
-            <p class="mobile-card-desc text-xs text-gray-700 font-light leading-relaxed">
+        </div>
+
+        <!-- Centerpiece Split Card -->
+        <div class="ril-milestone-card w-full bg-white shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-gray-100 grid grid-cols-1 md:grid-cols-2 rounded-none overflow-hidden">
+          <div class="relative w-full aspect-[16/10] md:aspect-auto md:min-h-[440px] lg:min-h-[480px] bg-gray-50 overflow-hidden border-b md:border-b-0 md:border-r border-gray-100">
+            <img src="images/bora_collection_store.jpg" alt="Bora Collection Store 2000" class="w-full h-full object-cover filter grayscale contrast-110 block">
+          </div>
+          <div class="p-8 sm:p-12 md:p-14 lg:p-16 flex flex-col justify-center text-left bg-white">
+            <div class="ril-card-year font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-[#C5A880] mb-4 tracking-tight">
+              2000
+            </div>
+            <p class="ril-card-desc text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed font-light">
               BORA GROUP entered the retail fashion and garment segment with the launch of the "Bora Collection" store network, pioneering high-quality apparel designs and establishing a trusted regional consumer retail presence.
             </p>
           </div>
         </div>
-
-        <div class="mobile-connector-line w-[2px] h-10 border-l-2 border-dashed border-gold/40 mt-6 opacity-60 rounded-none"></div>
       </div>
     </div>
 
     <!-- Slide 5: 2005 -->
-    <div class="mobile-journey-slide relative w-full min-h-[92vh] flex flex-col justify-center items-center px-4 py-16 text-center rounded-none overflow-hidden" data-index="4" data-year="2005">
-      <!-- Ambient Vignette Background -->
-      <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none rounded-none">
-        <img src="images/overseas_trade_ship.jpg" alt="2005 Background" class="w-full h-full object-cover filter grayscale contrast-125 brightness-[0.22] scale-105 rounded-none">
-        <div class="absolute inset-0 bg-[#05050A]/85 z-10 rounded-none"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.1),rgba(0,0,0,0.92))] z-10 rounded-none"></div>
-      </div>
+    <div class="ril-timeline-slide relative w-full min-h-[90vh] md:min-h-screen flex flex-col justify-center items-center py-16 px-4 sm:px-6 md:px-12 lg:px-20" data-index="4" data-year="2005">
+      <div class="w-full max-w-5xl lg:max-w-6xl mx-auto flex flex-col items-center">
+        <!-- Subtitle Tag -->
+        <span class="ril-slide-tag text-xs sm:text-sm font-heading font-semibold uppercase tracking-[0.28em] text-[#053C8F] mb-3 text-center block">
+          GLOBAL TRADE
+        </span>
 
-      <!-- Slide Content -->
-      <div class="relative z-20 w-full max-w-[340px] mx-auto flex flex-col items-center text-center rounded-none">
-        <div class="mobile-dashed-line w-[2px] h-8 border-l-2 border-dashed border-white/40 mb-3 opacity-75 rounded-none"></div>
-        <div class="mobile-slide-year font-serif text-gold text-5xl font-normal tracking-wide leading-none mb-1.5" style="color: #C5A880;">2005</div>
-        <div class="mobile-slide-tag text-[9px] uppercase tracking-[0.25em] text-white/75 font-heading font-semibold mb-2">GLOBAL OPERATIONS</div>
-        <h3 class="mobile-slide-title text-2xl font-serif italic text-gold font-normal mb-5 leading-tight" style="color: #C5A880;">Overseas Trade Division</h3>
-        
-        <div class="mobile-milestone-card w-full relative shadow-2xl rounded-none border border-white/10">
-          <div class="relative w-full aspect-[16/10] bg-black rounded-none overflow-hidden border-b border-white/10">
-            <img src="images/overseas_trade_ship.jpg" alt="Overseas Trade 2005" class="w-full h-full object-cover rounded-none">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none rounded-none"></div>
+        <!-- Gold / Tan Banner Title -->
+        <div class="ril-banner-box mb-8 md:mb-12 text-center">
+          <div class="inline-block bg-[#C5A880] text-white px-8 py-3.5 sm:px-14 sm:py-4 md:px-20 md:py-5 shadow-md rounded-none">
+            <h2 class="font-serif italic text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-white font-normal tracking-wide">
+              Crossing Continents
+            </h2>
           </div>
-          <div class="bg-white text-gray-900 rounded-none p-5 text-left border-x border-b border-gray-100 shadow-2xl relative z-10">
-            <div class="mobile-card-year text-navy font-serif font-bold text-xl mb-1.5 tracking-tight rounded-none" style="color: #053C8F;">2005</div>
-            <p class="mobile-card-desc text-xs text-gray-700 font-light leading-relaxed">
+        </div>
+
+        <!-- Centerpiece Split Card -->
+        <div class="ril-milestone-card w-full bg-white shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-gray-100 grid grid-cols-1 md:grid-cols-2 rounded-none overflow-hidden">
+          <div class="relative w-full aspect-[16/10] md:aspect-auto md:min-h-[440px] lg:min-h-[480px] bg-gray-50 overflow-hidden border-b md:border-b-0 md:border-r border-gray-100">
+            <img src="images/overseas_trade_ship.jpg" alt="Overseas Trade Ship 2005" class="w-full h-full object-cover filter grayscale contrast-110 block">
+          </div>
+          <div class="p-8 sm:p-12 md:p-14 lg:p-16 flex flex-col justify-center text-left bg-white">
+            <div class="ril-card-year font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-[#C5A880] mb-4 tracking-tight">
+              2005
+            </div>
+            <p class="ril-card-desc text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed font-light">
               We expanded our scope to international markets by establishing the Overseas Trade division, managing complex import-export logistics and commodity trading operations across global shipping destinations.
             </p>
           </div>
         </div>
-
-        <div class="mobile-connector-line w-[2px] h-10 border-l-2 border-dashed border-gold/40 mt-6 opacity-60 rounded-none"></div>
       </div>
     </div>
 
     <!-- Slide 6: 2014 Hotel -->
-    <div class="mobile-journey-slide relative w-full min-h-[92vh] flex flex-col justify-center items-center px-4 py-16 text-center rounded-none overflow-hidden" data-index="5" data-year="2014">
-      <!-- Ambient Vignette Background -->
-      <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none rounded-none">
-        <img src="images/hotel_divya_palace.jpg" alt="2014 Hotel Background" class="w-full h-full object-cover filter grayscale contrast-125 brightness-[0.22] scale-105 rounded-none">
-        <div class="absolute inset-0 bg-[#05050A]/85 z-10 rounded-none"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.1),rgba(0,0,0,0.92))] z-10 rounded-none"></div>
-      </div>
+    <div class="ril-timeline-slide relative w-full min-h-[90vh] md:min-h-screen flex flex-col justify-center items-center py-16 px-4 sm:px-6 md:px-12 lg:px-20" data-index="5" data-year="2014">
+      <div class="w-full max-w-5xl lg:max-w-6xl mx-auto flex flex-col items-center">
+        <!-- Subtitle Tag -->
+        <span class="ril-slide-tag text-xs sm:text-sm font-heading font-semibold uppercase tracking-[0.28em] text-[#053C8F] mb-3 text-center block">
+          BOUTIQUE HOSPITALITY
+        </span>
 
-      <!-- Slide Content -->
-      <div class="relative z-20 w-full max-w-[340px] mx-auto flex flex-col items-center text-center rounded-none">
-        <div class="mobile-dashed-line w-[2px] h-8 border-l-2 border-dashed border-white/40 mb-3 opacity-75 rounded-none"></div>
-        <div class="mobile-slide-year font-serif text-gold text-5xl font-normal tracking-wide leading-none mb-1.5" style="color: #C5A880;">2014</div>
-        <div class="mobile-slide-tag text-[9px] uppercase tracking-[0.25em] text-white/75 font-heading font-semibold mb-2">BOUTIQUE HOSPITALITY</div>
-        <h3 class="mobile-slide-title text-2xl font-serif italic text-gold font-normal mb-5 leading-tight" style="color: #C5A880;">Hotel Divya Palace Launch</h3>
-        
-        <div class="mobile-milestone-card w-full relative shadow-2xl rounded-none border border-white/10">
-          <div class="relative w-full aspect-[16/10] bg-black rounded-none overflow-hidden border-b border-white/10">
-            <img src="images/hotel_divya_palace.jpg" alt="Hotel Divya Palace 2014" class="w-full h-full object-cover rounded-none">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none rounded-none"></div>
+        <!-- Gold / Tan Banner Title -->
+        <div class="ril-banner-box mb-8 md:mb-12 text-center">
+          <div class="inline-block bg-[#C5A880] text-white px-8 py-3.5 sm:px-14 sm:py-4 md:px-20 md:py-5 shadow-md rounded-none">
+            <h2 class="font-serif italic text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-white font-normal tracking-wide">
+              Sanctuary of Hospitality
+            </h2>
           </div>
-          <div class="bg-white text-gray-900 rounded-none p-5 text-left border-x border-b border-gray-100 shadow-2xl relative z-10">
-            <div class="mobile-card-year text-navy font-serif font-bold text-xl mb-1.5 tracking-tight rounded-none" style="color: #053C8F;">2014</div>
-            <p class="mobile-card-desc text-xs text-gray-700 font-light leading-relaxed">
+        </div>
+
+        <!-- Centerpiece Split Card -->
+        <div class="ril-milestone-card w-full bg-white shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-gray-100 grid grid-cols-1 md:grid-cols-2 rounded-none overflow-hidden">
+          <div class="relative w-full aspect-[16/10] md:aspect-auto md:min-h-[440px] lg:min-h-[480px] bg-gray-50 overflow-hidden border-b md:border-b-0 md:border-r border-gray-100">
+            <img src="images/hotel_divya_palace.jpg" alt="Hotel Divya Palace 2014" class="w-full h-full object-cover filter grayscale contrast-110 block">
+          </div>
+          <div class="p-8 sm:p-12 md:p-14 lg:p-16 flex flex-col justify-center text-left bg-white">
+            <div class="ril-card-year font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-[#C5A880] mb-4 tracking-tight">
+              2014
+            </div>
+            <p class="ril-card-desc text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed font-light">
               BORA GROUP entered the premium hospitality segment with the launch of "Hotel Divya Palace" in Kopargaon, introducing luxury accommodations, fine banquet spaces, and exemplary personalized guest services.
             </p>
           </div>
         </div>
-
-        <div class="mobile-connector-line w-[2px] h-10 border-l-2 border-dashed border-gold/40 mt-6 opacity-60 rounded-none"></div>
       </div>
     </div>
 
     <!-- Slide 7: 2014 Fashion -->
-    <div class="mobile-journey-slide relative w-full min-h-[92vh] flex flex-col justify-center items-center px-4 py-16 text-center rounded-none overflow-hidden" data-index="6" data-year="2014">
-      <!-- Ambient Vignette Background -->
-      <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none rounded-none">
-        <img src="images/bora_fashion_store.jpg" alt="2014 Fashion Background" class="w-full h-full object-cover filter grayscale contrast-125 brightness-[0.22] scale-105 rounded-none">
-        <div class="absolute inset-0 bg-[#05050A]/85 z-10 rounded-none"></div>
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.1),rgba(0,0,0,0.92))] z-10 rounded-none"></div>
-      </div>
+    <div class="ril-timeline-slide relative w-full min-h-[90vh] md:min-h-screen flex flex-col justify-center items-center py-16 px-4 sm:px-6 md:px-12 lg:px-20" data-index="6" data-year="2014">
+      <div class="w-full max-w-5xl lg:max-w-6xl mx-auto flex flex-col items-center">
+        <!-- Subtitle Tag -->
+        <span class="ril-slide-tag text-xs sm:text-sm font-heading font-semibold uppercase tracking-[0.28em] text-[#053C8F] mb-3 text-center block">
+          MODERN APPAREL
+        </span>
 
-      <!-- Slide Content -->
-      <div class="relative z-20 w-full max-w-[340px] mx-auto flex flex-col items-center text-center rounded-none">
-        <div class="mobile-dashed-line w-[2px] h-8 border-l-2 border-dashed border-white/40 mb-3 opacity-75 rounded-none"></div>
-        <div class="mobile-slide-year font-serif text-gold text-5xl font-normal tracking-wide leading-none mb-1.5" style="color: #C5A880;">2014</div>
-        <div class="mobile-slide-tag text-[9px] uppercase tracking-[0.25em] text-white/75 font-heading font-semibold mb-2">INDUSTRIAL APPAREL</div>
-        <h3 class="mobile-slide-title text-2xl font-serif italic text-gold font-normal mb-5 leading-tight" style="color: #C5A880;">Bora Fashion Production</h3>
-        
-        <div class="mobile-milestone-card w-full relative shadow-2xl rounded-none border border-white/10">
-          <div class="relative w-full aspect-[16/10] bg-black rounded-none overflow-hidden border-b border-white/10">
-            <img src="images/bora_fashion_store.jpg" alt="Bora Fashion 2014" class="w-full h-full object-cover rounded-none">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none rounded-none"></div>
+        <!-- Gold / Tan Banner Title -->
+        <div class="ril-banner-box mb-8 md:mb-12 text-center">
+          <div class="inline-block bg-[#C5A880] text-white px-8 py-3.5 sm:px-14 sm:py-4 md:px-20 md:py-5 shadow-md rounded-none">
+            <h2 class="font-serif italic text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-white font-normal tracking-wide">
+              Precision & Production
+            </h2>
           </div>
-          <div class="bg-white text-gray-900 rounded-none p-5 text-left border-x border-b border-gray-100 shadow-2xl relative z-10">
-            <div class="mobile-card-year text-navy font-serif font-bold text-xl mb-1.5 tracking-tight rounded-none" style="color: #053C8F;">2014</div>
-            <p class="mobile-card-desc text-xs text-gray-700 font-light leading-relaxed">
+        </div>
+
+        <!-- Centerpiece Split Card -->
+        <div class="ril-milestone-card w-full bg-white shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-gray-100 grid grid-cols-1 md:grid-cols-2 rounded-none overflow-hidden">
+          <div class="relative w-full aspect-[16/10] md:aspect-auto md:min-h-[440px] lg:min-h-[480px] bg-gray-50 overflow-hidden border-b md:border-b-0 md:border-r border-gray-100">
+            <img src="images/bora_fashion_store.jpg" alt="Bora Fashion Production 2014" class="w-full h-full object-cover filter grayscale contrast-110 block">
+          </div>
+          <div class="p-8 sm:p-12 md:p-14 lg:p-16 flex flex-col justify-center text-left bg-white">
+            <div class="ril-card-year font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-[#C5A880] mb-4 tracking-tight">
+              2014
+            </div>
+            <p class="ril-card-desc text-gray-700 text-sm sm:text-base lg:text-lg leading-relaxed font-light">
               We launched "Bora Fashion" as a state-of-the-art apparel production facility, manufacturing high-volume finished garments for domestic fashion retail giants and global export markets.
             </p>
           </div>
@@ -482,258 +491,93 @@
       </div>
     </div>
 
-  </section>
+    <!-- RIL-STYLE FIXED LEFT TIMELINE RAIL (DESKTOP) -->
+    <aside id="ril-timeline-rail" class="hidden md:flex flex-col items-start fixed left-5 lg:left-8 top-1/2 -translate-y-1/2 z-30 pointer-events-auto select-none transition-opacity duration-300">
+      <div class="flex flex-col items-start space-y-4">
+        <!-- 1947 -->
+        <button class="ril-rail-btn group flex items-center transition-all duration-300 focus:outline-none cursor-pointer" data-index="0" aria-label="Milestone 1947">
+          <span class="ril-rail-pill flex items-center bg-[#053C8F] text-white px-3 py-1 shadow-md space-x-1.5 rounded-full text-xs font-heading font-semibold transition-all">
+            <svg class="w-3 h-3 text-[#C5A880] fill-current" viewBox="0 0 24 28"><path d="M12 2C7 8 4 13 4 18A8 8 0 0 0 20 18C20 13 17 8 12 2Z"/></svg>
+            <span>1947</span>
+          </span>
+          <span class="ril-rail-icon hidden text-gray-300 group-hover:text-[#C5A880] transition-colors pl-1">
+            <svg class="w-3.5 h-4.5 stroke-current" viewBox="0 0 24 28" fill="none" stroke-width="1.8"><path d="M12 2C7 8 4 13 4 18A8 8 0 0 0 20 18C20 13 17 8 12 2Z"/></svg>
+          </span>
+        </button>
 
-  <!-- INTERACTIVE JOURNEY HORIZONTAL SLIDESHOW TIMELINE SECTION (DESKTOP) -->
-  <section id="journey-timeline-section" class="journey-timeline-section relative w-full h-screen overflow-hidden bg-white text-gray-800 border-t border-gray-100 hidden md:flex items-center justify-between">
-    <!-- Pinned Left panel (Stable in place!) -->
-    <div class="years-sidebar w-24 md:w-32 lg:w-48 h-full flex flex-col justify-between items-center py-12 relative z-20">
-      <div class="text-[10px] font-heading tracking-[0.25em] text-gray-500 uppercase select-none font-semibold">BORA GROUP</div>
-      
-      <!-- Central Year & Progress Column (Stable in place!) -->
-      <div class="flex flex-col items-center space-y-6">
-        <!-- Giant Stable Year Display -->
-        <div id="stable-year-display" class="font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gold tracking-widest transition-all duration-300 scale-100 select-none">
-          1947
-        </div>
-        
-        <!-- Stable Progress line indicator -->
-        <div class="w-[2px] h-32 bg-gray-200 rounded-full relative overflow-hidden">
-          <div id="stable-year-progress" class="absolute top-0 left-0 w-full bg-gold transition-all duration-300" style="height: 0%;"></div>
-        </div>
+        <!-- 1975 -->
+        <button class="ril-rail-btn group flex items-center transition-all duration-300 focus:outline-none cursor-pointer" data-index="1" aria-label="Milestone 1975">
+          <span class="ril-rail-pill hidden items-center bg-[#053C8F] text-white px-3 py-1 shadow-md space-x-1.5 rounded-full text-xs font-heading font-semibold transition-all">
+            <svg class="w-3 h-3 text-[#C5A880] fill-current" viewBox="0 0 24 28"><path d="M12 2C7 8 4 13 4 18A8 8 0 0 0 20 18C20 13 17 8 12 2Z"/></svg>
+            <span>1975</span>
+          </span>
+          <span class="ril-rail-icon text-gray-300 group-hover:text-[#C5A880] transition-colors pl-1">
+            <svg class="w-3.5 h-4.5 stroke-current" viewBox="0 0 24 28" fill="none" stroke-width="1.8"><path d="M12 2C7 8 4 13 4 18A8 8 0 0 0 20 18C20 13 17 8 12 2Z"/></svg>
+          </span>
+        </button>
+
+        <!-- 1989 -->
+        <button class="ril-rail-btn group flex items-center transition-all duration-300 focus:outline-none cursor-pointer" data-index="2" aria-label="Milestone 1989">
+          <span class="ril-rail-pill hidden items-center bg-[#053C8F] text-white px-3 py-1 shadow-md space-x-1.5 rounded-full text-xs font-heading font-semibold transition-all">
+            <svg class="w-3 h-3 text-[#C5A880] fill-current" viewBox="0 0 24 28"><path d="M12 2C7 8 4 13 4 18A8 8 0 0 0 20 18C20 13 17 8 12 2Z"/></svg>
+            <span>1989</span>
+          </span>
+          <span class="ril-rail-icon text-gray-300 group-hover:text-[#C5A880] transition-colors pl-1">
+            <svg class="w-3.5 h-4.5 stroke-current" viewBox="0 0 24 28" fill="none" stroke-width="1.8"><path d="M12 2C7 8 4 13 4 18A8 8 0 0 0 20 18C20 13 17 8 12 2Z"/></svg>
+          </span>
+        </button>
+
+        <!-- 2000 -->
+        <button class="ril-rail-btn group flex items-center transition-all duration-300 focus:outline-none cursor-pointer" data-index="3" aria-label="Milestone 2000">
+          <span class="ril-rail-pill hidden items-center bg-[#053C8F] text-white px-3 py-1 shadow-md space-x-1.5 rounded-full text-xs font-heading font-semibold transition-all">
+            <svg class="w-3 h-3 text-[#C5A880] fill-current" viewBox="0 0 24 28"><path d="M12 2C7 8 4 13 4 18A8 8 0 0 0 20 18C20 13 17 8 12 2Z"/></svg>
+            <span>2000</span>
+          </span>
+          <span class="ril-rail-icon text-gray-300 group-hover:text-[#C5A880] transition-colors pl-1">
+            <svg class="w-3.5 h-4.5 stroke-current" viewBox="0 0 24 28" fill="none" stroke-width="1.8"><path d="M12 2C7 8 4 13 4 18A8 8 0 0 0 20 18C20 13 17 8 12 2Z"/></svg>
+          </span>
+        </button>
+
+        <!-- 2005 -->
+        <button class="ril-rail-btn group flex items-center transition-all duration-300 focus:outline-none cursor-pointer" data-index="4" aria-label="Milestone 2005">
+          <span class="ril-rail-pill hidden items-center bg-[#053C8F] text-white px-3 py-1 shadow-md space-x-1.5 rounded-full text-xs font-heading font-semibold transition-all">
+            <svg class="w-3 h-3 text-[#C5A880] fill-current" viewBox="0 0 24 28"><path d="M12 2C7 8 4 13 4 18A8 8 0 0 0 20 18C20 13 17 8 12 2Z"/></svg>
+            <span>2005</span>
+          </span>
+          <span class="ril-rail-icon text-gray-300 group-hover:text-[#C5A880] transition-colors pl-1">
+            <svg class="w-3.5 h-4.5 stroke-current" viewBox="0 0 24 28" fill="none" stroke-width="1.8"><path d="M12 2C7 8 4 13 4 18A8 8 0 0 0 20 18C20 13 17 8 12 2Z"/></svg>
+          </span>
+        </button>
+
+        <!-- 2014 Hotel -->
+        <button class="ril-rail-btn group flex items-center transition-all duration-300 focus:outline-none cursor-pointer" data-index="5" aria-label="Milestone 2014 Hospitality">
+          <span class="ril-rail-pill hidden items-center bg-[#053C8F] text-white px-3 py-1 shadow-md space-x-1.5 rounded-full text-xs font-heading font-semibold transition-all">
+            <svg class="w-3 h-3 text-[#C5A880] fill-current" viewBox="0 0 24 28"><path d="M12 2C7 8 4 13 4 18A8 8 0 0 0 20 18C20 13 17 8 12 2Z"/></svg>
+            <span>2014</span>
+          </span>
+          <span class="ril-rail-icon text-gray-300 group-hover:text-[#C5A880] transition-colors pl-1">
+            <svg class="w-3.5 h-4.5 stroke-current" viewBox="0 0 24 28" fill="none" stroke-width="1.8"><path d="M12 2C7 8 4 13 4 18A8 8 0 0 0 20 18C20 13 17 8 12 2Z"/></svg>
+          </span>
+        </button>
+
+        <!-- 2014 Fashion -->
+        <button class="ril-rail-btn group flex items-center transition-all duration-300 focus:outline-none cursor-pointer" data-index="6" aria-label="Milestone 2014 Fashion">
+          <span class="ril-rail-pill hidden items-center bg-[#053C8F] text-white px-3 py-1 shadow-md space-x-1.5 rounded-full text-xs font-heading font-semibold transition-all">
+            <svg class="w-3 h-3 text-[#C5A880] fill-current" viewBox="0 0 24 28"><path d="M12 2C7 8 4 13 4 18A8 8 0 0 0 20 18C20 13 17 8 12 2Z"/></svg>
+            <span>2014</span>
+          </span>
+          <span class="ril-rail-icon text-gray-300 group-hover:text-[#C5A880] transition-colors pl-1">
+            <svg class="w-3.5 h-4.5 stroke-current" viewBox="0 0 24 28" fill="none" stroke-width="1.8"><path d="M12 2C7 8 4 13 4 18A8 8 0 0 0 20 18C20 13 17 8 12 2Z"/></svg>
+          </span>
+        </button>
       </div>
-      
-      <!-- Static Clickable Years progress list at bottom -->
-      <div class="flex flex-col items-center space-y-3">
-        <div class="year-item active cursor-pointer flex items-center space-x-2 group" data-index="0" data-year="1947">
-          <div class="year-dot w-2 h-2 rounded-full border border-gold bg-gold transition-all duration-300"></div>
-          <span class="year-number font-heading font-bold text-[9px] tracking-wider text-gold group-hover:text-navy transition-all duration-300">1947</span>
-        </div>
-        <div class="year-item cursor-pointer flex items-center space-x-2 group" data-index="1" data-year="1975">
-          <div class="year-dot w-2 h-2 rounded-full border border-gray-300 bg-white transition-all duration-300"></div>
-          <span class="year-number font-heading font-bold text-[9px] tracking-wider text-gray-400 group-hover:text-navy transition-all duration-300">1975</span>
-        </div>
-        <div class="year-item cursor-pointer flex items-center space-x-2 group" data-index="2" data-year="1989">
-          <div class="year-dot w-2 h-2 rounded-full border border-gray-300 bg-white transition-all duration-300"></div>
-          <span class="year-number font-heading font-bold text-[9px] tracking-wider text-gray-400 group-hover:text-navy transition-all duration-300">1989</span>
-        </div>
-        <div class="year-item cursor-pointer flex items-center space-x-2 group" data-index="3" data-year="2000">
-          <div class="year-dot w-2 h-2 rounded-full border border-gray-300 bg-white transition-all duration-300"></div>
-          <span class="year-number font-heading font-bold text-[9px] tracking-wider text-gray-400 group-hover:text-navy transition-all duration-300">2000</span>
-        </div>
-        <div class="year-item cursor-pointer flex items-center space-x-2 group" data-index="4" data-year="2005">
-          <div class="year-dot w-2 h-2 rounded-full border border-gray-300 bg-white transition-all duration-300"></div>
-          <span class="year-number font-heading font-bold text-[9px] tracking-wider text-gray-400 group-hover:text-navy transition-all duration-300">2005</span>
-        </div>
-        <div class="year-item cursor-pointer flex items-center space-x-2 group" data-index="5" data-year="2014">
-          <div class="year-dot w-2 h-2 rounded-full border border-gray-300 bg-white transition-all duration-300"></div>
-          <span class="year-number font-heading font-bold text-[9px] tracking-wider text-gray-400 group-hover:text-navy transition-all duration-300">2014</span>
-        </div>
-        <div class="year-item cursor-pointer flex items-center space-x-2 group" data-index="6" data-year="2014">
-          <div class="year-dot w-2 h-2 rounded-full border border-gray-300 bg-white transition-all duration-300"></div>
-          <span class="year-number font-heading font-bold text-[9px] tracking-wider text-gray-400 group-hover:text-navy transition-all duration-300">2014</span>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Pinned slides canvas container (Spans entire screen below navbar) -->
-    <div id="slides-container" class="absolute left-0 right-0 bottom-0 top-20 md:top-24 z-10">
+    </aside>
 
-      <!-- 1947 Slide (Bora Brothers) -->
-      <div data-index="0" data-year="1947" class="journey-slide active absolute inset-0 w-full h-full flex flex-col justify-center items-center gap-4 py-20 pl-28 md:pl-40 lg:pl-56 pr-6 md:pr-12 bg-[#030307]">
-        <!-- 16:9 Image Frame -->
-        <div class="w-full max-w-4xl lg:max-w-5xl aspect-[16/9] rounded-none overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/5 relative journey-image bg-[#2a2520] flex items-center justify-center z-0">
-          <img src="images/bora_brothers_founders.jpg" alt="Bora Brothers Founders 1947" class="max-w-full max-h-full object-contain block">
-          <div class="absolute inset-0 bg-black/25 pointer-events-none"></div>
-        </div>
+    <!-- RIL-STYLE SCROLL TO TOP BUTTON (BOTTOM RIGHT) -->
+    <button id="ril-scroll-top-btn" class="fixed bottom-6 right-6 z-30 w-10 h-10 bg-[#C5A880] hover:bg-[#b09068] text-white flex items-center justify-center shadow-xl active:scale-95 transition-all cursor-pointer rounded-none" aria-label="Scroll to top of timeline">
+      <i class="fa-solid fa-arrow-up text-sm"></i>
+    </button>
 
-        <!-- Premium Dark Glass Card for Milestone Info (Panoramic Layout) -->
-        <div class="journey-info-card relative z-10 bg-[#05050A]/75 backdrop-blur-2xl border border-white/10 shadow-[0_24px_50px_rgba(0,0,0,0.5)] rounded-none p-4 md:py-3.5 md:px-6 w-full max-w-4xl lg:max-w-5xl mx-auto transform translate-y-0 transition-transform duration-500 hover:scale-[1.01] hover:shadow-black/70">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center">
-            <div class="md:col-span-4 space-y-1 text-left">
-              <span class="text-[8px] md:text-[9px] text-gold uppercase tracking-[0.25em] font-heading font-extrabold block">Origin Foundations</span>
-              <h3 class="font-heading font-extrabold text-lg md:text-2xl text-white tracking-tight leading-tight">Bora Brothers Founded</h3>
-            </div>
-            <div class="md:col-span-8 space-y-2 text-left">
-              <p class="text-[11px] md:text-xs font-light text-white/75 leading-relaxed">
-                Our legacy begins in 1947 with the founding of "Bora Brothers" in Kopargaon, Maharashtra. Our founders established a foundational presence rooted in transparent trade and commercial execution integrity, dealing with wholesale commodities and agricultural trade.
-              </p>
-              <div class="italic text-[9px] md:text-[11px] text-gold font-serif border-l-2 border-gold/40 pl-4 py-0.5">
-                "Our guiding principles since 1947: trust, fairness, and mutual growth."
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 1975 Slide (Real Estate) -->
-      <div data-index="1" data-year="1975" class="journey-slide absolute inset-0 w-full h-full flex flex-col justify-center items-center gap-4 py-20 pl-28 md:pl-40 lg:pl-56 pr-6 md:pr-12 bg-[#030307]">
-        <!-- 16:9 Image Frame (Split Layout) -->
-        <div class="w-full max-w-4xl lg:max-w-5xl aspect-[16/9] rounded-none overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/5 relative journey-image flex flex-row z-0">
-          <div class="w-1/2 h-full border-r border-white/5">
-            <img src="images/real_estate_launch.jpg" alt="Real Estate Division Launch 1975" class="w-full h-full object-cover block">
-          </div>
-          <div class="w-1/2 h-full">
-            <img src="images/real_estate_puja.jpg" alt="Real Estate Bhumi Pujan 1975" class="w-full h-full object-cover block">
-          </div>
-          <div class="absolute inset-0 bg-black/25 pointer-events-none"></div>
-        </div>
-
-        <!-- Premium Dark Glass Card for Milestone Info (Panoramic Layout) -->
-        <div class="journey-info-card relative z-10 bg-[#05050A]/75 backdrop-blur-2xl border border-white/10 shadow-[0_24px_50px_rgba(0,0,0,0.5)] rounded-none p-4 md:py-3.5 md:px-6 w-full max-w-4xl lg:max-w-5xl mx-auto transform translate-y-0 transition-transform duration-500 hover:scale-[1.01] hover:shadow-black/70">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center">
-            <div class="md:col-span-4 space-y-1 text-left">
-              <span class="text-[8px] md:text-[9px] text-gold uppercase tracking-[0.25em] font-heading font-extrabold block">Luxury Developments</span>
-              <h3 class="font-heading font-extrabold text-lg md:text-2xl text-white tracking-tight leading-tight">Real Estate Division Launch</h3>
-            </div>
-            <div class="md:col-span-8 space-y-2 text-left">
-              <p class="text-[11px] md:text-xs font-light text-white/75 leading-relaxed">
-                We diversified our business operations into luxury construction and building projects. Focusing on quality developments, architectural values, and structural stability, the Real Estate Division established BORA GROUP as a trusted developer in the region.
-              </p>
-              <div class="italic text-[9px] md:text-[11px] text-gold font-serif border-l-2 border-gold/40 pl-4 py-0.5">
-                "Crafting structural integrity and architectural values."
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 1989 Slide (Industrial Supply) -->
-      <div data-index="2" data-year="1989" class="journey-slide absolute inset-0 w-full h-full flex flex-col justify-center items-center gap-4 py-20 pl-28 md:pl-40 lg:pl-56 pr-6 md:pr-12 bg-[#030307]">
-        <!-- 16:9 Image Frame -->
-        <div class="w-full max-w-4xl lg:max-w-5xl aspect-[16/9] rounded-none overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/5 relative journey-image z-0">
-          <img src="images/industrial_supplies.jpg" alt="Industrial Supplies Glass Bottles Line 1989" class="w-full h-full object-cover block">
-          <div class="absolute inset-0 bg-black/25"></div>
-        </div>
-
-        <!-- Premium Dark Glass Card for Milestone Info (Panoramic Layout) -->
-        <div class="journey-info-card relative z-10 bg-[#05050A]/75 backdrop-blur-2xl border border-white/10 shadow-[0_24px_50px_rgba(0,0,0,0.5)] rounded-none p-4 md:py-3.5 md:px-6 w-full max-w-4xl lg:max-w-5xl mx-auto transform translate-y-0 transition-transform duration-500 hover:scale-[1.01] hover:shadow-black/70">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center">
-            <div class="md:col-span-4 space-y-1 text-left">
-              <span class="text-[8px] md:text-[9px] text-gold uppercase tracking-[0.25em] font-heading font-extrabold block">Logistics & Supplies</span>
-              <h3 class="font-heading font-extrabold text-lg md:text-2xl text-white tracking-tight leading-tight">Industrial Supplies Expansion</h3>
-            </div>
-            <div class="md:col-span-8 space-y-2 text-left">
-              <p class="text-[11px] md:text-xs font-light text-white/75 leading-relaxed">
-                We launched our Industrial Supplies division, distributing high-volume mechanical components, materials, and machinery supplies. The division constructed regional warehousing infrastructure and logistics distribution networks to serve emerging regional businesses.
-              </p>
-              <div class="italic text-[9px] md:text-[11px] text-gold font-serif border-l-2 border-gold/40 pl-4 py-0.5">
-                "Enabling large-scale enterprise logistics infrastructure."
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2000 Slide (Bora Collection) -->
-      <div data-index="3" data-year="2000" class="journey-slide absolute inset-0 w-full h-full flex flex-col justify-center items-center gap-4 py-20 pl-28 md:pl-40 lg:pl-56 pr-6 md:pr-12 bg-[#030307]">
-        <!-- 16:9 Image Frame -->
-        <div class="w-full max-w-4xl lg:max-w-5xl aspect-[16/9] rounded-none overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/5 relative journey-image z-0">
-          <img src="images/bora_collection_store.jpg" alt="Bora Collection Store Front 2000" class="w-full h-full object-cover block">
-          <div class="absolute inset-0 bg-black/25"></div>
-        </div>
-
-        <!-- Premium Dark Glass Card for Milestone Info (Panoramic Layout) -->
-        <div class="journey-info-card relative z-10 bg-[#05050A]/75 backdrop-blur-2xl border border-white/10 shadow-[0_24px_50px_rgba(0,0,0,0.5)] rounded-none p-4 md:py-3.5 md:px-6 w-full max-w-4xl lg:max-w-5xl mx-auto transform translate-y-0 transition-transform duration-500 hover:scale-[1.01] hover:shadow-black/70">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center">
-            <div class="md:col-span-4 space-y-1 text-left">
-              <span class="text-[8px] md:text-[9px] text-gold uppercase tracking-[0.25em] font-heading font-extrabold block">Retail Fashion</span>
-              <h3 class="font-heading font-extrabold text-lg md:text-2xl text-white tracking-tight leading-tight">Bora Collection Store Launch</h3>
-            </div>
-            <div class="md:col-span-8 space-y-2 text-left">
-              <p class="text-[11px] md:text-xs font-light text-white/75 leading-relaxed">
-                BORA GROUP entered the retail fashion and garment segment with the launch of the "Bora Collection" store network, pioneering high-quality apparel designs and establishing a trusted regional consumer retail presence.
-              </p>
-              <div class="italic text-[9px] md:text-[11px] text-gold font-serif border-l-2 border-gold/40 pl-4 py-0.5">
-                "Bringing premium style and retail trust directly to our community."
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2005 Slide (Overseas Trade) -->
-      <div data-index="4" data-year="2005" class="journey-slide absolute inset-0 w-full h-full flex flex-col justify-center items-center gap-4 py-20 pl-28 md:pl-40 lg:pl-56 pr-6 md:pr-12 bg-[#030307]">
-        <!-- 16:9 Image Frame -->
-        <div class="w-full max-w-4xl lg:max-w-5xl aspect-[16/9] rounded-none overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/5 relative journey-image z-0">
-          <img src="images/overseas_trade_ship.jpg" alt="Overseas Trade Cargo Ship 2005" class="w-full h-full object-cover block">
-          <div class="absolute inset-0 bg-black/25"></div>
-        </div>
-
-        <!-- Premium Dark Glass Card for Milestone Info (Panoramic Layout) -->
-        <div class="journey-info-card relative z-10 bg-[#05050A]/75 backdrop-blur-2xl border border-white/10 shadow-[0_24px_50px_rgba(0,0,0,0.5)] rounded-none p-4 md:py-3.5 md:px-6 w-full max-w-4xl lg:max-w-5xl mx-auto transform translate-y-0 transition-transform duration-500 hover:scale-[1.01] hover:shadow-black/70">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center">
-            <div class="md:col-span-4 space-y-1 text-left">
-              <span class="text-[8px] md:text-[9px] text-gold uppercase tracking-[0.25em] font-heading font-extrabold block">Global Operations</span>
-              <h3 class="font-heading font-extrabold text-lg md:text-2xl text-white tracking-tight leading-tight">Overseas Trade Division</h3>
-            </div>
-            <div class="md:col-span-8 space-y-2 text-left">
-              <p class="text-[11px] md:text-xs font-light text-white/75 leading-relaxed">
-                We expanded our scope to international markets by establishing the Overseas Trade division, managing complex import-export logistics and commodity trading operations across global destinations.
-              </p>
-              <div class="italic text-[9px] md:text-[11px] text-gold font-serif border-l-2 border-gold/40 pl-4 py-0.5">
-                "Connecting regional commercial activities with international trade flows."
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2014 Slide (Hotel Divya Palace) -->
-      <div data-index="5" data-year="2014" class="journey-slide absolute inset-0 w-full h-full flex flex-col justify-center items-center gap-4 py-20 pl-28 md:pl-40 lg:pl-56 pr-6 md:pr-12 bg-[#030307]">
-        <!-- 16:9 Image Frame -->
-        <div class="w-full max-w-4xl lg:max-w-5xl aspect-[16/9] rounded-none overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/5 relative journey-image z-0">
-          <img src="images/hotel_divya_palace.jpg" alt="Hotel Divya Palace Front Facade 2014" class="w-full h-full object-cover block">
-          <div class="absolute inset-0 bg-black/25"></div>
-        </div>
-
-        <!-- Premium Dark Glass Card for Milestone Info (Panoramic Layout) -->
-        <div class="journey-info-card relative z-10 bg-[#05050A]/75 backdrop-blur-2xl border border-white/10 shadow-[0_24px_50px_rgba(0,0,0,0.5)] rounded-none p-4 md:py-3.5 md:px-6 w-full max-w-4xl lg:max-w-5xl mx-auto transform translate-y-0 transition-transform duration-500 hover:scale-[1.01] hover:shadow-black/70">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center">
-            <div class="md:col-span-4 space-y-1 text-left">
-              <span class="text-[8px] md:text-[9px] text-gold uppercase tracking-[0.25em] font-heading font-extrabold block">Boutique Hospitality</span>
-              <h3 class="font-heading font-extrabold text-lg md:text-2xl text-white tracking-tight leading-tight">Hotel Divya Palace Launch</h3>
-            </div>
-            <div class="md:col-span-8 space-y-2 text-left">
-              <p class="text-[11px] md:text-xs font-light text-white/75 leading-relaxed">
-                BORA GROUP entered the premium hospitality segment with the launch of "Hotel Divya Palace" in Kopargaon, introducing luxury accommodations, fine banquet spaces, and top-tier guest services.
-              </p>
-              <div class="italic text-[9px] md:text-[11px] text-gold font-serif border-l-2 border-gold/40 pl-4 py-0.5">
-                "Redefining hospitality with elegant design and warm personalized service."
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2014 Slide (Bora Fashion) -->
-      <div data-index="6" data-year="2014" class="journey-slide absolute inset-0 w-full h-full flex flex-col justify-center items-center gap-4 py-20 pl-28 md:pl-40 lg:pl-56 pr-6 md:pr-12 bg-[#030307]">
-        <!-- 16:9 Image Frame -->
-        <div class="w-full max-w-4xl lg:max-w-5xl aspect-[16/9] rounded-none overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.8)] border border-white/5 relative journey-image z-0">
-          <img src="images/bora_fashion_store.jpg" alt="Bora Fashion Store Front 2014" class="w-full h-full object-cover block">
-          <div class="absolute inset-0 bg-black/25"></div>
-        </div>
-
-        <!-- Premium Dark Glass Card for Milestone Info (Panoramic Layout) -->
-        <div class="journey-info-card relative z-10 bg-[#05050A]/75 backdrop-blur-2xl border border-white/10 shadow-[0_24px_50px_rgba(0,0,0,0.5)] rounded-none p-4 md:py-3.5 md:px-6 w-full max-w-4xl lg:max-w-5xl mx-auto transform translate-y-0 transition-transform duration-500 hover:scale-[1.01] hover:shadow-black/70">
-          <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center">
-            <div class="md:col-span-4 space-y-1 text-left">
-              <span class="text-[8px] md:text-[9px] text-gold uppercase tracking-[0.25em] font-heading font-extrabold block">Industrial Apparel</span>
-              <h3 class="font-heading font-extrabold text-lg md:text-2xl text-white tracking-tight leading-tight">Bora Fashion</h3>
-            </div>
-            <div class="md:col-span-8 space-y-2 text-left">
-              <p class="text-[11px] md:text-xs font-light text-white/75 leading-relaxed">
-                We launched "Bora Fashion" as a state-of-the-art apparel production facility, manufacturing high-volume finished garments for domestic fashion retail giants and global export markets.
-              </p>
-              <div class="italic text-[9px] md:text-[11px] text-gold font-serif border-l-2 border-gold/40 pl-4 py-0.5">
-                "Fusing modern manufacturing precision with fashion industry demands."
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
   </section>
 
   <!-- BACK TO MAIN PORTAL CTA -->

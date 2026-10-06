@@ -565,11 +565,10 @@ textarea {
   transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-/* Jio-style Full Screen Interactive Timeline */
-.journey-timeline-section {
-  height: 100dvh;
-  overflow: hidden;
-  background-color: #030307 !important;
+/* RIL-Style Full Screen Interactive Timeline */
+.journey-timeline-section,
+#journey-timeline-section {
+  background-color: #ffffff !important;
 }
 
 .years-sidebar {
@@ -2012,46 +2011,51 @@ body.plot-modal-open {
     font-size: 8px !important;
   }
 
-  /* --- Mobile History Timeline (Vertical Scroll, Pointy Edges & Separate Slides) --- */
-  #mobile-journey-timeline,
-  #mobile-journey-timeline * {
-    border-radius: 0px !important;
+  /* --- RIL-Style History Timeline (White Background, Pointy Edges, Unified Mobile & Desktop) --- */
+  #journey-timeline-section {
+    background-color: #ffffff !important;
   }
 
-  #mobile-journey-timeline {
+  .ril-timeline-slide {
     position: relative;
     width: 100%;
-    background-color: #05050A;
-  }
-
-  .mobile-journey-slide {
-    position: relative;
-    width: 100%;
-    min-height: 100svh;
+    min-height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 4.5rem 1rem 3.5rem 1rem;
-    box-sizing: border-box;
+    background-color: #ffffff !important;
   }
 
-  .mobile-slide-year {
+  .ril-milestone-card {
+    border-radius: 0px !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08) !important;
+  }
+
+  .ril-milestone-card * {
+    border-radius: 0px !important;
+  }
+
+  .ril-banner-box > div {
+    border-radius: 0px !important;
+    background-color: #C5A880 !important;
+  }
+
+  .ril-banner-box h2 {
     font-family: 'Playfair Display', 'Buckin', Georgia, serif !important;
-    text-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);
   }
 
-  .mobile-slide-title {
+  .ril-card-year {
     font-family: 'Playfair Display', 'Buckin', Georgia, serif !important;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    color: #C5A880 !important;
   }
 
-  .mobile-milestone-card {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+  .ril-slide-tag {
+    letter-spacing: 0.28em !important;
   }
 
-  .mobile-card-year {
-    font-family: 'Playfair Display', 'Buckin', Georgia, serif !important;
+  #ril-scroll-top-btn {
+    border-radius: 0px !important;
   }
 
   /* --- Chairman / Leadership Section --- */
