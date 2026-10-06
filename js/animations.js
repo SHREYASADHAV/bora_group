@@ -911,9 +911,9 @@ document.addEventListener('DOMContentLoaded', () => {
       // Update progress segments
       segments.forEach((seg, segIdx) => {
         if (segIdx === idx) {
-          seg.className = 'biz-segment w-12 h-[3px] bg-gray-900 rounded-full transition-all duration-300';
+          seg.className = 'biz-segment w-6 sm:w-12 h-[3px] bg-gray-900 rounded-full cursor-pointer transition-all duration-300';
         } else {
-          seg.className = 'biz-segment w-12 h-[3px] bg-gray-200 rounded-full transition-all duration-300';
+          seg.className = 'biz-segment w-6 sm:w-12 h-[3px] bg-gray-200 rounded-full cursor-pointer transition-all duration-300';
         }
       });
 
@@ -1012,8 +1012,13 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlide(idx);
       });
 
-      // Click navigates to details page
+      // Click navigates to details page, or previews slide first on mobile/tablet
       item.addEventListener('click', (e) => {
+        if (window.innerWidth < 1024 && activeIndex !== idx) {
+          e.preventDefault();
+          showSlide(idx);
+          return;
+        }
         window.location.href = bizUrls[idx];
       });
     });
@@ -1072,25 +1077,17 @@ document.addEventListener('DOMContentLoaded', () => {
           if (icon) gsap.set(icon, { x: 0 });
         });
       } else if (window.innerWidth < 768) {
-        // Mobile accordion initial states - first is active
-        activeIdx = 0;
-        cards.forEach((card, idx) => {
+        // Mobile cards - all 4 cards have the exact same equal ratio and size
+        cards.forEach((card) => {
           const img = card.querySelector('.join-card-img');
           const p = card.querySelector('.join-card-text p');
           const textContainer = card.querySelector('.join-card-text');
           const arrow = card.querySelector('.join-card-arrow');
           
-          if (idx === 0) {
-            gsap.set(card, { flexGrow: 0, flexBasis: "280px" });
-            gsap.set(p, { opacity: 1, y: 0 });
-            gsap.set(textContainer, { y: 0 });
-            gsap.set(arrow, { x: 0, backgroundColor: "#ffffff", color: "#05050A", borderColor: "#ffffff" });
-          } else {
-            gsap.set(card, { flexGrow: 1, flexBasis: "0%" });
-            gsap.set(p, { opacity: 0, y: 12 });
-            gsap.set(textContainer, { y: 12 });
-            gsap.set(arrow, { x: 0, backgroundColor: "transparent", color: "#ffffff", borderColor: "rgba(255,255,255,0.2)" });
-          }
+          gsap.set(card, { flexGrow: 0, flexShrink: 0, flexBasis: "auto", width: "100%" });
+          gsap.set(p, { opacity: 1, y: 0 });
+          gsap.set(textContainer, { y: 0 });
+          gsap.set(arrow, { x: 0, backgroundColor: "transparent", color: "#ffffff", borderColor: "rgba(255,255,255,0.2)" });
           gsap.set(img, { scale: 1 });
         });
       } else {

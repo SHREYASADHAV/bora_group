@@ -2135,24 +2135,50 @@ body.plot-modal-open {
     padding-right: 0 !important;
   }
 
-  /* --- Business Section --- */
-  #businesses-sticky-section .biz-card-item {
-    height: 140px !important;
+  /* --- Business Section Mobile Layout matching Desktop --- */
+  #businesses-sticky-section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
   }
 
-  /* Stack business grid cards single-column on mobile */
+  /* 2-column grid on mobile matching desktop screenshot */
   #businesses-sticky-section .lg\:col-span-8.grid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.65rem !important;
   }
 
-  /* Hospitality card loses col-span-2 on mobile since grid is 1-col */
+  /* 5 business cards */
+  #businesses-sticky-section .biz-card-item {
+    height: 125px !important;
+    padding: 0.75rem !important;
+    border-radius: 0px !important;
+  }
+
+  /* Hospitality card (5th card) spans 2 columns at the bottom */
   #businesses-sticky-section .biz-card-item.col-span-2 {
-    grid-column: span 1 !important;
+    grid-column: span 2 / span 2 !important;
+    height: 120px !important;
   }
 
-  /* Business slide panel height */
+  /* Title text scaling on 2-col mobile cards */
+  #businesses-sticky-section .biz-card-title {
+    font-size: 0.75rem !important;
+    line-height: 1.15 !important;
+  }
+
+  #businesses-sticky-section .biz-card-line {
+    width: 1.25rem !important;
+  }
+
+  #businesses-sticky-section .biz-card-arrow {
+    font-size: 0.75rem !important;
+  }
+
+  /* Business slide panel on mobile */
   #businesses-sticky-section .lg\:col-span-4 {
-    height: 300px !important;
+    height: 380px !important;
+    margin-top: 0.85rem !important;
+    position: relative !important;
   }
 
   /* Business nav arrows */
@@ -2168,13 +2194,32 @@ body.plot-modal-open {
     grid-template-columns: 1fr !important;
   }
 
-  /* --- Join Us Cards --- */
-  .join-card-item {
-    height: 200px !important;
+  /* --- Join Us Cards: Exact same ratio & size across all 4 cards on mobile --- */
+  #join-expanding-cards {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    height: auto !important;
   }
 
-  .join-card-text p {
+  .join-card-item {
+    width: 100% !important;
+    height: 220px !important;
+    min-height: 220px !important;
+    max-height: 220px !important;
+    flex: none !important;
+    aspect-ratio: 16 / 10 !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+
+  .join-card-item .join-card-text p {
     opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  .join-card-item .join-card-text {
+    transform: translateY(0) !important;
   }
 
   /* --- CTA Strip buttons full-width on mobile --- */
