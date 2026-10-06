@@ -2012,21 +2012,33 @@ body.plot-modal-open {
     font-size: 8px !important;
   }
 
-  /* --- Mobile History Timeline (Pointy Edges & Separate Slides) --- */
+  /* --- Mobile History Timeline (Vertical Scroll, Pointy Edges & Separate Slides) --- */
   #mobile-journey-timeline,
   #mobile-journey-timeline * {
     border-radius: 0px !important;
   }
 
   #mobile-journey-timeline {
+    position: relative;
+    width: 100%;
+    background-color: #05050A;
+  }
+
+  .mobile-journey-slide {
+    position: relative;
+    width: 100%;
     min-height: 100svh;
-    padding-top: 5rem !important;
-    padding-bottom: 3rem !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4.5rem 1rem 3.5rem 1rem;
+    box-sizing: border-box;
   }
 
   .mobile-slide-year {
     font-family: 'Playfair Display', 'Buckin', Georgia, serif !important;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);
   }
 
   .mobile-slide-title {
@@ -2035,16 +2047,11 @@ body.plot-modal-open {
   }
 
   .mobile-milestone-card {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
   }
 
   .mobile-card-year {
     font-family: 'Playfair Display', 'Buckin', Georgia, serif !important;
-  }
-
-  .mobile-tick {
-    height: 3px !important;
-    transition: all 0.3s ease !important;
   }
 
   /* --- Chairman / Leadership Section --- */

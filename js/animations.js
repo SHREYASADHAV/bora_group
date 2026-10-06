@@ -653,178 +653,63 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = mobileSection.querySelectorAll('.mobile-journey-slide');
     if (!slides || slides.length === 0) return;
 
-    const bgImg = document.getElementById('mobile-timeline-bg');
-    const prevBtn = document.getElementById('mobile-prev-btn');
-    const nextBtn = document.getElementById('mobile-next-btn');
-    const ticksContainer = document.getElementById('mobile-ticks-indicator');
-    const viewport = document.getElementById('mobile-slides-viewport');
-    const total = slides.length;
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
 
-    let currentIdx = 0;
-    let isTransitioning = false;
-
-    // Build sharp pointy tick pagination
-    if (ticksContainer) {
-      ticksContainer.innerHTML = '';
-      slides.forEach((_, idx) => {
-        const tick = document.createElement('div');
-        tick.className = `mobile-tick transition-all duration-300 cursor-pointer ${idx === 0 ? 'bg-[#C5A880] w-6' : 'bg-white/25 w-2.5'}`;
-        tick.addEventListener('click', () => {
-          if (idx !== currentIdx) animateToSlide(idx, idx > currentIdx ? 1 : -1);
-        });
-        ticksContainer.appendChild(tick);
-      });
-    }
-
-    function updateTicksAndButtons(idx) {
-      if (ticksContainer) {
-        const ticks = ticksContainer.children;
-        for (let i = 0; i < ticks.length; i++) {
-          if (i === idx) {
-            ticks[i].className = 'mobile-tick w-6 bg-[#C5A880] transition-all duration-300 cursor-pointer';
-          } else {
-            ticks[i].className = 'mobile-tick w-2.5 bg-white/25 transition-all duration-300 cursor-pointer';
-          }
-        }
-      }
-      if (prevBtn) prevBtn.disabled = idx === 0;
-      if (nextBtn) nextBtn.disabled = idx === total - 1;
-    }
-
-    function animateToSlide(idx, direction = 1) {
-      if (idx < 0 || idx >= total) return;
-      if (isTransitioning) return;
-      isTransitioning = true;
-
-      const outgoingSlide = slides[currentIdx];
-      const incomingSlide = slides[idx];
-      const newBg = incomingSlide.getAttribute('data-bg');
+    // Animate each vertical milestone slide as it scrolls into view one by one
+    slides.forEach((slide) => {
+      const dashedLine = slide.querySelector('.mobile-dashed-line');
+      const year = slide.querySelector('.mobile-slide-year');
+      const tag = slide.querySelector('.mobile-slide-tag');
+      const title = slide.querySelector('.mobile-slide-title');
+      const card = slide.querySelector('.mobile-milestone-card');
+      const connector = slide.querySelector('.mobile-connector-line');
 
       const tl = gsap.timeline({
-        onComplete: () => {
-          currentIdx = idx;
-          isTransitioning = false;
-        }
-      });
-
-      // Animate out outgoing slide's text elements
-      const outText = outgoingSlide.querySelectorAll('.mobile-slide-year, .mobile-slide-tag, .mobile-slide-title, .mobile-card-year, .mobile-card-desc');
-      const outCard = outgoingSlide.querySelector('.mobile-milestone-card');
-
-      tl.to(outText, {
-        opacity: 0,
-        y: direction > 0 ? -16 : 16,
-        duration: 0.22,
-        stagger: 0.03,
-        ease: "power2.in"
-      })
-      .to(outCard, {
-        opacity: 0.3,
-        scale: 0.97,
-        duration: 0.22,
-        ease: "power2.in"
-      }, "-=0.15")
-      .call(() => {
-        outgoingSlide.classList.remove('active');
-        outgoingSlide.style.opacity = '0';
-        outgoingSlide.style.pointerEvents = 'none';
-
-        incomingSlide.classList.add('active');
-        incomingSlide.style.opacity = '1';
-        incomingSlide.style.pointerEvents = 'auto';
-
-        if (bgImg && newBg) bgImg.src = newBg;
-        updateTicksAndButtons(idx);
-      });
-
-      // Animate in incoming slide's text elements
-      const inText = incomingSlide.querySelectorAll('.mobile-slide-year, .mobile-slide-tag, .mobile-slide-title');
-      const inCardText = incomingSlide.querySelectorAll('.mobile-card-year, .mobile-card-desc');
-      const inCard = incomingSlide.querySelector('.mobile-milestone-card');
-
-      tl.fromTo(inText,
-        { opacity: 0, y: direction > 0 ? 20 : -20 },
-        { opacity: 1, y: 0, duration: 0.45, stagger: 0.06, ease: "power2.out" }
-      )
-      .fromTo(inCard,
-        { opacity: 0.3, scale: 1.03 },
-        { opacity: 1, scale: 1, duration: 0.45, ease: "power2.out" },
-        "-=0.3"
-      )
-      .fromTo(inCardText,
-        { opacity: 0, y: direction > 0 ? 12 : -12 },
-        { opacity: 1, y: 0, duration: 0.35, stagger: 0.04, ease: "power2.out" },
-        "-=0.25"
-      );
-    }
-
-    if (prevBtn) {
-      prevBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        animateToSlide(currentIdx - 1, -1);
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        animateToSlide(currentIdx + 1, 1);
-      });
-    }
-
-    // Touch swipe support on viewport
-    let startX = 0;
-    if (viewport) {
-      viewport.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-      }, { passive: true });
-
-      viewport.addEventListener('touchend', (e) => {
-        const diffX = e.changedTouches[0].clientX - startX;
-        if (Math.abs(diffX) > 40) {
-          if (diffX < 0) animateToSlide(currentIdx + 1, 1);
-          else animateToSlide(currentIdx - 1, -1);
-        }
-      }, { passive: true });
-    }
-
-    // ScrollTrigger to animate text while scrolling through separate slides
-    if (typeof ScrollTrigger !== 'undefined' && window.innerWidth < 768) {
-      // 1. Initial entry reveal when scrolled into view
-      gsap.from(slides[0].querySelectorAll('.mobile-slide-year, .mobile-slide-tag, .mobile-slide-title, .mobile-milestone-card'), {
         scrollTrigger: {
-          trigger: mobileSection,
-          start: "top 75%",
-          toggleActions: "play none none none"
-        },
-        opacity: 0,
-        y: 25,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: "power2.out"
-      });
-
-      // 2. Pin and scrub through separate milestone slides while scrolling
-      ScrollTrigger.create({
-        trigger: mobileSection,
-        start: "top top",
-        end: () => `+=${total * 70}%`,
-        pin: true,
-        scrub: 0.8,
-        invalidateOnRefresh: true,
-        onUpdate: (self) => {
-          const targetIndex = Math.min(
-            Math.floor(self.progress * total),
-            total - 1
-          );
-          if (targetIndex !== currentIdx && !isTransitioning) {
-            animateToSlide(targetIndex, targetIndex > currentIdx ? 1 : -1);
-          }
+          trigger: slide,
+          start: "top 78%",
+          toggleActions: "play none none reverse"
         }
       });
-    }
 
-    updateTicksAndButtons(0);
+      if (dashedLine) {
+        tl.from(dashedLine, {
+          scaleY: 0,
+          transformOrigin: "top center",
+          opacity: 0,
+          duration: 0.35,
+          ease: "power2.out"
+        });
+      }
+
+      tl.from([year, tag, title].filter(Boolean), {
+        opacity: 0,
+        y: 28,
+        stagger: 0.08,
+        duration: 0.55,
+        ease: "power2.out"
+      }, "-=0.15");
+
+      if (card) {
+        tl.from(card, {
+          opacity: 0,
+          y: 35,
+          scale: 0.96,
+          duration: 0.6,
+          ease: "power2.out"
+        }, "-=0.25");
+      }
+
+      if (connector) {
+        tl.from(connector, {
+          scaleY: 0,
+          transformOrigin: "top center",
+          opacity: 0,
+          duration: 0.35,
+          ease: "power2.out"
+        }, "-=0.15");
+      }
+    });
   }
 
   initMobileJourneyTimeline();
