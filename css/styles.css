@@ -565,41 +565,64 @@ textarea {
   transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-/* Jio-style Full Screen Interactive Timeline */
-.journey-timeline-section {
-  height: 100dvh;
-  overflow: hidden;
-  background-color: #030307 !important;
+/* RIL-Style Desktop Vertical Slides History Timeline */
+#journey-timeline-section {
+  background-color: #003882 !important;
+  position: relative;
+  width: 100%;
 }
 
-.years-sidebar {
-  background-color: rgba(3, 3, 7, 0.3) !important;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+.desktop-timeline-slide {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.year-item {
-  color: rgba(255, 255, 255, 0.4) !important;
-  cursor: pointer;
+.desktop-banner-box {
+  background-color: #C5A880 !important;
+  border-radius: 0px !important;
+}
+
+.desktop-milestone-card {
+  border-radius: 0px !important;
+  box-shadow: 0 25px 65px -15px rgba(0, 0, 0, 0.45) !important;
+}
+
+.desktop-card-image-wrap {
+  border-radius: 0px !important;
+}
+
+.desktop-card-image-wrap img {
+  filter: grayscale(100%) contrast(110%);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.desktop-milestone-card:hover .desktop-card-image-wrap img {
+  transform: scale(1.03);
+}
+
+.desktop-rail-item {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.desktop-rail-item.active {
+  background-color: #052857 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4) !important;
+}
+
+#desktop-scroll-top-btn {
+  border-radius: 0px !important;
+  background-color: #C5A880 !important;
   transition: all 0.3s ease;
 }
 
-.year-item.active {
-  color: var(--color-gold) !important;
-  font-weight: 800;
-  transform: scale(1.35);
-  opacity: 1;
-}
-
-.journey-slide {
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.journey-slide.active {
-  pointer-events: auto;
+#desktop-scroll-top-btn:hover {
+  background-color: #b0936b !important;
+  transform: translateY(-2px);
 }
 
 /* Ken Burns slow zoom - Handled smoothly by GSAP with GPU hardware acceleration */
