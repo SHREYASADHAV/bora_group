@@ -2010,9 +2010,8 @@ body.plot-modal-open {
     height: auto;
   }
 
-  /* --- Hero Section: Horizontal 16:9 Widescreen on Mobile --- */
-  #hero-carousel-section,
-  #history-hero-section {
+  /* --- Hero Section: Horizontal 16:9 Widescreen on Mobile (Home Page) --- */
+  #hero-carousel-section {
     margin-top: 70px !important;
     min-height: unset !important;
     height: auto !important;
@@ -2021,6 +2020,21 @@ body.plot-modal-open {
     padding-bottom: 0 !important;
     position: relative !important;
     overflow: hidden !important;
+  }
+
+  /* --- History Hero Section: Mobile banner with proper proportions & breathing room (no cut-off) --- */
+  #history-hero-section {
+    margin-top: 70px !important;
+    min-height: 290px !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+    padding-top: 2.25rem !important;
+    padding-bottom: 2.25rem !important;
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   /* Hero quote text — scale down proportionally to fit horizontal frame */
