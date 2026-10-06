@@ -2074,7 +2074,7 @@ body.plot-modal-open {
   #mobile-journey-timeline {
     position: relative;
     width: 100%;
-    background-color: #05050A;
+    background-color: #003882 !important;
   }
 
   .mobile-journey-slide {
@@ -2087,24 +2087,27 @@ body.plot-modal-open {
     align-items: center;
     padding: 4.5rem 1rem 3.5rem 1rem;
     box-sizing: border-box;
+    background-color: #003882 !important;
   }
 
   .mobile-slide-year {
-    font-family: 'Playfair Display', 'Buckin', Georgia, serif !important;
-    text-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+    text-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
   }
 
   .mobile-slide-title {
-    font-family: 'Playfair Display', 'Buckin', Georgia, serif !important;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+    font-style: italic !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
   }
 
   .mobile-milestone-card {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
   }
 
   .mobile-card-year {
-    font-family: 'Playfair Display', 'Buckin', Georgia, serif !important;
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif !important;
+    color: #C5A880 !important;
   }
 
   /* --- Chairman / Leadership Section --- */
