@@ -1098,8 +1098,7 @@ footer ul.text-white\/60 {
 }
 
 /* Premium Expanding Cards Transitions & Rotation */
-#home-expanding-cards,
-#about-expanding-cards {
+#home-expanding-cards {
   transition: grid-template-columns 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
               grid-template-rows 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
@@ -2214,8 +2213,7 @@ body.plot-modal-open {
   }
 
   /* --- Core Values Expanding Cards --- */
-  #home-expanding-cards,
-  #about-expanding-cards {
+  #home-expanding-cards {
     height: 500px !important;
     grid-template-columns: 1fr !important;
   }
