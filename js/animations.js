@@ -487,135 +487,232 @@ document.addEventListener('DOMContentLoaded', () => {
     );
   }
 
-  // 7. RIL-Style Unified Heritage Timeline Animation (Mobile & Desktop)
-  function initRilHeritageTimeline() {
-    const timelineSection = document.getElementById('journey-timeline-section');
-    if (!timelineSection) return;
+  // 7. Stable Sidebar & Cinematic Full-Screen Timeline Scroll Animation
+  const journeySection = document.getElementById('journey-timeline-section');
+  const stableYearDisplay = document.getElementById('stable-year-display');
+  const stableYearProgress = document.getElementById('stable-year-progress');
+  const yearItems = document.querySelectorAll('.year-item');
+  const journeySlides = document.querySelectorAll('.journey-slide');
 
-    const slides = timelineSection.querySelectorAll('.ril-timeline-slide');
-    if (!slides || slides.length === 0) return;
+  if (journeySection && yearItems.length > 0 && journeySlides.length > 0 && window.innerWidth >= 768) {
+    const totalMilestones = yearItems.length;
 
-    const rail = document.getElementById('ril-timeline-rail');
-    const railButtons = rail ? rail.querySelectorAll('.ril-rail-btn') : [];
-    const scrollTopBtn = document.getElementById('ril-scroll-top-btn');
-
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-
-    // Helper: update active rail item
-    function setActiveRailIndex(index) {
-      if (!railButtons || railButtons.length === 0) return;
-      railButtons.forEach((btn, idx) => {
-        const pill = btn.querySelector('.ril-rail-pill');
-        const icon = btn.querySelector('.ril-rail-icon');
-        if (idx === index) {
-          if (pill) pill.classList.remove('hidden');
-          if (icon) icon.classList.add('hidden');
-        } else {
-          if (pill) pill.classList.add('hidden');
-          if (icon) icon.classList.remove('hidden');
+    // Create a GSAP timeline linked to ScrollTrigger
+    const journeyTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: journeySection,
+        start: "top top",
+        end: () => `+=${totalMilestones * 100}%`, // Scroll height proportional to slides
+        pin: true,
+        scrub: 1.2, // Smooth, cinematic catch-up inertia
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          // Programmatically determine active index based on scroll progress
+          const progress = self.progress;
+          const idx = Math.min(
+            Math.round(progress * (totalMilestones - 1)),
+            totalMilestones - 1
+          );
+          updateActiveYear(idx);
         }
-      });
-    }
-
-    // Toggle Rail & Scroll-to-Top visibility based on timeline section in viewport
-    ScrollTrigger.create({
-      trigger: timelineSection,
-      start: "top 40%",
-      end: "bottom 30%",
-      onEnter: () => {
-        if (rail) gsap.to(rail, { opacity: 1, duration: 0.3, pointerEvents: 'auto' });
-        if (scrollTopBtn) gsap.to(scrollTopBtn, { opacity: 1, duration: 0.3, pointerEvents: 'auto' });
-      },
-      onLeave: () => {
-        if (rail) gsap.to(rail, { opacity: 0, duration: 0.3, pointerEvents: 'none' });
-        if (scrollTopBtn) gsap.to(scrollTopBtn, { opacity: 0, duration: 0.3, pointerEvents: 'none' });
-      },
-      onEnterBack: () => {
-        if (rail) gsap.to(rail, { opacity: 1, duration: 0.3, pointerEvents: 'auto' });
-        if (scrollTopBtn) gsap.to(scrollTopBtn, { opacity: 1, duration: 0.3, pointerEvents: 'auto' });
-      },
-      onLeaveBack: () => {
-        if (rail) gsap.to(rail, { opacity: 0, duration: 0.3, pointerEvents: 'none' });
-        if (scrollTopBtn) gsap.to(scrollTopBtn, { opacity: 0, duration: 0.3, pointerEvents: 'none' });
       }
     });
 
-    // Animate each slide content and track active index on scroll
-    slides.forEach((slide, idx) => {
-      const tag = slide.querySelector('.ril-slide-tag');
-      const banner = slide.querySelector('.ril-banner-box');
-      const card = slide.querySelector('.ril-milestone-card');
+    let currentActiveIndex = -1;
 
-      // Scroll entrance animations
+    // Dynamic Year Sidebar Updating function
+    function updateActiveYear(idx) {
+      if (idx === currentActiveIndex) return;
+      currentActiveIndex = idx;
+
+      if (idx < 0 || idx >= journeySlides.length) return;
+      const activeSlide = journeySlides[idx];
+      if (!activeSlide) return;
+      const activeYear = activeSlide.dataset.year;
+      
+      // Update active classes to manage click pointer-events
+      journeySlides.forEach((slide, sIdx) => {
+        if (sIdx === idx) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+      
+      // Smooth fade-transition for the stable year display in the left panel
+      if (stableYearDisplay && stableYearDisplay.innerText !== activeYear) {
+        gsap.killTweensOf(stableYearDisplay);
+        gsap.timeline()
+          .to(stableYearDisplay, { opacity: 0, scale: 0.85, duration: 0.15, ease: "power2.in" })
+          .call(() => { stableYearDisplay.innerText = activeYear; })
+          .to(stableYearDisplay, { opacity: 1, scale: 1, duration: 0.25, ease: "power2.out" });
+      }
+      
+      // Highlight the static timeline progress items at bottom of sidebar
+      yearItems.forEach((item, itemIdx) => {
+        const num = item.querySelector('.year-number');
+        const dot = item.querySelector('.year-dot');
+        
+        if (itemIdx === idx) {
+          item.classList.add('active');
+          if (num) {
+            num.classList.add('text-gold');
+            num.classList.remove('text-gray-400', 'text-white/40');
+          }
+          if (dot) {
+            dot.classList.add('bg-gold', 'border-gold');
+            dot.classList.remove('bg-white', 'border-gray-300', 'bg-white/10', 'border-white/20');
+          }
+        } else {
+          item.classList.remove('active');
+          if (num) {
+            num.classList.remove('text-gold');
+            num.classList.add('text-white/40');
+          }
+          if (dot) {
+            dot.classList.remove('bg-gold', 'border-gold');
+            dot.classList.add('bg-white/5', 'border-white/20');
+          }
+        }
+      });
+
+      // Update vertical progress line height in sidebar
+      if (stableYearProgress) {
+        const progressPercentage = (idx / (totalMilestones - 1)) * 100;
+        gsap.to(stableYearProgress, {
+          height: `${progressPercentage}%`,
+          duration: 0.3,
+          ease: "power1.out"
+        });
+      }
+    }
+
+    // Set initial sidebar and slide states
+    gsap.set(journeySlides[0], { opacity: 1, autoAlpha: 1 });
+    if (journeySlides[0].querySelector('.journey-info-card')) {
+      gsap.set(journeySlides[0].querySelector('.journey-info-card'), { y: 0, opacity: 1 });
+    }
+    updateActiveYear(0);
+
+    // Animate the full-screen slides and white glass detail cards sequentially
+    yearItems.forEach((yearItem, idx) => {
+      // Skip the first one since it starts visible
+      if (idx === 0) return;
+
+      const prevIdx = idx - 1;
+      const prevSlide = journeySlides[prevIdx];
+      const activeSlide = journeySlides[idx];
+      
+      // Scroll timeline steps
+      journeyTL
+        // Fade out previous full-screen slide and slide-up its info card
+        .to(prevSlide, { opacity: 0, autoAlpha: 0, duration: 1 }, `step-${idx}`)
+        .to(prevSlide.querySelector('.journey-info-card'), { y: -30, opacity: 0, duration: 0.8 }, `step-${idx}`)
+        
+        // Fade and zoom in active full-screen slide background
+        .fromTo(activeSlide, 
+          { opacity: 0, autoAlpha: 0 },
+          { opacity: 1, autoAlpha: 1, duration: 1 }, 
+          `step-${idx}`
+        )
+        .fromTo(activeSlide.querySelector('.journey-image'),
+          { scale: 1.02 },
+          { scale: 1.1, duration: 1.5, ease: "power1.out" },
+          `step-${idx}`
+        )
+        // Slide up and fade in the white info glass card overlaid on image
+        .fromTo(activeSlide.querySelector('.journey-info-card'),
+          { y: 40, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, ease: "power3.out" },
+          `step-${idx}+=0.15`
+        );
+    });
+
+    // Make sidebar items clickable to jump to slide
+    yearItems.forEach((item, idx) => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const start = journeyTL.scrollTrigger.start;
+        const end = journeyTL.scrollTrigger.end;
+        const range = end - start;
+        const targetScroll = start + (idx / (totalMilestones - 1)) * range;
+        
+        window.scrollTo({
+          top: targetScroll + 2, // offset slightly to ensure registration
+          behavior: 'smooth'
+        });
+      });
+    });
+  }
+
+  // 7b. Mobile RIL-Style Interactive Journey Timeline Animation (Separate Slides & Pointy Edges)
+  function initMobileJourneyTimeline() {
+    const mobileSection = document.getElementById('mobile-journey-timeline');
+    if (!mobileSection) return;
+
+    const slides = mobileSection.querySelectorAll('.mobile-journey-slide');
+    if (!slides || slides.length === 0) return;
+
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+    // Animate each vertical milestone slide as it scrolls into view one by one
+    slides.forEach((slide) => {
+      const dashedLine = slide.querySelector('.mobile-dashed-line');
+      const year = slide.querySelector('.mobile-slide-year');
+      const tag = slide.querySelector('.mobile-slide-tag');
+      const title = slide.querySelector('.mobile-slide-title');
+      const card = slide.querySelector('.mobile-milestone-card');
+      const connector = slide.querySelector('.mobile-connector-line');
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: slide,
-          start: "top 75%",
+          start: "top 78%",
           toggleActions: "play none none reverse"
         }
       });
 
-      if (tag) {
-        tl.from(tag, {
+      if (dashedLine) {
+        tl.from(dashedLine, {
+          scaleY: 0,
+          transformOrigin: "top center",
           opacity: 0,
-          y: 20,
-          duration: 0.5,
+          duration: 0.35,
           ease: "power2.out"
         });
       }
 
-      if (banner) {
-        tl.from(banner, {
+      tl.from([year, tag, title].filter(Boolean), {
+        opacity: 0,
+        y: 28,
+        stagger: 0.08,
+        duration: 0.55,
+        ease: "power2.out"
+      }, "-=0.15");
+
+      if (card) {
+        tl.from(card, {
           opacity: 0,
-          y: 25,
+          y: 35,
           scale: 0.96,
           duration: 0.6,
           ease: "power2.out"
         }, "-=0.25");
       }
 
-      if (card) {
-        tl.from(card, {
+      if (connector) {
+        tl.from(connector, {
+          scaleY: 0,
+          transformOrigin: "top center",
           opacity: 0,
-          y: 35,
-          duration: 0.65,
+          duration: 0.35,
           ease: "power2.out"
-        }, "-=0.3");
+        }, "-=0.15");
       }
-
-      // Track active milestone when slide is in center of viewport
-      ScrollTrigger.create({
-        trigger: slide,
-        start: "top 55%",
-        end: "bottom 45%",
-        onEnter: () => setActiveRailIndex(idx),
-        onEnterBack: () => setActiveRailIndex(idx)
-      });
     });
-
-    // Clicking rail buttons smoothly scrolls to the target slide
-    railButtons.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetIdx = parseInt(btn.getAttribute('data-index'), 10);
-        if (!isNaN(targetIdx) && slides[targetIdx]) {
-          slides[targetIdx].scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-      });
-    });
-
-    // Clicking scroll to top button
-    if (scrollTopBtn) {
-      scrollTopBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        timelineSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    }
-
-    setActiveRailIndex(0);
   }
 
-  initRilHeritageTimeline();
+  initMobileJourneyTimeline();
 
   // 8. Staggered Pop Animation for Trade Map Markers
   const mapSection = document.querySelector('.map-container');
