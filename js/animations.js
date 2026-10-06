@@ -494,7 +494,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearItems = document.querySelectorAll('.year-item');
   const journeySlides = document.querySelectorAll('.journey-slide');
 
-  if (journeySection && yearItems.length > 0 && journeySlides.length > 0) {
+  if (journeySection && yearItems.length > 0 && journeySlides.length > 0 && window.innerWidth >= 768) {
     const totalMilestones = yearItems.length;
 
     // Create a GSAP timeline linked to ScrollTrigger
@@ -644,6 +644,246 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // 7b. Mobile RIL-Style Interactive Journey Timeline Animation
+  function initMobileJourneyTimeline() {
+    const mobileSection = document.getElementById('mobile-journey-timeline');
+    if (!mobileSection) return;
+
+    const eraYear = document.getElementById('mobile-era-year');
+    const eraTag = document.getElementById('mobile-era-tag');
+    const eraTitle = document.getElementById('mobile-era-title');
+    const cardImg = document.getElementById('mobile-card-img');
+    const cardYear = document.getElementById('mobile-card-year');
+    const cardDesc = document.getElementById('mobile-card-desc');
+    const bgImg = document.getElementById('mobile-timeline-bg');
+    const prevBtn = document.getElementById('mobile-prev-btn');
+    const nextBtn = document.getElementById('mobile-next-btn');
+    const dotsContainer = document.getElementById('mobile-dots-indicator');
+    const cardContainer = document.getElementById('mobile-milestone-card');
+
+    const milestones = [
+      {
+        era: '1947–74',
+        tag: 'ORIGIN FOUNDATIONS',
+        title: 'Rooted in Trust',
+        year: '1947',
+        image: 'images/bora_brothers_founders.jpg',
+        desc: 'Our legacy begins with the founding of "Bora Brothers" in Kopargaon, Maharashtra. Our founders established a foundational presence rooted in transparent trade and commercial execution integrity, dealing with wholesale commodities and agricultural trade.'
+      },
+      {
+        era: '1975–88',
+        tag: 'LUXURY DEVELOPMENTS',
+        title: 'Building the Skyline',
+        year: '1975',
+        image: 'images/real_estate_launch.jpg',
+        desc: 'We diversified operations into luxury construction and residential developments. Focusing on architectural values and structural stability, the Real Estate Division established BORA GROUP as a premier developer in the region.'
+      },
+      {
+        era: '1989–99',
+        tag: 'LOGISTICS & SUPPLIES',
+        title: 'Industrial Momentum',
+        year: '1989',
+        image: 'images/industrial_supplies.jpg',
+        desc: 'We launched our Industrial Supplies division, distributing high-volume mechanical components, materials, and machinery supplies, constructing regional warehousing infrastructure and enterprise logistics networks.'
+      },
+      {
+        era: '2000–04',
+        tag: 'RETAIL FASHION',
+        title: 'Community Elegance',
+        year: '2000',
+        image: 'images/bora_collection_store.jpg',
+        desc: 'BORA GROUP entered the retail fashion and garment segment with the launch of the "Bora Collection" store network, pioneering high-quality apparel designs and establishing a trusted regional consumer retail presence.'
+      },
+      {
+        era: '2005–13',
+        tag: 'GLOBAL OPERATIONS',
+        title: 'Crossing Oceans',
+        year: '2005',
+        image: 'images/overseas_trade_ship.jpg',
+        desc: 'We expanded our scope to international markets by establishing the Overseas Trade division, managing complex import-export logistics and commodity trading operations across global shipping destinations.'
+      },
+      {
+        era: '2014–19',
+        tag: 'BOUTIQUE HOSPITALITY',
+        title: 'Refined Comfort',
+        year: '2014',
+        image: 'images/hotel_divya_palace.jpg',
+        desc: 'BORA GROUP entered the premium hospitality segment with the launch of "Hotel Divya Palace" in Kopargaon, introducing luxury accommodations, fine banquet spaces, and exemplary personalized guest services.'
+      },
+      {
+        era: '2014–Present',
+        tag: 'INDUSTRIAL APPAREL',
+        title: 'Modern Manufacturing',
+        year: '2014',
+        image: 'images/bora_fashion_store.jpg',
+        desc: 'We launched "Bora Fashion" as a state-of-the-art apparel production facility, manufacturing high-volume finished garments for domestic fashion retail giants and global export markets.'
+      }
+    ];
+
+    let currentIdx = 0;
+    let isTransitioning = false;
+
+    // Build pagination dots
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      milestones.forEach((_, idx) => {
+        const dot = document.createElement('div');
+        dot.className = `h-1.5 rounded-full transition-all duration-300 cursor-pointer ${idx === 0 ? 'bg-[#C5A880] w-5' : 'bg-white/20 w-1.5'}`;
+        dot.addEventListener('click', () => {
+          if (idx !== currentIdx) animateTo(idx, idx > currentIdx ? 1 : -1);
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateDotsAndButtons(idx) {
+      if (dotsContainer) {
+        const dots = dotsContainer.children;
+        for (let i = 0; i < dots.length; i++) {
+          if (i === idx) {
+            dots[i].className = 'h-1.5 w-5 rounded-full bg-[#C5A880] transition-all duration-300 cursor-pointer';
+          } else {
+            dots[i].className = 'h-1.5 w-1.5 rounded-full bg-white/25 transition-all duration-300 cursor-pointer';
+          }
+        }
+      }
+      if (prevBtn) prevBtn.disabled = idx === 0;
+      if (nextBtn) nextBtn.disabled = idx === milestones.length - 1;
+    }
+
+    function animateTo(idx, direction = 1) {
+      if (idx < 0 || idx >= milestones.length) return;
+      if (isTransitioning) return;
+      isTransitioning = true;
+
+      const m = milestones[idx];
+      const tl = gsap.timeline({
+        onComplete: () => {
+          currentIdx = idx;
+          isTransitioning = false;
+        }
+      });
+
+      // Animate out current text elements with upward/downward slide
+      tl.to([eraYear, eraTag, eraTitle], {
+        opacity: 0,
+        y: direction > 0 ? -16 : 16,
+        duration: 0.22,
+        stagger: 0.03,
+        ease: "power2.in"
+      })
+      .to([cardYear, cardDesc], {
+        opacity: 0,
+        y: direction > 0 ? -10 : 10,
+        duration: 0.2,
+        ease: "power2.in"
+      }, "-=0.15")
+      .to(cardImg, {
+        opacity: 0.4,
+        scale: 0.96,
+        duration: 0.25,
+        ease: "power2.in"
+      }, "-=0.2")
+      .call(() => {
+        // Swap data
+        eraYear.textContent = m.era;
+        eraTag.textContent = m.tag;
+        eraTitle.textContent = m.title;
+        cardYear.textContent = m.year;
+        cardDesc.textContent = m.desc;
+        cardImg.src = m.image;
+        if (bgImg) bgImg.src = m.image;
+        updateDotsAndButtons(idx);
+      })
+      // Animate in new era text with smooth luxury easing
+      .fromTo([eraYear, eraTag, eraTitle],
+        { opacity: 0, y: direction > 0 ? 20 : -20 },
+        { opacity: 1, y: 0, duration: 0.45, stagger: 0.06, ease: "power2.out" }
+      )
+      .fromTo([cardYear, cardDesc],
+        { opacity: 0, y: direction > 0 ? 12 : -12 },
+        { opacity: 1, y: 0, duration: 0.35, stagger: 0.04, ease: "power2.out" },
+        "-=0.2"
+      )
+      .fromTo(cardImg,
+        { opacity: 0.4, scale: 1.05 },
+        { opacity: 1, scale: 1, duration: 0.55, ease: "power2.out" },
+        "-=0.35"
+      );
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        animateTo(currentIdx - 1, -1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        animateTo(currentIdx + 1, 1);
+      });
+    }
+
+    // Touch swipe support on card
+    let startX = 0;
+    if (cardContainer) {
+      cardContainer.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+      }, { passive: true });
+
+      cardContainer.addEventListener('touchend', (e) => {
+        const diffX = e.changedTouches[0].clientX - startX;
+        if (Math.abs(diffX) > 40) {
+          if (diffX < 0) animateTo(currentIdx + 1, 1);
+          else animateTo(currentIdx - 1, -1);
+        }
+      }, { passive: true });
+    }
+
+    // ScrollTrigger to animate text while scrolling through milestones
+    if (typeof ScrollTrigger !== 'undefined' && window.innerWidth < 768) {
+      // 1. Initial entry reveal when scrolled into view
+      gsap.from([eraYear, eraTag, eraTitle, cardContainer], {
+        scrollTrigger: {
+          trigger: mobileSection,
+          start: "top 75%",
+          toggleActions: "play none none none"
+        },
+        opacity: 0,
+        y: 25,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: "power2.out"
+      });
+
+      // 2. Pin and scrub through milestones while scrolling
+      const totalMilestones = milestones.length;
+      ScrollTrigger.create({
+        trigger: mobileSection,
+        start: "top top",
+        end: () => `+=${totalMilestones * 70}%`,
+        pin: true,
+        scrub: 0.8,
+        invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          const targetIndex = Math.min(
+            Math.floor(self.progress * totalMilestones),
+            totalMilestones - 1
+          );
+          if (targetIndex !== currentIdx && !isTransitioning) {
+            animateTo(targetIndex, targetIndex > currentIdx ? 1 : -1);
+          }
+        }
+      });
+    }
+
+    updateDotsAndButtons(0);
+  }
+
+  initMobileJourneyTimeline();
 
   // 8. Staggered Pop Animation for Trade Map Markers
   const mapSection = document.querySelector('.map-container');

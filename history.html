@@ -250,8 +250,72 @@
     </div>
   </section>
 
-  <!-- INTERACTIVE JOURNEY HORIZONTAL SLIDESHOW TIMELINE SECTION -->
-  <section id="journey-timeline-section" class="journey-timeline-section relative w-full h-screen overflow-hidden bg-white text-gray-800 border-t border-gray-100 flex items-center justify-between">
+  <!-- MOBILE RIL-STYLE TIMELINE SECTION (MOBILE ONLY) -->
+  <section id="mobile-journey-timeline" class="block md:hidden relative w-full min-h-screen bg-[#05050A] text-white overflow-hidden py-14 px-4 flex flex-col justify-center items-center select-none">
+    <!-- Dynamic Dark Vignette Background Image -->
+    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      <img id="mobile-timeline-bg" src="images/bora_brothers_founders.jpg" alt="Historical Background" class="w-full h-full object-cover filter grayscale contrast-125 brightness-40 transition-all duration-700 scale-105">
+      <div class="absolute inset-0 bg-gradient-to-b from-[#05050A]/90 via-[#05050A]/80 to-[#05050A]/95 z-10"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.1),rgba(0,0,0,0.85))] z-10"></div>
+    </div>
+
+    <div class="relative z-20 w-full max-w-sm mx-auto flex flex-col items-center text-center">
+      
+      <!-- Top Center Vertical Dashed Indicator Line -->
+      <div class="mobile-dashed-line w-[2px] h-8 border-l-2 border-dashed border-white/40 mb-3 opacity-75"></div>
+
+      <!-- Main Era Range (Gold Serif) -->
+      <div id="mobile-era-year" class="font-serif text-gold text-4xl font-normal tracking-wide leading-none mb-1.5" style="color: #C5A880;">
+        1947–74
+      </div>
+
+      <!-- Uppercase Tag / Subtitle -->
+      <div id="mobile-era-tag" class="text-[9px] uppercase tracking-[0.25em] text-white/75 font-heading font-semibold mb-2">
+        ORIGIN FOUNDATIONS
+      </div>
+
+      <!-- Elegant Gold Serif Title -->
+      <h3 id="mobile-era-title" class="text-2xl font-serif italic text-gold font-normal mb-5 leading-tight" style="color: #C5A880;">
+        Rooted in Trust
+      </h3>
+
+      <!-- Visual Milestone Card -->
+      <div id="mobile-milestone-card" class="w-full max-w-[330px] relative shadow-2xl rounded-2xl overflow-visible">
+        
+        <!-- Photo Container -->
+        <div class="relative w-full aspect-[16/10] bg-black rounded-t-2xl overflow-hidden border border-white/10 shadow-lg">
+          <img id="mobile-card-img" src="images/bora_brothers_founders.jpg" alt="Milestone Photo" class="w-full h-full object-cover transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none"></div>
+        </div>
+
+        <!-- Overlapping Left & Right Navigation Arrows -->
+        <button id="mobile-prev-btn" class="w-10 h-10 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/30 flex items-center justify-center absolute left-[-14px] top-[48%] -translate-y-1/2 z-30 shadow-xl active:scale-90 transition-all hover:bg-white hover:text-dark disabled:opacity-30 disabled:pointer-events-none cursor-pointer" aria-label="Previous Milestone">
+          <i class="fa-solid fa-chevron-left text-xs"></i>
+        </button>
+
+        <button id="mobile-next-btn" class="w-10 h-10 rounded-full bg-gold text-white flex items-center justify-center absolute right-[-14px] top-[48%] -translate-y-1/2 z-30 shadow-xl active:scale-90 transition-all hover:bg-[#d4af37] disabled:opacity-30 disabled:pointer-events-none cursor-pointer" style="background-color: #C5A880;" aria-label="Next Milestone">
+          <i class="fa-solid fa-chevron-right text-xs"></i>
+        </button>
+
+        <!-- Crisp White Bottom Details Box -->
+        <div class="bg-white text-gray-900 rounded-b-2xl p-5 text-left border-x border-b border-gray-100 shadow-2xl relative z-10">
+          <div id="mobile-card-year" class="text-navy font-serif font-bold text-xl mb-1.5 tracking-tight" style="color: #053C8F;">
+            1947
+          </div>
+          <p id="mobile-card-desc" class="text-xs text-gray-700 font-light leading-relaxed">
+            Our legacy begins with the founding of "Bora Brothers" in Kopargaon, Maharashtra. Our founders established a foundational presence rooted in transparent trade and commercial execution integrity, dealing with wholesale commodities and agricultural trade.
+          </p>
+        </div>
+      </div>
+
+      <!-- Milestone Pagination Dots Indicator -->
+      <div id="mobile-dots-indicator" class="flex items-center justify-center gap-1.5 mt-5"></div>
+
+    </div>
+  </section>
+
+  <!-- INTERACTIVE JOURNEY HORIZONTAL SLIDESHOW TIMELINE SECTION (DESKTOP) -->
+  <section id="journey-timeline-section" class="journey-timeline-section relative w-full h-screen overflow-hidden bg-white text-gray-800 border-t border-gray-100 hidden md:flex items-center justify-between">
     <!-- Pinned Left panel (Stable in place!) -->
     <div class="years-sidebar w-24 md:w-32 lg:w-48 h-full flex flex-col justify-between items-center py-12 relative z-20">
       <div class="text-[10px] font-heading tracking-[0.25em] text-gray-500 uppercase select-none font-semibold">BORA GROUP</div>

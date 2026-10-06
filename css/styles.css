@@ -2012,6 +2012,31 @@ body.plot-modal-open {
     font-size: 8px !important;
   }
 
+  /* --- Mobile History Timeline (RIL-style layout) --- */
+  #mobile-journey-timeline {
+    min-height: 100svh;
+    padding-top: 5rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  #mobile-era-year {
+    font-family: 'Playfair Display', 'Buckin', Georgia, serif !important;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  }
+
+  #mobile-era-title {
+    font-family: 'Playfair Display', 'Buckin', Georgia, serif !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  #mobile-milestone-card {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+  }
+
+  #mobile-card-year {
+    font-family: 'Playfair Display', 'Buckin', Georgia, serif !important;
+  }
+
   /* --- Chairman / Leadership Section --- */
   #chairman-card-3d {
     min-height: 280px !important;
