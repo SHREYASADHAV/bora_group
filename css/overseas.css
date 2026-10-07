@@ -53,7 +53,7 @@
 
 /* Apple-style Minimal Category Pills */
 .sector-pill {
-  font-family: var(--font-heading), -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-heading), 'SF Pro Display', 'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.02em;
@@ -77,7 +77,7 @@
 
 /* Minimal Action Link */
 .minimal-link {
-  font-family: var(--font-heading), -apple-system, sans-serif;
+  font-family: var(--font-heading), 'SF Pro Text', 'SF Pro', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.04em;

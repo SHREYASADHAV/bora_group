@@ -370,7 +370,7 @@ script_content = f"""(function () {{
         .text(labelText)
         .attr('font-size', '10px')
         .attr('fill', '#7A6130')
-        .attr('font-family', \"'Montserrat', sans-serif\")
+        .attr('font-family', \"'SF Pro Text', -apple-system, sans-serif\")
         .attr('font-weight', '600')
         .attr('opacity', '0.85')
         .attr('letter-spacing', '0.04em');

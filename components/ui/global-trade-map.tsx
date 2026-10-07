@@ -236,7 +236,7 @@ export default function GlobalTradeMap() {
         .text(country.name)
         .attr("font-size", "9px")
         .attr("fill", "#7A6130")
-        .attr("font-family", "Inter, sans-serif")
+        .attr("font-family", "'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif")
         .attr("font-weight", "500")
         .attr("opacity", "0.85")
         .attr("letter-spacing", "0.05em");

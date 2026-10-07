@@ -1,14 +1,96 @@
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap');
 
 /* ========================================
-   CUSTOM FONT DECLARATIONS
-   Place your font files in the /fonts/ folder:
-   - BuckinDemiBold.woff2, BuckinDemiBold.woff, BuckinDemiBold.ttf, or BuckinDemiBold.otf
-   - FlexoSoft-Regular.woff2, FlexoSoft-Regular.woff, FlexoSoft-Regular.ttf, or FlexoSoft-Regular.otf
-   - FlexoSoft-Medium.woff2 (optional for medium weight)
-   - FlexoSoft-Light.woff2  (optional for light weight)
+   SAN FRANCISCO / SF PRO FONT DECLARATIONS
+   Provides Apple's signature SF Pro / San Francisco system typography across:
+   - SF Pro Display: Large titles, headings, hero banners, badges & prominent UI
+   - SF Pro Text: Body text, navigation, forms, buttons & general interface elements
+   - Fallbacks: Native system fonts (-apple-system, BlinkMacSystemFont, system-ui)
+     for macOS & iOS devices, with CDN webfont support for Windows, Android & Linux.
    ======================================== */
 
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 300;
+  src: local('SF Pro Text Light'), local('SF Pro Light'), local('-apple-system'),
+       url('https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYLIGHTITALIC.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 400;
+  src: local('SF Pro Text Regular'), local('SF Pro Text'), local('SF Pro'), local('-apple-system'),
+       url('https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYREGULAR.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 500;
+  src: local('SF Pro Text Medium'), local('SF Pro Medium'),
+       url('https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYMEDIUM.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 600;
+  src: local('SF Pro Text Semibold'), local('SF Pro Semibold'),
+       url('https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYBOLD.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 700;
+  src: local('SF Pro Text Bold'), local('SF Pro Bold'),
+       url('https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYBOLD.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  font-style: normal;
+  font-weight: 300;
+  src: local('SF Pro Light'), local('SF Pro Text Light'), local('-apple-system'),
+       url('https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYLIGHTITALIC.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  font-style: normal;
+  font-weight: 400;
+  src: local('SF Pro'), local('SF Pro Text'), local('SF Pro Display'), local('-apple-system'),
+       url('https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYREGULAR.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  font-style: normal;
+  font-weight: 500;
+  src: local('SF Pro Medium'), local('SF Pro Text Medium'),
+       url('https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYMEDIUM.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  font-style: normal;
+  font-weight: 600;
+  src: local('SF Pro Semibold'), local('SF Pro Text Semibold'),
+       url('https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYBOLD.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'SF Pro';
+  font-style: normal;
+  font-weight: 700;
+  src: local('SF Pro Bold'), local('SF Pro Text Bold'),
+       url('https://fonts.cdnfonts.com/s/59278/SFPRODISPLAYBOLD.woff') format('woff');
+}
+
+/* Fallback definitions for Buckin and Flexo Soft if local files exist */
 @font-face {
   font-family: 'Buckin';
   src: url('../fonts/BuckinDemiBold.woff2') format('woff2'),
@@ -31,27 +113,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Flexo Soft';
-  src: url('../fonts/FlexoSoft-Medium.woff2') format('woff2'),
-       url('../fonts/FlexoSoft-Medium.woff') format('woff'),
-       url('../fonts/FlexoSoft-Medium.ttf') format('truetype'),
-       url('../fonts/FlexoSoft-Medium.otf') format('opentype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Flexo Soft';
-  src: url('../fonts/FlexoSoft-Light.woff2') format('woff2'),
-       url('../fonts/FlexoSoft-Light.woff') format('woff'),
-       url('../fonts/FlexoSoft-Light.ttf') format('truetype'),
-       url('../fonts/FlexoSoft-Light.otf') format('opentype');
-  font-weight: 300;
-  font-display: swap;
-}
-
 :root {
   --color-gold: #C5A880;
   --color-gold-hover: #D4AF37;
@@ -60,9 +121,14 @@
   --color-ice-blue: #F0F4F8;
   --color-orange: #F97316;
   --color-orange-hover: #EA580C;
-  --font-heading: 'Buckin', 'Montserrat', sans-serif;
-  --font-body: 'Flexo Soft', 'Poppins', sans-serif;
-  --font-quote: 'Buckin', 'Playfair Display', serif;
+
+  /* San Francisco (specifically SF Pro) typography tokens */
+  --font-sf-display: 'SF Pro Display', 'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-sf-text: 'SF Pro Text', 'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-heading: 'SF Pro Display', 'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'SF Pro Text', 'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-interface: 'SF Pro Text', 'SF Pro', -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-quote: 'SF Pro Display', 'SF Pro', -apple-system, BlinkMacSystemFont, 'Playfair Display', serif;
 }
 
 * {
@@ -71,14 +137,24 @@
   padding: 0;
 }
 
+html {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
 body {
   font-family: var(--font-body);
   background-color: #FFFFFF;
   color: #1F2937;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* --- Buckin Demi Bold Font Mappings --- */
+/* --- SF Pro Display Font Mappings --- */
 /* Used for: Page headings, titles, navigation menus, buttons, and uppercase tracking labels */
 h1, h2, h3, h4, h5, h6,
 nav, 
@@ -103,8 +179,8 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: capitalize !important;
 }
 
-/* --- Flexo Soft Font Mappings --- */
-/* Used for: Body paragraphs, descriptions, lists, and general interface text */
+/* --- SF Pro Text Font Mappings --- */
+/* Used for: Body paragraphs, descriptions, lists, forms, controls, and general interface text */
 p,
 li,
 ul,
@@ -113,6 +189,7 @@ ol,
 .description,
 .font-body,
 .font-sans,
+.font-interface,
 input,
 select,
 textarea {
@@ -825,7 +902,7 @@ textarea {
 }
 
 .dmt-name {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-heading);
   font-size: 12px;
   font-weight: 700;
   color: #fff;
@@ -833,7 +910,7 @@ textarea {
 }
 
 .dmt-subtitle {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-size: 8px;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -857,7 +934,7 @@ textarea {
   left: 50%;
   transform: translateX(-50%);
   margin-top: 4px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-body);
   font-size: 7px;
   font-weight: 600;
   color: #053C8F;
@@ -1116,7 +1193,7 @@ footer ul.text-white\/60 {
 .expanding-card-vertical-title {
   writing-mode: vertical-rl;
   transform: translate(-50%, -50%) rotate(180deg) !important;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-heading);
   transition: all 0.3s ease-in-out !important;
 }
 
