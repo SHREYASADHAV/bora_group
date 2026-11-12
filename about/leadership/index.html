@@ -67,29 +67,7 @@
       transform: scale(1.02);
     }
 
-    @keyframes linePulseGlow {
-      0%, 100% {
-        opacity: 0.8;
-        box-shadow: 0 0 4px rgba(197, 168, 128, 0.4);
-      }
-      50% {
-        opacity: 1;
-        box-shadow: 0 0 12px rgba(197, 168, 128, 0.85);
-      }
-    }
-    
-    #hero-leader-line {
-      animation: linePulseGlow 3s ease-in-out infinite;
-    }
 
-    #hero-leader-name {
-      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), text-shadow 0.4s ease;
-    }
-
-    #hero-leader-name:hover {
-      transform: translateX(4px);
-      text-shadow: 0 4px 25px rgba(197, 168, 128, 0.4);
-    }
   </style>
 </head>
 <body class="bg-[#FBFBFB] text-gray-800 selection:bg-gold selection:text-dark antialiased">
@@ -244,33 +222,15 @@
       </div>
     </div>
   </div>
-  <!-- SECTION 1: CHAIRMAN SUNIL BORA SPOTLIGHT (HIGH QUALITY 16:9 WITH NAME & DESIGNATION) -->
+  <!-- SECTION 1: CHAIRMAN SUNIL BORA SPOTLIGHT (16:9 HERO IMAGE) -->
   <section class="pt-20 sm:pt-24 w-full bg-[#001D4C] overflow-hidden relative">
     <div class="relative w-full aspect-[16/9] bg-[#002156] overflow-hidden">
-      <!-- High Quality 16:9 Image (2560x1440 QHD) -->
-      <img src="../../images/hero_sunil_bora.jpg?v=5" 
+      <!-- 16:9 Hero Image -->
+      <img src="../../images/hero_sunil_bora.jpg?v=6" 
            alt="Sunil Bora — Chairman, Bora Group" 
            fetchpriority="high"
            decoding="sync"
            class="w-full h-full object-cover select-none" />
-
-      <!-- Text Overlay Properly Aligned on the Right Side (Leadership dot removed) -->
-      <div class="absolute inset-y-0 right-6 sm:right-10 md:right-16 lg:right-24 flex flex-col justify-center items-end text-right z-10 pointer-events-none">
-        <div class="pointer-events-auto flex flex-col items-end text-right">
-          <!-- Name -->
-          <h1 id="hero-leader-name" class="font-serif text-xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight uppercase leading-none drop-shadow-2xl cursor-default whitespace-nowrap">
-            SUNIL BORA
-          </h1>
-
-          <!-- Accent Line -->
-          <div id="hero-leader-line" class="h-[2px] sm:h-[3px] w-14 sm:w-20 md:w-28 bg-gradient-to-l from-gold via-gold/80 to-transparent my-2 sm:my-3.5 md:my-4 origin-right"></div>
-
-          <!-- Designation -->
-          <p id="hero-leader-title" class="font-sans text-xs sm:text-base md:text-lg lg:text-xl font-medium tracking-wide text-white/95 drop-shadow-md whitespace-nowrap">
-            Chairman, Bora Group
-          </p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -462,29 +422,6 @@
       // GSAP Animations
       if (typeof gsap !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
-
-        // Hero Sunil Bora Name & Designation Entrance Animation
-        const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-        heroTl
-          .from('#hero-leader-name', {
-            opacity: 0,
-            x: 30,
-            duration: 1.0,
-            delay: 0.2,
-            ease: 'power3.out'
-          })
-          .from('#hero-leader-line', {
-            scaleX: 0,
-            transformOrigin: 'right center',
-            duration: 0.8,
-            ease: 'power2.out'
-          }, '-=0.4')
-          .from('#hero-leader-title', {
-            opacity: 0,
-            x: 20,
-            duration: 0.9,
-            ease: 'power3.out'
-          }, '-=0.5');
 
         // Header Reveal
         gsap.from('#team-header', {
