@@ -66,6 +66,30 @@
     .card-leader:hover .leader-photo {
       transform: scale(1.02);
     }
+
+    @keyframes linePulseGlow {
+      0%, 100% {
+        opacity: 0.8;
+        box-shadow: 0 0 4px rgba(197, 168, 128, 0.4);
+      }
+      50% {
+        opacity: 1;
+        box-shadow: 0 0 12px rgba(197, 168, 128, 0.85);
+      }
+    }
+    
+    #hero-leader-line {
+      animation: linePulseGlow 3s ease-in-out infinite;
+    }
+
+    #hero-leader-name {
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), text-shadow 0.4s ease;
+    }
+
+    #hero-leader-name:hover {
+      transform: translateX(4px);
+      text-shadow: 0 4px 25px rgba(197, 168, 128, 0.4);
+    }
   </style>
 </head>
 <body class="bg-[#FBFBFB] text-gray-800 selection:bg-gold selection:text-dark antialiased">
@@ -220,12 +244,39 @@
       </div>
     </div>
   </div>
-  <!-- SECTION 1: FULL SCREEN 16:9 HERO IMAGE (UNCROPPED, FULL WIDTH, HIGH QUALITY) -->
-  <section class="pt-20 sm:pt-24 w-full bg-[#070B11] overflow-hidden">
-    <div class="w-full">
-      <img src="images/hero_sunil_bora.jpg?v=2" 
+  <!-- SECTION 1: CHAIRMAN SUNIL BORA SPOTLIGHT (HIGH QUALITY 16:9 WITH NAME & DESIGNATION) -->
+  <section class="pt-20 sm:pt-24 w-full bg-[#001D4C] overflow-hidden relative">
+    <div class="relative w-full aspect-[16/9] bg-[#002156] overflow-hidden">
+      <!-- High Quality 16:9 Image -->
+      <img src="images/hero_sunil_bora.jpg?v=3" 
            alt="Sunil Bora — Chairman, Bora Group" 
-           class="w-full h-auto block object-contain select-none" />
+           class="w-full h-full object-cover select-none" />
+
+      <!-- Text Overlay on the Right Side -->
+      <div class="absolute inset-y-0 right-0 w-[58%] sm:w-[50%] lg:w-[48%] flex flex-col justify-center px-4 sm:px-8 md:px-12 lg:px-20 text-left z-10 pointer-events-none">
+        <div class="pointer-events-auto">
+          <!-- Sub-badge -->
+          <div id="hero-leader-badge" class="mb-1 sm:mb-2.5">
+            <span class="inline-flex items-center gap-1.5 sm:gap-2 text-[8px] sm:text-[11px] md:text-xs font-heading font-semibold tracking-[0.2em] text-gold uppercase bg-black/30 backdrop-blur-sm px-2 py-0.5 sm:px-3 sm:py-1 rounded-full border border-gold/30">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold inline-block animate-pulse"></span>
+              Leadership
+            </span>
+          </div>
+
+          <!-- Name -->
+          <h1 id="hero-leader-name" class="font-serif text-lg sm:text-3xl md:text-4xl lg:text-6xl font-extrabold text-white tracking-tight uppercase leading-none drop-shadow-lg cursor-default">
+            SUNIL BORA
+          </h1>
+
+          <!-- Accent Line -->
+          <div id="hero-leader-line" class="h-[2px] sm:h-[3px] w-10 sm:w-16 md:w-24 bg-gradient-to-r from-gold via-gold/80 to-transparent my-1.5 sm:my-3 md:my-4 origin-left"></div>
+
+          <!-- Designation -->
+          <p id="hero-leader-title" class="font-sans text-[10px] sm:text-sm md:text-base lg:text-xl font-medium tracking-wide text-white/95 drop-shadow">
+            Chairman, Bora Group
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -417,6 +468,34 @@
       // GSAP Animations
       if (typeof gsap !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Sunil Bora Name & Designation Entrance Animation
+        const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        heroTl
+          .from('#hero-leader-badge', {
+            opacity: 0,
+            y: 15,
+            duration: 0.7,
+            delay: 0.2
+          })
+          .from('#hero-leader-name', {
+            opacity: 0,
+            y: 30,
+            duration: 1.0,
+            ease: 'power3.out'
+          }, '-=0.4')
+          .from('#hero-leader-line', {
+            scaleX: 0,
+            transformOrigin: 'left center',
+            duration: 0.8,
+            ease: 'power2.out'
+          }, '-=0.5')
+          .from('#hero-leader-title', {
+            opacity: 0,
+            y: 20,
+            duration: 0.9,
+            ease: 'power3.out'
+          }, '-=0.5');
 
         // Header Reveal
         gsap.from('#team-header', {
