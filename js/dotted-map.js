@@ -338,21 +338,24 @@
 
     setupZoomControls() {
       if (this.btnIn) {
-        this.btnIn.addEventListener('click', () => {
+        this.btnIn.addEventListener('click', (e) => {
+          e.preventDefault();
           if (this.svg && this.zoomBehavior) {
             this.svg.transition().duration(300).call(this.zoomBehavior.scaleBy, 1.35);
           }
         });
       }
       if (this.btnOut) {
-        this.btnOut.addEventListener('click', () => {
+        this.btnOut.addEventListener('click', (e) => {
+          e.preventDefault();
           if (this.svg && this.zoomBehavior) {
-            this.svg.transition().duration(300).call(this.zoomBehavior.scaleBy, 0.7);
+            this.svg.transition().duration(300).call(this.zoomBehavior.scaleBy, 0.75);
           }
         });
       }
       if (this.btnReset) {
-        this.btnReset.addEventListener('click', () => {
+        this.btnReset.addEventListener('click', (e) => {
+          e.preventDefault();
           if (this.svg && this.zoomBehavior) {
             const target = this.initialTransform || d3.zoomIdentity;
             this.svg.transition().duration(450).call(this.zoomBehavior.transform, target);
@@ -417,9 +420,19 @@
       // Main zoomable content group
       const gMap = this.svg.append('g').attr('class', 'map-content');
 
-      // Attach D3 zoom with wide range allowing full zoom out
+      // Attach D3 zoom: Disable mouse scroll wheel & double-click zoom to prevent scroll hijacking.
+      // Zooming is controlled manually with plus/minus buttons.
       this.zoomBehavior = d3.zoom()
-        .scaleExtent([0.5, 8])
+        .scaleExtent([0.8, 6])
+        .filter((event) => {
+          // Block mouse scroll wheel so page scrolls smoothly and naturally
+          if (event.type === 'wheel') return false;
+          // Block double-click zoom
+          if (event.type === 'dblclick') return false;
+          // On touch devices, allow 1-finger page scroll (reject 1-finger gestures)
+          if (event.type === 'touchstart' && event.touches && event.touches.length === 1) return false;
+          return !event.ctrlKey && !event.button;
+        })
         .on('zoom', (event) => {
           gMap.attr('transform', event.transform);
         });

@@ -568,6 +568,13 @@ textarea {
   min-width: 240px !important; /* Prevents item wrapping */
 }
 
+.nav-dropdown-menu.dropdown-force-show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translate(-50%, 0) !important;
+  pointer-events: auto !important;
+}
+
 .nav-dropdown-link {
   color: #374151 !important; /* Dark gray for readability */
   font-family: var(--font-heading);

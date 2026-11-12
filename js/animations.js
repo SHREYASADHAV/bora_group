@@ -223,13 +223,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // 5. Timer Bar — 4 second autoplay
+      // 5. Timer Bar — 3 second autoplay
       if (timerTween) timerTween.kill();
       if (timerBar) {
         gsap.set(timerBar, { width: '0%' });
         timerTween = gsap.to(timerBar, {
           width: '100%',
-          duration: 4,
+          duration: 3,
           ease: 'none',
           onComplete: () => updateCarousel((activeIdx + 1) % total)
         });

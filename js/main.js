@@ -531,6 +531,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // 9B. Desktop Navigation Dropdown Toggle on Click
+  const desktopDropdownGroups = document.querySelectorAll('#navbar nav .group');
+  desktopDropdownGroups.forEach(group => {
+    const trigger = group.querySelector(':scope > a');
+    const menu = group.querySelector('.nav-dropdown-menu');
+    if (trigger && menu) {
+      trigger.addEventListener('click', (e) => {
+        if (window.innerWidth >= 768) {
+          e.preventDefault();
+          e.stopPropagation();
+          const isShown = menu.classList.contains('dropdown-force-show');
+          document.querySelectorAll('.nav-dropdown-menu').forEach(m => m.classList.remove('dropdown-force-show'));
+          if (!isShown) {
+            menu.classList.add('dropdown-force-show');
+          }
+        }
+      });
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#navbar nav .group')) {
+      document.querySelectorAll('.nav-dropdown-menu').forEach(m => m.classList.remove('dropdown-force-show'));
+    }
+  });
+
   // 10. Direct Reviews Hash Selector
   const handleReviewsTab = () => {
     if (window.location.hash === '#reviews') {
