@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Leadership | BORA GROUP</title>
-  <meta name="description" content="Meet the visionary leadership team driving Bora Group's long-term vision, growth, and legacy of trust across industries since 1947.">
-  <meta name="keywords" content="Bora Group Leadership, Sunil Bora, Shrenik Bora, Mayur Bora, Akshay Bora, Jay Bora, Executive Team, Corporate Governance, Bora Group Chairman">
-  
+  <meta name="description"
+    content="Meet the visionary leadership team driving Bora Group's long-term vision, growth, and legacy of trust across industries since 1947.">
+  <meta name="keywords"
+    content="Bora Group Leadership, Sunil Bora, Shrenik Bora, Mayur Bora, Akshay Bora, Jay Bora, Executive Team, Corporate Governance, Bora Group Chairman">
+
   <!-- Google Fonts: Playfair Display & Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+    rel="stylesheet">
 
   <!-- Tailwind CSS Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -41,43 +46,46 @@
       }
     }
   </script>
-  
+
   <!-- FontAwesome & Lucide Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://unpkg.com/lucide@latest"></script>
-  
+
   <!-- Custom Styles -->
   <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display">
 
   <link rel="stylesheet" href="css/styles.css">
-  
+
   <style>
     .card-leader {
       transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease;
       border-radius: 0px !important;
     }
-    
+
     .card-leader:hover {
       transform: translateY(-6px);
       box-shadow: 0 20px 40px -15px rgba(5, 60, 143, 0.12);
       border-color: #C5A880;
     }
-    
+
     .card-leader:hover .leader-photo {
       transform: scale(1.02);
     }
 
     @keyframes linePulseGlow {
-      0%, 100% {
+
+      0%,
+      100% {
         opacity: 0.8;
         box-shadow: 0 0 4px rgba(197, 168, 128, 0.4);
       }
+
       50% {
         opacity: 1;
         box-shadow: 0 0 12px rgba(197, 168, 128, 0.85);
       }
     }
-    
+
     #hero-leader-line {
       animation: linePulseGlow 3s ease-in-out infinite;
     }
@@ -92,68 +100,97 @@
     }
   </style>
 </head>
+
 <body class="bg-[#FBFBFB] text-gray-800 selection:bg-gold selection:text-dark antialiased">
 
   <!-- Scroll Progress Indicator -->
-  <div id="scroll-indicator" class="fixed top-0 left-0 h-1 bg-gold z-[100] transition-all duration-75" style="width: 0%;"></div>
+  <div id="scroll-indicator" class="fixed top-0 left-0 h-1 bg-gold z-[100] transition-all duration-75"
+    style="width: 0%;"></div>
 
   <!-- STICKY NAVBAR -->
   <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 bg-transparent">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center">
       <!-- Logo -->
       <a href="index.html" class="flex items-center group">
-        <img id="navbar-logo" src="images/logo_new.png" alt="BORA GROUP" class="transition-all duration-300 group-hover:scale-105">
+        <img id="navbar-logo" src="images/logo_new.png" alt="BORA GROUP"
+          class="transition-all duration-300 group-hover:scale-105">
       </a>
 
       <!-- Desktop Menu -->
       <nav class="hidden md:flex items-center space-x-8 font-heading text-xs font-semibold uppercase tracking-widest">
-        <a href="index.html" class="text-gray-700 hover:text-gold transition-colors duration-300" data-i18n="nav_home">Home</a>
-        
+        <a href="index.html" class="text-gray-700 hover:text-gold transition-colors duration-300"
+          data-i18n="nav_home">Home</a>
+
         <!-- About Dropdown -->
         <div class="relative group py-2">
           <a href="about.html" class="text-gold transition-colors duration-300 flex items-center space-x-1.5">
             <span data-i18n="nav_about">About</span>
             <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
           </a>
-          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-xl p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 shadow-xl border border-gray-100 bg-white">
-            <a href="about/leadership" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase text-gold font-semibold transition-all duration-200" data-i18n="nav_leadership">Our Leadership</a>
-            <a href="history.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold" data-i18n="nav_history">Our History</a>
-            <a href="about.html#vision-mission" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold" data-i18n="nav_vision">Vision & Mission</a>
-            <a href="about.html#overview" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold" data-i18n="nav_overview">Company Overview</a>
-            <a href="about.html#reviews" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold" data-i18n="nav_testimonials">Testimonials</a>
-            <a href="gallery.html" class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold" data-i18n="nav_gallery">Photo Gallery</a>
+          <div
+            class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 rounded-xl p-2 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 shadow-xl border border-gray-100 bg-white">
+            <a href="about/leadership"
+              class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase text-gold font-semibold transition-all duration-200"
+              data-i18n="nav_leadership">Our Leadership</a>
+            <a href="history.html"
+              class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold"
+              data-i18n="nav_history">Our History</a>
+            <a href="about.html#vision-mission"
+              class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold"
+              data-i18n="nav_vision">Vision & Mission</a>
+            <a href="about.html#overview"
+              class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold"
+              data-i18n="nav_overview">Company Overview</a>
+            <a href="about.html#reviews"
+              class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold"
+              data-i18n="nav_testimonials">Testimonials</a>
+            <a href="gallery.html"
+              class="nav-dropdown-link block px-4 py-2.5 rounded-lg text-[9px] tracking-wider uppercase transition-all duration-200 hover:text-gold"
+              data-i18n="nav_gallery">Photo Gallery</a>
           </div>
         </div>
 
         <!-- Business Dropdown -->
         <div class="relative group py-2">
-          <a href="business.html" class="text-gray-700 hover:text-gold transition-colors duration-300 flex items-center space-x-1.5">
+          <a href="business.html"
+            class="text-gray-700 hover:text-gold transition-colors duration-300 flex items-center space-x-1.5">
             <span data-i18n="nav_business">Business</span>
             <i class="fa-solid fa-chevron-down text-[8px] transition-transform duration-300 group-hover:rotate-180"></i>
           </a>
-          <div class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] lg:w-[560px] rounded-xl p-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 shadow-xl border border-gray-100 bg-white">
+          <div
+            class="nav-dropdown-menu absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[480px] lg:w-[560px] rounded-xl p-4 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 z-50 shadow-xl border border-gray-100 bg-white">
             <div class="grid grid-cols-2 gap-4">
               <div class="flex flex-col space-y-1.5">
-                <a href="overseas-trade.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-50">
-                  <span class="dropdown-title block text-xs font-bold text-gray-900" data-i18n="nav_overseas">Overseas Trade</span>
+                <a href="overseas-trade.html"
+                  class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-50">
+                  <span class="dropdown-title block text-xs font-bold text-gray-900" data-i18n="nav_overseas">Overseas
+                    Trade</span>
                   <span class="dropdown-subtitle text-[10px] text-gray-400">Global Import & Export</span>
                 </a>
-                <a href="real-estate.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-50">
-                  <span class="dropdown-title block text-xs font-bold text-gray-900" data-i18n="nav_realestate">Real Estate</span>
+                <a href="real-estate.html"
+                  class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-50">
+                  <span class="dropdown-title block text-xs font-bold text-gray-900" data-i18n="nav_realestate">Real
+                    Estate</span>
                   <span class="dropdown-subtitle text-[10px] text-gray-400">Bora Realty</span>
                 </a>
-                <a href="garments.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-50">
-                  <span class="dropdown-title block text-xs font-bold text-gray-900" data-i18n="nav_garments">Garments & Fashion</span>
+                <a href="garments.html"
+                  class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-50">
+                  <span class="dropdown-title block text-xs font-bold text-gray-900" data-i18n="nav_garments">Garments &
+                    Fashion</span>
                   <span class="dropdown-subtitle text-[10px] text-gray-400">Bora Collection, Bora Fashion</span>
                 </a>
               </div>
               <div class="flex flex-col space-y-1.5">
-                <a href="industrial-supply.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-50">
-                  <span class="dropdown-title block text-xs font-bold text-gray-900" data-i18n="nav_industrial">Industrial Supply</span>
+                <a href="industrial-supply.html"
+                  class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-50">
+                  <span class="dropdown-title block text-xs font-bold text-gray-900"
+                    data-i18n="nav_industrial">Industrial Supply</span>
                   <span class="dropdown-subtitle text-[10px] text-gray-400">Industrial Solutions</span>
                 </a>
-                <a href="hospitality.html" class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-50">
-                  <span class="dropdown-title block text-xs font-bold text-gray-900" data-i18n="nav_hospitality">Hospitality</span>
+                <a href="hospitality.html"
+                  class="nav-dropdown-link block px-4 py-3 rounded-lg transition-all duration-200 hover:bg-gray-50">
+                  <span class="dropdown-title block text-xs font-bold text-gray-900"
+                    data-i18n="nav_hospitality">Hospitality</span>
                   <span class="dropdown-subtitle text-[10px] text-gray-400">Hotels & Services</span>
                 </a>
               </div>
@@ -161,16 +198,19 @@
           </div>
         </div>
 
-        <a href="contact.html" class="text-gray-700 hover:text-gold transition-colors duration-300" data-i18n="nav_contact">Contact</a>
+        <a href="contact.html" class="text-gray-700 hover:text-gold transition-colors duration-300"
+          data-i18n="nav_contact">Contact</a>
       </nav>
 
       <!-- Desktop Contact CTA -->
       <div class="hidden lg:flex">
-        <a href="contact.html" class="btn-premium-gold text-[10px] px-6 py-2.5" data-i18n="nav_get_in_touch">Get In Touch</a>
+        <a href="contact.html" class="btn-premium-gold text-[10px] px-6 py-2.5" data-i18n="nav_get_in_touch">Get In
+          Touch</a>
       </div>
 
       <!-- Mobile Hamburger Button -->
-      <button id="mobile-menu-btn" class="md:hidden text-gray-800 hover:text-gold transition-colors focus:outline-none" aria-label="Toggle Mobile Menu">
+      <button id="mobile-menu-btn" class="md:hidden text-gray-800 hover:text-gold transition-colors focus:outline-none"
+        aria-label="Toggle Mobile Menu">
         <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
         </svg>
@@ -182,51 +222,67 @@
   </header>
 
   <!-- MOBILE FULLSCREEN OVERLAY MENU -->
-  <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 pt-28">
+  <div id="mobile-menu"
+    class="fixed inset-y-0 right-0 w-full sm:w-80 bg-dark/95 backdrop-blur-xl border-l border-white/10 z-40 transform translate-x-full transition-transform duration-500 ease-in-out flex flex-col justify-between p-8 pt-28">
     <div class="flex flex-col space-y-6 font-heading text-lg font-semibold uppercase tracking-widest">
       <a href="index.html" class="text-gold border-b border-white/5 pb-3" data-i18n="nav_home">Home</a>
-      
+
       <!-- Mobile About Accordion -->
       <div class="border-b border-white/5 pb-3">
-        <button class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none">
+        <button
+          class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none">
           <span data-i18n="nav_about">About</span>
           <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
         </button>
         <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 space-y-3 mt-0">
-          <a href="about/leadership" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider mt-3" data-i18n="nav_leadership">Our Leadership</a>
-          <a href="history.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_history">Our History</a>
-          <a href="about.html#vision-mission" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_vision">Vision & Mission</a>
-          <a href="about.html#overview" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_overview">Company Overview</a>
-          <a href="about.html#reviews" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_testimonials">Testimonials</a>
-        <a href="gallery.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_gallery">Photo Gallery</a>
-          </div>
+          <a href="about/leadership" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider mt-3"
+            data-i18n="nav_leadership">Our Leadership</a>
+          <a href="history.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider"
+            data-i18n="nav_history">Our History</a>
+          <a href="about.html#vision-mission"
+            class="block text-xs text-white/50 hover:text-white uppercase tracking-wider" data-i18n="nav_vision">Vision
+            & Mission</a>
+          <a href="about.html#overview" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider"
+            data-i18n="nav_overview">Company Overview</a>
+          <a href="about.html#reviews" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider"
+            data-i18n="nav_testimonials">Testimonials</a>
+          <a href="gallery.html" class="block text-xs text-white/50 hover:text-white uppercase tracking-wider"
+            data-i18n="nav_gallery">Photo Gallery</a>
+        </div>
       </div>
 
       <!-- Mobile Business Accordion -->
       <div class="border-b border-white/5 pb-3">
-        <button class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none">
+        <button
+          class="mobile-dropdown-btn w-full flex justify-between items-center text-white/70 hover:text-white transition-colors focus:outline-none">
           <span data-i18n="nav_business">Business</span>
           <i class="fa-solid fa-chevron-down text-xs transition-transform duration-300"></i>
         </button>
-                <div class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 flex flex-col space-y-3 mt-3 text-sm font-normal tracking-wider text-white/60">
+        <div
+          class="mobile-dropdown-content max-h-0 overflow-hidden pl-4 flex flex-col space-y-3 mt-3 text-sm font-normal tracking-wider text-white/60">
           <a href="overseas-trade.html" class="hover:text-gold transition-colors block py-1">
-            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_overseas">Overseas Trade</span>
+            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_overseas">Overseas
+              Trade</span>
             <span class="block text-[10px] text-white/50 font-normal mt-0.5">Global Import & Export</span>
           </a>
           <a href="real-estate.html" class="hover:text-gold transition-colors block py-1">
-            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_realestate">Real Estate</span>
+            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_realestate">Real
+              Estate</span>
             <span class="block text-[10px] text-white/50 font-normal mt-0.5">Bora Realty</span>
           </a>
           <a href="garments.html" class="hover:text-gold transition-colors block py-1">
-            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_garments">Garments & Fashion</span>
+            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_garments">Garments
+              & Fashion</span>
             <span class="block text-[10px] text-white/50 font-normal mt-0.5">Bora Collection, Bora Fashion</span>
           </a>
           <a href="industrial-supply.html" class="hover:text-gold transition-colors block py-1">
-            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_industrial">Industrial Supply</span>
+            <span class="block font-bold text-xs uppercase tracking-wider text-white"
+              data-i18n="nav_industrial">Industrial Supply</span>
             <span class="block text-[10px] text-white/50 font-normal mt-0.5">Industrial Solutions</span>
           </a>
           <a href="hospitality.html" class="hover:text-gold transition-colors block py-1">
-            <span class="block font-bold text-xs uppercase tracking-wider text-white" data-i18n="nav_hospitality">Hospitality</span>
+            <span class="block font-bold text-xs uppercase tracking-wider text-white"
+              data-i18n="nav_hospitality">Hospitality</span>
             <span class="block text-[10px] text-white/50 font-normal mt-0.5">Hotels</span>
           </a>
         </div>
@@ -234,11 +290,13 @@
 
 
 
-      <a href="contact.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors" data-i18n="nav_contact">Contact</a>
+      <a href="contact.html" class="text-white/70 hover:text-white border-b border-white/5 pb-3 transition-colors"
+        data-i18n="nav_contact">Contact</a>
     </div>
-    
+
     <div class="flex flex-col space-y-6">
-      <a href="contact.html" class="btn-premium-gold text-center text-xs" data-i18n="nav_request_consulting">Request Consulting</a>
+      <a href="contact.html" class="btn-premium-gold text-center text-xs" data-i18n="nav_request_consulting">Request
+        Consulting</a>
       <div class="text-center text-[10px] uppercase tracking-widest text-white/40">
         © 2026 BORA GROUP
       </div>
@@ -248,25 +306,25 @@
   <section class="pt-20 sm:pt-24 w-full bg-[#001D4C] overflow-hidden relative">
     <div class="relative w-full aspect-[16/9] bg-[#002156] overflow-hidden">
       <!-- High Quality 16:9 Image (2560x1440 QHD) -->
-      <img src="images/hero_sunil_bora.jpg?v=4" 
+      <img src="images/hero_sunil_bora.jpg?v=5" 
            alt="Sunil Bora — Chairman, Bora Group" 
            fetchpriority="high"
            decoding="sync"
            class="w-full h-full object-cover select-none" />
 
-      <!-- Text Overlay Shifted Firmly to the Right Side (Leadership dot removed) -->
-      <div class="absolute inset-y-0 right-4 sm:right-10 md:right-16 lg:right-24 max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl flex flex-col justify-center text-left z-10 pointer-events-none">
-        <div class="pointer-events-auto">
+      <!-- Text Overlay Properly Aligned on the Right Side (Leadership dot removed) -->
+      <div class="absolute inset-y-0 right-6 sm:right-10 md:right-16 lg:right-24 flex flex-col justify-center items-end text-right z-10 pointer-events-none">
+        <div class="pointer-events-auto flex flex-col items-end text-right">
           <!-- Name -->
-          <h1 id="hero-leader-name" class="font-serif text-lg sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight uppercase leading-none drop-shadow-xl cursor-default">
+          <h1 id="hero-leader-name" class="font-serif text-xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight uppercase leading-none drop-shadow-2xl cursor-default whitespace-nowrap">
             SUNIL BORA
           </h1>
 
           <!-- Accent Line -->
-          <div id="hero-leader-line" class="h-[2px] sm:h-[3px] w-12 sm:w-20 md:w-28 bg-gradient-to-r from-gold via-gold/80 to-transparent my-2 sm:my-3.5 md:my-4 origin-left"></div>
+          <div id="hero-leader-line" class="h-[2px] sm:h-[3px] w-14 sm:w-20 md:w-28 bg-gradient-to-l from-gold via-gold/80 to-transparent my-2 sm:my-3.5 md:my-4 origin-right"></div>
 
           <!-- Designation -->
-          <p id="hero-leader-title" class="font-sans text-[11px] sm:text-base md:text-lg lg:text-xl font-medium tracking-wide text-white/95 drop-shadow-md">
+          <p id="hero-leader-title" class="font-sans text-xs sm:text-base md:text-lg lg:text-xl font-medium tracking-wide text-white/95 drop-shadow-md whitespace-nowrap">
             Chairman, Bora Group
           </p>
         </div>
@@ -277,32 +335,34 @@
   <!-- SECTION 2: 4 STROKE BOXES FOR LEADERS (SHARP EDGES, NATIVE UPLOADED RATIO, NO NUMBERING/LINE) -->
   <main class="py-16 sm:py-24 bg-[#FFFFFF] relative">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      
+
       <!-- Section Header -->
       <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16" id="team-header">
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-gray-950 tracking-tight mb-3">
           Meet Our Leadership Team
         </h2>
         <p class="text-sm sm:text-base font-sans font-light text-gray-500 leading-relaxed">
-          A dedicated leadership team driving our diversified businesses with integrity, innovation, and long-term value.
+          A dedicated leadership team driving our diversified businesses with integrity, innovation, and long-term
+          value.
         </p>
       </div>
 
       <!-- 4 Equal Size Sharp-Edged Stroke Boxes Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8" id="leaders-grid">
-        
+
         <!-- Box 01: Shrenik Bora – B.Tech Civil -->
-        <div class="card-leader bg-white border-2 border-gray-200 hover:border-gold rounded-none overflow-hidden flex flex-col group shadow-sm">
+        <div
+          class="card-leader bg-white border-2 border-gray-200 hover:border-gold rounded-none overflow-hidden flex flex-col group shadow-sm">
           <!-- Photo in native uploaded 3:4 ratio with sharp edges -->
           <div class="relative overflow-hidden aspect-[3/4] bg-[#F7F8FA] border-b border-gray-100 rounded-none">
-            <img src="images/leader_shrenik_bora.jpg?v=2" 
-                 alt="Shrenik Bora" 
-                 class="leader-photo w-full h-full object-cover object-top rounded-none transition-transform duration-500 ease-out" 
-                 loading="lazy">
+            <img src="images/leader_shrenik_bora.jpg?v=2" alt="Shrenik Bora"
+              class="leader-photo w-full h-full object-cover object-top rounded-none transition-transform duration-500 ease-out"
+              loading="lazy">
           </div>
           <!-- Details below (Sharp edges, Name & Study, No numbers, No lines) -->
           <div class="p-6 flex flex-col items-center text-center bg-white flex-1 justify-center rounded-none">
-            <h3 class="text-xl sm:text-2xl font-serif font-bold text-gray-900 tracking-normal mb-1.5 group-hover:text-navy transition-colors">
+            <h3
+              class="text-xl sm:text-2xl font-serif font-bold text-gray-900 tracking-normal mb-1.5 group-hover:text-navy transition-colors">
               Shrenik Bora
             </h3>
             <p class="text-xs sm:text-sm font-sans font-medium tracking-wide text-gray-500">
@@ -312,17 +372,18 @@
         </div>
 
         <!-- Box 02: Mayur Bora – B.Tech Computer -->
-        <div class="card-leader bg-white border-2 border-gray-200 hover:border-gold rounded-none overflow-hidden flex flex-col group shadow-sm">
+        <div
+          class="card-leader bg-white border-2 border-gray-200 hover:border-gold rounded-none overflow-hidden flex flex-col group shadow-sm">
           <!-- Photo in native uploaded 3:4 ratio with sharp edges -->
           <div class="relative overflow-hidden aspect-[3/4] bg-[#F7F8FA] border-b border-gray-100 rounded-none">
-            <img src="images/leader_mayur_bora.jpg?v=2" 
-                 alt="Mayur Bora" 
-                 class="leader-photo w-full h-full object-cover object-top rounded-none transition-transform duration-500 ease-out" 
-                 loading="lazy">
+            <img src="images/leader_mayur_bora.jpg?v=2" alt="Mayur Bora"
+              class="leader-photo w-full h-full object-cover object-top rounded-none transition-transform duration-500 ease-out"
+              loading="lazy">
           </div>
           <!-- Details below (Sharp edges, Name & Study, No numbers, No lines) -->
           <div class="p-6 flex flex-col items-center text-center bg-white flex-1 justify-center rounded-none">
-            <h3 class="text-xl sm:text-2xl font-serif font-bold text-gray-900 tracking-normal mb-1.5 group-hover:text-navy transition-colors">
+            <h3
+              class="text-xl sm:text-2xl font-serif font-bold text-gray-900 tracking-normal mb-1.5 group-hover:text-navy transition-colors">
               Mayur Bora
             </h3>
             <p class="text-xs sm:text-sm font-sans font-medium tracking-wide text-gray-500">
@@ -332,17 +393,18 @@
         </div>
 
         <!-- Box 03: Akshay Bora – B.Com -->
-        <div class="card-leader bg-white border-2 border-gray-200 hover:border-gold rounded-none overflow-hidden flex flex-col group shadow-sm">
+        <div
+          class="card-leader bg-white border-2 border-gray-200 hover:border-gold rounded-none overflow-hidden flex flex-col group shadow-sm">
           <!-- Photo in native uploaded 3:4 ratio with sharp edges -->
           <div class="relative overflow-hidden aspect-[3/4] bg-[#F7F8FA] border-b border-gray-100 rounded-none">
-            <img src="images/leader_akshay_bora.jpg?v=2" 
-                 alt="Akshay Bora" 
-                 class="leader-photo w-full h-full object-cover object-top rounded-none transition-transform duration-500 ease-out" 
-                 loading="lazy">
+            <img src="images/leader_akshay_bora.jpg?v=2" alt="Akshay Bora"
+              class="leader-photo w-full h-full object-cover object-top rounded-none transition-transform duration-500 ease-out"
+              loading="lazy">
           </div>
           <!-- Details below (Sharp edges, Name & Study, No numbers, No lines) -->
           <div class="p-6 flex flex-col items-center text-center bg-white flex-1 justify-center rounded-none">
-            <h3 class="text-xl sm:text-2xl font-serif font-bold text-gray-900 tracking-normal mb-1.5 group-hover:text-navy transition-colors">
+            <h3
+              class="text-xl sm:text-2xl font-serif font-bold text-gray-900 tracking-normal mb-1.5 group-hover:text-navy transition-colors">
               Akshay Bora
             </h3>
             <p class="text-xs sm:text-sm font-sans font-medium tracking-wide text-gray-500">
@@ -352,17 +414,18 @@
         </div>
 
         <!-- Box 04: Jay Bora – B.Com LL.B -->
-        <div class="card-leader bg-white border-2 border-gray-200 hover:border-gold rounded-none overflow-hidden flex flex-col group shadow-sm">
+        <div
+          class="card-leader bg-white border-2 border-gray-200 hover:border-gold rounded-none overflow-hidden flex flex-col group shadow-sm">
           <!-- Photo in native uploaded 3:4 ratio with sharp edges -->
           <div class="relative overflow-hidden aspect-[3/4] bg-[#F7F8FA] border-b border-gray-100 rounded-none">
-            <img src="images/leader_jay_bora.jpg?v=2" 
-                 alt="Jay Bora" 
-                 class="leader-photo w-full h-full object-cover object-top rounded-none transition-transform duration-500 ease-out" 
-                 loading="lazy">
+            <img src="images/leader_jay_bora.jpg?v=2" alt="Jay Bora"
+              class="leader-photo w-full h-full object-cover object-top rounded-none transition-transform duration-500 ease-out"
+              loading="lazy">
           </div>
           <!-- Details below (Sharp edges, Name & Study, No numbers, No lines) -->
           <div class="p-6 flex flex-col items-center text-center bg-white flex-1 justify-center rounded-none">
-            <h3 class="text-xl sm:text-2xl font-serif font-bold text-gray-900 tracking-normal mb-1.5 group-hover:text-navy transition-colors">
+            <h3
+              class="text-xl sm:text-2xl font-serif font-bold text-gray-900 tracking-normal mb-1.5 group-hover:text-navy transition-colors">
               Jay Bora
             </h3>
             <p class="text-xs sm:text-sm font-sans font-medium tracking-wide text-gray-500">
@@ -385,42 +448,66 @@
             BORA <span class="text-gold">GROUP</span>
           </span>
           <p class="text-xs text-white/50 leading-relaxed font-light mb-6">
-            Diversified business group delivering consistent value, disciplined execution, and long-term relationships across multiple industries since 1947.
+            Diversified business group delivering consistent value, disciplined execution, and long-term relationships
+            across multiple industries since 1947.
           </p>
           <div class="flex space-x-4">
-            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://wa.me/917304733333" target="_blank" class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300" aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"
+              class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i
+                class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"
+              class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i
+                class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"
+              class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"><i
+                class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/917304733333" target="_blank"
+              class="w-8 h-8 rounded-full border border-white/10 hover:border-gold hover:text-gold flex items-center justify-center text-xs transition-colors duration-300"
+              aria-label="Chat on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
           </div>
         </div>
         <!-- Quick Links -->
         <div>
-          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3" data-i18n="footer_quick_links">Quick Links</h4>
+          <h4
+            class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3"
+            data-i18n="footer_quick_links">Quick Links</h4>
           <ul class="space-y-3 text-xs text-white/60 font-light">
-            <li><a href="index.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_home_page">Home Page</a></li>
-            <li><a href="about.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_company_profile">Company Profile</a></li>
-            <li><a href="about/leadership" class="hover:text-gold transition-colors duration-300">Our Leadership</a></li>
+            <li><a href="index.html" class="hover:text-gold transition-colors duration-300"
+                data-i18n="footer_home_page">Home Page</a></li>
+            <li><a href="about.html" class="hover:text-gold transition-colors duration-300"
+                data-i18n="footer_company_profile">Company Profile</a></li>
+            <li><a href="about/leadership" class="hover:text-gold transition-colors duration-300">Our Leadership</a>
+            </li>
             <li><a href="history.html" class="hover:text-gold transition-colors duration-300">Our History</a></li>
             <li><a href="gallery.html" class="hover:text-gold transition-colors duration-300">Photo Gallery</a></li>
             <li><a href="careers.html" class="hover:text-gold transition-colors duration-300">Careers</a></li>
-            <li><a href="contact.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_contact_desk">Contact Desk</a></li>
+            <li><a href="contact.html" class="hover:text-gold transition-colors duration-300"
+                data-i18n="footer_contact_desk">Contact Desk</a></li>
           </ul>
         </div>
 
         <!-- Business Verticals -->
         <div>
-          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3" data-i18n="footer_operations">Our Operations</h4>
+          <h4
+            class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3"
+            data-i18n="footer_operations">Our Operations</h4>
           <ul class="space-y-3 text-xs text-white/60 font-light">
-            <li><a href="overseas-trade.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_overseas_trade">Overseas Trade Division</a></li>
-            <li><a href="real-estate.html" class="hover:text-gold transition-colors duration-300" data-i18n="footer_real_estate">Real Estate Development</a></li>
-            <li><a href="garments.html" class="hover:text-gold transition-colors duration-300">Garments & Textiles</a></li>
-            <li><a href="industrial-supply.html" class="hover:text-gold transition-colors duration-300">Industrial Supply</a></li>
-            <li><a href="hospitality.html" class="hover:text-gold transition-colors duration-300">Hospitality & Services</a></li>
+            <li><a href="overseas-trade.html" class="hover:text-gold transition-colors duration-300"
+                data-i18n="footer_overseas_trade">Overseas Trade Division</a></li>
+            <li><a href="real-estate.html" class="hover:text-gold transition-colors duration-300"
+                data-i18n="footer_real_estate">Real Estate Development</a></li>
+            <li><a href="garments.html" class="hover:text-gold transition-colors duration-300">Garments & Textiles</a>
+            </li>
+            <li><a href="industrial-supply.html" class="hover:text-gold transition-colors duration-300">Industrial
+                Supply</a></li>
+            <li><a href="hospitality.html" class="hover:text-gold transition-colors duration-300">Hospitality &
+                Services</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">Inquiries</h4>
+          <h4
+            class="font-heading font-bold text-xs uppercase tracking-widest text-gold mb-6 border-b border-white/10 pb-3">
+            Inquiries</h4>
           <ul class="space-y-3 text-xs text-white/60 font-light">
             <li class="flex items-start space-x-3">
               <i class="fa-solid fa-location-dot text-gold mt-0.5"></i>
@@ -437,7 +524,8 @@
           </ul>
         </div>
       </div>
-      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-white/30">
+      <div
+        class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-widest text-white/30">
         <div>© 2026 BORA GROUP. ALL RIGHTS RESERVED.</div>
         <div class="flex space-x-6">
           <a href="#" class="hover:text-gold transition-colors">PRIVACY POLICY</a>
@@ -468,20 +556,20 @@
         heroTl
           .from('#hero-leader-name', {
             opacity: 0,
-            x: 35,
+            x: 30,
             duration: 1.0,
             delay: 0.2,
             ease: 'power3.out'
           })
           .from('#hero-leader-line', {
             scaleX: 0,
-            transformOrigin: 'left center',
+            transformOrigin: 'right center',
             duration: 0.8,
             ease: 'power2.out'
           }, '-=0.4')
           .from('#hero-leader-title', {
             opacity: 0,
-            y: 15,
+            x: 20,
             duration: 0.9,
             ease: 'power3.out'
           }, '-=0.5');
@@ -514,4 +602,5 @@
     });
   </script>
 </body>
+
 </html>

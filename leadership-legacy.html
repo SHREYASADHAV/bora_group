@@ -248,25 +248,25 @@
   <section class="pt-20 sm:pt-24 w-full bg-[#001D4C] overflow-hidden relative">
     <div class="relative w-full aspect-[16/9] bg-[#002156] overflow-hidden">
       <!-- High Quality 16:9 Image (2560x1440 QHD) -->
-      <img src="images/hero_sunil_bora.jpg?v=4" 
+      <img src="images/hero_sunil_bora.jpg?v=5" 
            alt="Sunil Bora — Chairman, Bora Group" 
            fetchpriority="high"
            decoding="sync"
            class="w-full h-full object-cover select-none" />
 
-      <!-- Text Overlay Shifted Firmly to the Right Side (Leadership dot removed) -->
-      <div class="absolute inset-y-0 right-4 sm:right-10 md:right-16 lg:right-24 max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl flex flex-col justify-center text-left z-10 pointer-events-none">
-        <div class="pointer-events-auto">
+      <!-- Text Overlay Properly Aligned on the Right Side (Leadership dot removed) -->
+      <div class="absolute inset-y-0 right-6 sm:right-10 md:right-16 lg:right-24 flex flex-col justify-center items-end text-right z-10 pointer-events-none">
+        <div class="pointer-events-auto flex flex-col items-end text-right">
           <!-- Name -->
-          <h1 id="hero-leader-name" class="font-serif text-lg sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight uppercase leading-none drop-shadow-xl cursor-default">
+          <h1 id="hero-leader-name" class="font-serif text-xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight uppercase leading-none drop-shadow-2xl cursor-default whitespace-nowrap">
             SUNIL BORA
           </h1>
 
           <!-- Accent Line -->
-          <div id="hero-leader-line" class="h-[2px] sm:h-[3px] w-12 sm:w-20 md:w-28 bg-gradient-to-r from-gold via-gold/80 to-transparent my-2 sm:my-3.5 md:my-4 origin-left"></div>
+          <div id="hero-leader-line" class="h-[2px] sm:h-[3px] w-14 sm:w-20 md:w-28 bg-gradient-to-l from-gold via-gold/80 to-transparent my-2 sm:my-3.5 md:my-4 origin-right"></div>
 
           <!-- Designation -->
-          <p id="hero-leader-title" class="font-sans text-[11px] sm:text-base md:text-lg lg:text-xl font-medium tracking-wide text-white/95 drop-shadow-md">
+          <p id="hero-leader-title" class="font-sans text-xs sm:text-base md:text-lg lg:text-xl font-medium tracking-wide text-white/95 drop-shadow-md whitespace-nowrap">
             Chairman, Bora Group
           </p>
         </div>
@@ -468,20 +468,20 @@
         heroTl
           .from('#hero-leader-name', {
             opacity: 0,
-            x: 35,
+            x: 30,
             duration: 1.0,
             delay: 0.2,
             ease: 'power3.out'
           })
           .from('#hero-leader-line', {
             scaleX: 0,
-            transformOrigin: 'left center',
+            transformOrigin: 'right center',
             duration: 0.8,
             ease: 'power2.out'
           }, '-=0.4')
           .from('#hero-leader-title', {
             opacity: 0,
-            y: 15,
+            x: 20,
             duration: 0.9,
             ease: 'power3.out'
           }, '-=0.5');
