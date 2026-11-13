@@ -2432,3 +2432,43 @@ img {
   -webkit-backface-visibility: hidden;
   transform: translateZ(0);
 }
+
+/* ========================================================
+   OUR LEADERSHIP - FIRST SLIDE FULL-SCREEN PRESENTATION
+   - Full 100% width and 100% height edge-to-edge coverage
+   - Zero padding, zero margin, zero gaps
+   - object-fit: cover with centered positioning
+   - Preserves 16:9 native aspect ratio on mobile & tablet
+   - Full viewport coverage (100vh) on desktop
+   ======================================================== */
+#leadership-first-slide {
+  position: relative !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #001D4C !important;
+  overflow: hidden !important;
+  aspect-ratio: 16 / 9;
+}
+
+@media (min-width: 1024px) {
+  #leadership-first-slide {
+    height: 100vh !important;
+    aspect-ratio: auto !important;
+  }
+}
+
+#leadership-first-slide picture,
+#leadership-first-slide img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  image-rendering: -webkit-optimize-contrast !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+  transform: translateZ(0) !important;
+}

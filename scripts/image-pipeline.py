@@ -81,7 +81,11 @@ def process_master(orig_path):
             im_rgb = im.convert('RGB')
         else:
             im_rgb = im
-        im_rgb.save(webp_path, 'WEBP', quality=98, method=6)
+        # For hero graphics containing text/branding or high detail, use lossless WebP
+        if 'sunil' in name.lower() or 'logo' in name.lower():
+            im_rgb.save(webp_path, 'WEBP', lossless=True)
+        else:
+            im_rgb.save(webp_path, 'WEBP', quality=98, method=6)
         print(f"[PROCESS] Byte-for-byte master JPEG & lossless WebP: {dest_path} ({w}x{h})")
 
 def audit_all_images():

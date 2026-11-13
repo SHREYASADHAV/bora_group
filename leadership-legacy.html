@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 
   <!-- Preload Critical Hero Image for Instant Visual Fidelity -->
-  <link rel="preload" as="image" href="images/hero_sunil_bora.jpg?v=6" fetchpriority="high">
+  <link rel="preload" as="image" href="images/hero_sunil_bora.jpg?v=8" fetchpriority="high">
 
   <!-- Tailwind CSS Play CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -225,16 +225,16 @@
       </div>
     </div>
   </div>
-  <!-- SECTION 1: CHAIRMAN SUNIL BORA SPOTLIGHT (16:9 HERO IMAGE) -->
-  <section class="pt-20 sm:pt-24 w-full bg-[#001D4C] overflow-hidden relative">
-    <div class="relative w-full aspect-[16/9] bg-[#002156] overflow-hidden">
-      <!-- 16:9 Hero Image -->
-      <img src="images/hero_sunil_bora.jpg?v=6" 
+  <!-- SECTION 1: FIRST LEADERSHIP SLIDE (FULL-SLIDE, 100% WIDTH & HEIGHT, OBJECT-FIT COVER, EDGE-TO-EDGE) -->
+  <section id="leadership-first-slide" class="relative w-full overflow-hidden bg-[#001D4C] m-0 p-0">
+    <picture class="w-full h-full block">
+      <source srcset="images/hero_sunil_bora.webp?v=8" type="image/webp">
+      <img src="images/hero_sunil_bora.jpg?v=8" 
            alt="Sunil Bora — Chairman, Bora Group" 
            fetchpriority="high"
            decoding="sync"
-           class="w-full h-full object-cover select-none" />
-    </div>
+           class="w-full h-full object-cover object-center select-none block" />
+    </picture>
   </section>
 
   <!-- SECTION 2: 4 STROKE BOXES FOR LEADERS (SHARP EDGES, NATIVE UPLOADED RATIO, NO NUMBERING/LINE) -->
