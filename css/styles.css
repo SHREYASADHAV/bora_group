@@ -2404,3 +2404,31 @@ body.plot-modal-open {
     height: 160px !important;
   }
 }
+
+/* ========================================================
+   GLOBAL HIGH-FIDELITY IMAGE RENDERING PRESERVATION
+   Ensures sharp, contrast-optimized rendering across all screens:
+   - Preserves high-DPI contrast on Retina / 4K displays
+   - Eliminates blur caused by fractional subpixel interpolation
+   - Preserves color fidelity and edge sharpness
+   ======================================================== */
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+.leader-photo,
+.card-leader img,
+.hero-img-contain,
+.zoom-img-container img,
+.desktop-card-image-wrap img {
+  image-rendering: -webkit-optimize-contrast;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+}
